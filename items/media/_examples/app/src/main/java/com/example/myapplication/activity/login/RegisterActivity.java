@@ -36,7 +36,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkValid(name, pwd)) {
                     DBManager.getInstance(RegisterActivity.this).insertMessage(name, pwd);
-                }else {
+                    Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
+                    //跳其他页面
+                } else {
                     Toast.makeText(RegisterActivity.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
                 }
             }
