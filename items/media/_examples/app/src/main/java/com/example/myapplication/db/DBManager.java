@@ -71,21 +71,21 @@ public class DBManager {
     }
 
     @SuppressLint("Range")
-    public List<LoginNameBean> queryAllData(){
+    public List<LoginNameBean> queryAllData() {
         List<LoginNameBean> list = new ArrayList<>();
-        if(sqLiteDatabase == null)  return list;
-        String sql = "select * from "+Constant.TABLE_NAME;
-        Log.d("sql===","sql 语句："+sql);
-        @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(sql,null);
-        if(cursor!=null){
-            while (cursor.moveToNext()){
+        if (sqLiteDatabase == null) return list;
+        String sql = "SELECT * FROM " + Constant.TABLE_NAME;
+        Log.d("DBManager", "Executing SQL: " + sql);
+        try (Cursor cursor = sqLiteDatabase.rawQuery(sql, null)) {
+            while (cursor != null && cursor.moveToNext()) {
                 LoginNameBean bean = new LoginNameBean();
                 bean.loginName = cursor.getString(cursor.getColumnIndex("loginName"));
                 bean.pwd = cursor.getString(cursor.getColumnIndex("passWord"));
                 list.add(bean);
             }
+        } catch (Exception e) {
+            Log.e("DBManager", "Error querying all data: " + e.getMessage());
         }
-
         return list;
     }
 }

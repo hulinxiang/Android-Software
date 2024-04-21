@@ -29,15 +29,18 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         init();
-        String name = username.getText().toString();
-        String pwd = password.getText().toString();
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = username.getText().toString();
+                String pwd = password.getText().toString();
+
                 if (checkValid(name, pwd)) {
                     DBManager.getInstance(RegisterActivity.this).insertMessage(name, pwd);
                     Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
-                    //跳其他页面
+                    finish();
+                    //跳回登录界面
                 } else {
                     Toast.makeText(RegisterActivity.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
                 }
@@ -58,9 +61,9 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void init() {
-//        username=findViewById(R.id.xxx);
-//        password=findViewById(R.id.xxx);
-//        register=findViewById(R.id.xxx);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        register = findViewById(R.id.register);
         allUsers = DBManager.getInstance(RegisterActivity.this).queryAllData();
     }
 
