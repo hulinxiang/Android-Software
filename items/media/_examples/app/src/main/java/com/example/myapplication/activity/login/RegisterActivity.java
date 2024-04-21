@@ -23,12 +23,22 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button register;
 
+    private View returnButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         init();
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
+        returnButton = findViewById(R.id.returnButton);
         allUsers = DBManager.getInstance(RegisterActivity.this).queryAllData();
     }
 
