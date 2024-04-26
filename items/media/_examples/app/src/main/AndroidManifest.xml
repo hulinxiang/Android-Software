@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterActivityTest"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivityTest"
+            android:exported="false" />
+        <activity
             android:name=".activity.login.RegisterActivity"
             android:exported="false" />
         <activity
