@@ -33,65 +33,10 @@ public class RegisterActivityTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_test);
         auth = FirebaseAuth.getInstance();
-//        editTextEmail = findViewById(R.id.editTextEmail);
-//        editTextPassword = findViewById(R.id.editTextPassword);
-////        editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
-//        buttonRegister = findViewById(R.id.buttonRegister);
         inputEmail = findViewById(R.id.editTextEmail);
         inputPassword = findViewById(R.id.editTextPassword);
         btnRegister = findViewById(R.id.buttonRegister);
         progressBar = findViewById(R.id.progressBar);
-//        buttonRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                progressBar.setVisibility(View.VISIBLE);
-//                String email, password;
-//                email = String.valueOf(editTextEmail.getText());
-//                password = String.valueOf(editTextPassword.getText());
-//
-//                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-//                    Toast.makeText(RegisterActivityTest.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                auth.createUserWithEmailAndPassword(email, password)
-//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                if (task.isSuccessful()) {
-//                                    progressBar.setVisibility(View.GONE);
-//                                    Toast.makeText(RegisterActivityTest.this, "User registered successfully", Toast.LENGTH_SHORT).show();
-//                                } else {
-//                                    progressBar.setVisibility(View.GONE);
-//                                    Toast.makeText(RegisterActivityTest.this, "Registration failed", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
-//            }
-//        });
-//    }
-
-
-//    private EditText inputEmail, inputPassword;
-//    private Button btnRegister;
-//    private ProgressBar progressBar;
-//    private FirebaseAuth auth;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_register);
-//
-//        // 获取 Firebase 实例
-//        auth = FirebaseAuth.getInstance();
-//
-//        // 获取布局中的控件
-//        inputEmail = findViewById(R.id.editTextEmail);
-//        inputPassword = findViewById(R.id.editTextPassword);
-//        btnRegister = findViewById(R.id.buttonRegister);
-//        progressBar = findViewById(R.id.progressBar);
-
-        // 注册按钮点击事件
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
