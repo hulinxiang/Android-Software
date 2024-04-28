@@ -17,9 +17,7 @@
 3. **Problem Solving**:
    - The attributes and functions of each class are divided in detail, which may be deleted or added later according to the progress   of the project.
    - The specific content of the front and back ends for next week has been assigned
-   - 
    
-
 4. **Other Matters**:
    - Confirm the next meeting will be held on May 5th.
 
