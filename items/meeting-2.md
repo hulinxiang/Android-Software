@@ -1,9 +1,9 @@
 # G58
 
-## Team Meeting 1 - Week 7 - 2024-04-17 (16pm-18pm)
+## Team Meeting 2 - Week 8 - 2024-04-28 (13pm-15pm)
 **Absent: N/A**
 <br>
-**Lead/scribe: Yichi Zhang**
+**Lead/scribe: Wenhui Shi**
 
 ## Agreed Procedure
 
@@ -15,11 +15,13 @@
    - Each team member takes turns sharing current ideas on the team project theme.
 
 3. **Problem Solving**:
-   - Discuss the most suitable Android app themes based on the given requirements.
-   - Preliminary role assignments and urgent tasks to be determined.
+   - The attributes and functions of each class are divided in detail, which may be deleted or added later according to the progress   of the project.
+   - The specific content of the front and back ends for next week has been assigned
+   - 
+   
 
 4. **Other Matters**:
-   - Confirm the next meeting will be held on April 21st, where the program's architecture will be discussed.
+   - Confirm the next meeting will be held on May 5th.
 
 5. **Conclusion**:
    - Thank all attendees for their participation.
@@ -32,10 +34,9 @@
 ## Agenda Items
 | Number  |                                                                                                                        Item |
 |:--------|----------------------------------------------------------------------------------------------------------------------------:|
-| 0000001 |                                                                                                     Determine the team name |
-| 0000002 |                                                                                                        Define the App theme |
-| 0000003 |     Division of labor between front-end and back-end, as well as front-end and back-end interaction and database connection |
-| 0000004 |                                                                                                             Design patterns |
+| 0000001 |                                Detail the attributes and functions of each class |
+| 0000002 |                             Each member is assigned front-end and back-end tasks |
+| 0000003 |     Initial connection to firebase to implement login and registration functions |
 
 ## Meeting Minutes
 - Project Theme: Second-hand trading platform
@@ -56,10 +57,8 @@
        2. Edit and delete published item information
        3. Item categorization and search functionality
        4. Item detail page display
-   - Transaction Functionality
-       1. Item purchase and payment
-       2. Transaction order management (including view order status, confirm receipt, etc.)
-       User reviews and ratings
+   - User reviews and ratings
+       1. Can rate users and create an honest and transparent trading platform
    - Social Features
        1. User post dynamics and comments
        2. Sharing functionality
@@ -75,7 +74,7 @@
 - Technical Architecture
   - Frontend: Android front-end
   - Backend: Java
-  - Database: MySQL (Or NoSQL like MongoDB)
+  - Database: Firebase
   - Server and hosting: Firebase
 
 
@@ -83,17 +82,17 @@
 ## Action Items
 | Task                    |               Assigned To               |   Due Date   |
 |:------------------------|:---------------------------------------:|:------------:|
-| UI Design Diagram       |          Jin Yang, Wenhui Shi           |  2024-04-21  |
-| Database Design Diagram | Linxiang Hu, Yingxuan Tang, Yichi Zhang |  2024-04-21  |
-| UML Diagram                    |            All group member             | To be filled |
+| Design home page and post page                |          Jin Yang, Wenhui Shi           |  2024-05-05 |
+| Setup datebase, develop post and user function| Linxiang Hu, Yingxuan Tang, Yichi Zhang |  2024-05-05  |
+| Keep working                                  |            All group member             | To be filled |
 
 
 
 ## Scribe Rotation
 The following dictates who will scribe in this and the next meeting.
-| Yichi Zhang |
+| Wnhui Shi |
 | :---: |
 | Linxiang Hu |
 | Yingxuan Tang |
 | Jin Yang |
-| Wenhui Shi |
+| Yichi Zhang |
