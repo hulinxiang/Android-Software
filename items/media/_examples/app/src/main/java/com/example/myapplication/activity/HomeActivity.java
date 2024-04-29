@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.myapplication.R;
 
-public class Activity_home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
