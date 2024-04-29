@@ -33,10 +33,12 @@
                     android:layout_marginBottom="8dp">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:id="@+id/btn_slide_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
                         android:src="@drawable/ic_menu_white_24dp" />
 
                     <LinearLayout
@@ -310,7 +312,7 @@
                         android:weightSum="100">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cactus_card_view"
+                            android:id="@+id/card_view_1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
@@ -462,6 +464,7 @@
                                 android:layout_height="wrap_content">
 
                                 <ImageView
+
                                     android:layout_width="match_parent"
                                     android:layout_height="200dp"
                                     android:scaleType="centerCrop"
@@ -750,6 +753,7 @@
             android:weightSum="100">
 
             <LinearLayout
+                android:id="@+id/btn_home"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
@@ -771,6 +775,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_following"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
@@ -792,12 +797,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_create"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
                 android:orientation="vertical">
 
                 <ImageView
+
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
@@ -813,6 +820,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_inbox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
@@ -834,6 +842,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_profile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
