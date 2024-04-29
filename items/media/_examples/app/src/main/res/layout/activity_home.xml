@@ -87,6 +87,7 @@
                     android:orientation="horizontal">
 
                     <EditText
+                        android:id="@+id/btn_search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/white_rounded_shape"
