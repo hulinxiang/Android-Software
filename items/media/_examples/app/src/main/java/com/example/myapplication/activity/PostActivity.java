@@ -44,7 +44,5 @@ public class PostActivity extends AppCompatActivity {
         post_star = findViewById(R.id.post_star);
         seller_name = findViewById(R.id.seller_name);
         post_price = findViewById(R.id.post_price);
-
-
     }
 }
