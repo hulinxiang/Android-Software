@@ -27,4 +27,11 @@
         <item name="windowActionBarOverlay">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

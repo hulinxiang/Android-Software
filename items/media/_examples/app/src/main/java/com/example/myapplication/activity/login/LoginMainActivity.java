@@ -46,14 +46,14 @@ public class LoginMainActivity extends AppCompatActivity {
                 String pwd = password.getText().toString();
                 if (loginCheck(name, pwd)) {
                     Toast.makeText(LoginMainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                    //跳转到新的activity
+                    Intent intent = new Intent(LoginMainActivity.this, com.example.myapplication.activity.HomeActivity.class);
+                    startActivity(intent);
+                    finish(); // Optional: Finish the LoginMainActivity to prevent going back to it
                 } else {
                     Toast.makeText(LoginMainActivity.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
     }
 
     private boolean loginCheck(String name, String pwd) {
@@ -78,7 +78,6 @@ public class LoginMainActivity extends AppCompatActivity {
         Log.d("LoginCheck", "Login failed for user: " + name);
         return false;
     }
-
 
 
     private void init() {
