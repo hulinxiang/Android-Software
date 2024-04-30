@@ -45,7 +45,7 @@ public class SearchManager {
 
     /**
      * @param searchQuery the search (products or posts) query to validate
-     * @return
+     * @return true, if it is valid; false, if it is not
      */
     public static boolean validateSearchQuery(String searchQuery) {
         Pattern pattern = Pattern.compile(SEARCH_PATTERN);
