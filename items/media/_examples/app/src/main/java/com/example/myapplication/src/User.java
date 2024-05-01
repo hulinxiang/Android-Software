@@ -2,7 +2,9 @@ package com.example.myapplication.src;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.UUID;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 这个类用于管理用户的信息。
@@ -14,6 +16,8 @@ import java.util.UUID;
  */
 
 public class User {
+    private static final AtomicInteger idGenerator = new AtomicInteger(0); // 从0开始
+    private static final Set<String> allocatedUserIds = new HashSet<>(); // 存储已分配的用户ID
     private String userId;
     private String email;  // Username 默认是
     private String passwordHash;
@@ -21,11 +25,31 @@ public class User {
     private String address;
     private String phone;
 
+    // 构造方法，只用邮箱和密码初始化
     public User(String email, String password) {
         // 因为Register只用邮箱和密码，所以用这两个信息初始化每个User实例
-        this.userId = UUID.randomUUID().toString();  // 用于生成一个唯一的标识符（UUID）并将其转换为字符串形式，用作用户的ID
+        this.userId = generateUniqueId(); // 格式化为8位数字，包含前导零
         this.email = email;
         this.passwordHash = hashPassword(password);
+    }
+
+    // 全参数构造方法
+    public User(String email, String password, String name, String address, String phone) {
+        this.userId = generateUniqueId();  // 生成唯一的用户ID
+        this.email = email;
+        this.passwordHash = hashPassword(password);  // 对密码进行哈希处理
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+    // 生成一个唯一的ID，并确保它没有被之前分配过
+    private String generateUniqueId() {
+        String id;
+        do {
+            id = String.format("%08d", idGenerator.getAndIncrement());
+        } while (allocatedUserIds.contains(id));
+        allocatedUserIds.add(id);
+        return id;
     }
 
     // 使用SHA-256对密码进行哈希
@@ -104,7 +128,6 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
 }
 
