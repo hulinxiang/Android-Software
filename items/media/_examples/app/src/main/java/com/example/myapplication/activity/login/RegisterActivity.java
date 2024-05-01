@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.BPlusTree.BPlusTreeManager;
 import com.example.myapplication.R;
 import com.example.myapplication.db.DBManager;
 import com.example.myapplication.entity.LoginNameBean;
@@ -80,12 +79,6 @@ public class RegisterActivity extends AppCompatActivity {
         allUsers = DBManager.getInstance(RegisterActivity.this).queryAllData();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // 保存B+树的状态
-        BPlusTreeManager.saveTree(this);
-    }
 
 
 }

@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.BPlusTree.BPlusTree;
-import com.example.myapplication.BPlusTree.BPlusTreeManager;
+import com.example.myapplication.BPlusTree.User.BPlusTree;
+import com.example.myapplication.BPlusTree.User.BPlusTreeManager;
 import com.example.myapplication.R;
 import com.example.myapplication.entity.LoginNameBean;
 
