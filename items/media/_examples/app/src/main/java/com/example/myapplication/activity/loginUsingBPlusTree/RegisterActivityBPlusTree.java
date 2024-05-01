@@ -1,4 +1,4 @@
-package com.example.myapplication.activity.login;
+package com.example.myapplication.activity.loginUsingBPlusTree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,20 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.BPlusTreeManager;
 import com.example.myapplication.R;
-import com.example.myapplication.db.DBManager;
 import com.example.myapplication.entity.LoginNameBean;
 import com.example.myapplication.src.SearchManager;
 
 import java.util.List;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivityBPlusTree extends AppCompatActivity {
+
 
     private EditText username;
     private EditText password;
-
-    private List<LoginNameBean> allUsers;
 
     private Button register;
 
@@ -49,12 +48,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String pwd = password.getText().toString();
 
                 if (checkValid(name, pwd)) {
-                    DBManager.getInstance(RegisterActivity.this).insertMessage(name, pwd);
-                    Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
+                    LoginNameBean user = new LoginNameBean(name, pwd);
+                    BPlusTreeManager.getTreeInstance(RegisterActivityBPlusTree.this).insert(name, user);
+                    Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     //跳回登录界面
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivityBPlusTree.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -63,10 +63,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean checkValid(String name, String pwd) {
-        for (LoginNameBean user : allUsers) {
-            if (user.loginName.equals(name)) {
-                return false;
-            }
+        BPlusTree<String, LoginNameBean> tree = BPlusTreeManager.getTreeInstance(this);
+        List<LoginNameBean> user = tree.query(name);
+        if (user.size() != 0) {
+            return false;
         }
         return !pwd.isEmpty() && SearchManager.validateUsername(name) && SearchManager.validatePassword(pwd);
     }
@@ -77,15 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
         returnButton = findViewById(R.id.returnButton);
-        allUsers = DBManager.getInstance(RegisterActivity.this).queryAllData();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // 保存B+树的状态
-        BPlusTreeManager.saveTree(this);
-    }
-
 
 }

@@ -1,9 +1,10 @@
 package com.example.myapplication.BPlusTree;
 
 
+import java.io.Serializable;
 import java.util.*;
 
-public class BPlusTree<K extends Comparable<K>, E> {
+public class BPlusTree<K extends Comparable<K>, E> implements Serializable {
 
     private final int OVERFLOW_BOUND;
 
@@ -47,6 +48,28 @@ public class BPlusTree<K extends Comparable<K>, E> {
             return Collections.emptyList();
         }
         return root.query(entry);
+    }
+
+
+    public List<E> queryAllData() {
+        List<E> allData = new ArrayList<>();
+        BPlusTreeLeafNode current = findFirstLeaf();
+        while (current != null) {
+            for (Set<E> dataSet : current.data) {
+                allData.addAll(dataSet);
+            }
+            current = current.next;
+        }
+        return allData;
+    }
+
+    private BPlusTreeLeafNode findFirstLeaf() {
+        BPlusTreeNode node = root;
+        if (node == null) return null;
+        while (!(node instanceof BPlusTreeLeafNode)) {
+            node = ((BPlusTreeNonLeafNode) node).children.get(0);
+        }
+        return (BPlusTreeLeafNode) node;
     }
 
     public List<E> rangeQuery(K startInclude, K endExclude) {
@@ -129,7 +152,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
         return root.toString();
     }
 
-    private abstract class BPlusTreeNode {
+    private abstract class BPlusTreeNode implements Serializable{
 
         protected List<K> entries;
 
@@ -174,7 +197,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
         public abstract void borrow(BPlusTreeNode neighbor, K parentEntry, boolean isLeft);
     }
 
-    private class BPlusTreeNonLeafNode extends BPlusTreeNode {
+    private class BPlusTreeNonLeafNode extends BPlusTreeNode implements Serializable {
 
         public List<BPlusTreeNode> children;
 
@@ -350,7 +373,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
         }
     }
 
-    private class BPlusTreeLeafNode extends BPlusTreeNode {
+    private class BPlusTreeLeafNode extends BPlusTreeNode implements Serializable{
 
         public List<Set<E>> data;
 
