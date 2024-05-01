@@ -32,6 +32,9 @@ public class FirebaseInitUser extends Application{
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+//                // 首先清除旧数据
+//                BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // 解析每个字段
                     String userId = snapshot.child("userID").getValue(String.class);
