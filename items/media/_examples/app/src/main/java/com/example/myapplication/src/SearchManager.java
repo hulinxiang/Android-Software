@@ -17,7 +17,7 @@ public class SearchManager {
 
     // The valid username format can contain any letters, numbers and "_@#^?!&+=". The length of username should be
     // in the range between 6 and 16.
-    private static final String USERNAME_PATTERN = "^[a-zA-Z0-9_@#^?!&+=]{6,16}$";
+    private static final String USERNAME_PATTERN = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
     //The valid password format must be a combination of lowercase letters, uppercase letters and special symbols.
     // and there cannot be spaces between it. The length of it should between 8 and 20.
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[_@!?#$%^&+=])(?=\\S+$).{8,20}$";
