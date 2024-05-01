@@ -1,9 +1,12 @@
 package com.example.myapplication.src;
 
-import org.w3c.dom.Comment;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.myapplication.src.Tag;
+import com.example.myapplication.src.Comment;
 
 /**
  * 这个类用于管理商品信息。
@@ -15,41 +18,50 @@ import java.util.List;
  */
 public class Post {
 
-    private String postId;
-    private String tag;
-    private String topic;
+    private String postID;
+    private Tag tag;
+    private String productDisplayName;
     private double price;
-    private String seller;
-    private int like;
-    private int status; // 1.无人订 2.有人订 3.有人暂订
+    private String status;
     private String description;
-    private String imageUrl;
-    private List<Comment> comments = new ArrayList<>();
+    private String filename;
+    private String link;
+    private List<Comment> comments;
 
-    // 构造函数、getter和setter方法
-
-    public String getPostId() {
-        return postId;
+    public Post(String postID, Tag tag, String productDisplayName, double price, String status, String description, String filename, String link, String commentText) {
+        this.postID = postID;
+        this.tag = tag;
+        this.productDisplayName = productDisplayName;
+        this.price = price;
+        this.status = status;
+        this.description = description;
+        this.filename = filename;
+        this.link = link;
+        this.comments = parseComments(commentText);//这里的comments我不确定是不是要通过下面的parseComments方法来解析完之后分成一个Comment组成的List来调用
     }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
+    public String getPostID() {
+        return postID;
     }
 
-    public String getTag() {
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
+
+    public Tag getTag() {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(Tag tag) {
         this.tag = tag;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getProductDisplayName() {
+        return productDisplayName;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setProductDisplayName(String productDisplayName) {
+        this.productDisplayName = productDisplayName;
     }
 
     public double getPrice() {
@@ -60,27 +72,11 @@ public class Post {
         this.price = price;
     }
 
-    public String getSeller() {
-        return seller;
-    }
-
-    public void setSeller(String seller) {
-        this.seller = seller;
-    }
-
-    public int getLike() {
-        return like;
-    }
-
-    public void setLike(int like) {
-        this.like = like;
-    }
-
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -92,20 +88,44 @@ public class Post {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getFilename() {
+        return filename;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+
+    /**
+     * Parses the input string for comments separated by "||" and creates a list of Comment objects.
+     *
+     * @param commentText The string containing all comments separated by "||".
+     * @return A list of Comment objects.
+     */
+    private List<Comment> parseComments(String commentText) {
+        return Arrays.stream(commentText.split("\\|\\|"))
+                .map(String::trim)
+                .map(Comment::new)
+                .collect(Collectors.toList());
+    }
+
+    // Getter for comments
     public List<Comment> getComments() {
         return comments;
     }
 
-    public void addComment(Comment comment) {
-        comments.add(comment);
+    // Setter for comments
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 }
