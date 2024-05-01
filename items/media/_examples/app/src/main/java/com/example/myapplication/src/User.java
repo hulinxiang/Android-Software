@@ -33,7 +33,7 @@ public class User {
         this.passwordHash = hashPassword(password);
     }
 
-    // 全参数构造方法
+    // 全参数构造方法,但是userId是自动生成的
     public User(String email, String password, String name, String address, String phone) {
         this.userId = generateUniqueId();  // 生成唯一的用户ID
         this.email = email;
@@ -42,6 +42,17 @@ public class User {
         this.address = address;
         this.phone = phone;
     }
+    //这个构造方法是用来从firebase直接导入的，userId不用自动生成，已经分配过了
+    public User(String userId, String email, String password, String name, String address, String phone) {
+        this.userId = userId;  // 生成唯一的用户ID
+        allocatedUserIds.add(userId);
+        this.email = email;
+        this.passwordHash = hashPassword(password);  // 对密码进行哈希处理
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
     // 生成一个唯一的ID，并确保它没有被之前分配过
     private String generateUniqueId() {
         String id;
@@ -68,6 +79,7 @@ public class User {
             throw new RuntimeException("Failed to hash password", e);
         }
     }
+
     // 更新密码
     public void updatePassword(String newPassword) {
         this.passwordHash = hashPassword(newPassword);
@@ -130,4 +142,3 @@ public class User {
     }
 
 }
-
