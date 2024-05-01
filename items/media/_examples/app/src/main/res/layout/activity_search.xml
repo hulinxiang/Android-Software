@@ -67,6 +67,20 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_rounded_shape"
+                        android:drawableStart="@drawable/ic_search_light_gray_24dp"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/calibri"
+                        android:hint="What are you looking for?"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#aeaeae"
+                        android:textSize="14sp" />
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -87,17 +101,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <!-- Add the search bar here -->
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/search_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/search_view_background"
-                    app:iconifiedByDefault="false"
-                    app:queryHint="Search items..." />
-
 
 
                 <TextView
