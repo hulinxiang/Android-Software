@@ -67,11 +67,16 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
                     if (user.getEmail().equals(name) && user.getPasswordHash().equals(User.hashPassword(pwd))) {
                         Log.d("LoginCheck", "Login successful for user: " + name);
                         return true;
+                    } else {
+                        Log.d("LoginFailed", "False Password: " + User.hashPassword(pwd) + "  Right Password: " + user.getPasswordHash());
                     }
                 }
             }
+        }else {
+            Log.d("Empty User List","The User List is empty");
         }
-        Log.d("LoginCheck", "Login failed for user: " + name);
+        Log.d("LoginCheck", "Login failed for user: " + name + "  password: " + pwd);
+
         return false;
     }
 

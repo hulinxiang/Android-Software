@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import android.app.Application;
+import android.util.Log;
 
 
 public class FirebaseInitUser extends Application {
@@ -28,6 +29,9 @@ public class FirebaseInitUser extends Application {
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Log.d("Initialise","Initialisation=========================");
+
 //                // 首先清除旧数据
 //                BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).clear();
 

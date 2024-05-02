@@ -52,7 +52,6 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
                     BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
                     Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                     finish();
-                    //跳回登录界面
                 } else {
                     Toast.makeText(RegisterActivityBPlusTree.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
                 }
