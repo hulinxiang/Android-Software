@@ -9,8 +9,6 @@ import android.widget.Button;
 
 import com.example.myapplication.LoginActivityTest;
 import com.example.myapplication.R;
-import com.example.myapplication.RegisterActivityTest;
-import com.example.myapplication.activity.login.LoginMainActivity;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,17 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button test = findViewById(R.id.test);
         Button firebaseTest = findViewById(R.id.firebaseTest);
         Button BPlusTreeTest = findViewById(R.id.BPlusTreeTest);
-
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginMainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         firebaseTest.setOnClickListener(new View.OnClickListener() {
             @Override

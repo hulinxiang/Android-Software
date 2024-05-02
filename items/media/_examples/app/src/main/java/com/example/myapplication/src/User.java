@@ -64,7 +64,7 @@ public class User {
     }
 
     // 使用SHA-256对密码进行哈希
-    private String hashPassword(String password) {
+    public static String hashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes());

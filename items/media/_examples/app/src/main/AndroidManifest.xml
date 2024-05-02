@@ -47,12 +47,6 @@
             android:name=".LoginActivityTest"
             android:exported="false" />
         <activity
-            android:name=".activity.login.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.login.LoginMainActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>

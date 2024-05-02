@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,7 +35,7 @@ public class LoginActivityTest extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // Initialize UI components
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.registerEmail);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);

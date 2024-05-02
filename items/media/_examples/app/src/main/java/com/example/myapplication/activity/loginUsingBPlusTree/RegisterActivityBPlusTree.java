@@ -8,18 +8,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.BPlusTree.User.BPlusTree;
-import com.example.myapplication.BPlusTree.User.BPlusTreeManager;
+import com.example.myapplication.BPlusTree.BPlusTree;
+import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
-import com.example.myapplication.entity.LoginNameBean;
 import com.example.myapplication.src.SearchManager;
+import com.example.myapplication.src.User;
 
 import java.util.List;
 
 public class RegisterActivityBPlusTree extends AppCompatActivity {
 
 
-    private EditText username;
+    private EditText email;
     private EditText password;
 
     private Button register;
@@ -44,12 +44,12 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = username.getText().toString();
+                String registerEmail = email.getText().toString();
                 String pwd = password.getText().toString();
 
-                if (checkValid(name, pwd)) {
-                    LoginNameBean user = new LoginNameBean(name, pwd);
-                    BPlusTreeManager.getTreeInstance(RegisterActivityBPlusTree.this).insert(name, user);
+                if (checkValid(registerEmail, pwd)) {
+                    User user = new User(registerEmail, pwd);
+                    BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
                     Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     //跳回登录界面
@@ -63,8 +63,8 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
     }
 
     private boolean checkValid(String name, String pwd) {
-        BPlusTree<String, LoginNameBean> tree = BPlusTreeManager.getTreeInstance(this);
-        List<LoginNameBean> user = tree.query(name);
+        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(this);
+        List<User> user = tree.query(name);
         if (user.size() != 0) {
             return false;
         }
@@ -73,7 +73,7 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
 
 
     private void init() {
-        username = findViewById(R.id.username);
+        email = findViewById(R.id.registerEmail);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
         returnButton = findViewById(R.id.returnButton);

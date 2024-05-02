@@ -1,21 +1,17 @@
 package com.example.myapplication.src;
-import com.example.myapplication.BPlusTree.User.BPlusTreeManager;
-import com.example.myapplication.activity.loginUsingBPlusTree.RegisterActivityBPlusTree;
-import com.example.myapplication.entity.LoginNameBean;
+
+import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import android.app.Application;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import com.example.myapplication.BPlusTree.User.BPlusTree;
-import com.example.myapplication.BPlusTree.User.BPlusTreeManager;
+import android.app.Application;
 
-public class FirebaseInitUser extends Application{
+
+public class FirebaseInitUser extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -46,12 +42,8 @@ public class FirebaseInitUser extends Application{
 
                     // 构造创建User对象
                     if (email != null && password != null && userId != null) {
-
-                        // 在BPlusTree中插入用户数据
-                        LoginNameBean user = new LoginNameBean(name, password);
-                        BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).insert(name, user);
-                        // User user = new User(userId, email, password, name, address, phone);
-                        // BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).insert(user.getUserId(), user);
+                        User user = new User(userId, email, password, name, address, phone);
+                        BPlusTreeManagerUser.getTreeInstance(FirebaseInitUser.this).insert(user.getUserId(), user);
                     }
                 }
             }
