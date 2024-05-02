@@ -1,10 +1,16 @@
 package com.example.myapplication.BPlusTree;
 
 
-import java.io.Serializable;
-import java.util.*;
 
-public class BPlusTree<K extends Comparable<K>, E> implements Serializable {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
+public class BPlusTree<K extends Comparable<K>, E> {
 
     private final int OVERFLOW_BOUND;
 
@@ -152,7 +158,7 @@ public class BPlusTree<K extends Comparable<K>, E> implements Serializable {
         return root.toString();
     }
 
-    private abstract class BPlusTreeNode implements Serializable{
+    private abstract class BPlusTreeNode {
 
         protected List<K> entries;
 
@@ -197,7 +203,7 @@ public class BPlusTree<K extends Comparable<K>, E> implements Serializable {
         public abstract void borrow(BPlusTreeNode neighbor, K parentEntry, boolean isLeft);
     }
 
-    private class BPlusTreeNonLeafNode extends BPlusTreeNode implements Serializable {
+    private class BPlusTreeNonLeafNode extends BPlusTreeNode  {
 
         public List<BPlusTreeNode> children;
 
@@ -373,7 +379,7 @@ public class BPlusTree<K extends Comparable<K>, E> implements Serializable {
         }
     }
 
-    private class BPlusTreeLeafNode extends BPlusTreeNode implements Serializable{
+    private class BPlusTreeLeafNode extends BPlusTreeNode {
 
         public List<Set<E>> data;
 

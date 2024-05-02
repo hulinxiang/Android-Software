@@ -117,7 +117,7 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/username"
+                                android:id="@+id/registerEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_person_gray_24dp"

@@ -15,22 +15,26 @@ import java.util.List;
 public class PostList {
     private List<Post> posts = new ArrayList<>();
 
+    // 添加Post到列表
     public void addPost(Post post) {
         posts.add(post);
     }
 
+    // 从列表中删除Post
     public void removePost(Post post) {
         posts.remove(post);
     }
 
+    // 获取Post列表
     public List<Post> getPosts() {
         return posts;
     }
 
+    // 根据关键字搜索Post，这里使用产品显示名称和描述作为搜索依据
     public List<Post> searchPosts(String keyword) {
         List<Post> result = new ArrayList<>();
         for (Post post : posts) {
-            if (post.getTopic().contains(keyword) || post.getDescription().contains(keyword)) {
+            if (post.getProductDisplayName().contains(keyword) || post.getDescription().contains(keyword)) {
                 result.add(post);
             }
         }

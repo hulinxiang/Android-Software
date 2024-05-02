@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".src.FirebaseInitUser"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -38,18 +39,6 @@
             android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivityTest"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivityTest"
-            android:exported="false" />
-        <activity
-            android:name=".activity.login.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.login.LoginMainActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
