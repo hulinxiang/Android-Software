@@ -30,7 +30,7 @@ public class FirebaseInitUser extends Application {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Log.d("Initialise","Initialisation=========================");
+                Log.d("Initialise", "Initialisation=========================");
 
 //                // 首先清除旧数据
 //                BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).clear();
@@ -47,7 +47,8 @@ public class FirebaseInitUser extends Application {
                     // 构造创建User对象
                     if (email != null && password != null && userId != null) {
                         User user = new User(userId, email, password, name, address, phone);
-                        BPlusTreeManagerUser.getTreeInstance(FirebaseInitUser.this).insert(user.getUserId(), user);
+                        BPlusTreeManagerUser.getTreeInstance(FirebaseInitUser.this).insert(email, user);
+                        Log.d("Constructing........", "Adding user: " + email + " to the local tree");
                     }
                 }
             }
