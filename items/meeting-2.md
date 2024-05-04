@@ -19,7 +19,7 @@
    - The specific content of the front and back ends for next week has been assigned
    
 4. **Other Matters**:
-   - Confirm the next meeting will be held on May 5th.
+   - Confirm the next meeting will be held on May 1th.
 
 5. **Conclusion**:
    - Thank all attendees for their participation.
@@ -30,11 +30,11 @@
    - The focus of daily meetings is to coordinate work, solve problems, and maintain team collaboration.
 
 ## Agenda Items
-| Number  |                                                                                                                        Item |
-|:--------|----------------------------------------------------------------------------------------------------------------------------:|
-| 0000001 |                                Detail the attributes and functions of each class |
-| 0000002 |                             Each member is assigned front-end and back-end tasks |
-| 0000003 |     Initial connection to firebase to implement login and registration functions |
+| Number  |                                                                         Item |
+|:--------|-----------------------------------------------------------------------------:|
+| 0000001 |                            Detail the attributes and functions of each class |
+| 0000002 |                         Each member is assigned front-end and back-end tasks |
+| 0000003 | Initial connection to firebase to implement login and registration functions |
 
 ## Meeting Minutes
 - Project Theme: Second-hand trading platform
@@ -78,9 +78,9 @@
 
 
 ## Action Items
-| Task                    |               Assigned To               |   Due Date   |
-|:------------------------|:---------------------------------------:|:------------:|
-| Design home page and post page                |          Jin Yang, Wenhui Shi           |  2024-05-05 |
+| Task                                          |               Assigned To               |   Due Date   |
+|:----------------------------------------------|:---------------------------------------:|:------------:|
+| Design home page and post page                |      Jin Yang, Wenhui Shi               |  2024-05-05  |
 | Setup datebase, develop post and user function| Linxiang Hu, Yingxuan Tang, Yichi Zhang |  2024-05-05  |
 | Keep working                                  |            All group member             | To be filled |
 

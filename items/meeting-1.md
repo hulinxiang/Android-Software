@@ -81,11 +81,11 @@
 
 
 ## Action Items
-| Task                    |               Assigned To               |   Due Date   |
-|:------------------------|:---------------------------------------:|:------------:|
-| UI Design Diagram       |          Jin Yang, Wenhui Shi           |  2024-04-21  |
-| Database Design Diagram | Linxiang Hu, Yingxuan Tang, Yichi Zhang |  2024-04-21  |
-| UML Diagram                    |            All group member             | To be filled |
+| Task                          |               Assigned To               |   Due Date   |
+|:------------------------------|:---------------------------------------:|:------------:|
+| UI Design Diagram             |          Jin Yang, Wenhui Shi           |  2024-04-21  |
+| Database Design Diagram       | Linxiang Hu, Yingxuan Tang, Yichi Zhang |  2024-04-21  |
+| UML Diagram                   |            All group member             | To be filled |
 
 
 
