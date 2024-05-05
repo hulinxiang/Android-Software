@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.SearchManager;
+import com.example.myapplication.src.Tag;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,14 +23,27 @@ public class BPlusTreeManagerPost {
     }
 
 
-    public static ArrayList<Post> randomRecommender(Context context) {
-        List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData(); // 使用正确的方法调用
+    public static List<Post> randomRecommender(Context context) {
+        List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
         Collections.shuffle(allPosts);
-        ArrayList<Post> selectedPosts = new ArrayList<>();
+        List<Post> selectedPosts = new ArrayList<>();
         for (int i = 0; i < Math.min(4, allPosts.size()); i++) {
             selectedPosts.add(allPosts.get(i));
         }
         return selectedPosts;
     }
+
+    public static List<Post> searchResults(Context context, String keyword) {
+        List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
+        List<Post> filteredRes = new ArrayList<>();
+        for (Post post : allPosts) {
+            String description = post.getDescription();
+            if (description.trim().toLowerCase().contains(keyword.trim().toLowerCase())) {
+                filteredRes.add(post);
+            }
+        }
+        return filteredRes;
+    }
+
 
 }
