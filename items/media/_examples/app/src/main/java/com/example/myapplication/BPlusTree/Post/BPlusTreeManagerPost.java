@@ -33,7 +33,7 @@ public class BPlusTreeManagerPost {
         return selectedPosts;
     }
 
-    public static List<Post> searchResults(Context context, String keyword) {
+    public static List<Post> searchKeyword(Context context, String keyword) {
         List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
         List<Post> filteredRes = new ArrayList<>();
         for (Post post : allPosts) {
@@ -43,6 +43,17 @@ public class BPlusTreeManagerPost {
             }
         }
         return filteredRes;
+    }
+
+    public static Post searchPostId(Context context, String id) {
+        List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
+        for (Post post : allPosts) {
+            String postId = post.getPostID();
+            if (postId.equals(id)) {
+                return post;
+            }
+        }
+        return null;
     }
 
 
