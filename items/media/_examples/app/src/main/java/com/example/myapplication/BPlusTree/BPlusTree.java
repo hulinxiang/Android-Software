@@ -1,7 +1,6 @@
 package com.example.myapplication.BPlusTree;
 
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -19,7 +18,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
     private BPlusTreeNode root;
 
     public BPlusTree(int order) {
-        if(order < 3){
+        if (order < 3) {
             throw new IllegalArgumentException("The order of BPlus Tree must be greater than or equal to 3");
         }
         this.OVERFLOW_BOUND = order - 1;
@@ -79,7 +78,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
     }
 
     public List<E> rangeQuery(K startInclude, K endExclude) {
-        if(startInclude.compareTo(endExclude) >= 0){
+        if (startInclude.compareTo(endExclude) >= 0) {
             throw new IllegalArgumentException("invalid range");
         }
 
@@ -152,7 +151,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
 
     @Override
     public String toString() {
-        if(root == null){
+        if (root == null) {
             return "";
         }
         return root.toString();
@@ -166,23 +165,52 @@ public class BPlusTree<K extends Comparable<K>, E> {
             return entries.size() < UNDERFLOW_BOUND;
         }
 
-        protected boolean isOverflow(){ return entries.size() > OVERFLOW_BOUND; }
+        protected boolean isOverflow() {
+            return entries.size() > OVERFLOW_BOUND;
+        }
 
         protected int getMedianIndex() {
             return OVERFLOW_BOUND / 2;
         }
 
+        /**
+         * Calculates the upper bound index for a given entry in a sorted list.
+         * This method performs a binary search to find the index of the first element
+         * that is greater than the specified entry. This is useful in maintaining
+         * an ordered list where the exact insertion point of new elements needs
+         * to be determined, or when duplicates are allowed but a strict order
+         * must be kept.
+         *
+         * @param entry the element to compare against the elements in the list.
+         * @return the index of the first element that is greater than the specified entry,
+         * which is the same as the number of elements less than or equal to the entry.
+         * If all elements in the list are less than or equal to the entry, returns the list size.
+         */
         protected int entryIndexUpperBound(K entry) {
+            // Initialize left boundary to 0
             int l = 0;
+            // Initialize right boundary to the size of the list
             int r = entries.size();
+
+            // Continue to search while left boundary is less than right boundary
             while (l < r) {
+                // Calculate middle index to split the search range
+                // Use bit shift to avoid overflow and improve efficiency
                 int mid = l + ((r - l) >> 1);
+
+                // Compare middle element with the given entry
                 if (entries.get(mid).compareTo(entry) <= 0) {
+                    // If middle element is less than or equal to the entry, adjust left boundary to right of mid
+                    // Ensures that l will stop at the first element greater than entry
                     l = mid + 1;
                 } else {
+                    // If middle element is greater than the entry, adjust right boundary to mid
+                    // Ensures r always points to the minimum element that is greater than entry
                     r = mid;
                 }
             }
+
+            // Return the computed upper bound index, where l is the index of the first element greater than entry
             return l;
         }
 
@@ -203,7 +231,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
         public abstract void borrow(BPlusTreeNode neighbor, K parentEntry, boolean isLeft);
     }
 
-    private class BPlusTreeNonLeafNode extends BPlusTreeNode  {
+    private class BPlusTreeNonLeafNode extends BPlusTreeNode {
 
         public List<BPlusTreeNode> children;
 
@@ -289,7 +317,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
 
             } else if (childIndex < this.children.size() - 1 && (neighbor = this.children.get(childIndex + 1)).entries.size() > UNDERFLOW_BOUND) {
 
-                int parentEntryIndex = childIndex == 0 ? 0 :Math.min(this.entries.size() - 1, entryIndex + 1);
+                int parentEntryIndex = childIndex == 0 ? 0 : Math.min(this.entries.size() - 1, entryIndex + 1);
                 childNode.borrow(neighbor, this.entries.get(parentEntryIndex), false);
                 this.entries.set(parentEntryIndex, childNode.getClass().equals(BPlusTreeNonLeafNode.class) ? findLeafEntry(neighbor) : neighbor.entries.get(0));
 
@@ -396,7 +424,7 @@ public class BPlusTree<K extends Comparable<K>, E> {
             int startUpperBound = Math.max(1, entryIndexUpperBound(startInclude));
 
             int end = entryIndexUpperBound(endExclude) - 1;
-            if(end >= 0 && entries.get(end) == endExclude){
+            if (end >= 0 && entries.get(end) == endExclude) {
                 --end;
             }
 

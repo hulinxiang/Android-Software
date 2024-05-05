@@ -1,7 +1,11 @@
 package com.example.myapplication.src;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,5 +65,4 @@ public class SearchManager {
         Matcher matcher = pattern.matcher(searchQuery);
         return matcher.matches();
     }
-
 }
