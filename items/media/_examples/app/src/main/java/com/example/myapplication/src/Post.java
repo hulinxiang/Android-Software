@@ -45,6 +45,13 @@ public class Post {
         this.comments = parseComments(commentText);
     }
 
+    // Constructor for Grid layout
+    public Post(String imageUrl, String name, double price) {
+        this.imageUrl = imageUrl;
+        this.productDisplayName = name;
+        this.price = price;
+    }
+
     public String getUserID() {
         return userID;
     }
