@@ -1,51 +1,73 @@
 package com.example.myapplication.src;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.example.myapplication.src.Tag;
-import com.example.myapplication.src.Comment;
-
-/**
- * 这个类用于管理商品信息。
- *
- * 职责:
- *
- * 存储商品的详细信息，如商品名、描述、价格、图片URLs、发布者等。
- * 方法可能包括设置和获取商品属性。
- */
 public class Post {
+    private static int nextPostID = 1000;
 
+    private String userID;
     private String postID;
     private Tag tag;
     private String productDisplayName;
     private double price;
     private String status;
+    private String imageUrl;
     private String description;
-    private String filename;
-    private String link;
     private List<Comment> comments;
 
-    public Post(String postID, Tag tag, String productDisplayName, double price, String status, String description, String filename, String link, String commentText) {
-        this.postID = postID;
-        this.tag = tag;
+    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
+                String baseColour, String season, int year, String usage, String productDisplayName,
+                double price, String status, String imageUrl, String description, String commentText)  {
+        this.userID = userID;
+        this.postID = generatePostID();
+        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
         this.productDisplayName = productDisplayName;
         this.price = price;
         this.status = status;
+        this.imageUrl = imageUrl;
         this.description = description;
-        this.filename = filename;
-        this.link = link;
-        this.comments = parseComments(commentText);//这里的comments我不确定是不是要通过下面的parseComments方法来解析完之后分成一个Comment组成的List来调用
+        this.comments = parseComments(commentText);
     }
+
+    public Post(String userID, String postID, String gender, String masterCategory, String subCategory, String articleType,
+                String baseColour, String season, int year, String usage, String productDisplayName,
+                double price, String status, String imageUrl, String description, String commentText)  {
+        this.userID = userID;
+        this.postID = getPostID();
+        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+        this.productDisplayName = productDisplayName;
+        this.price = price;
+        this.status = status;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.comments = parseComments(commentText);
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    private static String generatePostID() {
+        return String.valueOf(nextPostID++);
+    }
+
+    private List<Comment> parseComments(String commentText) {
+        return Arrays.stream(commentText.split("\\\\n"))
+                .map(String::trim)
+                .map(Comment::new)
+                .collect(Collectors.toList());
+    }
+
+    // Getters and Setters
 
     public String getPostID() {
         return postID;
-    }
-
-    public void setPostID(String postID) {
-        this.postID = postID;
     }
 
     public Tag getTag() {
@@ -80,6 +102,14 @@ public class Post {
         this.status = status;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -88,44 +118,11 @@ public class Post {
         this.description = description;
     }
 
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-
-    /**
-     * Parses the input string for comments separated by "||" and creates a list of Comment objects.
-     *
-     * @param commentText The string containing all comments separated by "||".
-     * @return A list of Comment objects.
-     */
-    private List<Comment> parseComments(String commentText) {
-        return Arrays.stream(commentText.split("\\|\\|"))
-                .map(String::trim)
-                .map(Comment::new)
-                .collect(Collectors.toList());
-    }
-
-    // Getter for comments
     public List<Comment> getComments() {
         return comments;
     }
 
-    // Setter for comments
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
 }

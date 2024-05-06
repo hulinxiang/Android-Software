@@ -15,8 +15,7 @@ public class CreateActivity extends AppCompatActivity {
     private EditText priceEditText;
     private EditText statusEditText;
     private EditText descriptionEditText;
-    private EditText filenameEditText;
-    private EditText linkEditText;
+    private EditText imageUrlEditText;
     private Button createPostButton;
     private ImageView returnButton;
 
@@ -53,8 +52,7 @@ public class CreateActivity extends AppCompatActivity {
         priceEditText = findViewById(R.id.price);
         statusEditText = findViewById(R.id.status);
         descriptionEditText = findViewById(R.id.description);
-        filenameEditText = findViewById(R.id.filename);
-        linkEditText = findViewById(R.id.link);
+        imageUrlEditText = findViewById(R.id.link);//这里因为我改了名字所以不知道是不是要改sorry
         createPostButton = findViewById(R.id.createPost);
         returnButton = findViewById(R.id.returnButton);
     }
@@ -67,9 +65,8 @@ public class CreateActivity extends AppCompatActivity {
         String priceText = priceEditText.getText().toString().trim();
         String status = statusEditText.getText().toString().trim();
         String description = descriptionEditText.getText().toString().trim();
-        String filename = filenameEditText.getText().toString().trim();
-        String link = linkEditText.getText().toString().trim();
-        String commentText = "This is a sample comment || Another sample comment"; // Example comments
+        String imageUrl = imageUrlEditText.getText().toString().trim();
+        String commentText = "This is a sample comment\\nAnother sample comment"; // Example comments
 
         // Convert price to double
         double price;
@@ -80,23 +77,57 @@ public class CreateActivity extends AppCompatActivity {
             return;
         }
 
+        // Get the current user's ID (replace with your own logic)
+        String userID = getCurrentUserID();
+
         // Create the post
         Post newPost = new Post(
-                "1", // Example post ID
-                null, // No Tag
+                userID,
+                "Women", // Example gender
+                "Apparel", // Example masterCategory
+                "Topwear", // Example subCategory
+                "Tops", // Example articleType
+                "Blue", // Example baseColour
+                "Summer", // Example season
+                2016, // Example year
+                "Casual", // Example usage
                 productDisplayName,
                 price,
                 status,
+                imageUrl,
                 description,
-                filename,
-                link,
-                commentText // Add here, maybe be removed later
+                commentText
         );
 
         // Show a message with the post details
-        String postDetails = String.format("Post Created:\nProduct: %s\nPrice: %.2f\nStatus: %s\nDescription: %s\nFilename: %s\nLink: %s",
-                newPost.getProductDisplayName(), newPost.getPrice(), newPost.getStatus(), newPost.getDescription(), newPost.getFilename(), newPost.getLink());
-
+        String postDetails = String.format("Post Created:\nProduct: %s\nPrice: %.2f\nStatus: %s\nDescription: %s\nImage URL: %s",
+                newPost.getProductDisplayName(), newPost.getPrice(), newPost.getStatus(),
+                newPost.getDescription(), newPost.getImageUrl());
         Toast.makeText(this, postDetails, Toast.LENGTH_LONG).show();
     }
+
+    /**
+     * Get the current user's ID.
+     * Replace this method with your own logic to retrieve the current user's ID.
+     */
+    private String getCurrentUserID() {
+        // Replace with your own logic to get the current user's ID
+        return "comp6442";
+    }
+
+    /**
+     * //1
+     * String userID = getIntent().getStringExtra("userID");
+     * //2
+     *FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+     * if (currentUser != null) {
+     *     String userID = currentUser.getUid();
+     * }
+     * //3
+     * private String getCurrentUserID() {
+     *     SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+     *     return sharedPreferences.getString("userID", "");
+     * }
+     */
+
 }
