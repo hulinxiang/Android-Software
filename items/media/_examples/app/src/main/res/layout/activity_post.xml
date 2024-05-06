@@ -24,7 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/favorite_img_4" />
+                    tools:src="@drawable/favorite_img_4" />
 
                 <ImageView
                     android:id="@+id/btn_post_return"
@@ -42,7 +42,10 @@
                     android:layout_height="32dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_margin="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:src="@drawable/ic_favorite_white_24dp" />
 
             </RelativeLayout>
@@ -70,7 +73,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:text="post_Name"
+                            tools:text="post_Name"
                             android:textColor="#000000"
                             android:textSize="24sp" />
 
@@ -79,7 +82,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/calibri"
-                            android:text="post_price"
+                            tools:text="post_price"
                             android:textColor="#8e8ef6"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -104,14 +107,14 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:text="seller_name"
+                            tools:text="seller_name"
                             android:textSize="16sp" />
 
                         <ImageView
                             android:id="@+id/post_star"
                             android:layout_width="72dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/four_star"
+                            tools:src="@drawable/four_star"
                         />
 
                     </LinearLayout>
@@ -134,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/calibri"
                 android:padding="16dp"
-                android:text="a long description, and only can display 250 words. a long description,and only can display 250 words a long description, and only can display 250 words. a long description, and only can display 250 words"
+                tools:text="a long description, and only can display 250 words. a long description,and only can display 250 words a long description, and only can display 250 words. a long description, and only can display 250 words"
                 android:maxLength="250"
                 android:textColor="#444444"
                 android:textSize="16sp"/>

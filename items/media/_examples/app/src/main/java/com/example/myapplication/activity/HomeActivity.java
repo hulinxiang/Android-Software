@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.PostList;
+import com.example.myapplication.src.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,17 +97,17 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void showPost(){
-        //需要一个list显示这三个东西
+        //需要一个list
         List<Post> list = new ArrayList<>();
         // Adding sample data to the list
-        list.add(new Post("@drawable/favorite_img_1", "Nature", 150));
-        list.add(new Post("@drawable/favorite_img_2", "Cityscape", 85));
-        list.add(new Post("@drawable/favorite_img_3", "Ocean", 120));
-        list.add(new Post("@drawable/favorite_img_4", "Mountains", 200));
-        list.add(new Post("@drawable/favorite_img_1", "Nature", 150));
-        list.add(new Post("@drawable/favorite_img_2", "Cityscape", 85));
-        list.add(new Post("@drawable/favorite_img_3", "Ocean", 120));
-        list.add(new Post("@drawable/favorite_img_4", "Mountains", 200));
+        list.add(new Post("1","@drawable/favorite_img_1", "Nature", 1,"1","description"));
+        list.add(new Post("2","@drawable/favorite_img_2", "Cityscape", 2,"1","description"));
+        list.add(new Post("3","@drawable/favorite_img_3", "Ocean", 3,"1","description"));
+        list.add(new Post("4","@drawable/favorite_img_4", "Mountains", 4,"1","description"));
+        list.add(new Post("5","@drawable/favorite_img_1", "Nature", 5,"1","description"));
+        list.add(new Post("6","@drawable/favorite_img_2", "Cityscape", 6,"1","description"));
+        list.add(new Post("7","@drawable/favorite_img_3", "Ocean", 7,"1","description"));
+        list.add(new Post("8","@drawable/favorite_img_4", "Mountains", 8,"1","description"));
 
         for (Post post: list){
             //get the layout from item_card.xml
@@ -126,6 +127,18 @@ public class HomeActivity extends AppCompatActivity {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth/2, ViewGroup.LayoutParams.WRAP_CONTENT);
             //add to grid layout
             gl_post.addView(view,params);
+
+            //click image jump to post detail page
+            card_image.setOnClickListener(v ->{
+                Intent intent = new Intent(HomeActivity.this,PostActivity.class);
+                intent.putExtra("post_id",post.getPostID());
+                intent.putExtra("post_image",post.getImageUrl());
+                intent.putExtra("post_name",post.getProductDisplayName());
+                intent.putExtra("post_description",post.getDescription());
+                intent.putExtra("post_price",post.getPrice());
+                intent.putExtra("post_seller", post.getUserID());
+                startActivity(intent);
+            });
         }
     }
 
