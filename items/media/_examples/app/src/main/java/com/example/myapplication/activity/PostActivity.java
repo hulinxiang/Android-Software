@@ -2,12 +2,17 @@ package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
+import com.example.myapplication.activity.loginUsingBPlusTree.RegisterActivityBPlusTree;
 
 public class PostActivity extends AppCompatActivity {
     private TextView post_name;
@@ -30,9 +35,39 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
         init();
-
-
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showDetail();
+    }
+
+    private void showDetail(){
+        String p_name = getIntent().getStringExtra("post_name");
+        String p_image = getIntent().getStringExtra("post_image");
+        Double p_price = getIntent().getDoubleExtra("post_price",0);
+        String p_description = getIntent().getStringExtra("post_description");
+        String p_seller = getIntent().getStringExtra("post_seller");
+
+        //post_image.setImageURI(Uri.parse(p_image));
+        post_image.setImageResource(R.drawable.favorite_img_1);
+        post_description.setText(p_description);
+        post_price.setText(String.valueOf(p_price));
+        post_name.setText(p_name);
+        seller_name.setText(p_seller);
+
+        //back button
+        post_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+
+
 
     private void init(){
         post_name = findViewById(R.id.post_name);

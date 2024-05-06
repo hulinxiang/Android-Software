@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.HomeActivity;
+import com.example.myapplication.activity.InboxActivity;
 import com.example.myapplication.src.User;
 
 import java.util.List;
@@ -48,6 +50,8 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
                 if (loginCheck(name, pwd)) {
                     Toast.makeText(LoginActivityBPlusTree.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                     //跳转到新的activity
+                    Intent intent = new Intent(LoginActivityBPlusTree.this, HomeActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivityBPlusTree.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
