@@ -73,39 +73,51 @@ public class FirebaseInit extends Application {
                 Log.d("InitialisePost", "Initialisation===========Post===============");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // 解析Post字段
-                    //需要先初始化ArticleType实例，
-                    String articleTypeName = snapshot.child("articleType").getValue(String.class);
-                    Tag.ArticleType ArticleType = new Tag.ArticleType(articleTypeName);
-
-                    // 然后再初始化一个SubCategory实例
-                    String subCategoryName = snapshot.child("subCategory").getValue(String.class);
-                    Tag.SubCategory subCategory = new Tag.SubCategory(subCategoryName, ArticleType);
-
-                    // ，然后再初始化MasterCategory实例，
-                    String masterCategoryName = snapshot.child("masterCategory").getValue(String.class);
-                    Tag.MasterCategory masterCategory = new Tag.MasterCategory(masterCategoryName, subCategory);
-
-                    // 再初始化Tag，最后才有post实例
+                    String userID = snapshot.child("userID").getValue(String.class);
+                    String postID = snapshot.child("postID").getValue(String.class);
                     String gender = snapshot.child("gender").getValue(String.class);
+                    String masterCategory = snapshot.child("masterCategory").getValue(String.class);
+                    String subCategory = snapshot.child("subCategory").getValue(String.class);
+                    String articleType = snapshot.child("articleType").getValue(String.class);
                     String baseColour = snapshot.child("baseColour").getValue(String.class);
                     String season = snapshot.child("season").getValue(String.class);
-                    String usage = snapshot.child("usage").getValue(String.class);
                     String year = snapshot.child("year").getValue(String.class);
-                    assert year != null;
-                    Tag tag = new Tag(gender, masterCategory, baseColour, season, Integer.parseInt(year), usage);
-
-
-                    // 解析Post
-                    String postID = snapshot.child("postID").getValue(String.class);
-                    String description = snapshot.child("description").getValue(String.class);
-                    String filename = snapshot.child("filename").getValue(String.class);
-                    String link = snapshot.child("link").getValue(String.class);
-                    String price = snapshot.child("price").getValue(String.class);
+                    String usage = snapshot.child("usage").getValue(String.class);
                     String productDisplayName = snapshot.child("productDisplayName").getValue(String.class);
+                    String price = snapshot.child("price").getValue(String.class);
                     String status = snapshot.child("status").getValue(String.class);
+                    String imageUrl = snapshot.child("image_url").getValue(String.class);
+                    String description = snapshot.child("description").getValue(String.class);
                     String comments = snapshot.child("comment").getValue(String.class);
+
+                    assert year != null;
                     assert price != null;
-                    Post post = new Post(postID, tag, productDisplayName, Double.parseDouble(price), status, description, filename, link, comments);
+
+                    // 创建Tag对象
+                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
+                    Tag.SubCategory subCategoryObj = new Tag.SubCategory(subCategory, articleTypeObj);
+                    Tag.MasterCategory masterCategoryObj = new Tag.MasterCategory(masterCategory, subCategoryObj);
+                    Tag tag = new Tag(gender, masterCategoryObj, baseColour, season, Integer.parseInt(year), usage);
+
+                    // 创建Post对象
+                    Post post = new Post(
+                            userID,
+                            gender,
+                            masterCategory,
+                            subCategory,
+                            articleType,
+                            baseColour,
+                            season,
+                            Integer.parseInt(year),
+                            usage,
+                            productDisplayName,
+                            Double.parseDouble(price),
+                            status,
+                            imageUrl,
+                            description,
+                            comments
+                    );
+
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
                 }
             }
