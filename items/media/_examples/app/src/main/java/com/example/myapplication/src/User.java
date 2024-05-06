@@ -31,14 +31,15 @@ public class User {
         // 因为Register只用邮箱和密码，所以用这两个信息初始化每个User实例
         this.userId = generateUniqueId(); // 格式化为8位数字，包含前导零
         this.email = email;
-        this.passwordHash = hashPassword(password);
+        this.passwordHash = password;//删掉了这里所有的hashPassword(password)方法，因为这里不需要哈希，否则会造成两次SHA256
     }
+
 
     // 全参数构造方法,但是userId是自动生成的
     public User(String email, String password, String name, String address, String phone) {
         this.userId = generateUniqueId();  // 生成唯一的用户ID
         this.email = email;
-        this.passwordHash = hashPassword(password);  // 对密码进行哈希处理
+        this.passwordHash = password;  // 对密码进行哈希处理
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -48,7 +49,7 @@ public class User {
         this.userId = userId;  // 生成唯一的用户ID
         allocatedUserIds.add(userId);
         this.email = email;
-        this.passwordHash = hashPassword(password);  // 对密码进行哈希处理
+        this.passwordHash = password;  // 对密码进行哈希处理
         this.name = name;
         this.address = address;
         this.phone = phone;
