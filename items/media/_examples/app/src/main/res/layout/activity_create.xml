@@ -61,6 +61,7 @@
                     android:background="#8793eb"
                     android:orientation="vertical">
 
+                    <!-- Title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -91,6 +92,8 @@
                         android:background="#ffc6c6" />
                 </LinearLayout>
 
+
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -117,13 +120,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/productDisplayName"
+                                android:id="@+id/et_product_display_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_shopping_cart_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Product Name"
+                                android:hint="Product Display Name (e.g., Lakme Absolute Forever Silk Blacklast Eye Liner)"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
@@ -137,13 +140,173 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/price"
+                                android:id="@+id/et_article_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_list_alt_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Article Type (e.g., Kajal and Eyeliner)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_base_colour"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_palette_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Base Colour (e.g., Black)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_master_category"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_category_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Master Category (e.g., Personal Care)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_sub_category"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_category_sub_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Subcategory (e.g., Makeup)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_gender"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_gender_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Gender (e.g., Women)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_season"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_season_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Season (e.g., Summer)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_calendar_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Year (e.g., 2024)"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_usage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableStart="@drawable/ic_usage_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Usage (e.g., Casual)"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_product_price"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_attach_money_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Price"
+                                android:hint="Price (e.g., 49.08)"
                                 android:inputType="numberDecimal"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
@@ -157,13 +320,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/status"
+                                android:id="@+id/et_product_status"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_info_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Status"
+                                android:hint="Status (e.g., sale)"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
@@ -177,13 +340,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/description"
+                                android:id="@+id/et_product_description"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_description_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Description"
+                                android:hint="Description (e.g., Necessitatibus doloremque ad explicabo...)"
                                 android:inputType="textMultiLine"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
@@ -196,13 +359,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/filename"
+                                android:id="@+id/et_filename"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_image_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Image Filename"
+                                android:hint="Image Filename (e.g., 55256.jpg)"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
@@ -216,13 +379,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/link"
+                                android:id="@+id/et_link"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_link_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Link"
+                                android:hint="Image Link (e.g., http://assets.myntassets.com/assets/images/55256/...)"
                                 android:inputType="textUri"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
@@ -234,7 +397,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <Button
-                    android:id="@+id/createPost"
+                    android:id="@+id/btn_submit_post"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
