@@ -392,6 +392,25 @@
                                 android:textSize="16sp" />
                         </com.google.android.material.textfield.TextInputLayout>
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:textColorHint="#FFB3B3B3">
+
+                            <EditText
+                                android:id="@+id/et_comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/ic_comment_gray_24dp"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/calibri"
+                                android:hint="Comments"
+                                android:inputType="textMultiLine"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

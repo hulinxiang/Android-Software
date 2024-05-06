@@ -1,6 +1,5 @@
 package com.example.myapplication.activity;
 
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,19 +8,13 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.example.myapplication.src.Post;
-import com.example.myapplication.src.Tag;
 import com.example.myapplication.R;
-
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
-
-
-import java.util.UUID;
 
 public class CreateActivity extends AppCompatActivity {
 
-    private EditText etProductDisplayName, etArticleType, etBaseColour, etMasterCategory, etSubCategory, etGender, etSeason, etYear, etUsage, etProductPrice, etProductStatus, etProductDescription, etFilename, etLink;
+    private EditText etProductDisplayName, etArticleType, etBaseColour, etMasterCategory, etSubCategory, etGender, etSeason, etYear, etUsage, etProductPrice, etProductStatus, etProductDescription, etFilename, etLink, etComments;
     private Button submitButton;
 
     @Override
@@ -48,6 +41,7 @@ public class CreateActivity extends AppCompatActivity {
         etProductDescription = findViewById(R.id.et_product_description);
         etFilename = findViewById(R.id.et_filename);
         etLink = findViewById(R.id.et_link);
+        etComments = findViewById(R.id.et_comments);
 
         submitButton = findViewById(R.id.btn_submit_post);
 
@@ -76,6 +70,7 @@ public class CreateActivity extends AppCompatActivity {
         String productDescription = etProductDescription.getText().toString();
         String filename = etFilename.getText().toString();
         String link = etLink.getText().toString();
+        String commentText = etComments.getText().toString();
 
         // Validate required fields
         if (productDisplayName.isEmpty() || articleTypeName.isEmpty() || baseColour.isEmpty() || masterCategoryName.isEmpty() || productPriceString.isEmpty()) {
@@ -93,14 +88,12 @@ public class CreateActivity extends AppCompatActivity {
             return;
         }
 
-        // Create Tag and Post instances
-        Tag.ArticleType articleType = new Tag.ArticleType(articleTypeName);
-        Tag.SubCategory subCategory = new Tag.SubCategory(subCategoryName, articleType);
-        Tag.MasterCategory masterCategory = new Tag.MasterCategory(masterCategoryName, subCategory);
-        Tag tag = new Tag(gender, masterCategory, baseColour, season, year, usage);
+        String userID = ""; // Retrieve the userID from Firebase data or any other source
 
-        String postID = UUID.randomUUID().toString(); // Generate a unique post ID
-        Post newPost = new Post(postID, tag, productDisplayName, productPrice, productStatus, productDescription, filename, link, "");
+        Post newPost = new Post(userID, gender, masterCategoryName, subCategoryName, articleTypeName, baseColour, season, year, usage, productDisplayName, productPrice, productStatus, link, productDescription, commentText);
+
+        // Retrieve the generated postID from the newPost object
+        String postID = newPost.getPostID();
 
         // Save the post to B+ Tree
         BPlusTreeManagerPost.getTreeInstance(this).insert(postID, newPost);
@@ -126,5 +119,6 @@ public class CreateActivity extends AppCompatActivity {
         etProductDescription.setText("");
         etFilename.setText("");
         etLink.setText("");
+        etComments.setText("");
     }
 }
