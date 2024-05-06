@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
+import com.example.myapplication.activity.Test.GlideActivityTest;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        Button glideTestButton = findViewById(R.id.GlideTest);
+        glideTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GlideActivityTest.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
