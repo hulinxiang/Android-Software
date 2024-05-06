@@ -24,6 +24,7 @@ public class User {
     private String name;
     private String address;
     private String phone;
+    private PostList postList; // 添加 PostList 属性
 
     // 构造方法，只用邮箱和密码初始化
     public User(String email, String password) {
@@ -139,6 +140,16 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    // 获取用户的 PostList
+    public PostList getPostList() {
+        return postList;
+    }
+
+    // 设置用户的 PostList
+    public void setPostList(PostList postList) {
+        this.postList = postList;
     }
 
 }
