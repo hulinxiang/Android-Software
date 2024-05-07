@@ -27,7 +27,7 @@ public class BPlusTreeManagerPost {
         List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
         Collections.shuffle(allPosts);
         List<Post> selectedPosts = new ArrayList<>();
-        for (int i = 0; i < Math.min(100, allPosts.size()); i++) {
+        for (int i = 0; i < Math.min(8, allPosts.size()); i++) {
             selectedPosts.add(allPosts.get(i));
         }
         return selectedPosts;
