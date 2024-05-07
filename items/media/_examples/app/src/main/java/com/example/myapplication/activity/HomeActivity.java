@@ -87,7 +87,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this,ProfileActivity.class);
-                intent.putExtra("text_email",email);
                 startActivity(intent);
             }
         });

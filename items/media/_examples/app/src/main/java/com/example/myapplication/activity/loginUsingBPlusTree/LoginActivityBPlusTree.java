@@ -53,12 +53,10 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
                     Toast.makeText(LoginActivityBPlusTree.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                     //跳转到新的activity
                     Intent intent = new Intent(LoginActivityBPlusTree.this, HomeActivity.class);
-                    //intent.putExtra("text_email",name);
                     startActivity(intent);
                     //Setting a user upon successful login
                     User loggedInUser = new User(name, "password123", "John Doe", "123 Main St", "555-1234");
                     SessionManager.getInstance().setUser(loggedInUser);
-
                 } else {
                     Toast.makeText(LoginActivityBPlusTree.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
