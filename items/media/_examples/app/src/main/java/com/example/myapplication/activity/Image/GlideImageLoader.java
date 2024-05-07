@@ -10,21 +10,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class GlideImageLoader {
-    private static GlideImageLoader instance;
     private Context context;
 
-    private GlideImageLoader(Context context) {
-        this.context = context.getApplicationContext();
+    public GlideImageLoader(Context context) {
+        this.context = context;
     }
 
-    public static GlideImageLoader getInstance(Context context) {
-        if (instance == null) {
-            instance = new GlideImageLoader(context);
-        }
-        return instance;
-    }
-
-    public void loadImage(String imageUrl, ImageView imageView) {
+    public static void loadImage(Context context, String imageUrl, ImageView imageView) {
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl);
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override

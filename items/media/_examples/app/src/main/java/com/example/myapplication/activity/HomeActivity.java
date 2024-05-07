@@ -31,7 +31,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
+import com.example.myapplication.activity.Image.GlideImageLoader;
 public class HomeActivity extends AppCompatActivity {
 
     private ImageView slideMenu;
@@ -121,16 +121,7 @@ public class HomeActivity extends AppCompatActivity {
             TextView card_name = view.findViewById(R.id.card_name);
             TextView card_price = view.findViewById(R.id.card_price);
 
-
-            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(post.getImageUrl());
-            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    Glide.with(HomeActivity.this)
-                            .load(uri)
-                            .into(card_image);
-                }
-            });
+            GlideImageLoader.loadImage(HomeActivity.this,post.getImageUrl(),card_image);
 
 
             //card_image.setImageResource(R.drawable.favorite_img_1);
