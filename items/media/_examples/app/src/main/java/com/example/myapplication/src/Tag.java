@@ -66,7 +66,7 @@ public class Tag {
     }
 
 
-    static class MasterCategory {
+    public static class MasterCategory {
         private String masterCategoryName;
         private SubCategory subCategory;
 
@@ -92,7 +92,7 @@ public class Tag {
         }
     }
 
-    static class SubCategory {
+    public static class SubCategory {
         private String subCategoryName;
         private ArticleType articleType;
 
@@ -120,7 +120,7 @@ public class Tag {
 
     }
 
-    static class ArticleType {
+    public static class ArticleType {
         private String articleTypeName;
 
         public ArticleType(String articleTypeName) {
