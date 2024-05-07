@@ -26,7 +26,11 @@ public class User {
     private String phone;
     private PostList postList;  // 添加 PostList 属性
     private String userType;    // "0":Admin    "1":normal user
-    private List<Post> posts;
+    private List<Post> ownPosts;
+
+    private List<Post> likePosts;
+
+    private List<Post> buyPosts;
 
 
     // 构造方法，只用邮箱和密码初始化
@@ -58,7 +62,7 @@ public class User {
         this.phone = phone;
     }
 
-//这个构造方法是用来从firebase直接导入的，userId不用自动生成，已经分配过了，等firebase数据改好后，要调用这个来初始化User表
+    //这个构造方法是用来从firebase直接导入的，userId不用自动生成，已经分配过了，等firebase数据改好后，要调用这个来初始化User表
     public User(String userId, String email, String password, String name, String address, String phone, String userType) {
         this.userId = userId;  // 生成唯一的用户ID
         this.email = email;
@@ -67,7 +71,7 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.userType = userType;
-        this.posts = null;    // 先设为null，
+        this.ownPosts = null;    // 先设为null，
     }
 
     // 使用SHA-256对密码进行哈希
