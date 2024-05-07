@@ -42,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         init();
 
+        String email = getIntent().getStringExtra("text_email");
         slideMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +94,8 @@ public class HomeActivity extends AppCompatActivity {
         //网格视图
         gl_post = findViewById(R.id.gl_home);
         showPost();
+
+
 
     }
 

@@ -15,6 +15,8 @@ import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.HomeActivity;
 import com.example.myapplication.activity.InboxActivity;
+import com.example.myapplication.activity.ProfileActivity;
+import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
 import java.util.List;
@@ -52,6 +54,9 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
                     //跳转到新的activity
                     Intent intent = new Intent(LoginActivityBPlusTree.this, HomeActivity.class);
                     startActivity(intent);
+                    //Setting a user upon successful login
+                    User loggedInUser = new User(name, "password123", "John Doe", "123 Main St", "555-1234");
+                    SessionManager.getInstance().setUser(loggedInUser);
                 } else {
                     Toast.makeText(LoginActivityBPlusTree.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
