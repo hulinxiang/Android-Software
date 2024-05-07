@@ -26,7 +26,7 @@ public class FirebaseUserHelper {
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("Firebase add operation", "Execute the method");
+                Log.d("Firebase add operation fxxxxxxxxxxxxk", "Execute the method fxxxxxxxxxk");
                 // 这将给出"user"下子节点的数量
                 long count = dataSnapshot.getChildrenCount();
                 // 现在在这个新索引下设置新用户数据
@@ -38,7 +38,6 @@ public class FirebaseUserHelper {
                 newUserRef.child("address").setValue(user.getAddress());
                 newUserRef.child("phone").setValue(user.getPhone());
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
