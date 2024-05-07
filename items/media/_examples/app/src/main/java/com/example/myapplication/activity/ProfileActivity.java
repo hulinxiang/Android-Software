@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,9 +25,9 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout profile;
     private CardView cardView1;
 
-
-    private TextView text_name;
-    private TextView text_email;
+    private TextView textName;
+    private TextView textEmail;
+    private Button editProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +44,17 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Profile");
 
-        //user profile display
+        // User profile display
         User currentUser = SessionManager.getInstance().getUser();
         if (currentUser != null) {
-            // Use user data as needed
-            String email = currentUser.getEmail();
-            text_email.setText(email);
+            textName.setText(currentUser.getName());
+            textEmail.setText(currentUser.getEmail());
         }
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this,HomeActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this,CreateActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, CreateActivity.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
         inbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this,InboxActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, InboxActivity.class);
                 startActivity(intent);
             }
         });
@@ -86,11 +86,19 @@ public class ProfileActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this,ProfileActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
 
+        // Add click listener for edit profile button
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Set click listener for card view 1
         cardView1.setOnClickListener(new View.OnClickListener() {
@@ -105,14 +113,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Add click listeners for other card views as needed
     }
-    private void init(){
+
+    private void init() {
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);
         create = findViewById(R.id.btn_create);
         inbox = findViewById(R.id.btn_inbox);
         profile = findViewById(R.id.btn_profile);
-        text_email = findViewById(R.id.text_email);
-        text_name = findViewById(R.id.text_name);
+        textEmail = findViewById(R.id.text_email);
+        textName = findViewById(R.id.text_name);
+        editProfileButton = findViewById(R.id.btn_edit_profile); // Correct initialization
     }
-
 }
