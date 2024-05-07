@@ -5,19 +5,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
+import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
+import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -28,8 +25,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText addressEditText;
     private EditText phoneEditText;
     private Button saveChangesButton;
+    private ImageView returnButton;
 
-    private DatabaseReference userDatabaseRef;
     private User user;
 
     @Override
@@ -46,8 +43,18 @@ public class EditProfileActivity extends AppCompatActivity {
                 saveProfileChanges();
             }
         });
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
+    /**
+     * Initialize views.
+     */
     private void init() {
         profileImage = findViewById(R.id.profile_image);
         passwordEditText = findViewById(R.id.edit_password);
@@ -55,20 +62,27 @@ public class EditProfileActivity extends AppCompatActivity {
         addressEditText = findViewById(R.id.edit_address);
         phoneEditText = findViewById(R.id.edit_phone);
         saveChangesButton = findViewById(R.id.btn_save_changes);
-        userDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
+        returnButton = findViewById(R.id.returnButton);
     }
 
+    /**
+     * Load the current user data from the local BPlusTree.
+     */
     private void loadUserData() {
-        // Retrieve the current user's data and populate the fields
-        user = getCurrentUser(); // Implement this method to get the current user
+        user = getCurrentUser();
 
         if (user != null) {
             nameEditText.setText(user.getName());
             addressEditText.setText(user.getAddress());
             phoneEditText.setText(user.getPhone());
+        } else {
+            Toast.makeText(EditProfileActivity.this, "User data not found!", Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Save changes made to the user profile to both Firebase and local BPlusTree.
+     */
     private void saveProfileChanges() {
         if (user != null) {
             String newPassword = passwordEditText.getText().toString().trim();
@@ -84,47 +98,38 @@ public class EditProfileActivity extends AppCompatActivity {
             user.updateAddress(newAddress);
             user.updatePhone(newPhone);
 
-            // Save the updated user data to Firebase
-            userDatabaseRef.child(user.getUserId()).setValue(user)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(EditProfileActivity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
-                            finish(); // Exit activity after successful save
-                        } else {
-                            Toast.makeText(EditProfileActivity.this, "Failed to update profile!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-            // Save the updated user data to local BPlusTree
+            // Update Firebase
+            FirebaseUserManager.getInstance(this).addUser(user);
+            // Update local BPlusTree
             BPlusTreeManagerUser.getTreeInstance(this).insert(user.getEmail(), user);
+
+            Toast.makeText(EditProfileActivity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
+            finish(); // Exit activity after successful save
+        } else {
+            Toast.makeText(this, "User data not found!", Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Retrieve the current user from the local BPlusTree.
+     *
+     * @return User object representing the current user.
+     */
     private User getCurrentUser() {
-        final String currentUserEmail = "comp6442@anu.edu.au"; // Replace with the actual user's email
-
-        final User[] userHolder = new User[1];
-        userDatabaseRef.orderByChild("email").equalTo(currentUserEmail)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            userHolder[0] = snapshot.getValue(User.class);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(EditProfileActivity.this, "Failed to load user data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        // Simulate user retrieval from local BPlusTree
-        List<User> matchingUsers = BPlusTreeManagerUser.getTreeInstance(this).query(currentUserEmail);
-        if (!matchingUsers.isEmpty()) {
-            userHolder[0] = matchingUsers.get(0);
+        User currentUser = SessionManager.getInstance().getUser();
+        if (currentUser == null) {
+            Toast.makeText(this, "No current user found in session!", Toast.LENGTH_SHORT).show();
+            return null;
         }
 
-        return userHolder[0];
+        final String currentUserEmail = currentUser.getEmail();
+
+        // Retrieve from local BPlusTree
+        List<User> matchingUsers = BPlusTreeManagerUser.getTreeInstance(this).query(currentUserEmail);
+        if (!matchingUsers.isEmpty()) {
+            return matchingUsers.get(0);
+        }
+
+        return null;
     }
 }
