@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class FirebaseUserHelper {
 
 
@@ -42,6 +44,38 @@ public class FirebaseUserHelper {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d("Firebase add operation failed", "Failure to add user to firebase：" + databaseError.getCode());
+            }
+        });
+    }
+
+
+    public void updateUser(User user) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("user");
+        Log.d("Firebase update operation", "Enter the method");
+        String curUserId = user.getUserId();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int count = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("userID").getValue(String.class), curUserId)) {
+                        DatabaseReference newUserRef = myRef.child(String.valueOf(count));
+                        newUserRef.child("email").setValue(user.getEmail());
+                        newUserRef.child("password").setValue(user.getPasswordHash());
+                        newUserRef.child("name").setValue(user.getName());
+                        newUserRef.child("address").setValue(user.getAddress());
+                        newUserRef.child("phone").setValue(user.getPhone());
+                        break;
+                    }
+                    count++;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("Firebase update operation failed", "Failure to update user to firebase：" + databaseError.getCode());
             }
         });
     }
