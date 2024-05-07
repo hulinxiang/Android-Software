@@ -132,8 +132,14 @@ public class SearchActivity extends AppCompatActivity {
         Toast.makeText(SearchActivity.this, "Search for: " + keyword, Toast.LENGTH_SHORT).show();
 
         //search list
-        List<Post> list = BPlusTreeManagerPost.searchKeyword(getApplicationContext(),keyword);
+        //List<Post> list = BPlusTreeManagerPost.searchKeyword(getApplicationContext(),keyword);
+        List<Post> fullList = BPlusTreeManagerPost.searchKeyword(getApplicationContext(), keyword);
+        List<Post> list = fullList.size() > 8 ? fullList.subList(0, 8) : fullList; // Ensure we only take up to 8 items
 
+        if (list.isEmpty()) {
+            Toast.makeText(this, "No results found for: " + keyword, Toast.LENGTH_SHORT).show();
+            return;
+        }
         for (Post post: list){
             //get the layout from item_card.xml
             View view = LayoutInflater.from(this).inflate(R.layout.item_card,null);
