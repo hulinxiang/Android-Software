@@ -1,15 +1,25 @@
 package com.example.myapplication.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
 import com.example.myapplication.src.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 public class EditProfileActivity extends AppCompatActivity {
     private ImageView profileImage;
@@ -19,6 +29,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText phoneEditText;
     private Button saveChangesButton;
 
+    private DatabaseReference userDatabaseRef;
     private User user;
 
     @Override
@@ -44,6 +55,7 @@ public class EditProfileActivity extends AppCompatActivity {
         addressEditText = findViewById(R.id.edit_address);
         phoneEditText = findViewById(R.id.edit_phone);
         saveChangesButton = findViewById(R.id.btn_save_changes);
+        userDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
     }
 
     private void loadUserData() {
@@ -72,19 +84,47 @@ public class EditProfileActivity extends AppCompatActivity {
             user.updateAddress(newAddress);
             user.updatePhone(newPhone);
 
-            // Save the updated user data
-            saveUserData(user); // Implement this method to save the user data
+            // Save the updated user data to Firebase
+            userDatabaseRef.child(user.getUserId()).setValue(user)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(EditProfileActivity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
+                            finish(); // Exit activity after successful save
+                        } else {
+                            Toast.makeText(EditProfileActivity.this, "Failed to update profile!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+            // Save the updated user data to local BPlusTree
+            BPlusTreeManagerUser.getTreeInstance(this).insert(user.getEmail(), user);
         }
     }
 
     private User getCurrentUser() {
-        // Implement this method to retrieve the current user's data
-        // Return the current user object
-        return null;
-    }
+        final String currentUserEmail = "comp6442@anu.edu.au"; // Replace with the actual user's email
 
-    private void saveUserData(User user) {
-        // Implement this method to save the user data
-        // You can use SharedPreferences, SQLite, or any other storage mechanism
+        final User[] userHolder = new User[1];
+        userDatabaseRef.orderByChild("email").equalTo(currentUserEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            userHolder[0] = snapshot.getValue(User.class);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(EditProfileActivity.this, "Failed to load user data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // Simulate user retrieval from local BPlusTree
+        List<User> matchingUsers = BPlusTreeManagerUser.getTreeInstance(this).query(currentUserEmail);
+        if (!matchingUsers.isEmpty()) {
+            userHolder[0] = matchingUsers.get(0);
+        }
+
+        return userHolder[0];
     }
 }
