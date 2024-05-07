@@ -30,6 +30,9 @@ public class FirebaseInit extends Application {
 
         // 加载User数据
         DatabaseReference usersRef = database.child("user");
+
+        //''addListenerForSingleValueEvent'' will execute the onDataChange method   immediately and
+        // after executing that method once, it stops listening to the reference location it is attached to.
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

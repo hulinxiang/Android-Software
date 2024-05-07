@@ -11,8 +11,11 @@ import android.widget.Toast;
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
+import com.example.myapplication.src.Firebase.UserManager.FirebaseUserHelper;
+import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
 import com.example.myapplication.src.SearchManager;
 import com.example.myapplication.src.User;
+import com.google.firebase.FirebaseApp;
 
 import java.util.List;
 
@@ -50,6 +53,8 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
                 if (checkValid(registerEmail, pwd)) {
                     User user = new User(registerEmail, pwd);
                     BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
+                    //firebase更新
+                    FirebaseUserManager.getInstance(getApplicationContext()).addUser(user);
                     Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
