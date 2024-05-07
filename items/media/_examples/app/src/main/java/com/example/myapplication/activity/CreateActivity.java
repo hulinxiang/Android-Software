@@ -1,9 +1,11 @@
 package com.example.myapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private EditText etProductDisplayName, etArticleType, etBaseColour, etMasterCategory, etSubCategory, etGender, etSeason, etYear, etUsage, etProductPrice, etProductStatus, etProductDescription, etFilename, etLink, etComments;
     private Button submitButton;
+    private ImageView returnButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +47,24 @@ public class CreateActivity extends AppCompatActivity {
         etComments = findViewById(R.id.et_comments);
 
         submitButton = findViewById(R.id.btn_submit_post);
+        returnButton = findViewById(R.id.returnButton);
 
         // Handle the submit button click
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 createPost();
+            }
+        });
+
+        // Handle the return button click
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate back to the Home Activity
+                Intent intent = new Intent(CreateActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish(); // Close the Create Activity
             }
         });
     }
@@ -81,7 +96,7 @@ public class CreateActivity extends AppCompatActivity {
         double productPrice;
         int year;
         try {
-            productPrice = Double.parseDouble(productPriceString);
+            productPrice = Double.parseDouble(productPriceString); // Correct usage
             year = Integer.parseInt(yearString);
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Invalid input for price or year", Toast.LENGTH_SHORT).show();
