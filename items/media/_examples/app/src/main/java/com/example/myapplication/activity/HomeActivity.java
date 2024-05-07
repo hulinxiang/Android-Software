@@ -19,8 +19,18 @@ import com.example.myapplication.src.Post;
 import com.example.myapplication.src.PostList;
 import com.example.myapplication.src.User;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import android.content.Context;
+import android.net.Uri;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -111,8 +121,18 @@ public class HomeActivity extends AppCompatActivity {
             TextView card_name = view.findViewById(R.id.card_name);
             TextView card_price = view.findViewById(R.id.card_price);
 
-            //set value to each part
-            card_image.setImageURI(Uri.parse(post.getImageUrl()));
+
+            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(post.getImageUrl());
+            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(HomeActivity.this)
+                            .load(uri)
+                            .into(card_image);
+                }
+            });
+
+
             //card_image.setImageResource(R.drawable.favorite_img_1);
             card_name.setText(post.getProductDisplayName());
             card_price.setText(String.valueOf(post.getPrice()));
