@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 import com.example.myapplication.activity.Test.GlideActivityTest;
+import com.google.firebase.FirebaseApp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseApp.initializeApp(this);
         Button BPlusTreeTest = findViewById(R.id.BPlusTreeTest);
 
 
