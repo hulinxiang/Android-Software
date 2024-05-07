@@ -55,7 +55,7 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivityBPlusTree.this, HomeActivity.class);
                     startActivity(intent);
                     //Setting a user upon successful login
-                    User loggedInUser = new User(name, "password123", "John Doe", "123 Main St", "555-1234");
+                    User loggedInUser = BPlusTreeManagerUser.getTreeInstance(getApplicationContext()).query(name).get(0);
                     SessionManager.getInstance().setUser(loggedInUser);
                 } else {
                     Toast.makeText(LoginActivityBPlusTree.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();

@@ -49,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
             // Use user data as needed
             String email = currentUser.getEmail();
             text_email.setText(email);
+
         }
 
         home.setOnClickListener(new View.OnClickListener() {
