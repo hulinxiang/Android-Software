@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class User {
-    private String userId;
+    private String userId;  //UUID 只在后台传，用户不可读
     private String email;  // Username 默认是
     private String passwordHash;
     private String name;
