@@ -40,4 +40,14 @@ public class PostList {
         }
         return result;
     }
+
+    // Check if the post list is empty
+    public boolean isEmpty() {
+        return posts.isEmpty();
+    }
+
+    // Retrieve a specific post by index
+    public Post get(int index) {
+        return posts.get(index);
+    }
 }

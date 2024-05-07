@@ -25,6 +25,7 @@ import com.example.myapplication.src.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 public class CreateActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private EditText etProductDisplayName, etArticleType, etBaseColour, etMasterCategory, etSubCategory,
             etGender, etSeason, etYear, etUsage, etProductPrice, etProductStatus, etProductDescription, etComments;
-    private Button submitButton;
+    private Button submitButton, resetDefaultsButton;
     private ImageView returnButton, imagePreview, imageOverlay;
     private TextView tvSelectPhoto;
     private StorageReference storageRef;
@@ -71,6 +72,7 @@ public class CreateActivity extends AppCompatActivity {
         etComments = findViewById(R.id.et_comments);
 
         submitButton = findViewById(R.id.btn_submit_post);
+        resetDefaultsButton = findViewById(R.id.btn_reset_defaults);
         returnButton = findViewById(R.id.returnButton);
         imagePreview = findViewById(R.id.image_preview);
         imageOverlay = findViewById(R.id.image_overlay);
@@ -81,6 +83,9 @@ public class CreateActivity extends AppCompatActivity {
 
         // Handle the submit button click
         submitButton.setOnClickListener(view -> uploadFile());
+
+        // Handle the reset defaults button click
+        resetDefaultsButton.setOnClickListener(view -> applyDefaultValues());
 
         // Handle the return button click
         returnButton.setOnClickListener(view -> {
@@ -221,5 +226,30 @@ public class CreateActivity extends AppCompatActivity {
         imagePreview.setImageResource(R.drawable.ic_camera_alt_black_24dp);
         tvSelectPhoto.setVisibility(View.VISIBLE);
         imageOverlay.setVisibility(View.GONE);
+    }
+
+    // Apply default values
+    private void applyDefaultValues() {
+        User currentUser = SessionManager.getInstance().getUser();
+        String defaultGender = "Unisex";
+
+        // Retrieve gender from the first post in the PostList if available
+        if (currentUser != null && currentUser.getPostList() != null && !currentUser.getPostList().isEmpty()) {
+            defaultGender = currentUser.getPostList().get(0).getTag().getGender();
+        }
+
+        etGender.setText(defaultGender);
+        etProductDisplayName.setText("Default Product Name");
+        etArticleType.setText("T-shirt");
+        etBaseColour.setText("Blue");
+        etMasterCategory.setText("Clothing");
+        etSubCategory.setText("Tops");
+        etSeason.setText("Spring");
+        etYear.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+        etUsage.setText("Casual");
+        etProductPrice.setText("29.99");
+        etProductStatus.setText("Available");
+        etProductDescription.setText("This is a default product description.");
+        etComments.setText("Add comments here...");
     }
 }
