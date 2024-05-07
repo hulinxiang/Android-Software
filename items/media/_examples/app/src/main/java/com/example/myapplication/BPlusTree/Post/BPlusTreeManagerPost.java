@@ -38,7 +38,9 @@ public class BPlusTreeManagerPost {
         List<Post> filteredRes = new ArrayList<>();
         for (Post post : allPosts) {
             String description = post.getDescription();
-            if (description.trim().toLowerCase().contains(keyword.trim().toLowerCase())) {
+            String title = post.getProductDisplayName();
+            if (description.trim().toLowerCase().contains(keyword.trim().toLowerCase())
+                    || keyword.trim().toLowerCase().contains(title.trim().toLowerCase())) {
                 filteredRes.add(post);
             }
         }
