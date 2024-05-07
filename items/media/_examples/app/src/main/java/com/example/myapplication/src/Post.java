@@ -22,7 +22,8 @@ public class Post {
                 double price, String status, String imageUrl, String description, String commentText)  {
         this.userID = userID;
         this.postID = generatePostID();
-        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+//        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
         this.productDisplayName = productDisplayName;
         this.price = price;
         this.status = status;
@@ -36,7 +37,8 @@ public class Post {
                 double price, String status, String imageUrl, String description, String commentText)  {
         this.userID = userID;
         this.postID = getPostID();
-        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+//        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
         this.productDisplayName = productDisplayName;
         this.price = price;
         this.status = status;

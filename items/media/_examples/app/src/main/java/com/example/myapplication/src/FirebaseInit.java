@@ -94,10 +94,10 @@ public class FirebaseInit extends Application {
                     assert price != null;
 
                     // 创建Tag对象
-                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
-                    Tag.SubCategory subCategoryObj = new Tag.SubCategory(subCategory, articleTypeObj);
-                    Tag.MasterCategory masterCategoryObj = new Tag.MasterCategory(masterCategory, subCategoryObj);
-                    Tag tag = new Tag(gender, masterCategoryObj, baseColour, season, Integer.parseInt(year), usage);
+//                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
+//                    Tag.SubCategory subCategoryObj = new Tag.SubCategory(subCategory, articleTypeObj);
+//                    Tag.MasterCategory masterCategoryObj = new Tag.MasterCategory(masterCategory, subCategoryObj);
+                    Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
 
                     // 创建Post对象
                     Post post = new Post(

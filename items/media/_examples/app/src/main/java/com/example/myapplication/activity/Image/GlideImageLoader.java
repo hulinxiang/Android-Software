@@ -10,6 +10,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class GlideImageLoader {
+    private Context context;
+
+    public GlideImageLoader(Context context) {
+        this.context = context;
+    }
+
     public static void loadImage(Context context, String imageUrl, ImageView imageView) {
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl);
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -22,8 +28,3 @@ public class GlideImageLoader {
         });
     }
 }
-
-// Usage例子:
-//    String imageUrl = "gs://login-register-firebase-94766.appspot.com/6001.jpg";
-//    ImageView imageView = findViewById(R.id.imageViewTest);
-//    GlideImageLoader.loadImage(this, imageUrl, imageView);
