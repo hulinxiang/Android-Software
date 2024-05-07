@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 import com.example.myapplication.activity.loginUsingBPlusTree.RegisterActivityBPlusTree;
 
@@ -51,7 +52,7 @@ public class PostActivity extends AppCompatActivity {
         String p_description = getIntent().getStringExtra("post_description");
         String p_seller = getIntent().getStringExtra("post_seller");
 
-        post_image.setImageURI(Uri.parse(p_image));
+        GlideImageLoader.loadImage(PostActivity.this,p_image,post_image);
         post_description.setText(p_description);
         post_price.setText(String.valueOf(p_price));
         post_name.setText(p_name);

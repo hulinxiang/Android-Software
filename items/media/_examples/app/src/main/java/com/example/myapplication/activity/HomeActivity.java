@@ -122,9 +122,6 @@ public class HomeActivity extends AppCompatActivity {
             TextView card_price = view.findViewById(R.id.card_price);
 
             GlideImageLoader.loadImage(HomeActivity.this,post.getImageUrl(),card_image);
-
-
-            //card_image.setImageResource(R.drawable.favorite_img_1);
             card_name.setText(post.getProductDisplayName());
             card_price.setText(String.valueOf(post.getPrice()));
 

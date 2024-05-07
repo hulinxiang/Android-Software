@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Post;
 
 import java.util.ArrayList;
@@ -131,34 +132,9 @@ public class SearchActivity extends AppCompatActivity {
         Toast.makeText(SearchActivity.this, "Search for: " + keyword, Toast.LENGTH_SHORT).show();
 
         //search list
-        List<Post> list = new ArrayList<>();
-        // Adding sample data to the list
-        list.add(new Post("5","@drawable/favorite_img_2", "Nature", 5,"1","description"));
-        list.add(new Post("6","@drawable/favorite_img_2", "Cityscape", 6,"1","description"));
-        list.add(new Post("7","@drawable/favorite_img_2", "Ocean", 7,"1","description"));
-        list.add(new Post("8","@drawable/favorite_img_2", "Mountains", 8,"1","description"));
+        List<Post> list = BPlusTreeManagerPost.searchKeyword(getApplicationContext(),keyword);
 
-        List<Post> list1 = new ArrayList<>();
-        // Adding sample data to the list
-        list1.add(new Post("1","@drawable/favorite_img_1", "Nature", 1,"1","description"));
-        list1.add(new Post("2","@drawable/favorite_img_1", "Cityscape", 2,"1","description"));
-        list1.add(new Post("3","@drawable/favorite_img_1", "Ocean", 3,"1","description"));
-        list1.add(new Post("4","@drawable/favorite_img_1", "Mountains", 4,"1","description"));
-
-        //list i need
-        List<Post> list3 = BPlusTreeManagerPost.searchKeyword(getApplicationContext(),keyword);
-
-        List<Post> currentList;
-
-        if (keyword.equals("1")) {
-            currentList = list;
-        } else if (keyword.equals("2")) {
-            currentList = list1;
-        } else {
-           currentList = list3;
-        }
-
-        for (Post post: currentList){
+        for (Post post: list){
             //get the layout from item_card.xml
             View view = LayoutInflater.from(this).inflate(R.layout.item_card,null);
             ImageView card_image = view.findViewById(R.id.card_image);
@@ -173,13 +149,10 @@ public class SearchActivity extends AppCompatActivity {
             String post_id =  post.getPostID();
             String user_id =  post.getUserID();
 
-
-            //card_image.setImageURI(Uri.parse(post.getImageUrl()));
-            Glide.with(this).load(Uri.parse(post_image)).into(card_image);
-            //card_image.setImageResource(R.drawable.favorite_img_1);
+            GlideImageLoader.loadImage(SearchActivity.this,post.getImageUrl(),card_image);
+            //card_image.setImageURI(Uri.parse(post_image));
             card_name.setText(post_name);
             card_price.setText(String.valueOf(post_price));
-
             //get the height and weight from the screen
             int screenWidth = getResources().getDisplayMetrics().widthPixels;
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth/2, ViewGroup.LayoutParams.WRAP_CONTENT);
