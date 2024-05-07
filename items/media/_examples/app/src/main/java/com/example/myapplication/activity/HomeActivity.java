@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
 import com.example.myapplication.src.Post;
@@ -97,11 +99,10 @@ public class HomeActivity extends AppCompatActivity {
         showPost();
 
 
-
     }
 
     private void showPost(){
-        //需要一个list
+        //recommender list
         List<Post> list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
 
         for (Post post: list){
@@ -112,10 +113,19 @@ public class HomeActivity extends AppCompatActivity {
             TextView card_price = view.findViewById(R.id.card_price);
 
             //set value to each part
-            card_image.setImageURI(Uri.parse(post.getImageUrl()));
+            String post_name  = post.getProductDisplayName();
+            Double post_price  = post.getPrice();
+            String post_description  = post.getDescription();
+            String post_image  = post.getImageUrl();
+            String post_id =  post.getPostID();
+            String user_id =  post.getUserID();
+
+
+            //card_image.setImageURI(Uri.parse(post.getImageUrl()));
+            Glide.with(this).load(Uri.parse(post_image)).into(card_image);
             //card_image.setImageResource(R.drawable.favorite_img_1);
-            card_name.setText(post.getProductDisplayName());
-            card_price.setText(String.valueOf(post.getPrice()));
+            card_name.setText(post_name);
+            card_price.setText(String.valueOf(post_price));
 
             //get the height and weight from the screen
             int screenWidth = getResources().getDisplayMetrics().widthPixels;
@@ -126,17 +136,16 @@ public class HomeActivity extends AppCompatActivity {
             //click image jump to post detail page
             card_image.setOnClickListener(v ->{
                 Intent intent = new Intent(HomeActivity.this,PostActivity.class);
-                intent.putExtra("post_id",post.getPostID());
-                intent.putExtra("post_image",post.getImageUrl());
-                intent.putExtra("post_name",post.getProductDisplayName());
-                intent.putExtra("post_description",post.getDescription());
-                intent.putExtra("post_price",post.getPrice());
-                intent.putExtra("post_seller", post.getUserID());
+                intent.putExtra("post_id",post_id);
+                intent.putExtra("post_image",post_image);
+                intent.putExtra("post_name",post_name);
+                intent.putExtra("post_description",post_description);
+                intent.putExtra("post_price",post_price);
+                intent.putExtra("post_seller", user_id);
                 startActivity(intent);
             });
         }
     }
-
 
     private void init(){
         slideMenu = findViewById(R.id.btn_slide_menu);

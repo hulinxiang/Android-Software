@@ -35,12 +35,13 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
         init();
+        showDetail();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showDetail();
+        //showDetail();
     }
 
     private void showDetail(){
@@ -50,8 +51,7 @@ public class PostActivity extends AppCompatActivity {
         String p_description = getIntent().getStringExtra("post_description");
         String p_seller = getIntent().getStringExtra("post_seller");
 
-        //post_image.setImageURI(Uri.parse(p_image));
-        post_image.setImageResource(R.drawable.favorite_img_1);
+        post_image.setImageURI(Uri.parse(p_image));
         post_description.setText(p_description);
         post_price.setText(String.valueOf(p_price));
         post_name.setText(p_name);

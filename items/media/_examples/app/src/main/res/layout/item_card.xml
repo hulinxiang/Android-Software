@@ -37,7 +37,9 @@
                         tools:text="Books"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:ellipsize="end"
+                        android:singleLine="true"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
