@@ -2,13 +2,13 @@ package com.example.myapplication.src;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Post {
     private static int nextPostID = 1000;
-
-    private String userID;
     private String postID;
+    private String userID;
     private Tag tag;
     private String productDisplayName;
     private double price;
@@ -17,12 +17,26 @@ public class Post {
     private String description;
     private List<Comment> comments;
 
+//    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
+//                String baseColour, String season, int year, String usage, String productDisplayName,
+//                double price, String status, String imageUrl, String description, String commentText)  {
+//        this.userID = userID;
+//        this.postID = generatePostID();
+////        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+//        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
+//        this.productDisplayName = productDisplayName;
+//        this.price = price;
+//        this.status = status;
+//        this.imageUrl = imageUrl;
+//        this.description = description;
+//        this.comments = parseComments(commentText);
+//    }
+    //用来扒取firebase的全参构造器，全部数据从firebase读取
     public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
                 double price, String status, String imageUrl, String description, String commentText)  {
-        this.userID = userID;
         this.postID = generatePostID();
-//        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
+        this.userID = userID;
         this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
         this.productDisplayName = productDisplayName;
         this.price = price;
@@ -31,13 +45,12 @@ public class Post {
         this.description = description;
         this.comments = parseComments(commentText);
     }
-
-    public Post(String userID, String postID, String gender, String masterCategory, String subCategory, String articleType,
+    //用来扒取firebase的全参构造器，全部数据从firebase读取
+    public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
                 double price, String status, String imageUrl, String description, String commentText)  {
+        this.postID = postID;
         this.userID = userID;
-        this.postID = getPostID();
-//        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
         this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
         this.productDisplayName = productDisplayName;
         this.price = price;
@@ -67,8 +80,12 @@ public class Post {
         this.userID = userID;
     }
 
+//    private static String generatePostID() {
+//        return String.valueOf(nextPostID++);
+//    }
+
     private static String generatePostID() {
-        return String.valueOf(nextPostID++);
+        return UUID.randomUUID().toString();
     }
 
     private List<Comment> parseComments(String commentText) {
