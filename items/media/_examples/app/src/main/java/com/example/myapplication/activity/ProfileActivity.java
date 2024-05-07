@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.src.SessionManager;
+import com.example.myapplication.src.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -20,6 +23,10 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout inbox;
     private LinearLayout profile;
     private CardView cardView1;
+
+
+    private TextView text_name;
+    private TextView text_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,14 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Profile");
+
+        //user profile display
+        User currentUser = SessionManager.getInstance().getUser();
+        if (currentUser != null) {
+            // Use user data as needed
+            String email = currentUser.getEmail();
+            text_email.setText(email);
+        }
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +111,8 @@ public class ProfileActivity extends AppCompatActivity {
         create = findViewById(R.id.btn_create);
         inbox = findViewById(R.id.btn_inbox);
         profile = findViewById(R.id.btn_profile);
+        text_email = findViewById(R.id.text_email);
+        text_name = findViewById(R.id.text_name);
     }
 
 }
