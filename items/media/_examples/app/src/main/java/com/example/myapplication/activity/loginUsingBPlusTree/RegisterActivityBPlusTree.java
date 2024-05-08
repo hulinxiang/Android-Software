@@ -17,6 +17,10 @@ import com.example.myapplication.src.SearchManager;
 import com.example.myapplication.src.User;
 import com.google.firebase.FirebaseApp;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class RegisterActivityBPlusTree extends AppCompatActivity {
@@ -44,6 +48,27 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
         });
 
 
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String registerEmail = email.getText().toString();
+//                String pwd = password.getText().toString();
+//
+//                if (checkValid(registerEmail, pwd)) {
+//                    User user = new User(registerEmail, pwd);
+//                    BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
+//                    //firebase更新
+//                    FirebaseUserManager.getInstance(getApplicationContext()).addUser(user);
+//                    Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                } else {
+//                    Toast.makeText(RegisterActivityBPlusTree.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+
+// 在 register 按钮的点击事件中，修改 User 对象的创建部分
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,10 +76,12 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
                 String pwd = password.getText().toString();
 
                 if (checkValid(registerEmail, pwd)) {
-                    User user = new User(registerEmail, pwd);
+                    String encryptedPassword = DigestUtils.sha256Hex(pwd);
+                    User user = new User(registerEmail, encryptedPassword);
+
                     BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
-                    //firebase更新
                     FirebaseUserManager.getInstance(getApplicationContext()).addUser(user);
+
                     Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
