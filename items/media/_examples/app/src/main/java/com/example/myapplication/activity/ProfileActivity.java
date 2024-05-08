@@ -54,14 +54,6 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         init();
 
-        // Initialize views
-        toolbar = findViewById(R.id.toolbar);
-
-        // Set up toolbar
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Profile");
-
         // User profile display
         User currentUser = SessionManager.getInstance().getUser();
         if (currentUser != null) {
@@ -168,9 +160,9 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private void updateButtonStyles(String view) {
-        postsButton.setTextColor(getResources().getColor(view.equals("posts") ? R.color.colorAccent : android.R.color.white));
-        likesButton.setTextColor(getResources().getColor(view.equals("likes") ? R.color.colorAccent : android.R.color.white));
-        buyButton.setTextColor(getResources().getColor(view.equals("buy") ? R.color.colorAccent : android.R.color.white));
+        postsButton.setTextColor(getResources().getColor(view.equals("posts") ? R.color.black : android.R.color.white));
+        likesButton.setTextColor(getResources().getColor(view.equals("likes") ? R.color.black : android.R.color.white));
+        buyButton.setTextColor(getResources().getColor(view.equals("buy") ? R.color.black : android.R.color.white));
     }
 
     private void showPost(GridLayout grid, Class<?> activityClass){
