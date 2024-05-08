@@ -17,11 +17,9 @@ import java.util.Objects;
 
 public class FirebaseUserHelper {
 
-
     public void addUser(User user) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("user");
-
 
         Log.d("Firebase add operation", "Enter the method");
 
@@ -39,6 +37,8 @@ public class FirebaseUserHelper {
                 newUserRef.child("name").setValue(user.getName());
                 newUserRef.child("address").setValue(user.getAddress());
                 newUserRef.child("phone").setValue(user.getPhone());
+                newUserRef.child("userIndexInFirebase").setValue(user.getUserIndexInFirebase());
+                newUserRef.child("userType").setValue(user.getUserType());
             }
 
             @Override
@@ -47,7 +47,6 @@ public class FirebaseUserHelper {
             }
         });
     }
-
 
     public void updateUser(User user) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -67,11 +66,12 @@ public class FirebaseUserHelper {
                         newUserRef.child("name").setValue(user.getName());
                         newUserRef.child("address").setValue(user.getAddress());
                         newUserRef.child("phone").setValue(user.getPhone());
+                        newUserRef.child("userIndexInFirebase").setValue(user.getUserIndexInFirebase());
+                        newUserRef.child("userType").setValue(user.getUserType());
                         break;
                     }
                     count++;
                 }
-
             }
 
             @Override

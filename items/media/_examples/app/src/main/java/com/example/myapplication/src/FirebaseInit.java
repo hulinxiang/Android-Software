@@ -51,11 +51,11 @@ public class FirebaseInit extends Application {
                     String address = snapshot.child("address").getValue(String.class);
                     String phone = snapshot.child("phone").getValue(String.class);
                     String userType = snapshot.child("userType").getValue(String.class);
+                    String userIndexInFirebase =  snapshot.child("userIndexInFirebase").getValue(String.class);
 
                     // 构造创建User对象
                     if (email != null && password != null && userId != null) {
-                        User user = new User(userId, email, password, name, address, phone);
-                        //User user = new User(userId, email, password, name, address, phone, userType);   // 要改成这个构造器，其中此时的user的posts会被设置成null
+                        User user = new User(userId, email, password, name, address, phone,userType,userIndexInFirebase);
                         BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(email, user);
                         // Log.d("Constructing........", "Adding user: " + email + " to the local tree");
                     }
