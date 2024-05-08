@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,16 +15,13 @@ import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
-import java.util.List;
-
 public class EditProfileActivity extends AppCompatActivity {
-    private ImageView profileImage;
+    private ImageView returnButton;
     private EditText passwordEditText;
     private EditText nameEditText;
     private EditText addressEditText;
     private EditText phoneEditText;
     private Button saveChangesButton;
-    private ImageView returnButton;
 
     private User user;
 
@@ -56,13 +52,12 @@ public class EditProfileActivity extends AppCompatActivity {
      * Initialize views.
      */
     private void init() {
-        profileImage = findViewById(R.id.profile_image);
+        returnButton = findViewById(R.id.returnButton);
         passwordEditText = findViewById(R.id.edit_password);
         nameEditText = findViewById(R.id.edit_name);
         addressEditText = findViewById(R.id.edit_address);
         phoneEditText = findViewById(R.id.edit_phone);
         saveChangesButton = findViewById(R.id.btn_save_changes);
-        returnButton = findViewById(R.id.returnButton);
     }
 
     /**
@@ -70,7 +65,6 @@ public class EditProfileActivity extends AppCompatActivity {
      */
     private void loadUserData() {
         user = getCurrentUser();
-
         if (user != null) {
             nameEditText.setText(user.getName());
             addressEditText.setText(user.getAddress());
@@ -99,7 +93,7 @@ public class EditProfileActivity extends AppCompatActivity {
             user.updatePhone(newPhone);
 
             // Update Firebase
-            FirebaseUserManager.getInstance(this).addUser(user);
+            FirebaseUserManager.getInstance(this).updateUser(user);
             // Update local BPlusTree
             BPlusTreeManagerUser.getTreeInstance(this).insert(user.getEmail(), user);
 
@@ -122,14 +116,14 @@ public class EditProfileActivity extends AppCompatActivity {
             return null;
         }
 
-        final String currentUserEmail = currentUser.getEmail();
+        String currentUserId = currentUser.getUserId();
 
-        // Retrieve from local BPlusTree
-        List<User> matchingUsers = BPlusTreeManagerUser.getTreeInstance(this).query(currentUserEmail);
-        if (!matchingUsers.isEmpty()) {
-            return matchingUsers.get(0);
+        // Retrieve from local BPlusTree using userId
+        User user = BPlusTreeManagerUser.getUserViaUserId(this, currentUserId);
+        if (user == null) {
+            Toast.makeText(this, "User data not found!", Toast.LENGTH_SHORT).show();
         }
 
-        return null;
+        return user;
     }
 }
