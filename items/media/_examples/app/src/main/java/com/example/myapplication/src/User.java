@@ -2,6 +2,7 @@ package com.example.myapplication.src;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,6 +41,9 @@ public class User {
         this.email = email;
         this.passwordHash = password;//删掉了这里所有的hashPassword(password)方法，因为这里不需要哈希，否则会造成两次SHA256
         this.userType = "1";
+        this.ownPosts = new ArrayList<>();
+        this.likePosts = new ArrayList<>();
+        this.buyPosts = new ArrayList<>();
     }
 
     // 全参数构造方法,但是userId是自动生成的
@@ -51,6 +55,9 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.userType = "1";
+        this.ownPosts = new ArrayList<>();
+        this.likePosts = new ArrayList<>();
+        this.buyPosts = new ArrayList<>();
     }
 
     public User(String userId, String email, String password, String name, String address, String phone) {
@@ -60,6 +67,9 @@ public class User {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.ownPosts = new ArrayList<>();
+        this.likePosts = new ArrayList<>();
+        this.buyPosts = new ArrayList<>();
     }
 
     //这个构造方法是用来从firebase直接导入的，userId不用自动生成，已经分配过了，等firebase数据改好后，要调用这个来初始化User表
@@ -71,7 +81,9 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.userType = userType;
-        this.ownPosts = null;    // 先设为null，
+        this.ownPosts = new ArrayList<>();
+        this.likePosts = new ArrayList<>();
+        this.buyPosts = new ArrayList<>();
     }
 
     // 使用SHA-256对密码进行哈希
@@ -160,6 +172,18 @@ public class User {
     // 设置用户的 PostList
     public void setPostList(PostList postList) {
         this.postList = postList;
+    }
+
+    public void updateLikes(Post post){
+        this.likePosts.add(post);
+    }
+
+    public void updateBuys(Post post){
+        this.buyPosts.add(post);
+    }
+
+    public void updateOwns(Post post){
+        this.ownPosts.add(post);
     }
 
 }
