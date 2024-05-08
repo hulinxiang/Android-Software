@@ -12,6 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 
 public class FirebasePostHelper {
 
@@ -42,6 +44,41 @@ public class FirebasePostHelper {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d("Firebase add operation failed", "Failure to add post to firebase：" + databaseError.getCode());
+            }
+        });
+    }
+
+
+    public void updatePost(Post post) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("post");
+        String curPostId = post.getPostID();
+
+        Log.d("Firebase update operation", "Enter the method");
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("Firebase update operation", "Execute the method");
+                int count = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
+                        DatabaseReference newPostRef = myRef.child(String.valueOf(count));
+                        newPostRef.child("userID").setValue(post.getUserID());
+                        newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
+                        newPostRef.child("price").setValue(Double.toString(post.getPrice()));
+                        newPostRef.child("status").setValue(post.getStatus());
+                        newPostRef.child("imageUrl").setValue(post.getImageUrl());
+                        newPostRef.child("description").setValue(post.getDescription());
+                        break;
+                    }
+                    count++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("Firebase update operation failed", "Failure to update post to firebase：" + databaseError.getCode());
             }
         });
     }

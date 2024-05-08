@@ -57,6 +57,7 @@ public class FirebaseUserHelper {
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("Firebase update operation", "Execute the method");
                 int count = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("userID").getValue(String.class), curUserId)) {
