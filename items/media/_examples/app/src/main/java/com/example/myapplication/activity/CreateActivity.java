@@ -1,5 +1,4 @@
 package com.example.myapplication.activity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,6 +18,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.R;
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
@@ -82,7 +82,13 @@ public class CreateActivity extends AppCompatActivity {
         imagePreview.setOnClickListener(v -> openFileChooser());
 
         // Handle the submit button click
-        submitButton.setOnClickListener(view -> uploadFile());
+        submitButton.setOnClickListener(view -> {
+            if (imageUri != null) {
+                uploadFile();
+            } else {
+                Toast.makeText(this, "Please select an image to upload", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Handle the reset defaults button click
         resetDefaultsButton.setOnClickListener(view -> applyDefaultValues());
@@ -150,8 +156,6 @@ public class CreateActivity extends AppCompatActivity {
                     }))
                     .addOnFailureListener(e -> Toast.makeText(CreateActivity.this,
                             "Upload failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-        } else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -197,11 +201,16 @@ public class CreateActivity extends AppCompatActivity {
                 baseColour, season, year, usage, productDisplayName, productPrice, productStatus, imageUrl,
                 productDescription, commentText);
 
-        // Retrieve the generated postID from the newPost object
-        String postID = newPost.getPostID();
+        // Associate the post with the current user
+        if (currentUser != null) {
+            currentUser.addOwnPost(newPost);
+        }
 
         // Save the post to the BPlus Tree
-        BPlusTreeManagerPost.getTreeInstance(this).insert(postID, newPost);
+        BPlusTreeManagerPost.getTreeInstance(this).insert(newPost.getPostID(), newPost);
+
+        // Save the post to Firebase
+        FirebasePostManager.getInstance(this).addPost(newPost);
 
         Toast.makeText(this, "Post created successfully!", Toast.LENGTH_SHORT).show();
 
@@ -226,18 +235,14 @@ public class CreateActivity extends AppCompatActivity {
         imagePreview.setImageResource(R.drawable.ic_camera_alt_black_24dp);
         tvSelectPhoto.setVisibility(View.VISIBLE);
         imageOverlay.setVisibility(View.GONE);
+        imageUri = null;
     }
 
     // Apply default values
     private void applyDefaultValues() {
-        User currentUser = SessionManager.getInstance().getUser();
         String defaultGender = "Unisex";
 
-        // Retrieve gender from the first post in the PostList if available
-        if (currentUser != null && currentUser.getPostList() != null && !currentUser.getPostList().isEmpty()) {
-            defaultGender = currentUser.getPostList().get(0).getTag().getGender();
-        }
-
+        // Apply predefined default values
         etGender.setText(defaultGender);
         etProductDisplayName.setText("Default Product Name");
         etArticleType.setText("T-shirt");
