@@ -56,7 +56,7 @@ public class FirebaseInit extends Application {
                     if (email != null && password != null && userId != null) {
                         User user = new User(userId, email, password, name, address, phone);
                         //User user = new User(userId, email, password, name, address, phone, userType);   // 要改成这个构造器，其中此时的user的posts会被设置成null
-                        BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(userId, user);
+                        BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(name, user);
                         // Log.d("Constructing........", "Adding user: " + email + " to the local tree");
                     }
                 }
