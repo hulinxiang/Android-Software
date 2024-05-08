@@ -81,5 +81,31 @@ public class FirebaseUserHelper {
         });
     }
 
+    public void deleteUser(User user) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("user");
+        Log.d("Firebase delete operation", "Enter the method");
+        String curUserId = user.getUserId();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("Firebase delete operation", "Execute the method");
+                int count = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("userID").getValue(String.class), curUserId)) {
+                        DatabaseReference newUserRef = myRef.child(String.valueOf(count));
+                        newUserRef.removeValue();
+                        break;
+                    }
+                    count++;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("Firebase delete operation failed", "Failure to delete user to firebase：" + databaseError.getCode());
+            }
+        });
+    }
+
 
 }

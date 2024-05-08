@@ -83,5 +83,34 @@ public class FirebasePostHelper {
         });
     }
 
+    public void deletePost(Post post) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("post");
+        String curPostId = post.getPostID();
+
+        Log.d("Firebase delete operation", "Enter the method");
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("Firebase delete operation", "Execute the method");
+                int count = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
+                        DatabaseReference newPostRef = myRef.child(String.valueOf(count));
+                        newPostRef.removeValue();
+                        break;
+                    }
+                    count++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("Firebase delete operation failed", "Failure to delete post to firebase：" + databaseError.getCode());
+            }
+        });
+    }
+
 
 }
