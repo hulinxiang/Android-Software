@@ -17,16 +17,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.R;
-import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
-import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
-import com.example.myapplication.src.Post;
+import com.example.myapplication.activity.Image.ImageUploader;
+import com.example.myapplication.activity.Image.PostCreator;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
-import java.util.UUID;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -41,6 +39,9 @@ public class CreateActivity extends AppCompatActivity {
     private TextView tvSelectPhoto;
     private StorageReference storageRef;
 
+    private ImageUploader imageUploader;
+    private PostCreator postCreator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,9 @@ public class CreateActivity extends AppCompatActivity {
         // Initialize the Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        imageUploader = new ImageUploader();
+        postCreator = new PostCreator(this);
 
         // Initialize Firebase Storage
         storageRef = FirebaseStorage.getInstance().getReference();
@@ -145,22 +149,22 @@ public class CreateActivity extends AppCompatActivity {
 
     // Method to upload the file to Firebase Storage
     private void uploadFile() {
-        if (imageUri != null) {
-            String fileName = UUID.randomUUID().toString() + ".jpg";
-            StorageReference fileReference = storageRef.child("posts/" + fileName);
+        imageUploader.uploadImage(imageUri, new ImageUploader.OnImageUploadListener() {
+            @Override
+            public void onImageUploadSuccess(String imageUrl) {
+                createPost(imageUrl);
+            }
 
-            fileReference.putFile(imageUri)
-                    .addOnSuccessListener(taskSnapshot -> fileReference.getDownloadUrl().addOnSuccessListener(uri -> {
-                        String imageUrl = uri.toString();
-                        createPost(imageUrl);
-                    }))
-                    .addOnFailureListener(e -> Toast.makeText(CreateActivity.this,
-                            "Upload failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-        }
+            @Override
+            public void onImageUploadFailure(String errorMessage) {
+                Toast.makeText(CreateActivity.this, "Upload failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     // Function to create a new post
     private void createPost(String imageUrl) {
+        // Retrieve the input values
         String productDisplayName = etProductDisplayName.getText().toString();
         String articleTypeName = etArticleType.getText().toString();
         String baseColour = etBaseColour.getText().toString();
@@ -196,21 +200,10 @@ public class CreateActivity extends AppCompatActivity {
         User currentUser = SessionManager.getInstance().getUser();
         String userID = currentUser != null ? currentUser.getUserId() : "";
 
-        // Create a new post
-        Post newPost = new Post(userID, gender, masterCategoryName, subCategoryName, articleTypeName,
+        // Create the post using PostCreator
+        postCreator.createPost(userID, gender, masterCategoryName, subCategoryName, articleTypeName,
                 baseColour, season, year, usage, productDisplayName, productPrice, productStatus, imageUrl,
                 productDescription, commentText);
-
-        // Associate the post with the current user
-        if (currentUser != null) {
-            currentUser.addOwnPost(newPost);
-        }
-
-        // Save the post to the BPlus Tree
-        BPlusTreeManagerPost.getTreeInstance(this).insert(newPost.getPostID(), newPost);
-
-        // Save the post to Firebase
-        FirebasePostManager.getInstance(this).addPost(newPost);
 
         Toast.makeText(this, "Post created successfully!", Toast.LENGTH_SHORT).show();
 
