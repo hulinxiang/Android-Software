@@ -124,7 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
         buyButton.setOnClickListener(v -> updateViews("buy"));
 
         // Initial display setup for posts
-        updateViews("posts");
+        //updateViews("posts");
 
         // Initially update button texts
         updateButtonCounts();
@@ -183,7 +183,7 @@ public class ProfileActivity extends AppCompatActivity {
             ImageView card_image = view.findViewById(R.id.card_image);
             TextView card_name = view.findViewById(R.id.card_name);
             TextView card_price = view.findViewById(R.id.card_price);
-            TextView delete = view.findViewById(R.id.card_delete);
+            //TextView delete = view.findViewById(R.id.card_delete);
 
             GlideImageLoader.loadImage(ProfileActivity.this,post.getImageUrl(),card_image);
             card_name.setText(post.getProductDisplayName());
@@ -208,11 +208,11 @@ public class ProfileActivity extends AppCompatActivity {
             });
 
             //click to delete
-            delete.setOnClickListener(v -> {
-
-                // Callback to refresh the grid after successful deletion
-                showPostCanDelete();
-            });
+//            delete.setOnClickListener(v -> {
+//
+//                // Callback to refresh the grid after successful deletion
+//                showPostCanDelete();
+//            });
 
         }
 
