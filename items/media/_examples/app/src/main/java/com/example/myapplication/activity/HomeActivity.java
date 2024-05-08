@@ -106,8 +106,6 @@ public class HomeActivity extends AppCompatActivity {
         gl_post = findViewById(R.id.gl_home);
         showPost();
 
-
-
     }
 
     private void showPost(){

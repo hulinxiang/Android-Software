@@ -60,16 +60,22 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:id="@+id/card_delete"
+                            android:id="@+id/card_like"
                             android:layout_width="0dp"
                             android:layout_height="20dp"
                             android:layout_weight="20"
-                            tools:src="@drawable/ic_delete_gray_24dp" />
-
+                            tools:src="@drawable/ic_favorite_red_24dp" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/card_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="20"
+                    tools:src="@drawable/ic_delete_gray_24dp" />
 
             </RelativeLayout>
 
