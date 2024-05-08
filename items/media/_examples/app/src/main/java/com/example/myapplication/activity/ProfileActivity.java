@@ -151,14 +151,14 @@ public class ProfileActivity extends AppCompatActivity {
         // Show only the selected grid and update it
         if (view.equals("posts")) {
             postsContainer.setVisibility(View.VISIBLE);
-            showPost(postsGrid);
+            showPost(postsGrid,MyPostActivity.class);
             //showPostCanDelete();
         } else if (view.equals("likes")) {
             likesContainer.setVisibility(View.VISIBLE);
-            showPost(likesGrid);
+            showPost(likesGrid, PostActivity.class);
         } else if (view.equals("buy")) {
             buyContainer.setVisibility(View.VISIBLE);
-            showPost(buyGrid);
+            showPost(buyGrid, BuyPostActivity.class);
         }
 
         // Update button styles to indicate which is active
@@ -210,7 +210,7 @@ public class ProfileActivity extends AppCompatActivity {
 //        }
 //
 //    }
-    private void showPost(GridLayout grid){
+    private void showPost(GridLayout grid, Class<?> activityClass){
         // Assume data is ready or handle cases where it might not be
         grid.removeAllViews();
         // Dynamically add views based on the type of grid
@@ -219,6 +219,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (grid == postsGrid) {
             //get post from likesList
             list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
+
         }
          else if (grid == likesGrid) {
              //get post from likesList
@@ -249,7 +250,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             //click image jump to post detail page
             card_image.setOnClickListener(v ->{
-                Intent intent = new Intent(ProfileActivity.this,PostActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, activityClass);
                 intent.putExtra("post_id",post.getPostID());
                 intent.putExtra("post_image",post.getImageUrl());
                 intent.putExtra("post_name",post.getProductDisplayName());

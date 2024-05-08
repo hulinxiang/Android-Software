@@ -18,7 +18,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".activity.Test.GlideActivityTest"
+            android:name=".activity.MyPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.BuyPostActivity"
             android:exported="false" />
         <activity
             android:name=".activity.EditProfileActivity"
