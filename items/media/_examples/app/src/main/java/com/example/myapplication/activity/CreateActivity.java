@@ -201,11 +201,13 @@ public class CreateActivity extends AppCompatActivity {
                 baseColour, season, year, usage, productDisplayName, productPrice, productStatus, imageUrl,
                 productDescription, commentText);
 
-        // Retrieve the generated postID from the newPost object
-        String postID = newPost.getPostID();
+        // Associate the post with the current user
+        if (currentUser != null) {
+            currentUser.addOwnPost(newPost);
+        }
 
         // Save the post to the BPlus Tree
-        BPlusTreeManagerPost.getTreeInstance(this).insert(postID, newPost);
+        BPlusTreeManagerPost.getTreeInstance(this).insert(newPost.getPostID(), newPost);
 
         // Save the post to Firebase
         FirebasePostManager.getInstance(this).addPost(newPost);
