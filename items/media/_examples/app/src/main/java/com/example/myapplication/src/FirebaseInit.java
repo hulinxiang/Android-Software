@@ -123,9 +123,8 @@ public class FirebaseInit extends Application {
                     );
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
-//                    User author = BPlusTreeManagerUser.getUserViaUserId(getApplicationContext(), userID);
+//                    User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
 //                    author.updateOwns(post);
-//                     firebase上面的数据没有userId啊。
                 }
             }
 
