@@ -1,5 +1,6 @@
 package com.example.myapplication.src;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -16,7 +17,10 @@ public class Post {
     private String imageUrl;
     private String description;
     private String postIndexInFirebase;
-    private List<Comment> comments;
+//    private List<Comment> comments;
+    private String comments;
+
+    // Constructor
 
 //    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
 //                String baseColour, String season, int year, String usage, String productDisplayName,
@@ -44,7 +48,7 @@ public class Post {
         this.status = status;
         this.imageUrl = imageUrl;
         this.description = description;
-        this.comments = parseComments(commentText);
+        this.comments = commentText;
         this.postIndexInFirebase = generateNextPostIndex();
     }
     //用来扒取firebase的全参构造器，全部数据从firebase读取
@@ -59,9 +63,35 @@ public class Post {
         this.status = status;
         this.imageUrl = imageUrl;
         this.description = description;
-        this.comments = parseComments(commentText);
+        this.comments = commentText;
         this.postIndexInFirebase = postIndexInFirebase;
     }
+
+//    public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, int year, String usage, String productDisplayName, double price, String status, String imageUrl, String description, String comments, String postIndexInFirebase) {
+//        this.postID = postID;
+//        this.userID = userID;
+//        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
+//        this.productDisplayName = productDisplayName;
+//        this.price = price;
+//        this.status = status;
+//        this.imageUrl = imageUrl;
+//        this.description = description;
+//        this.comments = comments != null ? parseComments(Arrays.asList(comments.split(","))) : new ArrayList<>();
+//        this.postIndexInFirebase = postIndexInFirebase;
+//    }
+
+//    public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, int year, String usage, String productDisplayName, double price, String status, String imageUrl, String description, String comments, String postIndexInFirebase) {
+//        this.postID = postID;
+//        this.userID = userID;
+//        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
+//        this.productDisplayName = productDisplayName;
+//        this.price = price;
+//        this.status = status;
+//        this.imageUrl = imageUrl;
+//        this.description = description;
+//        this.comments = comments != null ? parseComments(new ArrayList<>(Arrays.asList(comments.split(",")))) : new ArrayList<>();
+//        this.postIndexInFirebase = postIndexInFirebase;
+//    }
 
 
     // Constructor for Grid layout
@@ -156,11 +186,19 @@ public class Post {
         this.description = description;
     }
 
-    public List<Comment> getComments() {
+//    public List<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<Comment> comments) {
+//        this.comments = comments;
+//    }
+
+    public String getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(String comments) {
         this.comments = comments;
     }
 

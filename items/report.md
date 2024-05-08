@@ -37,12 +37,13 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
 
-| UID   |  Name  |   Role |
-|:------|:------:|-------:|
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
+| UID      |     Name      |      Role |
+|:---------|:-------------:|----------:|
+| u7633783 |  Linxiang Hu  |  Back-end |
+| u7773637 |  Wenhui Shi   | Front-end |
+| u7670526 | Yingxuan Tang |  Back-end |
+| u7724192 |   Jin Yang    | Front-end |
+| u7748799 |  Yichi Zhang  |  Back-end |
 
 
 ## Summary of Individual Contributions

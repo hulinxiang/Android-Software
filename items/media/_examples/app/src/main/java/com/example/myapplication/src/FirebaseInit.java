@@ -13,7 +13,10 @@ import android.app.Application;
 
 import com.example.myapplication.src.Tag;
 
+import android.text.TextUtils;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class FirebaseInit extends Application {
     @Override
@@ -85,14 +88,25 @@ public class FirebaseInit extends Application {
                     String articleType = snapshot.child("articleType").getValue(String.class);
                     String baseColour = snapshot.child("baseColour").getValue(String.class);
                     String season = snapshot.child("season").getValue(String.class);
-                    String year = snapshot.child("year").getValue(String.class);
+//                    String year = snapshot.child("year").getValue(String.class);
+                    Object yearObj = snapshot.child("year").getValue();
+                    String year;
+                    if (yearObj instanceof Long) {
+                        year = String.valueOf(yearObj);
+                    } else if (yearObj instanceof String) {
+                        year = (String) yearObj;
+                    } else {
+                        // 处理yearObj为null或其他类型的情况
+                        year = "0";
+                    }
                     String usage = snapshot.child("usage").getValue(String.class);
                     String productDisplayName = snapshot.child("productDisplayName").getValue(String.class);
                     String price = snapshot.child("price").getValue(String.class);
                     String status = snapshot.child("status").getValue(String.class);
                     String imageUrl = snapshot.child("image_url").getValue(String.class);
                     String description = snapshot.child("description").getValue(String.class);
-                    String comments = snapshot.child("comment").getValue(String.class);
+                    String comments = snapshot.child("comments").getValue(String.class);
+
                     String postIndexInFirebase = snapshot.child("postIndexInFirebase").getValue(String.class);
 
                     assert year != null;
