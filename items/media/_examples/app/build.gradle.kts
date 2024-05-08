@@ -38,8 +38,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation("com.google.android.gms:play-services-tasks:18.1.0")
-    implementation("com.google.firebase:firebase-database:20.3.1")
-    implementation("com.google.firebase:firebase-storage:19.2.2")
+    implementation("com.google.firebase:firebase-database:20.3.1") // 版本号可能要换
+    implementation("com.google.firebase:firebase-storage:19.2.2") //这里版本号还是不要随便动得好，好不容易sync之后跑起来了，这个版本号是我试出来的能跑的最新的版本号
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 

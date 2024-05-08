@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-        Button BPlusTreeTest = findViewById(R.id.BPlusTreeTest);
+        Button BPlusTreeTest = findViewById(R.id.getStartedButton);
 
 
         BPlusTreeTest.setOnClickListener(new View.OnClickListener() {
