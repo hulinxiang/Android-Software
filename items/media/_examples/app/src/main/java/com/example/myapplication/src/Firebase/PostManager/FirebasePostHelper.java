@@ -30,15 +30,25 @@ public class FirebasePostHelper {
                 Log.d("Firebase add operation", "Execute the method");
                 // 这将给出"user"下子节点的数量
                 long count = dataSnapshot.getChildrenCount();
-                // 现在在这个新索引下设置新用户数据
+                // 现在在这个新索引下设置新post数据
                 DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                newPostRef.child("postID").setValue(post.getPostID());
-                newPostRef.child("userID").setValue(post.getUserID());
-                newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
-                newPostRef.child("price").setValue(Double.toString(post.getPrice()));
-                newPostRef.child("status").setValue(post.getStatus());
-                newPostRef.child("imageUrl").setValue(post.getImageUrl());
+                newPostRef.child("UserID").setValue(post.getUserID());
+                newPostRef.child("articleType").setValue(post.getTag().getArticleType());
+                newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
+                newPostRef.child("comment").setValue(post.getComments());   //这个是不是有问题。（tyx问
                 newPostRef.child("description").setValue(post.getDescription());
+                newPostRef.child("gender").setValue(post.getTag().getGender());
+                newPostRef.child("image_url").setValue(post.getImageUrl());
+                newPostRef.child("masterCategory").setValue(post.getTag().getMasterCategory());
+                newPostRef.child("postID").setValue(post.getPostID());
+                newPostRef.child("postIndexInFirebase").setValue(post.getPostIndexInFirebase());
+                newPostRef.child("price").setValue(Double.toString(post.getPrice()));
+                newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
+                newPostRef.child("season").setValue(post.getTag().getSeason());
+                newPostRef.child("status").setValue(post.getStatus());
+                newPostRef.child("subCategory").setValue(post.getTag().getSubCategory());
+                newPostRef.child("year").setValue(post.getTag().getYear());
+                newPostRef.child("usage").setValue(post.getTag().getUsage());
             }
 
             @Override
@@ -64,12 +74,23 @@ public class FirebasePostHelper {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
                         DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                        newPostRef.child("userID").setValue(post.getUserID());
-                        newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
-                        newPostRef.child("price").setValue(Double.toString(post.getPrice()));
-                        newPostRef.child("status").setValue(post.getStatus());
-                        newPostRef.child("imageUrl").setValue(post.getImageUrl());
+                        newPostRef.child("UserID").setValue(post.getUserID());
+                        newPostRef.child("articleType").setValue(post.getTag().getArticleType());
+                        newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
+                        newPostRef.child("comment").setValue(post.getComments());   //这个是不是有问题。（tyx问
                         newPostRef.child("description").setValue(post.getDescription());
+                        newPostRef.child("gender").setValue(post.getTag().getGender());
+                        newPostRef.child("image_url").setValue(post.getImageUrl());
+                        newPostRef.child("masterCategory").setValue(post.getTag().getMasterCategory());
+                        newPostRef.child("postID").setValue(post.getPostID());
+                        newPostRef.child("postIndexInFirebase").setValue(post.getPostIndexInFirebase());
+                        newPostRef.child("price").setValue(Double.toString(post.getPrice()));
+                        newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
+                        newPostRef.child("season").setValue(post.getTag().getSeason());
+                        newPostRef.child("status").setValue(post.getStatus());
+                        newPostRef.child("subCategory").setValue(post.getTag().getSubCategory());
+                        newPostRef.child("year").setValue(post.getTag().getYear());
+                        newPostRef.child("usage").setValue(post.getTag().getUsage());
                         break;
                     }
                     count++;
@@ -111,6 +132,5 @@ public class FirebasePostHelper {
             }
         });
     }
-
 
 }

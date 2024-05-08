@@ -15,6 +15,7 @@ public class Post {
     private String status;
     private String imageUrl;
     private String description;
+    private String postIndexInFirebase;
     private List<Comment> comments;
 
 //    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
@@ -31,7 +32,7 @@ public class Post {
 //        this.description = description;
 //        this.comments = parseComments(commentText);
 //    }
-    //用来扒取firebase的全参构造器，全部数据从firebase读取
+    //用户create post时候用的
     public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
                 double price, String status, String imageUrl, String description, String commentText)  {
@@ -44,11 +45,12 @@ public class Post {
         this.imageUrl = imageUrl;
         this.description = description;
         this.comments = parseComments(commentText);
+        this.postIndexInFirebase = generateNextPostIndex();
     }
     //用来扒取firebase的全参构造器，全部数据从firebase读取
     public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
-                double price, String status, String imageUrl, String description, String commentText)  {
+                double price, String status, String imageUrl, String description, String commentText, String postIndexInFirebase)  {
         this.postID = postID;
         this.userID = userID;
         this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
@@ -58,6 +60,7 @@ public class Post {
         this.imageUrl = imageUrl;
         this.description = description;
         this.comments = parseComments(commentText);
+        this.postIndexInFirebase = postIndexInFirebase;
     }
 
 
@@ -69,6 +72,10 @@ public class Post {
         this.price = price;
         this.userID = userID;
         this.description = description;
+    }
+
+    private static synchronized String generateNextPostIndex() {
+        return String.valueOf(nextPostID++);  // Increment and return the next index
     }
 
 
@@ -156,4 +163,25 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+    public String getPostIndexInFirebase() {
+        return postIndexInFirebase;
+    }
+
+    public void setPostIndexInFirebase(String postIndexInFirebase) {
+        this.postIndexInFirebase = postIndexInFirebase;
+    }
+
+    public static int getNextPostID() {
+        return nextPostID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
+
+    public static void setNextPostID(int nextPostID) {
+        Post.nextPostID = nextPostID;
+    }
+
 }

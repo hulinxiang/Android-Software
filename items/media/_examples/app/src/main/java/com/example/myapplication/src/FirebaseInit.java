@@ -93,6 +93,7 @@ public class FirebaseInit extends Application {
                     String imageUrl = snapshot.child("image_url").getValue(String.class);
                     String description = snapshot.child("description").getValue(String.class);
                     String comments = snapshot.child("comment").getValue(String.class);
+                    String postIndexInFirebase = snapshot.child("postIndexInFirebase").getValue(String.class);
 
                     assert year != null;
                     assert price != null;
@@ -101,26 +102,10 @@ public class FirebaseInit extends Application {
 //                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
 //                    Tag.SubCategory subCategoryObj = new Tag.SubCategory(subCategory, articleTypeObj);
 //                    Tag.MasterCategory masterCategoryObj = new Tag.MasterCategory(masterCategory, subCategoryObj);
-                    Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
+                    //Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
 
                     // 创建Post对象
-                    Post post = new Post(
-                            userID,
-                            gender,
-                            masterCategory,
-                            subCategory,
-                            articleType,
-                            baseColour,
-                            season,
-                            Integer.parseInt(year),
-                            usage,
-                            productDisplayName,
-                            Double.parseDouble(price),
-                            status,
-                            imageUrl,
-                            description,
-                            comments
-                    );
+                    Post post = new Post(postID,userID,gender,masterCategory,subCategory,articleType,baseColour,season,Integer.parseInt(year),usage,productDisplayName,Double.parseDouble(price),status,imageUrl,description,comments,postIndexInFirebase);
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
 //                    User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
