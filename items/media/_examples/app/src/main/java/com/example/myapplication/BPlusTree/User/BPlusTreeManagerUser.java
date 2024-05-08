@@ -6,6 +6,8 @@ import com.example.myapplication.BPlusTree.BPlusTree;
 
 import com.example.myapplication.src.User;
 
+import java.util.List;
+
 
 public class BPlusTreeManagerUser {
     private static BPlusTree<String, User> userTree;
@@ -16,4 +18,18 @@ public class BPlusTreeManagerUser {
         }
         return userTree;
     }
+
+    public static User getUserViaUserId(Context context, String userId) {
+        List<User> allUsers = BPlusTreeManagerUser.getTreeInstance(context).queryAllData();
+        User ans = null;
+        for (User user : allUsers) {
+            if (user.getUserId().equals(userId)) {
+                ans = user;
+                break;
+            }
+        }
+        return ans;
+    }
+
+
 }

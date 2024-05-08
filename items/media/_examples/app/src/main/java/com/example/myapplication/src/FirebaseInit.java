@@ -30,7 +30,46 @@ public class FirebaseInit extends Application {
         DatabaseReference postsRef = database.child("post");
         // 加载User数据
         DatabaseReference usersRef = database.child("user");
-        // 先初始化Post数据
+        // 先初始化User数据, 这样便于初始化user下面的ownPosts属性来表示这个用户发了多少帖子
+        //''addListenerForSingleValueEvent'' will execute the onDataChange method   immediately and
+        // after executing that method once, it stops listening to the reference location it is attached to.
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Log.d("InitialiseUser", "Initialisation===========User===============");
+
+//                // 首先清除旧数据
+//                BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // 解析每个字段
+                    String userId = snapshot.child("userID").getValue(String.class);
+                    String email = snapshot.child("email").getValue(String.class);
+                    String password = snapshot.child("password").getValue(String.class);  // 保证这是原始密码
+                    String name = snapshot.child("name").getValue(String.class);
+                    String address = snapshot.child("address").getValue(String.class);
+                    String phone = snapshot.child("phone").getValue(String.class);
+                    String userType = snapshot.child("userType").getValue(String.class);
+
+                    // 构造创建User对象
+                    if (email != null && password != null && userId != null) {
+                        User user = new User(userId, email, password, name, address, phone);
+                        //User user = new User(userId, email, password, name, address, phone, userType);   // 要改成这个构造器，其中此时的user的posts会被设置成null
+                        BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(userId, user);
+                        // Log.d("Constructing........", "Adding user: " + email + " to the local tree");
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("FirebaseInit", "Error loading data: " + databaseError.getMessage());
+                System.err.println("Failed to load user data: " + databaseError.getMessage());
+            }
+        });
+
+
         postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -83,6 +122,9 @@ public class FirebaseInit extends Application {
                     );
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
+//                    User author = BPlusTreeManagerUser.getUserViaUserId(getApplicationContext(), userID);
+//                    author.updateOwns(post);
+//                     firebase上面的数据没有userId啊。
                 }
             }
 
@@ -92,45 +134,6 @@ public class FirebaseInit extends Application {
             }
         });
 
-
-
-        //''addListenerForSingleValueEvent'' will execute the onDataChange method   immediately and
-        // after executing that method once, it stops listening to the reference location it is attached to.
-        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Log.d("InitialiseUser", "Initialisation===========User===============");
-
-//                // 首先清除旧数据
-//                BPlusTreeManager.getTreeInstance(FirebaseInitUser.this).clear();
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // 解析每个字段
-                    String userId = snapshot.child("userID").getValue(String.class);
-                    String email = snapshot.child("email").getValue(String.class);
-                    String password = snapshot.child("password").getValue(String.class);  // 保证这是原始密码
-                    String name = snapshot.child("name").getValue(String.class);
-                    String address = snapshot.child("address").getValue(String.class);
-                    String phone = snapshot.child("phone").getValue(String.class);
-                    String userType = snapshot.child("userType").getValue(String.class);
-
-                    // 构造创建User对象
-                    if (email != null && password != null && userId != null) {
-                        User user = new User(userId, email, password, name, address, phone);
-                        //User user = new User(userId, email, password, name, address, phone, userType);   // 要改成这个构造器，其中此时的user的posts会被设置成null
-                        BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(email, user);
-                        // Log.d("Constructing........", "Adding user: " + email + " to the local tree");
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("FirebaseInit", "Error loading data: " + databaseError.getMessage());
-                System.err.println("Failed to load user data: " + databaseError.getMessage());
-            }
-        });
 
         // 此时post已经初始化完，但user的posts属性还没初始化。
         //////// 遍历post，用post里存的userID来找到那个user实例，然后把这个post add到this.posts列表中
