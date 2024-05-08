@@ -173,43 +173,6 @@ public class ProfileActivity extends AppCompatActivity {
         buyButton.setTextColor(getResources().getColor(view.equals("buy") ? R.color.colorAccent : android.R.color.white));
     }
 
-//    private void showPostCanDelete() {
-//        // Assume data is ready or handle cases where it might not be
-//        postsGrid.removeAllViews();
-//        //get list from ownList
-//        List<Post> list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
-//
-//        for (Post post: list){
-//            //get the layout from item_card.xml
-//            View view = LayoutInflater.from(this).inflate(R.layout.item_card,null);
-//            ImageView card_image = view.findViewById(R.id.card_image);
-//            TextView card_name = view.findViewById(R.id.card_name);
-//            TextView card_price = view.findViewById(R.id.card_price);
-//
-//            GlideImageLoader.loadImage(ProfileActivity.this,post.getImageUrl(),card_image);
-//            card_name.setText(post.getProductDisplayName());
-//            card_price.setText(String.valueOf(post.getPrice()));
-//
-//            //get the height and weight from the screen
-//            int screenWidth = getResources().getDisplayMetrics().widthPixels;
-//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth/2, ViewGroup.LayoutParams.WRAP_CONTENT);
-//            //add to grid layout
-//            postsGrid.addView(view,params);
-//
-//            //click image jump to post detail page
-//            card_image.setOnClickListener(v ->{
-//                Intent intent = new Intent(ProfileActivity.this,PostActivity.class);
-//                intent.putExtra("post_id",post.getPostID());
-//                intent.putExtra("post_image",post.getImageUrl());
-//                intent.putExtra("post_name",post.getProductDisplayName());
-//                intent.putExtra("post_description",post.getDescription());
-//                intent.putExtra("post_price",post.getPrice());
-//                intent.putExtra("post_seller", post.getUserID());
-//                startActivity(intent);
-//            });
-//        }
-//
-//    }
     private void showPost(GridLayout grid, Class<?> activityClass){
         // Assume data is ready or handle cases where it might not be
         grid.removeAllViews();
@@ -221,12 +184,12 @@ public class ProfileActivity extends AppCompatActivity {
             list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
 
         }
-         else if (grid == likesGrid) {
-             //get post from likesList
+        else if (grid == likesGrid) {
+            //get post from likesList
             list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
 
         } else if (grid == buyGrid) {
-             //get post from buyList
+            //get post from buyList
             list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
         }
 
