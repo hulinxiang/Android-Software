@@ -188,11 +188,48 @@ These data structures were chosen based on their performance characteristics and
 ### Design Patterns
 *[What design patterns did your team utilise? Where and why?]*
 
-1. *xxx Pattern*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
-   * *Reasons:*
-      * ...
+### Design Patterns
+1. *Singleton Pattern*
+    * *Objective:* The Singleton pattern is used in the `SessionManager` class to ensure that only one instance of the class is created and shared throughout the application. It manages the currently logged-in user and provides global access to that user object.
+    * *Code Locations:*
+        - Defined in [SessionManager](SessionManager.java), the `getInstance()` method ensures that only one instance of `SessionManager` is created.
+        - The private constructor prevents instantiation of `SessionManager` from outside the class.
+    * *Reasons:*
+        - The Singleton pattern ensures that there is only one instance of `SessionManager` managing the current user session.
+        - It provides a global point of access to the current user object, making it easier to manage and access the user session from different parts of the application.
+      
+2. *Facade Pattern*
+    * *Objective:* The `SearchManager` class acts as a facade, providing a simplified interface for validating user input such as username, password, and search queries. It encapsulates the complex validation logic behind simple methods.
+    * *Code Locations:*
+        - Defined in [SearchManager](SearchManager.java), the `validateUsername()`, `validatePassword()`, and `validateSearchQuery()` methods provide a simple interface for input validation.
+        - The actual validation logic using regular expressions is encapsulated within the `SearchManager` class.
+    * *Reasons:*
+        - The Facade pattern simplifies the usage of input validation by providing a high-level interface through the `SearchManager` class.
+        - It abstracts the complexity of the validation logic, making it easier to use and maintain.
+        - It promotes loose coupling between the client code and the validation implementation, as the client only interacts with the facade methods.
+
+3. *Factory Pattern*
+    * *Objective:* The Factory pattern is used in the modified B+ Tree implementation to encapsulate the creation logic of B+ Tree nodes. It allows the client code to create nodes without knowing the specific types of nodes being created (leaf or non-leaf nodes).
+    * *Code Locations:*
+        - Defined in the `BPlusTreeNodeFactory` class, the `createNode()` method takes the entries, values, and a boolean flag indicating whether it's a leaf node, and returns an instance of `BPlusTreeNode`.
+        - The `BPlusTreeNodeFactory` is used in the `BPlusTree` class to create nodes whenever needed, such as when handling root overflow or splitting nodes.
+    * *Reasons:*
+        - The Factory pattern encapsulates the node creation logic, making it easier to extend or modify the B+ Tree implementation without affecting the client code.
+        - It promotes loose coupling between the client code and the specific types of nodes, as the client only interacts with the `BPlusTreeNode` interface.
+        - It allows for flexibility in creating different types of nodes based on the provided conditions, without exposing the complexity to the client.
+
+4. *Template Method Pattern*
+    * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common structure for the B+ Tree operations while allowing subclasses (leaf and non-leaf nodes) to provide their specific implementations.
+    * *Code Locations:*
+        - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such as `insert()`, `remove()`, `query()`, etc.
+        - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide their specific implementations for the defined methods.
+    * *Reasons:*
+        - The Template Method pattern provides a common structure for the B+ Tree operations, ensuring consistency across different types of nodes.
+        - It allows subclasses to override or provide their specific implementations for certain steps of the algorithm while maintaining the overall structure.
+        - It promotes code reuse and reduces duplication by defining the common parts of the algorithm in the abstract base class (`BPlusTreeNode` interface).
+
+
+
 
 <hr>
 
