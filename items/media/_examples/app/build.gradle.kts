@@ -43,6 +43,7 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:19.2.2") //这里版本号还是不要随便动得好，好不容易sync之后跑起来了，这个版本号是我试出来的能跑的最新的版本号
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation ("org.antlr:antlr4-runtime:4.13.1")
+    implementation("androidx.test:core:1.5.0")
 
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
     testImplementation("junit:junit:4.13.2")
