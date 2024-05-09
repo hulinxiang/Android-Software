@@ -89,6 +89,7 @@ public class FirebaseInit extends Application {
                     String baseColour = snapshot.child("baseColour").getValue(String.class);
                     String season = snapshot.child("season").getValue(String.class);
 //                    String year = snapshot.child("year").getValue(String.class);
+                    //不知道为什么firebase上传之后这个year会变成Long类型，所以这里要处理一下
                     Object yearObj = snapshot.child("year").getValue();
                     String year;
                     if (yearObj instanceof Long) {
@@ -106,6 +107,7 @@ public class FirebaseInit extends Application {
                     String imageUrl = snapshot.child("image_url").getValue(String.class);
                     String description = snapshot.child("description").getValue(String.class);
                     String comments = snapshot.child("comments").getValue(String.class);
+                    //我把comments改成了String类型，可能还得加个parse类型解析一下，然后发现comment类也暂时没用到了，因为firebase上就是一长串字符串储存的
 
                     String postIndexInFirebase = snapshot.child("postIndexInFirebase").getValue(String.class);
 

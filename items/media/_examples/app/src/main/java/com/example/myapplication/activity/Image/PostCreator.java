@@ -21,12 +21,21 @@ public class PostCreator {
                            String productDisplayName, double productPrice, String productStatus, String imageUrl,
                            String productDescription, String commentText) {
         // Create a new post
-        Post newPost = new Post(userID, gender, masterCategoryName, subCategoryName, articleTypeName,
-                baseColour, season, year, usage, productDisplayName, productPrice, productStatus, imageUrl,
-                productDescription, commentText);
+//        Post newPost = new Post(userID, gender, masterCategoryName, subCategoryName, articleTypeName,
+//                baseColour, season, year, usage, productDisplayName, productPrice, productStatus, imageUrl,
+//                productDescription, commentText);
+
+        // Get the current user's email
+        User currentUser = SessionManager.getInstance().getUser();
+        String userEmail = currentUser != null ? currentUser.getEmail() : "";
+
+        // Create a new post using the user's email as the userID
+        Post newPost = new Post(userEmail, gender, masterCategoryName, subCategoryName, articleTypeName,
+                baseColour, season, year, usage, productDisplayName, productPrice, productStatus,
+                imageUrl, productDescription, commentText);
 
         // Associate the post with the current user
-        User currentUser = SessionManager.getInstance().getUser();
+//        User currentUser = SessionManager.getInstance().getUser();
         if (currentUser != null) {
             currentUser.addOwnPost(newPost);
         }
