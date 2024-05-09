@@ -257,21 +257,38 @@ Production Rules:
 
 ### Custom Features
 Feature Category: Privacy <br>
-1. [Privacy-Request]. Description of the feature  (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ... <br>
-     <br>
 
-2. [Privacy-Block]. Description ... ... (medium)
-   ... ...
+1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation: <br>
+
+2. [UI-Test].  Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the App. (hard)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature: <br>
+    * Description of implementation:  <br>
+
+3. [Data-Deletion].  Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within your application. (medium)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation:  <br>
+
+4. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation: <br>
+
+5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation:  <br>
+
+6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user, etc.) [stored in-memory]. (easy)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature: <br>
+    * Description of implementation:  <br>
+
    <br><br>
-
-Feature Category: Firebase Integration <br>
-3. [FB-Auth] Description of the feature (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ... <br>
-
 <hr>
 
 ### Surprise Features
