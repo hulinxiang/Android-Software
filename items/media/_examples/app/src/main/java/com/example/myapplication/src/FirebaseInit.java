@@ -17,6 +17,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FirebaseInit extends Application {
     @Override
@@ -80,7 +81,7 @@ public class FirebaseInit extends Application {
                 Log.d("InitialisePost", "Initialisation===========Post===============");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // 解析Post字段
-                    String userID = snapshot.child("userID").getValue(String.class);
+                    String userID = snapshot.child("UserID").getValue(String.class);//这里不小心改了下云端字段，我的错
                     String postID = snapshot.child("postID").getValue(String.class);
                     String gender = snapshot.child("gender").getValue(String.class);
                     String masterCategory = snapshot.child("masterCategory").getValue(String.class);
@@ -113,6 +114,7 @@ public class FirebaseInit extends Application {
 
                     assert year != null;
                     assert price != null;
+//                    assert userID != null;
 
                     // 创建Tag对象
 //                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
@@ -124,8 +126,36 @@ public class FirebaseInit extends Application {
                     Post post = new Post(postID,userID,gender,masterCategory,subCategory,articleType,baseColour,season,Integer.parseInt(year),usage,productDisplayName,Double.parseDouble(price),status,imageUrl,description,comments,postIndexInFirebase);
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
-//                    User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
-//                    author.updateOwns(post);
+                    User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
+                    author.updateOwns(post);//这里虽然写的是update实际上是第一次初始化时把post加到了ownPosts里
+
+//这段可以用来检查，先留一下，然后如果要加likelist那种多的应该也能参考
+//                    if (userID != null) {
+//                        List<User> allUsers = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).queryAllData();
+//                        if (!allUsers.isEmpty()) {
+//                            User author = null;
+//                            for (User user : allUsers) {
+//                                if (user.getEmail().equals(userID)) {
+//                                    author = user;
+//                                    break;
+//                                }
+//                            }
+//                            if (author != null) {
+//                                author.updateOwns(post);
+//                                Log.d("Add PostList", "User found for userID: " + userID);
+//                                // 更新 B+ 树中的用户信息
+//                                // BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).update(author);
+//                            } else {
+//                                Log.e("Add PostList", "User not found for userID: " + userID);
+//                            }
+//                        } else {
+//                            Log.e("Add PostList", "No users found in the B+ tree");
+//                        }
+//                    } else {
+//                        Log.e("Add PostList", "userID is null");
+//                    }
+
+
                 }
             }
 
