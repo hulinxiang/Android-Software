@@ -25,21 +25,19 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class RegisterActivityBPlusTree extends AppCompatActivity {
-
-
+    private LoginCheckService loginCheckService;
     private EditText email;
     private EditText password;
-
     private Button register;
-
     private View returnButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         init();
+
+        loginCheckService = new LoginCheckService(this);
 
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +74,7 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
                 String registerEmail = email.getText().toString();
                 String pwd = password.getText().toString();
 
-                if (checkValid(registerEmail, pwd)) {
+                if (loginCheckService.checkValid(registerEmail, pwd)) {
                     String encryptedPassword = DigestUtils.sha256Hex(pwd);
                     User user = new User(registerEmail, encryptedPassword);
 
@@ -93,15 +91,15 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
 
 
     }
-
-    private boolean checkValid(String name, String pwd) {
-        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(this);
-        List<User> user = tree.query(name);
-        if (user.size() != 0) {
-            return false;
-        }
-        return !pwd.isEmpty() && SearchManager.validateUsername(name) && SearchManager.validatePassword(pwd);
-    }
+//
+//    public boolean checkValid(String name, String pwd) {
+//        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(this);
+//        List<User> user = tree.query(name);
+//        if (user.size() != 0) {
+//            return false;
+//        }
+//        return !pwd.isEmpty() && SearchManager.validateUsername(name) && SearchManager.validatePassword(pwd);
+//    }
 
 
     private void init() {
