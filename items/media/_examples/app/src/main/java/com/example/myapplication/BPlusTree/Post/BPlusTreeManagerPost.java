@@ -38,7 +38,7 @@ public class BPlusTreeManagerPost {
     public static List<Post> searchKeyword(Context context, String input) {
         List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
         List<Post> filteredRes = new ArrayList<>();
-        List<String> keywords = KeywordExtractor.extractKeyWords(input);
+        List<String> keywords = new KeywordExtractor().extractKeyWords(input);
         if (keywords.isEmpty()) {
             Log.d("Keywords results", "Keywords results are empty");
         }

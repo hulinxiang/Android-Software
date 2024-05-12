@@ -1,11 +1,7 @@
 package com.example.myapplication;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
-
-import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginCheckService;
 import com.example.myapplication.src.User;
 import org.junit.After;
@@ -40,7 +36,6 @@ public class UserLoginTest {
         // 删除测试用户
         BPlusTreeManagerUser.getTreeInstance(null).remove("testtest1@anu.edu.au");
         BPlusTreeManagerUser.getTreeInstance(null).remove("testtest2@anu.edu.au");
-
     }
 
     @Test

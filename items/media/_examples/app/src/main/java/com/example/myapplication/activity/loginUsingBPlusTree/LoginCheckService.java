@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
+import com.example.myapplication.src.SearchManager;
 import com.example.myapplication.src.User;
 
 import java.util.List;
@@ -14,6 +15,15 @@ public class LoginCheckService {
 
     public LoginCheckService(Context context) {
         this.context = context;
+    }
+
+    public boolean checkValid(String email, String password) {
+        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(context);
+        List<User> users = tree.query(email);
+        if (!users.isEmpty()) {
+            return false; // 用户已存在
+        }
+        return !password.isEmpty() && SearchManager.validateUsername(email) && SearchManager.validatePassword(password);
     }
 
     public boolean loginCheck(String name, String pwd) {

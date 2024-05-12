@@ -20,6 +20,9 @@ public class Post {
 //    private List<Comment> comments;
     private String comments;
 
+    private String likeIDs;
+    private String buyIDs;
+
     // Constructor
 
 //    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
@@ -220,6 +223,22 @@ public class Post {
 
     public static void setNextPostID(int nextPostID) {
         Post.nextPostID = nextPostID;
+    }
+
+    public String getLikeIDs() {
+        return likeIDs;
+    }
+
+    public void setLikeIDs(String likeIDs) {
+        this.likeIDs = likeIDs;
+    }
+
+    public String getBuyIDs() {
+        return buyIDs;
+    }
+
+    public void setBuyIDs(String buyIDs) {
+        this.buyIDs = buyIDs;
     }
 
 }
