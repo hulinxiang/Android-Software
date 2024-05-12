@@ -124,7 +124,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateButtonCounts() {
-        int postsCount = 24; // Fetch actual post count
+        User currentUser = SessionManager.getInstance().getUser();
+        int postsCount = currentUser.getOwnPosts().size(); // Fetch actual post count
         int likesCount = 120; // Fetch actual likes count
         int buyCount = 15; // Fetch actual buy count
 
@@ -173,7 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (currentUser != null) {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
-                //get post from likesList
+                //get post from postList
                 list = currentUser.getOwnPosts();//这里是post的owner的
 
             } else if (grid == likesGrid) {
