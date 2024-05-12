@@ -15,6 +15,9 @@ public class Parser {
     }
 
     public ResultsShow parse() {
+        if (tokenizer.current().getType() != Token.Type.Number) {
+            throw new IllegalFormatException("The format is invalid");
+        }
         ResultsShow left = new Num(tokenizer.current().getToken());
         tokenizer.proceed();
         ResultsShow dot = new ResultsShow();
