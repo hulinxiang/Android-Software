@@ -232,9 +232,11 @@ public class ProfileActivity extends AppCompatActivity {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
                 //get post from likesList
-//                list = currentUser.getOwnPosts();//这里是post的owner的
-//                list = BPlusTreeManagerPost.searchByGender(getApplicationContext(), "Men");
-                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
+                list = currentUser.getOwnPosts();//这里是post的owner的
+                //这一行长的可以用来检索所有的，应该是包含数字的检索，传入的是一个“xx.xxx”的字符串
+//                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "","300.00","500.00");
+                //这一行是单独检测price的范围的
+//                list = BPlusTreeManagerPost.searchByPriceRange(getApplicationContext(), "350.00", "500.00");
             } else if (grid == likesGrid) {
                 //get post from likesList
                 list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());

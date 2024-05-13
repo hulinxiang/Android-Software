@@ -76,7 +76,7 @@ public class BPlusTreeManagerPost {
         return null;
     }
 
-    public static List<Post> searchByStrategy(Context context, SearchStrategy strategy, String value) {
+    public static List<Post> searchByStrategy(Context context, SearchStrategy strategy, String... value) {
         return strategy.search(context, value);
     }
 
@@ -108,10 +108,15 @@ public class BPlusTreeManagerPost {
         return searchByStrategy(context, new SeasonSearchStrategy(), usage);
     }
 
+    public static List<Post> searchByPriceRange(Context context, String minPrice, String maxPrice) {
+//        return searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+        List<Post> searchResults = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+        Log.d("SearchByPriceRange", "Number of posts found: " + searchResults.size());
+        return searchResults;
+    }
 
 
-
-    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage) {
+    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType,String baseColour, String season, String usage, String minPrice, String maxPrice) {
         List<Post> resultPosts = getTreeInstance(context).queryAllData();
 
         // 根据性别进行搜索
@@ -154,6 +159,12 @@ public class BPlusTreeManagerPost {
         if (!TextUtils.isEmpty(usage)) {
             List<Post> usagePosts = searchByStrategy(context, new SeasonSearchStrategy(), usage);
             resultPosts.retainAll(usagePosts);
+        }
+
+        // 根据价格区间进行搜索
+        if (!TextUtils.isEmpty(minPrice) && !TextUtils.isEmpty(maxPrice)) {
+            List<Post> priceRangePosts = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+            resultPosts.retainAll(priceRangePosts);
         }
 
 

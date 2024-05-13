@@ -9,12 +9,12 @@ import java.util.List;
 
 public abstract class AbstractSearchStrategy implements SearchStrategy {
     @Override
-    public List<Post> search(Context context, String value) {
+    public List<Post> search(Context context, String... values) {
         List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
         List<Post> filteredPosts = new ArrayList<>();
 
         for (Post post : allPosts) {
-            if (matchCriteria(post, value)) {
+            if (matchCriteria(post, values)) {
                 filteredPosts.add(post);
             }
         }
@@ -22,5 +22,5 @@ public abstract class AbstractSearchStrategy implements SearchStrategy {
         return filteredPosts;
     }
 
-    protected abstract boolean matchCriteria(Post post, String value);
+    protected abstract boolean matchCriteria(Post post, String... values);
 }
