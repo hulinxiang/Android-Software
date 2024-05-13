@@ -7,5 +7,5 @@ import com.example.myapplication.src.Post;
 import java.util.List;
 
 public interface SearchStrategy {
-    List<Post> search(Context context, String value);
+    List<Post> search(Context context, String... values);
 }
