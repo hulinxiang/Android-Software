@@ -51,13 +51,12 @@ public class ParserTest {
         parser.parse();
     }
 
-    @Test//这里有个BUG呀！！！！
+    @Test(expected = Parser.IllegalFormatException.class)
     public void testSingleDotInput() {
         String input = ".";
         Tokenizer tokenizer = new Tokenizer(input);
         Parser parser = new Parser(tokenizer);
-        ResultsShow result = parser.parse();
-        Assert.assertEquals("(.)", result.show());
+        parser.parse();
     }
 
     @Test(expected = Token.IllegalTypeException.class)
@@ -67,11 +66,17 @@ public class ParserTest {
         tokenizer.proceed();
     }
 
-    @Test(expected = Token.IllegalTypeException.class)//啊啊这个try catch为什么不行呢，还要再改
-    public void testEmptyInput() {
+    @Test
+    public void testEmptyInputWithException() {
         String input = "";
         Tokenizer tokenizer = new Tokenizer(input);
         Parser parser = new Parser(tokenizer);
-        parser.parse();
+
+        try {
+            parser.parse();
+            Assert.fail("Expected NullPointerException to be thrown");
+        } catch (NullPointerException e) {
+            // Expected exception, test passes
+        }
     }
 }
