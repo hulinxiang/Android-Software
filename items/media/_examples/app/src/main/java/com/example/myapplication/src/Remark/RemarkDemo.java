@@ -5,6 +5,8 @@ public abstract class RemarkDemo {
     public String text;
     public String userEmail;
     public String postId;
+    public String index;
+    public static int count=0;
 
     abstract void updateText(String newText);
 
@@ -33,5 +35,11 @@ public abstract class RemarkDemo {
         this.postId = postId;
     }
 
+    public String getIndex() {
+        return index;
+    }
 
+    public void setIndex(String index) {
+        this.index = index;
+    }
 }
