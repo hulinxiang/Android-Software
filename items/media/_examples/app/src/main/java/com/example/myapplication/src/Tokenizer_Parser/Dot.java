@@ -5,7 +5,7 @@ public class Dot extends ResultsShow {
 
 
     public String show() {
-        return "(" + dot + ")";
+        return dot + "|";
     }
 
 

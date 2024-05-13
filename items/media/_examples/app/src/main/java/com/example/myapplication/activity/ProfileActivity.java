@@ -1,13 +1,16 @@
 package com.example.myapplication.activity;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,21 +18,24 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+import com.example.myapplication.BPlusTree.Post.Tag.GenderSearchStrategy;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
+import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
-
 public class ProfileActivity extends AppCompatActivity {
+
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     private Toolbar toolbar;
     private LinearLayout home;
@@ -53,6 +59,16 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         init();
+
+        setupNavigationDrawer();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         // User profile display
         User currentUser = SessionManager.getInstance().getUser();
@@ -122,10 +138,52 @@ public class ProfileActivity extends AppCompatActivity {
         updateButtonCounts();
     }
 
+    private void setupNavigationDrawer() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                Intent intent;
+
+                switch (id) {
+                    case R.id.nav_home:
+                        intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.nav_account:
+                        intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.nav_notifications:
+                        intent = new Intent(ProfileActivity.this, InboxActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.nav_logout:
+                        intent = new Intent(ProfileActivity.this, LoginActivityBPlusTree.class);
+                        startActivity(intent);
+                        // Here,  might also want to clear any saved user data or logout from a session manager if applicable
+                        //SessionManager.getInstance().logout();
+                        //break;
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+    }
+
+
     @SuppressLint("SetTextI18n")
     private void updateButtonCounts() {
-        User currentUser = SessionManager.getInstance().getUser();
-        int postsCount = currentUser.getOwnPosts().size(); // Fetch actual post count
+        int postsCount = 24; // Fetch actual post count
         int likesCount = 120; // Fetch actual likes count
         int buyCount = 15; // Fetch actual buy count
 
@@ -158,7 +216,6 @@ public class ProfileActivity extends AppCompatActivity {
         updateButtonStyles(view);
     }
 
-
     private void updateButtonStyles(String view) {
         postsButton.setTextColor(getResources().getColor(view.equals("posts") ? R.color.black : android.R.color.white));
         likesButton.setTextColor(getResources().getColor(view.equals("likes") ? R.color.black : android.R.color.white));
@@ -174,9 +231,10 @@ public class ProfileActivity extends AppCompatActivity {
         if (currentUser != null) {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
-                //get post from postList
-                list = currentUser.getOwnPosts();//这里是post的owner的
-
+                //get post from likesList
+//                list = currentUser.getOwnPosts();//这里是post的owner的
+//                list = BPlusTreeManagerPost.searchByGender(getApplicationContext(), "Men");
+                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
             } else if (grid == likesGrid) {
                 //get post from likesList
                 list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
@@ -227,7 +285,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile = findViewById(R.id.btn_profile);
         textEmail = findViewById(R.id.text_email);
         textName = findViewById(R.id.text_name);
-        editProfileButton = findViewById(R.id.btn_edit_profile); // Correct initialization
+        editProfileButton = findViewById(R.id.btn_edit_profile);
         // Initialize Views
         postsContainer = findViewById(R.id.posts_container);
         likesContainer = findViewById(R.id.likes_container);

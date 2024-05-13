@@ -10,6 +10,6 @@ public class Num extends ResultsShow {
 
     @Override
     public String show() {
-        return "(" + num + ")";
+        return num + "|";
     }
 }
