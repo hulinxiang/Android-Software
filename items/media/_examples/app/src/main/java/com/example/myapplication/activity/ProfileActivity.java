@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+import com.example.myapplication.BPlusTree.Post.Tag.GenderSearchStrategy;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Post;
@@ -174,8 +175,9 @@ public class ProfileActivity extends AppCompatActivity {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
                 //get post from likesList
-                list = currentUser.getOwnPosts();//这里是post的owner的
-
+//                list = currentUser.getOwnPosts();//这里是post的owner的
+//                list = BPlusTreeManagerPost.searchByGender(getApplicationContext(), "Men");
+                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
             } else if (grid == likesGrid) {
                 //get post from likesList
                 list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
