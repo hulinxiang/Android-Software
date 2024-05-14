@@ -2,6 +2,8 @@ package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -314,7 +316,34 @@ public class PostActivity extends AppCompatActivity {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
             //add to grid layout
             gl_comment.addView(view,params);
+
+            if(remark.getUserEmail().equals(currentUser.getEmail())) {
+                comment_context.setOnClickListener(v -> {
+                    // Create an AlertDialog to show the options
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setTitle("Choose an action");
+                    String[] options = {"Delete Comment", "Cancel"};
+                    builder.setItems(options, (dialog, which) -> {
+                        switch (which) {
+                            case 0: // Delete Comment
+                                // Logic to delete the comment
+                                //update B plus tree
+                                BPlusTreeManagerRemark.delete(currentPost.getPostID(),remark);
+                                //update firebase
+                                FirebaseRemarkManager.getInstance(getApplicationContext()).deleteRemark(remark);
+                                Toast.makeText(v.getContext(), "Comment deleted", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 1: // Cancel
+                                dialog.dismiss(); // Dismiss the dialog
+                                break;
+                        }
+                    });
+                    builder.show(); // Show the AlertDialog
+
+                });
+            }
         }
+
     }
 
         private void init () {
