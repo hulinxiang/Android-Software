@@ -70,6 +70,51 @@ public class LikePostManager {
         }
     }
 
+    public void unlikePost(String postId, String userId) {
+        // 从本地存储中获取当前帖子的点赞信息
+        String likeIds = sharedPreferences.getString(postId, "");
+
+        // 将当前用户的 ID 从点赞信息中移除
+        if (likeIds.contains(userId)) {
+            String[] ids = likeIds.split(",");
+            Set<String> idSet = new HashSet<>(Arrays.asList(ids));
+            idSet.remove(userId);
+            String updatedLikeIds = TextUtils.join(",", idSet);
+
+            // 从 Firebase 获取最新的点赞信息
+            postsRef.child(postId).child("likeIDs").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String firebaseLikeIds = dataSnapshot.getValue(String.class);
+                    if (firebaseLikeIds != null) {
+                        // 如果 Firebase 中存在点赞信息,则将本地存储的点赞信息与 Firebase 中的点赞信息合并
+                        String[] localIds = updatedLikeIds.split(",");
+                        String[] firebaseIds = firebaseLikeIds.split(",");
+                        Set<String> mergedIds = new HashSet<>();
+                        mergedIds.addAll(Arrays.asList(localIds));
+                        mergedIds.addAll(Arrays.asList(firebaseIds));
+                        mergedIds.remove(userId);
+                        String mergedLikeIds = TextUtils.join(",", mergedIds);
+
+                        // 将更新后的点赞信息存储到本地和 Firebase
+                        sharedPreferences.edit().putString(postId, mergedLikeIds).apply();
+                        postsRef.child(postId).child("likeIDs").setValue(mergedLikeIds);
+                    } else {
+                        // 如果 Firebase 中不存在点赞信息,则直接将本地的点赞信息存储到 Firebase
+                        sharedPreferences.edit().putString(postId, updatedLikeIds).apply();
+                        postsRef.child(postId).child("likeIDs").setValue(updatedLikeIds);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.e("LikePostManager", "Error getting likes from Firebase", databaseError.toException());
+                }
+            });
+        }
+    }
+
+
     public void syncLikes(String postId) {
         postsRef.child(postId).child("likeIDs").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
