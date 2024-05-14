@@ -15,7 +15,7 @@ public class ParserTest {
         Tokenizer tokenizer = new Tokenizer(input);
         Parser parser = new Parser(tokenizer);
         ResultsShow result = parser.parse();
-        Assert.assertEquals("(123)(.)(456)", result.show());
+        Assert.assertEquals("123|.|456|", result.show());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class ParserTest {
         Tokenizer tokenizer = new Tokenizer(input);
         Parser parser = new Parser(tokenizer);
         ResultsShow result = parser.parse();
-        Assert.assertEquals("(789)", result.show());
+        Assert.assertEquals("789|", result.show());
     }
 
     @Test(expected = Parser.IllegalFormatException.class)
