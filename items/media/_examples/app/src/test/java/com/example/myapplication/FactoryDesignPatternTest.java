@@ -34,4 +34,28 @@ public class FactoryDesignPatternTest {
         assertEquals("Anonymous User", remark.getUserEmail());
         assertEquals("post456", remark.getPostId());
     }
+
+    @Test
+    public void testDifferentFactories() {
+        String text = "Hello, world!";
+        String userEmail = "user@example.com";
+        String postId = "post123";
+
+        // Create remarks using different factories
+        RemarkFactory commonFactory = new CommonRemarkFactory();
+        RemarkFactory anonymousFactory = new AnonymousRemarkFactory();
+
+        RemarkDemo commonRemark = commonFactory.create(text, userEmail, postId);
+        RemarkDemo anonymousRemark = anonymousFactory.create(text, userEmail, postId);
+
+        // Verify that the remarks have different user emails
+        assertEquals(userEmail, commonRemark.getUserEmail());
+        assertEquals("Anonymous User", anonymousRemark.getUserEmail());
+
+        // Verify that the remarks have the same text and post ID
+        assertEquals(text, commonRemark.getText());
+        assertEquals(text, anonymousRemark.getText());
+        assertEquals(postId, commonRemark.getPostId());
+        assertEquals(postId, anonymousRemark.getPostId());
+    }
 }
