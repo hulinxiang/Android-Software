@@ -1,5 +1,8 @@
 package com.example.myapplication.src;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +20,6 @@ public class Post {
     private String imageUrl;
     private String description;
     private String postIndexInFirebase;
-//    private List<Comment> comments;
     private String comments;
 
     private String likeIDs;
@@ -25,20 +27,6 @@ public class Post {
 
     // Constructor
 
-//    public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
-//                String baseColour, String season, int year, String usage, String productDisplayName,
-//                double price, String status, String imageUrl, String description, String commentText)  {
-//        this.userID = userID;
-//        this.postID = generatePostID();
-////        this.tag = new Tag(gender, new Tag.MasterCategory(masterCategory, new Tag.SubCategory(subCategory, new Tag.ArticleType(articleType))), baseColour, season, year, usage);
-//        this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
-//        this.productDisplayName = productDisplayName;
-//        this.price = price;
-//        this.status = status;
-//        this.imageUrl = imageUrl;
-//        this.description = description;
-//        this.comments = parseComments(commentText);
-//    }
     //用户create post时候用的
     public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
@@ -53,11 +41,13 @@ public class Post {
         this.description = description;
         this.comments = commentText;
         this.postIndexInFirebase = generateNextPostIndex();
+        this.likeIDs = "";
+        this.buyIDs = "";
     }
     //用来扒取firebase的全参构造器，全部数据从firebase读取
     public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
-                double price, String status, String imageUrl, String description, String commentText, String postIndexInFirebase)  {
+                double price, String status, String imageUrl, String description, String commentText, String postIndexInFirebase, String likeIDs, String buyIDs)  {
         this.postID = postID;
         this.userID = userID;
         this.tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, year, usage);
@@ -68,6 +58,8 @@ public class Post {
         this.description = description;
         this.comments = commentText;
         this.postIndexInFirebase = postIndexInFirebase;
+        this.likeIDs = likeIDs;
+        this.buyIDs = buyIDs;
     }
 
 //    public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, int year, String usage, String productDisplayName, double price, String status, String imageUrl, String description, String comments, String postIndexInFirebase) {
@@ -98,7 +90,7 @@ public class Post {
 
 
     // Constructor for Grid layout
-    public Post(String postID, String imageUrl, String name, double price,String userID,String description) {
+    public Post(String postID, String imageUrl, String name, double price, String userID,String description) {
         this.postID = postID;
         this.imageUrl = imageUrl;
         this.productDisplayName = name;
@@ -106,6 +98,8 @@ public class Post {
         this.userID = userID;
         this.description = description;
     }
+
+
 
     private static synchronized String generateNextPostIndex() {
         return String.valueOf(nextPostID++);  // Increment and return the next index
