@@ -84,7 +84,7 @@ public class MyPostActivity extends AppCompatActivity {
                     ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
-                    likePostManager.likePost(currentPost.getPostID(),currentUser.getUserId());
+                    likePostManager.likePost(currentPost.getPostID(),currentUser.getEmail());
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
