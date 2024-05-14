@@ -85,7 +85,6 @@ public class MyPostActivity extends AppCompatActivity {
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
                     likePostManager.likePost(currentPost.getPostID(),currentUser.getUserId());
-
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
@@ -96,6 +95,7 @@ public class MyPostActivity extends AppCompatActivity {
                     ((ImageView) v).setImageResource(R.drawable.ic_favorite_white_24dp);
                     //code remove post from like list
                     currentUser.removeLikes(currentPost);
+                    likePostManager.unlikePost(currentPost.getPostID(),currentUser.getUserId());
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
                     // Log message for debugging

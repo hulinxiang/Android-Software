@@ -2,6 +2,8 @@ package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,6 +45,7 @@ public class PostActivity extends AppCompatActivity {
     // Member variable to track the like state
 
     private boolean isLiked;
+    private boolean isPurchased;
 
     private Post currentPost;
     private User currentUser;
@@ -60,32 +63,30 @@ public class PostActivity extends AppCompatActivity {
         //user id in this post
         String user_id = getIntent().getStringExtra("user_id");
         //the class for the current post
-        currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(),post_id);
+        currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(), post_id);
         currentUser = SessionManager.getInstance().getUser();
         List<Post> likeList = currentUser.getLikePosts();
 
         // Initialize the like button
         if (currentPost != null && currentUser != null) {
-            isLiked = checkLike(currentPost,likeList);
+            isLiked = checkLike(currentPost, likeList);
             initializeLikeButton(isLiked);
         } else {
             Toast.makeText(this, "Error loading post or user data.", Toast.LENGTH_LONG).show();
         }
 
-
         //sync like
         likePostManager.syncLikes(currentPost.getPostID());
-
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            // Check the current state and update the image and show a toast accordingly
+                // Check the current state and update the image and show a toast accordingly
                 if (!isLiked) {
                     // Change the icon to red (liked)
                     ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
-                    likePostManager.likePost(currentPost.getPostID(),currentUser.getUserId());
+                    likePostManager.likePost(currentPost.getPostID(), currentUser.getUserId());
 
                     // Show a toast message
                     Toast.makeText(PostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
@@ -96,6 +97,7 @@ public class PostActivity extends AppCompatActivity {
                     ((ImageView) v).setImageResource(R.drawable.ic_favorite_white_24dp);
                     //code remove post from like list
                     currentUser.removeLikes(currentPost);
+                    likePostManager.unlikePost(currentPost.getPostID(), currentUser.getUserId());
                     // Show a toast message
                     Toast.makeText(PostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
@@ -116,6 +118,59 @@ public class PostActivity extends AppCompatActivity {
 
             }
         });
+
+
+        isPurchased = checkIfPurchased(currentPost);
+
+        post_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPurchased) {
+                    // Show a message indicating the product is already purchased
+                    Toast.makeText(PostActivity.this, "You have already purchased this product", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Show a confirmation dialog
+                    showPurchaseConfirmationDialog();
+                }
+            }
+        });
+
+
+    }
+
+    // Method to check if the product is in the buy list
+    private boolean checkIfPurchased(Post post) {
+        // Replace this with your actual logic to check if the post is in the buy list
+        return currentUser.getBuyPosts().contains(post);
+    }
+
+    // Method to show the purchase confirmation dialog
+    private void showPurchaseConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Purchase Confirmation")
+                .setMessage("Once you choose to purchase, you cannot cancel it. Do you want to proceed?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Handle purchase logic here
+                        handlePurchase();
+
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    // Method to handle the purchase logic
+    private void handlePurchase() {
+        // Add the post to the buy list
+        currentUser.getBuyPosts().add(currentPost);
+        // Update the purchase status
+        //isPurchased = true;
+        // Show a success message
+        Toast.makeText(PostActivity.this, "Purchase successful", Toast.LENGTH_SHORT).show();
+        // Log message for debugging
+        Log.d("PurchaseFeature", "Post purchased");
     }
 
     private void initializeLikeButton(boolean isLiked) {
@@ -134,43 +189,39 @@ public class PostActivity extends AppCompatActivity {
     }
 
 
-    private void showDetail(){
-        String p_name = getIntent().getStringExtra("post_name");
-        String p_image = getIntent().getStringExtra("post_image");
-        Double p_price = getIntent().getDoubleExtra("post_price",0);
-        String p_description = getIntent().getStringExtra("post_description");
-        String p_seller = getIntent().getStringExtra("post_seller");
+        private void showDetail () {
+            String p_name = getIntent().getStringExtra("post_name");
+            String p_image = getIntent().getStringExtra("post_image");
+            Double p_price = getIntent().getDoubleExtra("post_price", 0);
+            String p_description = getIntent().getStringExtra("post_description");
+            String p_seller = getIntent().getStringExtra("post_seller");
 
-        GlideImageLoader.loadImage(PostActivity.this,p_image,post_image);
-        post_description.setText(p_description);
-        post_price.setText(String.valueOf(p_price));
-        post_name.setText(p_name);
-        seller_name.setText(p_seller);
+            GlideImageLoader.loadImage(PostActivity.this, p_image, post_image);
+            post_description.setText(p_description);
+            post_price.setText(String.valueOf(p_price));
+            post_name.setText(p_name);
+            seller_name.setText(p_seller);
 
-        //back button
-        post_return.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+            //back button
+            post_return.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
 
+        }
+
+
+        private void init () {
+            post_name = findViewById(R.id.post_name);
+            post_buy = findViewById(R.id.btn_post_buy);
+            post_description = findViewById(R.id.post_description);
+            post_image = findViewById(R.id.post_image);
+            post_like = findViewById(R.id.btn_post_like);
+            post_return = findViewById(R.id.btn_post_return);
+            post_star = findViewById(R.id.post_star);
+            seller_name = findViewById(R.id.seller_name);
+            post_price = findViewById(R.id.post_price);
+        }
     }
-
-
-
-
-
-
-    private void init(){
-        post_name = findViewById(R.id.post_name);
-        post_buy = findViewById(R.id.btn_post_buy);
-        post_description = findViewById(R.id.post_description);
-        post_image = findViewById(R.id.post_image);
-        post_like = findViewById(R.id.btn_post_like);
-        post_return = findViewById(R.id.btn_post_return);
-        post_star = findViewById(R.id.post_star);
-        seller_name = findViewById(R.id.seller_name);
-        post_price = findViewById(R.id.post_price);
-    }
-}

@@ -168,8 +168,6 @@ public class User {
         }
     }
 
-
-
     public void removeLikes(Post post) {
         this.likePosts.remove(post);
     }
