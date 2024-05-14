@@ -1,10 +1,10 @@
-package com.example.myapplication.src.Firebase.UserManager;
+package com.example.myapplication.src.Firebase.RemarkManager;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapplication.src.User;
+import com.example.myapplication.src.Remark.RemarkDemo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,11 +13,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class FirebaseUserHelper {
+/**
+ * @author Hu
+ */
+public class FirebaseRemarkHelper {
 
-    public void addUser(User user) {
+    public void addRemark(RemarkDemo remarkDemo) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("user");
+        DatabaseReference myRef = database.getReference().child("remark");
 
         Log.d("Firebase add operation", "Enter the method");
 
@@ -25,18 +28,14 @@ public class FirebaseUserHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // 这将给出"user"下子节点的数量
+                // 这将给出"remark"下子节点的数量
                 long count = dataSnapshot.getChildrenCount();
-                // 现在在这个新索引下设置新用户数据
+                // 现在在这个新索引下设置新remark数据
                 DatabaseReference newUserRef = myRef.child(String.valueOf(count));
-                newUserRef.child("userID").setValue(user.getUserId());
-                newUserRef.child("email").setValue(user.getEmail());
-                newUserRef.child("password").setValue(user.getPasswordHash());
-                newUserRef.child("name").setValue(user.getName());
-                newUserRef.child("address").setValue(user.getAddress());
-                newUserRef.child("phone").setValue(user.getPhone());
-                newUserRef.child("userIndexInFirebase").setValue(user.getUserIndexInFirebase());
-                newUserRef.child("userType").setValue(user.getUserType());
+                newUserRef.child("Index").setValue(remarkDemo.getIndex());
+                newUserRef.child("PostID").setValue(remarkDemo.getPostId());
+                newUserRef.child("Remark").setValue(remarkDemo.getText());
+                newUserRef.child("UserEmail").setValue(remarkDemo.getUserEmail());
             }
 
             @Override
@@ -46,26 +45,24 @@ public class FirebaseUserHelper {
         });
     }
 
-    public void updateUser(User user) {
+
+    public void updateRemark(RemarkDemo remarkDemo) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("user");
+        DatabaseReference myRef = database.getReference().child("remark");
         Log.d("Firebase update operation", "Enter the method");
-        String curUserId = user.getUserId();
+        String curRemarkId = remarkDemo.getIndex();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase update operation", "Execute the method");
                 int count = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.child("userID").getValue(String.class), curUserId)) {
+                    if (Objects.equals(snapshot.child("Index").getValue(String.class), curRemarkId)) {
                         DatabaseReference newUserRef = myRef.child(String.valueOf(count));
-                        newUserRef.child("email").setValue(user.getEmail());
-                        newUserRef.child("password").setValue(user.getPasswordHash());
-                        newUserRef.child("name").setValue(user.getName());
-                        newUserRef.child("address").setValue(user.getAddress());
-                        newUserRef.child("phone").setValue(user.getPhone());
-                        newUserRef.child("userIndexInFirebase").setValue(user.getUserIndexInFirebase());
-                        newUserRef.child("userType").setValue(user.getUserType());
+                        newUserRef.child("Index").setValue(remarkDemo.getIndex());
+                        newUserRef.child("PostID").setValue(remarkDemo.getPostId());
+                        newUserRef.child("Remark").setValue(remarkDemo.getText());
+                        newUserRef.child("UserEmail").setValue(remarkDemo.getUserEmail());
                         break;
                     }
                     count++;
@@ -79,18 +76,18 @@ public class FirebaseUserHelper {
         });
     }
 
-    public void deleteUser(User user) {
+    public void deleteUser(RemarkDemo remarkDemo) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("user");
+        DatabaseReference myRef = database.getReference().child("remark");
         Log.d("Firebase delete operation", "Enter the method");
-        String curUserId = user.getUserId();
+        String curRemarkId = remarkDemo.getIndex();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase delete operation", "Execute the method");
                 int count = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.child("userID").getValue(String.class), curUserId)) {
+                    if (Objects.equals(snapshot.child("Index").getValue(String.class), curRemarkId)) {
                         DatabaseReference newUserRef = myRef.child(String.valueOf(count));
                         newUserRef.removeValue();
                         break;
@@ -98,6 +95,7 @@ public class FirebaseUserHelper {
                     count++;
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d("Firebase delete operation failed", "Failure to delete user to firebase：" + databaseError.getCode());

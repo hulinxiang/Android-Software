@@ -9,9 +9,9 @@ import java.util.List;
 
 
 public class BPlusTreeManagerRemark {
-    private static BPlusTree<String, RemarkDemo> remarkTree;
+    private static BPlusTree<String, List<RemarkDemo>> remarkTree;
 
-    public static synchronized BPlusTree<String, RemarkDemo> getTreeInstance(Context context) {
+    public static synchronized BPlusTree<String, List<RemarkDemo>> getTreeInstance(Context context) {
         if (remarkTree == null) {
             remarkTree = new BPlusTree<>();
         }

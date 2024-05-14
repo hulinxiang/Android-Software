@@ -5,7 +5,7 @@ import com.example.myapplication.src.Post;
 
 public class UsageSearchStrategy extends AbstractSearchStrategy {
     @Override
-    protected boolean matchCriteria(Post post, String value) {
+    protected boolean matchCriteria(Post post, String... value) {
         return post.getTag().getUsage().equals(value);
     }
 }

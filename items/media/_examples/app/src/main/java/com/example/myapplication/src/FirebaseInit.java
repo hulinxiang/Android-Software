@@ -1,7 +1,13 @@
 package com.example.myapplication.src;
 
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+import com.example.myapplication.BPlusTree.Remark.BPlusTreeManagerRemark;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
+import com.example.myapplication.src.Remark.AnonymousRemarkFactory;
+import com.example.myapplication.src.Remark.AnonymousRemarkFactoryManager;
+import com.example.myapplication.src.Remark.CommonRemarkFactoryManager;
+import com.example.myapplication.src.Remark.RemarkDemo;
+import com.example.myapplication.src.Remark.RemarkFactory;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +21,8 @@ import com.example.myapplication.src.Tag;
 
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +42,8 @@ public class FirebaseInit extends Application {
         DatabaseReference postsRef = database.child("post");
         // 加载User数据
         DatabaseReference usersRef = database.child("user");
+
+        DatabaseReference remarkRef = database.child("remark");
         // 先初始化User数据, 这样便于初始化user下面的ownPosts属性来表示这个用户发了多少帖子
         //''addListenerForSingleValueEvent'' will execute the onDataChange method   immediately and
         // after executing that method once, it stops listening to the reference location it is attached to.
@@ -55,11 +65,11 @@ public class FirebaseInit extends Application {
                     String address = snapshot.child("address").getValue(String.class);
                     String phone = snapshot.child("phone").getValue(String.class);
                     String userType = snapshot.child("userType").getValue(String.class);
-                    String userIndexInFirebase =  snapshot.child("userIndexInFirebase").getValue(String.class);
+                    String userIndexInFirebase = snapshot.child("userIndexInFirebase").getValue(String.class);
 
                     // 构造创建User对象
                     if (email != null && password != null && userId != null) {
-                        User user = new User(userId, email, password, name, address, phone,userType,userIndexInFirebase);
+                        User user = new User(userId, email, password, name, address, phone, userType, userIndexInFirebase);
                         BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).insert(email, user);
                         // Log.d("Constructing........", "Adding user: " + email + " to the local tree");
                     }
@@ -111,6 +121,8 @@ public class FirebaseInit extends Application {
                     //我把comments改成了String类型，可能还得加个parse类型解析一下，然后发现comment类也暂时没用到了，因为firebase上就是一长串字符串储存的
 
                     String postIndexInFirebase = snapshot.child("postIndexInFirebase").getValue(String.class);
+                    String likeIDs = snapshot.child("likeIDs").getValue(String.class);
+                    String buyIDs = snapshot.child("buyIDs").getValue(String.class);
 
                     assert year != null;
                     assert price != null;
@@ -123,7 +135,7 @@ public class FirebaseInit extends Application {
                     //Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
 
                     // 创建Post对象
-                    Post post = new Post(postID,userID,gender,masterCategory,subCategory,articleType,baseColour,season,Integer.parseInt(year),usage,productDisplayName,Double.parseDouble(price),status,imageUrl,description,comments,postIndexInFirebase);
+                    Post post = new Post(postID, userID, gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage, productDisplayName, Double.parseDouble(price), status, imageUrl, description, comments, postIndexInFirebase, likeIDs, buyIDs);
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
                     User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
@@ -169,6 +181,37 @@ public class FirebaseInit extends Application {
         // 此时post已经初始化完，但user的posts属性还没初始化。
         //////// 遍历post，用post里存的userID来找到那个user实例，然后把这个post add到this.posts列表中
 
+
+        remarkRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot shot : snapshot.getChildren()) {
+                    String index = shot.child("Index").getValue(String.class);
+                    String postID = shot.child("PostID").getValue(String.class);
+                    String remark = shot.child("Remark").getValue(String.class);
+                    String userEmail = shot.child("UserEmail").getValue(String.class);
+                    RemarkDemo remarkDemo = null;
+                    if ("Anonymous User".equals(userEmail)) {
+                        remarkDemo = AnonymousRemarkFactoryManager.getInstance().createWithIndex(remark, userEmail, postID, index);
+                    } else {
+                        remarkDemo = CommonRemarkFactoryManager.getInstance().createWithIndex(remark, userEmail, postID, index);
+                    }
+                    List<List<RemarkDemo>> list = BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).query(postID);
+                    if (list.isEmpty()) {
+                        List<RemarkDemo> value = new ArrayList<>();
+                        value.add(remarkDemo);
+                        BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).insert(postID, value);
+                    } else {
+                        list.get(0).add(remarkDemo);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseInit", "Failed to load remark data: " + error.getMessage());
+            }
+        });
 
     }
 }
