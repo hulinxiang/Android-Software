@@ -73,6 +73,9 @@ public class PostActivity extends AppCompatActivity {
         }
 
 
+        //sync like
+        likePostManager.syncLikes(currentPost.getPostID());
+
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +86,7 @@ public class PostActivity extends AppCompatActivity {
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
                     likePostManager.likePost(currentPost.getPostID(),currentUser.getUserId());
+
                     // Show a toast message
                     Toast.makeText(PostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging

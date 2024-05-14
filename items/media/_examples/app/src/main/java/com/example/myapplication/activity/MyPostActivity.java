@@ -18,6 +18,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostHelper;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
+import com.example.myapplication.src.LikePostManager;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
@@ -52,7 +53,7 @@ public class MyPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_post);
         init();
         showDetail();
-
+        LikePostManager likePostManager = new LikePostManager(getApplicationContext());
         //id of the current post
         String post_id = getIntent().getStringExtra("post_id");
         //user id in this post
@@ -71,6 +72,9 @@ public class MyPostActivity extends AppCompatActivity {
             Toast.makeText(this, "Error loading post or user data.", Toast.LENGTH_LONG).show();
         }
 
+        //sync like
+        likePostManager.syncLikes(currentPost.getPostID());
+
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +84,8 @@ public class MyPostActivity extends AppCompatActivity {
                     ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
+                    likePostManager.likePost(currentPost.getPostID(),currentUser.getUserId());
+
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
