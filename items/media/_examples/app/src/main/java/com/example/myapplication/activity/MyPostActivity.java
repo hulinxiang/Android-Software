@@ -170,8 +170,8 @@ public class MyPostActivity extends AppCompatActivity {
 
                                 // Code to delete the post can be placed here
                                 if (currentPost != null) {
-                                    FirebasePostHelper firebaseHelper = new FirebasePostHelper();
-                                    firebaseHelper.deletePost(currentPost);
+                                    FirebasePostManager.getInstance(getApplicationContext()).deletePost(currentPost);
+                                    BPlusTreeManagerPost.getTreeInstance(getApplicationContext()).remove(currentPost.getPostID());
                                     Toast.makeText(MyPostActivity.this, "Deleting post...", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(MyPostActivity.this, "Post not found", Toast.LENGTH_LONG).show();
