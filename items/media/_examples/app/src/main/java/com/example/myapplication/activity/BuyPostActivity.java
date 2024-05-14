@@ -63,9 +63,6 @@ public class BuyPostActivity extends AppCompatActivity {
         });
     }
 
-
-
-
     private void init(){
         post_name = findViewById(R.id.post_name);
         post_buy = findViewById(R.id.btn_post_buy);

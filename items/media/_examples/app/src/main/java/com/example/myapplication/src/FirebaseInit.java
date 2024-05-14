@@ -196,11 +196,11 @@ public class FirebaseInit extends Application {
                     } else {
                         remarkDemo = CommonRemarkFactoryManager.getInstance().createWithIndex(remark, userEmail, postID, index);
                     }
-                    List<List<RemarkDemo>> list = BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).query(postID);
+                    List<List<RemarkDemo>> list = BPlusTreeManagerRemark.getTreeInstance().query(postID);
                     if (list.isEmpty()) {
                         List<RemarkDemo> value = new ArrayList<>();
                         value.add(remarkDemo);
-                        BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).insert(postID, value);
+                        BPlusTreeManagerRemark.getTreeInstance().insert(postID, value);
                     } else {
                         list.get(0).add(remarkDemo);
                     }
