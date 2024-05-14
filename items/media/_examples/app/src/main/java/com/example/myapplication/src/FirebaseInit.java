@@ -121,6 +121,8 @@ public class FirebaseInit extends Application {
                     //我把comments改成了String类型，可能还得加个parse类型解析一下，然后发现comment类也暂时没用到了，因为firebase上就是一长串字符串储存的
 
                     String postIndexInFirebase = snapshot.child("postIndexInFirebase").getValue(String.class);
+                    String likeIDs = snapshot.child("likeIDs").getValue(String.class);
+                    String buyIDs = snapshot.child("buyIDs").getValue(String.class);
 
                     assert year != null;
                     assert price != null;
@@ -133,7 +135,7 @@ public class FirebaseInit extends Application {
                     //Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
 
                     // 创建Post对象
-                    Post post = new Post(postID, userID, gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage, productDisplayName, Double.parseDouble(price), status, imageUrl, description, comments, postIndexInFirebase);
+                    Post post = new Post(postID, userID, gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage, productDisplayName, Double.parseDouble(price), status, imageUrl, description, comments, postIndexInFirebase, likeIDs, buyIDs);
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
                     User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
