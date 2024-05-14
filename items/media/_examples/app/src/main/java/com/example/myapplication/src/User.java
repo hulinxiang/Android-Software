@@ -180,12 +180,20 @@ public class User {
     }
 
     // Delete a post from the user's own posts
-    public void deleteOwnPost(String postID) {
-        ownPosts.removeIf(post -> post.getPostID().equals(postID));
+    public void removeOwnPost(Post post) {
+       this.ownPosts.remove(post);
     }
 
     public void updateLikes(Post post){
-        this.likePosts.add(post);
+        if(!likePosts.contains(post)) {
+            this.likePosts.add(post);
+        }
+    }
+
+
+
+    public void removeLikes(Post post) {
+        this.likePosts.remove(post);
     }
 
     public void updateBuys(Post post){
@@ -198,17 +206,17 @@ public class User {
 
     // Get all posts owned by the user
     public List<Post> getOwnPosts() {
-        return ownPosts;
+        return this.ownPosts;
     }
 
     // Get all posts liked by the user
     public List<Post> getLikePosts() {
-        return likePosts;
+        return this.likePosts;
     }
 
     // Get all posts purchased by the user
     public List<Post> getBuyPosts() {
-        return buyPosts;
+        return this.buyPosts;
     }
 
     public static int getNextUserIndex() {

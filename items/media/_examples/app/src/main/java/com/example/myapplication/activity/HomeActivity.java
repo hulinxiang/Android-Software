@@ -138,6 +138,7 @@ public class HomeActivity extends AppCompatActivity {
                 intent.putExtra("post_description",post.getDescription());
                 intent.putExtra("post_price",post.getPrice());
                 intent.putExtra("post_seller", post.getUserID());
+                intent.putExtra("source", "home");
                 startActivity(intent);
             });
         }

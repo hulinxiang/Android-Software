@@ -183,9 +183,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateButtonCounts() {
-        int postsCount = 24; // Fetch actual post count
-        int likesCount = 120; // Fetch actual likes count
-        int buyCount = 15; // Fetch actual buy count
+        User currentUser = SessionManager.getInstance().getUser();
+        int postsCount = currentUser.getOwnPosts().size(); // Fetch actual post count
+        int likesCount = currentUser.getLikePosts().size(); // Fetch actual likes count
+        int buyCount = currentUser.getBuyPosts().size(); // Fetch actual buy count
 
         postsButton.setText(postsCount + " Posts");
         likesButton.setText(likesCount + " Likes");
@@ -232,16 +233,15 @@ public class ProfileActivity extends AppCompatActivity {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
                 //get post from likesList
-//                list = currentUser.getOwnPosts();//这里是post的owner的
-//                list = BPlusTreeManagerPost.searchByGender(getApplicationContext(), "Men");
-                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
+                 list = currentUser.getOwnPosts();//这里是post的owner的
+                //list = BPlusTreeManagerPost.searchByGender(getApplicationContext(), "Men");
+                //list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
             } else if (grid == likesGrid) {
                 //get post from likesList
-                list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
-
+                list = currentUser.getLikePosts();
             } else if (grid == buyGrid) {
                 //get post from buyList
-                list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
+                list = currentUser.getBuyPosts();
             }
 
             for (Post post : list) {
@@ -271,6 +271,7 @@ public class ProfileActivity extends AppCompatActivity {
                     intent.putExtra("post_description", post.getDescription());
                     intent.putExtra("post_price", post.getPrice());
                     intent.putExtra("post_seller", post.getUserID());
+                    intent.putExtra("source", "profile");
                     startActivity(intent);
                 });
             }

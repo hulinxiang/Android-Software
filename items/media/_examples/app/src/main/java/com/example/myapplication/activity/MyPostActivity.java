@@ -1,16 +1,28 @@
 package com.example.myapplication.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
+import com.example.myapplication.src.Firebase.PostManager.FirebasePostHelper;
+import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
+import com.example.myapplication.src.Post;
+import com.example.myapplication.src.SessionManager;
+import com.example.myapplication.src.User;
+
+import java.util.List;
 
 public class MyPostActivity extends AppCompatActivity {
     private TextView post_name;
@@ -27,6 +39,12 @@ public class MyPostActivity extends AppCompatActivity {
 
     private  ImageView post_delete;
 
+    private Post currentPost;
+
+    private User currentUser;
+
+    private boolean isLiked;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +52,69 @@ public class MyPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_post);
         init();
         showDetail();
+
+        //id of the current post
+        String post_id = getIntent().getStringExtra("post_id");
+        //user id in this post
+        String user_id = getIntent().getStringExtra("user_id");
+
+        currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(),post_id);
+        currentUser = SessionManager.getInstance().getUser();
+        //get like post list
+        List<Post> likeList = currentUser.getLikePosts();
+
+        // Initialize the like button
+        if (currentPost != null && currentUser != null) {
+            isLiked = checkLike(currentPost,likeList);
+            initializeLikeButton(isLiked);
+        } else {
+            Toast.makeText(this, "Error loading post or user data.", Toast.LENGTH_LONG).show();
+        }
+
+        post_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check the current state and update the image and show a toast accordingly
+                if (!isLiked) {
+                    // Change the icon to red (liked)
+                    ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
+                    //code add post to like list
+                    currentUser.updateLikes(currentPost);
+                    // Show a toast message
+                    Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
+                    // Log message for debugging
+                    Log.d("LikeFeature", "Post liked");
+
+                } else {
+                    // Change the icon back to white (unliked)
+                    ((ImageView) v).setImageResource(R.drawable.ic_favorite_white_24dp);
+                    //code remove post from like list
+                    currentUser.removeLikes(currentPost);
+                    // Show a toast message
+                    Toast.makeText(MyPostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
+                    // Log message for debugging
+                    Log.d("LikeFeature", "Like cancelled");
+                }
+
+            }
+
+        });
+
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //showDetail();
+    private void initializeLikeButton(boolean isLiked) {
+        post_like.setImageResource(isLiked ? R.drawable.ic_favorite_red_24dp : R.drawable.ic_favorite_white_24dp);
+    }
+
+    private boolean checkLike(Post post, List<Post> likeList) {
+        isLiked = false;
+        for (Post likedPost : likeList) {
+            if (likedPost.getPostID().equals(post.getPostID())) {
+                isLiked = true;
+                break;
+            }
+        }
+        return isLiked;
     }
 
     private void showDetail(){
@@ -55,6 +130,14 @@ public class MyPostActivity extends AppCompatActivity {
         post_name.setText(p_name);
         seller_name.setText(p_seller);
 
+        //id of the current post
+        String post_id = getIntent().getStringExtra("post_id");
+        //user id in this post
+        String user_id = getIntent().getStringExtra("user_id");
+        //the class for the current post
+        currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(),post_id);
+
+
         //back button
         post_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +150,49 @@ public class MyPostActivity extends AppCompatActivity {
         post_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyPostActivity.this,ProfileActivity.class);
-                startActivity(intent);
+                // Log message when the delete button is clicked
+                Log.d("DeletePost", "Delete button clicked");
+
+                // Create an AlertDialog to confirm the deletion
+                new AlertDialog.Builder(MyPostActivity.this)
+                        .setTitle("Confirm Deletion")  // Title of the dialog
+                        .setMessage("Are you sure you want to delete this post?")  // Message to show
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Log message when deletion is confirmed
+                                Log.d("DeletePost", "Deletion confirmed");
+
+                                // Code to delete the post can be placed here
+                                if (currentPost != null) {
+                                    FirebasePostHelper firebaseHelper = new FirebasePostHelper();
+                                    firebaseHelper.deletePost(currentPost);
+                                    Toast.makeText(MyPostActivity.this, "Deleting post...", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(MyPostActivity.this, "Post not found", Toast.LENGTH_LONG).show();
+                                }
+
+                                // Intent to go back to the ProfileActivity after deletion
+                                Intent intent = new Intent(MyPostActivity.this, ProfileActivity.class);
+                                startActivity(intent);
+                                finish();  // Close the current activity
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Log message when deletion is cancelled
+                                Log.d("DeletePost", "Deletion cancelled");
+
+                                // Dismiss the dialog and do nothing
+                                dialog.dismiss();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();  // Display the dialog
             }
         });
 
     }
+
 
 
     private void init(){
