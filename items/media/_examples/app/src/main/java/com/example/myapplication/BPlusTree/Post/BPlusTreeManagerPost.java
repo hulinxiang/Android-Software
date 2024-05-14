@@ -41,28 +41,16 @@ public class BPlusTreeManagerPost {
 
     public static List<Post> searchKeyword(Context context, String input) {
         List<Post> allPosts = BPlusTreeManagerPost.getTreeInstance(context).queryAllData();
-        List<Post> filteredRes = new ArrayList<>();
-        List<String> keywords = new KeywordExtractor().extractKeyWords(input);
-        if (keywords.isEmpty()) {
-            Log.d("Keywords results", "Keywords results are empty");
-        }
-
-
-        for (String keyword : keywords) {
-            Log.d("Keywords results", "Keywords Results are " + keyword);
-        }
-
+        List<Post> res = new ArrayList<>();
         for (Post post : allPosts) {
             String description = post.getDescription();
             String title = post.getProductDisplayName();
-            for (String keyword : keywords) {
-                if (description.trim().toLowerCase().contains(keyword.trim().toLowerCase())
-                        || keyword.trim().toLowerCase().contains(title.trim().toLowerCase())) {
-                    filteredRes.add(post);
-                }
+            if (description.trim().toLowerCase().contains(input.trim().toLowerCase())
+                    || input.trim().toLowerCase().contains(title.trim().toLowerCase())) {
+                res.add(post);
             }
         }
-        return filteredRes;
+        return res;
     }
 
     public static Post searchPostId(Context context, String id) {
@@ -116,7 +104,7 @@ public class BPlusTreeManagerPost {
     }
 
 
-    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType,String baseColour, String season, String usage, String minPrice, String maxPrice) {
+    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage, String minPrice, String maxPrice) {
         List<Post> resultPosts = getTreeInstance(context).queryAllData();
 
         // 根据性别进行搜索
@@ -166,7 +154,6 @@ public class BPlusTreeManagerPost {
             List<Post> priceRangePosts = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
             resultPosts.retainAll(priceRangePosts);
         }
-
 
 
         // 根据其他标签属性进行搜索,这里应该还有个数字属性的搜索，但是我还没封
