@@ -163,10 +163,10 @@ public class User {
     }
 
     public void updateLikes(Post post){
-//        if(!likePosts.contains(post)) {
-//            this.likePosts.add(post);
-//        }
-        this.likePosts.add(post);
+        if(!likePosts.contains(post)) {
+            this.likePosts.add(post);
+        }
+        //this.likePosts.add(post);
     }
 
     public void removeLikes(Post post) {
@@ -174,7 +174,9 @@ public class User {
     }
 
     public void updateBuys(Post post){
-        this.buyPosts.add(post);
+        if(!buyPosts.contains(post)) {
+            this.buyPosts.add(post);
+        }
     }
 
     public void updateOwns(Post post){

@@ -160,12 +160,7 @@ public class SearchActivity extends AppCompatActivity {
         String maxPrice = getIntent().getStringExtra("maxPrice");
 
         //tag search list
-
-        //List<Post> list = BPlusTreeManagerPost.searchByPriceRange(getApplicationContext(), "300.00", "500.00");
-        //List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),"Men", "", "", "Tshirts", "", "Fall", "");
         List<Post> list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),  gender, masterCategory, subCategory, articleType, baseColor, season, usage, minPrice, maxPrice);
-//        List<Post> list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "","400.00","500.00");
-        //List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage);
         if(list.isEmpty()){
             Toast.makeText(SearchActivity.this,"please search again",Toast.LENGTH_SHORT).show();
         }else {
