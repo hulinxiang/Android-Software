@@ -89,8 +89,7 @@ public class MyPostActivity extends AppCompatActivity {
             Toast.makeText(this, "Error loading post or user data.", Toast.LENGTH_LONG).show();
         }
 
-        //sync like
-        likePostManager.syncLikes(currentPost.getPostID());
+
 
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +101,8 @@ public class MyPostActivity extends AppCompatActivity {
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
                     likePostManager.likePost(currentPost.getPostID(),currentUser.getEmail());
+                    //sync like
+                    likePostManager.syncLikes(currentPost.getPostID());
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
@@ -113,6 +114,8 @@ public class MyPostActivity extends AppCompatActivity {
                     //code remove post from like list
                     currentUser.removeLikes(currentPost);
                     likePostManager.unlikePost(currentPost.getPostID(),currentUser.getUserId());
+                    //sync like
+                    likePostManager.syncLikes(currentPost.getPostID());
                     // Show a toast message
                     Toast.makeText(MyPostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
