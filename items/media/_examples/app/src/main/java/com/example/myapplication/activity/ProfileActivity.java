@@ -2,7 +2,6 @@ package com.example.myapplication.activity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -18,9 +17,6 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
-import com.example.myapplication.BPlusTree.Post.Tag.GenderSearchStrategy;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
@@ -43,17 +39,12 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout create;
     private LinearLayout inbox;
     private LinearLayout profile;
-    private CardView cardView1;
-
     private TextView textName;
     private TextView textEmail;
     private Button editProfileButton;
-
     private LinearLayout postsContainer, likesContainer, buyContainer;
     private TextView postsButton, likesButton, buyButton;
-
     private GridLayout postsGrid, likesGrid, buyGrid;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,7 +171,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-
     @SuppressLint("SetTextI18n")
     private void updateButtonCounts() {
         User currentUser = SessionManager.getInstance().getUser();
@@ -198,7 +188,6 @@ public class ProfileActivity extends AppCompatActivity {
         postsContainer.setVisibility(view.equals("posts") ? View.VISIBLE : View.GONE);
         likesContainer.setVisibility(view.equals("likes") ? View.VISIBLE : View.GONE);
         buyContainer.setVisibility(view.equals("buy") ? View.VISIBLE : View.GONE);
-
 
         // Show only the selected grid and update it
         if (view.equals("posts")) {
@@ -233,11 +222,8 @@ public class ProfileActivity extends AppCompatActivity {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
                 //get post from likesList
-                list = currentUser.getOwnPosts();//这里是post的owner的
-                //list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
-               //list = BPlusTreeManagerPost.searchByPriceRange(getApplicationContext(),"400.00","500.00");
-//                list = BPlusTreeManagerPost.searchByGender(getApplicationContext(),"Men");
-            } else if (grid == likesGrid) {
+                list = currentUser.getOwnPosts();
+           } else if (grid == likesGrid) {
                 //get post from likesList
                 list = currentUser.getLikePosts();
             } else if (grid == buyGrid) {
@@ -259,8 +245,8 @@ public class ProfileActivity extends AppCompatActivity {
                 //get the height and weight from the screen
                 int screenWidth = getResources().getDisplayMetrics().widthPixels;
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth / 2, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //add to grid layout
 
+                //add to grid layout
                 grid.addView(view, params);
 
                 //click image jump to post detail page
@@ -295,7 +281,6 @@ public class ProfileActivity extends AppCompatActivity {
         postsButton = findViewById(R.id.posts_button);
         likesButton = findViewById(R.id.likes_button);
         buyButton = findViewById(R.id.buy_button);
-
         //  Grid layout
         postsGrid = findViewById(R.id.gl_myPosts);
         likesGrid = findViewById(R.id.gl_likePosts);

@@ -16,6 +16,7 @@ public class PostCreator {
         this.context = context;
     }
 
+    // Creates a new post
     public void createPost(String userID, String gender, String masterCategoryName, String subCategoryName,
                            String articleTypeName, String baseColour, String season, int year, String usage,
                            String productDisplayName, double productPrice, String productStatus, String imageUrl,

@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.myapplication.R;
 
+/**
+ * This activity displays the user's inbox.
+ */
 public class InboxActivity extends AppCompatActivity {
     private LinearLayout home;
     private LinearLayout search;
@@ -20,8 +22,10 @@ public class InboxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
-
+        // Initialize views
         init();
+
+        // Set click listeners for bottom navigation
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +66,10 @@ public class InboxActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Initialize the views.
+     */
     private void init(){
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);

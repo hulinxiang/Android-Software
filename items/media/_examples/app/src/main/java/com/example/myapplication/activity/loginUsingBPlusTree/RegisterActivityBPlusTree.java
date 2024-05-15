@@ -39,6 +39,7 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
 
         loginCheckService = new LoginCheckService(this);
 
+        // Set click listener for the return button
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,38 +47,21 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
             }
         });
 
-
-//        register.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String registerEmail = email.getText().toString();
-//                String pwd = password.getText().toString();
-//
-//                if (checkValid(registerEmail, pwd)) {
-//                    User user = new User(registerEmail, pwd);
-//                    BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
-//                    //firebase更新
-//                    FirebaseUserManager.getInstance(getApplicationContext()).addUser(user);
-//                    Toast.makeText(RegisterActivityBPlusTree.this, "Register Successfully", Toast.LENGTH_SHORT).show();
-//                    finish();
-//                } else {
-//                    Toast.makeText(RegisterActivityBPlusTree.this, "Duplicate usernames or passwords are empty", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-
-// 在 register 按钮的点击事件中，修改 User 对象的创建部分
+        // Set click listener for the register button
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String registerEmail = email.getText().toString();
                 String pwd = password.getText().toString();
 
+                // Check if the email and password are valid
                 if (loginCheckService.checkValid(registerEmail, pwd)) {
+                    // Encrypt the password using SHA-256
                     String encryptedPassword = DigestUtils.sha256Hex(pwd);
+                    // Create a new User object
                     User user = new User(registerEmail, encryptedPassword);
 
+                    // Insert the user into the BPlusTree and Firebase
                     BPlusTreeManagerUser.getTreeInstance(RegisterActivityBPlusTree.this).insert(registerEmail, user);
                     FirebaseUserManager.getInstance(getApplicationContext()).addUser(user);
 
@@ -88,25 +72,13 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
                 }
             }
         });
-
-
     }
-//
-//    public boolean checkValid(String name, String pwd) {
-//        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(this);
-//        List<User> user = tree.query(name);
-//        if (user.size() != 0) {
-//            return false;
-//        }
-//        return !pwd.isEmpty() && SearchManager.validateUsername(name) && SearchManager.validatePassword(pwd);
-//    }
 
-
+    // Initialize UI components
     private void init() {
         email = findViewById(R.id.registerEmail);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
         returnButton = findViewById(R.id.returnButton);
     }
-
 }

@@ -46,49 +46,32 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
             }
         });
 
+        // Set up click listener for login button
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String name = username.getText().toString();
                 String pwd = password.getText().toString();
+                // Check login credentials
                 if (loginCheckService.loginCheck(name, pwd)) {
+                    // Display login success message
                     Toast.makeText(LoginActivityBPlusTree.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                    //跳转到新的activity
+                    // Redirect to HomeActivity
                     Intent intent = new Intent(LoginActivityBPlusTree.this, HomeActivity.class);
                     startActivity(intent);
-                    //Setting a user upon successful login
+                    // Set the logged-in user
                     User loggedInUser = BPlusTreeManagerUser.getTreeInstance(getApplicationContext()).query(name).get(0);
                     SessionManager.getInstance().setUser(loggedInUser);
                 } else {
+                    // Display login failure message
                     Toast.makeText(LoginActivityBPlusTree.this, "UserName or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-//    private boolean loginCheck(String name, String pwd) {
-//        BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(this);
-//        List<User> allUsers = tree.query(name);
-//        if (allUsers.size() != 0) {
-//            for (User user : allUsers) {
-//                if (user != null && user.getEmail() != null && user.getPasswordHash() != null) {
-//                    Log.d("LoginCheck", "Checking user in BPlusTree: " + user.getEmail());
-//                    if (user.getEmail().equals(name) && user.getPasswordHash().equals(User.hashPassword(pwd))) {
-//                        Log.d("LoginCheck", "Login successful for user: " + name);
-//                        return true;
-//                    } else {
-//                        Log.d("LoginFailed", "False Password: " + User.hashPassword(pwd) + "  Right Password: " + user.getPasswordHash());
-//                    }
-//                }
-//            }
-//        }else {
-//            Log.d("Empty User List","The User List is empty");
-//        }
-//        Log.d("LoginCheck", "Login failed for user: " + name + "  password: " + pwd);
-//
-//        return false;
-//    }
-
+    // Initialize UI components
     private void init() {
         // get the component by Id
         username = findViewById(R.id.registerEmail);

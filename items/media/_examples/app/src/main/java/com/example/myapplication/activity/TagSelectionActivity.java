@@ -5,21 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
-import com.example.myapplication.src.Post;
-import com.google.gson.Gson;
-
-import java.util.List;
 
 public class TagSelectionActivity extends AppCompatActivity {
-
     private Spinner spinnerGender, spinnerMasterCategory, spinnerSubCategory, spinnerArticleType, spinnerBaseColor, spinnerSeason, spinnerUsage;
     private EditText editTextMinPrice, editTextMaxPrice;
     private Button buttonSaveInput, buttonCancel;
@@ -42,7 +34,6 @@ public class TagSelectionActivity extends AppCompatActivity {
         buttonSaveInput = findViewById(R.id.button_search);
         buttonCancel = findViewById(R.id.button_return);
 
-
         // Set up spinners with data
         setupSpinners();
 
@@ -59,7 +50,6 @@ public class TagSelectionActivity extends AppCompatActivity {
                 String usage = getSelectedSpinnerValue(spinnerUsage);
                 String minPrice = editTextMinPrice.getText().toString();
                 String maxPrice = editTextMaxPrice.getText().toString();
-
 
                 if (minPrice.isEmpty()) {
                     minPrice = "0";
@@ -79,7 +69,6 @@ public class TagSelectionActivity extends AppCompatActivity {
                 intent.putExtra("minPrice", minPrice);
                 intent.putExtra("maxPrice", maxPrice);
                 startActivity(intent);
-
             }
         });
 
@@ -91,8 +80,8 @@ public class TagSelectionActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
+
     private void setupSpinners() {
         // Set up gender spinner
         String[] genderCategories = getResources().getStringArray(R.array.gender_categories);
@@ -141,5 +130,4 @@ public class TagSelectionActivity extends AppCompatActivity {
             return spinner.getSelectedItem().toString();
         }
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.myapplication.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,7 +23,6 @@ import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.BPlusTree.Remark.BPlusTreeManagerRemark;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
-import com.example.myapplication.src.Firebase.PostManager.FirebasePostHelper;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
 import com.example.myapplication.src.Firebase.RemarkManager.FirebaseRemarkManager;
 import com.example.myapplication.src.LikePostManager;
@@ -41,26 +39,17 @@ public class MyPostActivity extends AppCompatActivity {
     private TextView post_name;
     private TextView post_price;
     private ImageView post_image;
-
     private ImageView post_return;
     private ImageView post_like;
-
     private TextView seller_name;
-
     private ImageView post_star;
     private TextView post_description;
-
     private  ImageView post_delete;
-
     private Post currentPost;
-
     private User currentUser;
-
     private boolean isLiked;
-
     private TextView write;
     private GridLayout gl_comment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,14 +58,14 @@ public class MyPostActivity extends AppCompatActivity {
         init();
         showDetail();
         LikePostManager likePostManager = new LikePostManager(getApplicationContext());
-        //id of the current post
+        // id of the current post
         String post_id = getIntent().getStringExtra("post_id");
-        //user id in this post
+        // user id in this post
         String user_id = getIntent().getStringExtra("user_id");
 
         currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(),post_id);
         currentUser = SessionManager.getInstance().getUser();
-        //get like post list
+        // get like post list
         List<Post> likeList = currentUser.getLikePosts();
 
         showComment(currentPost);
@@ -88,8 +77,6 @@ public class MyPostActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Error loading post or user data.", Toast.LENGTH_LONG).show();
         }
-
-
 
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,12 +94,9 @@ public class MyPostActivity extends AppCompatActivity {
                     Toast.makeText(MyPostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
                     // Log message for debugging
                     Log.d("LikeFeature", "Post liked");
-
                 }
             }
-
         });
-
 
         //write comment
         write.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +105,6 @@ public class MyPostActivity extends AppCompatActivity {
                 showCommentDialog();
             }
         });
-
     }
 
     private void initializeLikeButton(boolean isLiked) {
@@ -158,7 +141,6 @@ public class MyPostActivity extends AppCompatActivity {
         String user_id = getIntent().getStringExtra("user_id");
         //the class for the current post
         currentPost = BPlusTreeManagerPost.searchPostId(getApplicationContext(),post_id);
-
 
         //back button
         post_return.setOnClickListener(new View.OnClickListener() {
@@ -212,7 +194,6 @@ public class MyPostActivity extends AppCompatActivity {
                         .show();  // Display the dialog
             }
         });
-
     }
 
     private void showCommentDialog() {
@@ -259,9 +240,7 @@ public class MyPostActivity extends AppCompatActivity {
         });
     }
 
-
     private void showComment(Post currentPost){
-
         //comment list
         List<RemarkDemo> list = BPlusTreeManagerRemark.get(currentPost.getPostID());
 
@@ -305,14 +284,10 @@ public class MyPostActivity extends AppCompatActivity {
                             }
                         });
                         builder.show(); // Show the AlertDialog
-
                 });
                 }
-
             }
-
     }
-
 
     private void postComment(String comment, boolean isAnonymous) {
         if(isAnonymous){

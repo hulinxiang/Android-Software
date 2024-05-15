@@ -31,14 +31,12 @@ public class CreateActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int STORAGE_PERMISSION_CODE = 2;
     private Uri imageUri;
-
     private EditText etProductDisplayName, etArticleType, etBaseColour, etMasterCategory, etSubCategory,
             etGender, etSeason, etYear, etUsage, etProductPrice, etProductStatus, etProductDescription, etComments;
     private Button submitButton, resetDefaultsButton;
     private ImageView returnButton, imagePreview, imageOverlay;
     private TextView tvSelectPhoto;
     private StorageReference storageRef;
-
     private ImageUploader imageUploader;
     private PostCreator postCreator;
 
@@ -74,7 +72,6 @@ public class CreateActivity extends AppCompatActivity {
         etProductStatus = findViewById(R.id.et_product_status);
         etProductDescription = findViewById(R.id.et_product_description);
         etComments = findViewById(R.id.et_comments);
-
         submitButton = findViewById(R.id.btn_submit_post);
         resetDefaultsButton = findViewById(R.id.btn_reset_defaults);
         returnButton = findViewById(R.id.returnButton);
@@ -106,6 +103,7 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
+    // Requests the storage permission from the user if it has not been granted already.
     private void requestStoragePermissions() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -113,18 +111,6 @@ public class CreateActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
         }
     }
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == STORAGE_PERMISSION_CODE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                Toast.makeText(this, "Storage permission granted", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(this, "Storage permission denied", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 
     // Method to open file chooser for image selection
     private void openFileChooser() {

@@ -3,7 +3,6 @@ package com.example.myapplication.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,35 +15,17 @@ import android.widget.TextView;
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
 import com.example.myapplication.src.Post;
-import com.example.myapplication.src.PostList;
-import com.example.myapplication.src.User;
 
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.net.Uri;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 public class HomeActivity extends AppCompatActivity {
-
     private LinearLayout home;
     private LinearLayout search;
     private LinearLayout create;
     private LinearLayout inbox;
     private LinearLayout profile;
-
     private GridLayout gl_post;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         init();
 
+        // Set click listeners for bottom navigation
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,34 +74,39 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //网格视图
+        // Initialize the grid layout for posts
         gl_post = findViewById(R.id.gl_home);
+        // Show posts in the grid layout
         showPost();
 
     }
 
+    /**
+     * Show posts in the grid layout.
+     */
     private void showPost(){
-        //需要一个list
+        // Get a list of posts using a B+ tree
         List<Post> list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
 
         for (Post post: list){
-            //get the layout from item_card.xml
+            // Inflate the layout for each post
             View view = LayoutInflater.from(this).inflate(R.layout.item_card,null);
             ImageView card_image = view.findViewById(R.id.card_image);
             TextView card_name = view.findViewById(R.id.card_name);
             TextView card_price = view.findViewById(R.id.card_price);
 
+            // Load the post image using Glide
             GlideImageLoader.loadImage(HomeActivity.this,post.getImageUrl(),card_image);
             card_name.setText(post.getProductDisplayName());
             card_price.setText(String.valueOf(post.getPrice()));
 
-            //get the height and weight from the screen
+            // Get the screen width and set the layout params
             int screenWidth = getResources().getDisplayMetrics().widthPixels;
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth/2, ViewGroup.LayoutParams.WRAP_CONTENT);
-            //add to grid layout
+            // Add the view to the grid layout
             gl_post.addView(view,params);
 
-            //click image jump to post detail page
+            // Set click listener for the post image to view post details
             card_image.setOnClickListener(v ->{
                 Intent intent = new Intent(HomeActivity.this,PostActivity.class);
                 intent.putExtra("post_id",post.getPostID());
@@ -134,7 +121,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Initialize the views.
+     */
     private void init(){
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);
@@ -142,5 +131,4 @@ public class HomeActivity extends AppCompatActivity {
         inbox = findViewById(R.id.btn_inbox);
         profile = findViewById(R.id.btn_profile);
     }
-
 }

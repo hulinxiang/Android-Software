@@ -113,28 +113,7 @@ public class LikePostManager {
             });
         }
     }
-//    public void syncLikes(String postId) {
-//        Query query = postsRef.orderByChild("postID").equalTo(postId);
-//        query.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-//                    String likeIDsFromFirebase = postSnapshot.child("likeIDs").getValue(String.class);
-//                    if (likeIDsFromFirebase == null) {
-//                        // 如果 Firebase 中没有点赞信息,则将其视为空字符串
-//                        likeIDsFromFirebase = "";
-//                    }
-//                    // 将从 Firebase 获取的点赞信息存储到本地
-//                    sharedPreferences.edit().putString(postId, likeIDsFromFirebase).apply();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.e("LikePostManager", "Error syncing likes", databaseError.toException());
-//            }
-//        });
-//    }
+
     public void syncLikes(String postId) {
         Query query = postsRef.orderByChild("postID").equalTo(postId);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
