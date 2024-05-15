@@ -98,41 +98,27 @@ public class PostActivity extends AppCompatActivity {
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check the current state and update the image and show a toast accordingly
-                if (!isLiked) {
-                    // Change the icon to red (liked)
-                    ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
-                    //code add post to like list
-                    currentUser.updateLikes(currentPost);
-                    likePostManager.likePost(currentPost.getPostID(), currentUser.getEmail());
+                post_like.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Check the current state and update the image and show a toast accordingly
+                        if (!isLiked) {
+                            // Change the icon to red (liked)
+                            ((ImageView) v).setImageResource(R.drawable.ic_favorite_red_24dp);
+                            //code add post to like list
+                            currentUser.updateLikes(currentPost);
+                            likePostManager.likePost(currentPost.getPostID(),currentUser.getEmail());
+                            //sync like
+                            likePostManager.syncLikes(currentPost.getPostID());
+                            // Show a toast message
+                            Toast.makeText(PostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
+                            // Log message for debugging
+                            Log.d("LikeFeature", "Post liked");
 
-                    // Show a toast message
-                    Toast.makeText(PostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
-                    // Log message for debugging
-                    Log.d("LikeFeature", "Post liked");
-                } else {
-                    // Change the icon back to white (unliked)
-                    ((ImageView) v).setImageResource(R.drawable.ic_favorite_white_24dp);
-                    //code remove post from like list
-                    currentUser.removeLikes(currentPost);
-                    likePostManager.unlikePost(currentPost.getPostID(), currentUser.getUserId());
-                    // Show a toast message
-                    Toast.makeText(PostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
-                    // Log message for debugging
-                    Log.d("LikeFeature", "Like cancelled");
-                }
+                        }
+                    }
 
-                // Check the source and navigate back to the profile if needed
-                String source = getIntent().getStringExtra("source");
-                if ("profile".equals(source)) {
-                    // Navigate back to the profile interface and refresh it
-                    Intent intent = new Intent(PostActivity.this, ProfileActivity.class);
-                    // Optionally add flags to clear the activity stack
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    // Finish the current activity
-                    finish();
-                }
+                });
 
             }
         });
@@ -239,8 +225,8 @@ public class PostActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Handle purchase logic here
+                        //
                         handlePurchase();
-
                     }
                 })
                 .setNegativeButton("No", null)

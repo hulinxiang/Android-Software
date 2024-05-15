@@ -108,20 +108,7 @@ public class MyPostActivity extends AppCompatActivity {
                     // Log message for debugging
                     Log.d("LikeFeature", "Post liked");
 
-                } else {
-                    // Change the icon back to white (unliked)
-                    ((ImageView) v).setImageResource(R.drawable.ic_favorite_white_24dp);
-                    //code remove post from like list
-                    currentUser.removeLikes(currentPost);
-                    likePostManager.unlikePost(currentPost.getPostID(),currentUser.getUserId());
-                    //sync like
-                    likePostManager.syncLikes(currentPost.getPostID());
-                    // Show a toast message
-                    Toast.makeText(MyPostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
-                    // Log message for debugging
-                    Log.d("LikeFeature", "Like cancelled");
                 }
-
             }
 
         });
