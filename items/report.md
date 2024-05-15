@@ -95,20 +95,277 @@ Note that the core criteria of contribution is based on `code contribution` (the
 ### Application Use Cases and or Examples
 
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+| Use Case 1            | Login                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to securely access their Green Book account.                                                                  |
+| Precondition          | The user must have a registered account with valid credentials.                                                               |
+| Success End Condition | The user is successfully logged into the Green Book platform and redirected to the home page.                                 |
+| Failed End Condition  | The user is not logged in and remains on the login page,with an error message.                                                |
+| Actor                 | User                                                                                                                          |
+| Description           | Step 1. User opens the Green Book app.                                                                                        |
+|                       | Step 2. User clicks the "Get Started" button.                                                                                 |
+|                       | Step 3. User navigates to the login page.                                                                            |
+|                       | Step 4. User enters their email and password.                                                                                 |
+|                       | Step 5. User clicks the "Login" button.                                                                                       |
+|                       | Step 6. System validates the credentials.                                                                                     |
+|                       | Step 7. If credentials are correct, user is logged in and redirected to the home page displaying random recommendation posts. |
+|                       | Step 8. If credentials are incorrect, system displays an error message.                                                       |
 
-*Here are some target user examples*
+| Use Case 2            | Register                                                                                                              |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to create an account on the Green Book platform.                                                      |
+| Precondition          | The user has an email address that has not been registered on the Green Book app.                                     |
+| Success End Condition | The user successfully creates a new account and is redirected to the login&register page.                             |
+| Failed End Condition  | The user is not registered and remains on the registration page, with an error message.                               |
+| Actor                 | User                                                                                                                  |
+| Description           | Step 1. User opens the Green Book app.                                                                                |
+|                       | Step 2. User clicks the "Get Started" button.                                                                         |
+|                       | Step 3. User navigates to the login page.                                                                             |
+|                       | Step 4. User clicks the "Register" button.                                                                            |
+|                       | Step 5. User navigates to the register page.                                                                          |
+|                       | Step 6. User enters required information (e.g.,email, password).                                                      |
+|                       | Step 7. User clicks the "Register" button.                                                                            |
+|                       | Step 8. System validates the input information.                                                                       |
+|                       | Step 9. If information is valid, system creates a new account and redirect the user to the login page let user login. |
+|                       | Step 10. If information is invalid (e.g., email already in use), system displays an error message.                    |
+| Extension             | 5a. User doesn't want to register.                                                                                    |
+|                       | Step 5a1. User clicks on the retuen image.                                                                            |
+|                       | Step 5a2. App redirects user to login page.                                                                           |
+| Registration Rules    | - Email must be unregistered on the platform.                                                                         |
+|                       | - Password must contain: numbers, lowercase letters, uppercase letters, and special symbols (_@!?#$%^&+=).            |
+|                       | - Password cannot contain spaces.                                                                                     |
+|                       | - Password must be 8-20 characters long.                                                                              |
 
-*Target Users: Individuals looking to sell their pre-owned items*
+| Use Case 3            | Search Posts by Keyword                                                                               |
+|-----------------------|-------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to search for posts using specific keywords.                                          |
+| Precondition          | The user is logged into the Green Book APP and is on the search page.                                 |
+| Success End Condition | The user is presented with a list of posts that match the entered keyword.                            |
+| Failed End Condition  | The user is shown a message indicating that no posts match the search criteria.                       |
+| Actor                 | User                                                                                                  |
+| Description           | Step 1. User opens the Green Book app and logs in if not already logged in.                           |
+|                       | Step 2. User navigates to the search page.                                                            |
+|                       | Step 3. User enters a keyword into the search bar.                                                    |
+|                       | Step 4. User clicks the "Search" button.                                                              |
+|                       | Step 5. System processes the keyword and searches for matching posts.                                 |
+|                       | Step 6. If matching posts are found, system displays the list of posts to the user.                   |
+|                       | Step 7. If no matching posts are found, system displays a message indicating no results were found.   |
 
-* *Sarah has decluttered her home and has several gently used furniture and decor items she wishes to sell. She signs up on Green Book, lists her items with all necessary details and photos, making them ready for new owners.*
-* *Mark, looking for affordable furniture for his new apartment, stumbles upon Sarah's listings. He uses the platform's messaging feature to discuss the item's condition and negotiate the price.*
-* *Once they agree on a deal, Mark purchases the item. Sarah is notified about the sale and coordinates with Mark to either pick up or deliver the furniture.*
+| Use Case 4            | Search Posts by Tags                                                                                                                                          |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to search for posts using specific tags.                                                                                                      |
+| Precondition          | The user is logged into the Green Book App and is on the search page.                                                                                         |
+| Success End Condition | The user is presented with a list of posts that match the selected tags.                                                                                      |
+| Failed End Condition  | The user is shown a message indicating that no posts match the search criteria.                                                                               |
+| Actor                 | User                                                                                                                                                          |
+| Description           | Step 1. User logs into the Green Book app.                                                                                                                    |
+|                       | Step 2. User navigates to the search page.                                                                                                                    |
+|                       | Step 3. User clicks the "Tag Search" button.                                                                                                                  |
+|                       | Step 4. App displays the tag selection interface with various categories (Gender, MasterCategory, SubCategory, ArticleType, BaseColor, Season, Usage, Price). |
+|                       | Step 5. User selects desired tags from each category.                                                                                                         |
+|                       | Step 6. User enters the price range (min and max price).                                                                                                      |
+|                       | Step 7. User clicks the "Save" button.                                                                                                                        |
+|                       | Step 8. App redirects user to the search page.                                                                                                                |
+|                       | Step 9. User clicks the "Go" button to initiate the search.                                                                                                   |
+|                       | Step 10. System processes the selected tags and price range, then searches for matching posts.                                                                |
+|                       | Step 11. If matching posts are found, system displays the list of posts on the search page.                                                                   |
+|                       | Step 12. If no matching posts are found, system displays a message indicating no results were found.                                                          |
+| Extension             | 5a. User decides to cancle search by tags.                                                                                                                    |
+|                       | Step 5a1. User clicks the "Cancle" button.                                                                                                                    |
+|                       | Step 5a2. App redirects user to the search page.                                                                                                              |
 
-*Target Users: Individuals looking to purchase second-hand items*
+| Use Case 5            | Create Post                                                                                                           |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to create a new post on the Green Book App.                                                           |
+| Precondition          | The user is logged into the Green Book platform and is on the create post page.                                       |
+| Success End Condition | The new post is successfully created and visible on the user's profile page.                                          |
+| Failed End Condition  | The post is not created and the user remains on the create post page, with an error message.                          |
+| Actor                 | User                                                                                                                  |
+| Description           | Step 1. User logs into the Green Book app.                                                                            |
+|                       | Step 2. User navigates to the create post page.                                                                       |
+|                       | Step 3. User enters the following information:                                                                        |
+|                       | - image                                                                                                               |
+|                       | - gender                                                                                                              |
+|                       | - masterCategory                                                                                                      |
+|                       | - subCategory                                                                                                         |
+|                       | - articleType                                                                                                         |
+|                       | - baseColour                                                                                                          |
+|                       | - season                                                                                                              |
+|                       | - year                                                                                                                |
+|                       | - usage                                                                                                               |
+|                       | - productDisplayName                                                                                                  |
+|                       | - price                                                                                                               |
+|                       | - status                                                                                                              |
+|                       | - description                                                                                                         |
+|                       | - commentText                                                                                                         |
+|                       | Step 4. User can click the "Return" button if they decide not to create a post.                                       |
+|                       | Step 5. User can click the "Apply Default Values" button to quickly enter pre-defined values for each field.          |
+|                       | Step 6. User clicks the "Create" button to submit the new post.                                                       |
+|                       | Step 7. System validates the input information.                                                                       |
+|                       | Step 8. If information is valid, system creates the new post and updates the user's profile page with the new post.   |
+|                       | Step 9. User can view the new post on their profile page.                                                             |
+|                       | Step 10. If information is invalid, system displays an error message and prompts the user to correct the information. |
+| Extension             | 4a. User decides to cancel post creation.                                                                             |
+|                       | Step 4a1. User clicks the "Return" button.                                                                            |
+|                       | Step 4a2. System returns the user to the previous page without saving any information.                                |
+|                       | 5a. User applies default values.                                                                                      |
+|                       | Step 5a1. User clicks the "Apply Default Values" button.                                                              |
+|                       | Step 5a2. System populates the fields with default values.                                                            |
+|                       | Step 5a3. User reviews and optionally edits the values before clicking the "Create" button.                           |
 
-* *Emily is a college student on a tight budget who needs a new laptop for her studies. She browses Green Book's electronics category and finds several affordable options that meet her requirements.*
-* *She contacts the sellers of the laptops she's interested in to ask questions about the devices' specifications, battery life, and overall condition.*
-* *After comparing the options and reading reviews from previous buyers, Emily decides on a laptop and makes the purchase. The seller ships the laptop to Emily, who is thrilled to have found a high-quality device at a fraction of the cost of buying new.*
+| Use Case 6            | Delete Post                                                                                                                      |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to delete their own post on the Green Book App.                                                                  |
+| Precondition          | The user is logged into the Green Book app and is on their profile page.                                                         |
+| Success End Condition | The selected post is successfully deleted and the user is redirected to the profile page.                                        |
+| Failed End Condition  | The post is not deleted and the user remains on the post detail page.                                                            |
+| Actor                 | User                                                                                                                             |
+| Description           | Step 1. User logs into the Green Book app.                                                                                       |
+|                       | Step 2. User navigates to their profile page.                                                                                    |
+|                       | Step 3. User views their list of own posts.                                                                                      |
+|                       | Step 4. User selects the post they want to delete.                                                                               |
+|                       | Step 5. App directs the user to the post detail page.                                                                            |
+|                       | Step 6. User clicks the "Delete" button on the post detail page.                                                                 |
+|                       | Step 7. System displays a confirmation pop-up window asking if the user really wants to delete the post.                         |
+|                       | Step 8. User chooses "Yes" to confirm deletion.                                                                                  |
+|                       | Step 9. System deletes the post and redirects the user to their profile page.                                                    |
+|                       | Step 10. User sees the updated post list on their profile page without the deleted post.                                         |
+|                       | Step 11. If user chooses "No" in the confirmation pop-up, the pop-up window closes and the user remains on the post detail page. |
+| Extension             | 8a. User decides not to delete the post.                                                                                         |
+|                       | Step 8a1. User clicks "No" in the confirmation pop-up.                                                                           |
+|                       | Step 8a2. System closes the pop-up window.                                                                                       |
+|                       | Step 8a3. User remains on the post detail page.                                                                                  |
+
+| Use Case 7            | Like Post                                                                                                                                  |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to like a post on the Green Book App.                                                                                      |
+| Precondition          | The user is logged into the Green Book App and is on the post detail page.                                                                 |
+| Success End Condition | The post is liked, the heart image turns red, and the post is added to the user's liked posts list displayed on their profile page.        |
+| Failed End Condition  | N/A                                                                                                                                        |
+| Actor                 | User                                                                                                                                       |
+| Description           | Step 1. User logs into the Green Book app or website.                                                                                      |
+|                       | Step 2. User navigates to the post detail page.                                                                                            |
+|                       | Step 3. User views the post detail and sees the heart image.                                                                               |
+|                       | Step 4. User clicks the heart image to like the post.                                                                                      |
+|                       | Step 5. System processes the like action.                                                                                                  |
+|                       | Step 6. If the like action is successful, the heart image turns red and a message is displayed indicating the post was liked successfully. |
+|                       | Step 7. System updates the user's liked posts list and displays the liked post on the user's profile page.                                 |
+| Extension             | 4a. User tries to like a post they have already liked.                                                                                     |
+|                       | Step 4a1. System checks whether user like this post before.                                                                                |
+|                       | Step 4a2. Can't like twice.                                                                                                                |
+
+| Use Case 8            | Buy Post                                                                                                                                      |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to purchase a post on the Green Book platform.                                                                                |
+| Precondition          | The user is logged into the Green Book platform and is on the post detail page.                                                               |
+| Success End Condition | The post is purchased, a success message is displayed, and the post is added to the user's bought posts list displayed on their profile page. |
+| Failed End Condition  | The post is not purchased, and the user remains on the post detail page.                                                                      |
+| Actor                 | User                                                                                                                                          |
+| Description           | Step 1. User logs into the Green Book app or website.                                                                                         |
+|                       | Step 2. User navigates to the post detail page.                                                                                               |
+|                       | Step 3. User views the post detail and sees the "Buy Now" button.                                                                             |
+|                       | Step 4. User clicks the "Buy Now" button to purchase the post.                                                                                |
+|                       | Step 5. System processes the purchase action.                                                                                                 |
+|                       | Step 6. If the purchase action is successful, a message is displayed indicating the post was bought successfully.                             |
+|                       | Step 7. System updates the user's bought posts list and displays the bought post on the user's profile page.                                  |
+|                       | Step 8. If the purchase action fails, the system displays an error message and the user remains on the post detail page.                      |
+| Extension             | 4a. User decides to cancel the purchase process.                                                                                              |
+|                       | Step 4a1. User clicks the "Cancel" button or navigates away from the post detail page.                                                        |
+|                       | Step 4a2. System cancels the purchase process and the user remains on the post detail page.                                                   |
+
+| Use Case 9            | Edit Profile                                                                                                           |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to edit their profile information on the Green Book app.                                               |
+| Precondition          | The user is logged into the Green Book platform and is on their profile page.                                          |
+| Success End Condition | The profile information is updated successfully, and the user is redirected to the profile page.                       |
+| Failed End Condition  | The profile information is not updated, and the user remains on the edit profile page, with an error message.          |
+| Actor                 | User                                                                                                                   |
+| Description           | Step 1. User logs into the Green Book app.                                                                             |
+|                       | Step 2. User navigates to their profile page.                                                                          |
+|                       | Step 3. User clicks the "Edit Profile" button.                                                                         |
+|                       | Step 4. App directs the user to the edit profile page.                                                                 |
+|                       | Step 5. User changes one or more of the following fields: name, password, address, phone.                              |
+|                       | Step 6. User clicks the "Save Changes" button.                                                                         |
+|                       | Step 7. System validates the input information.                                                                        |
+|                       | Step 8. If the information is valid, the system updates the user's profile and redirects the user to the profile page. |
+|                       | Step 9. User sees the updated profile information on their profile page.                                               |
+|                       | Step 10. If the information is invalid, the system displays an error message.                                          |
+|                       | Step 11. User can click the "Return" button if they decide not to make any changes.                                    |
+| Extension             | 6a. User decides not to save changes.                                                                                  |
+|                       | Step 6a1. User clicks the "Return" button from the edit profile page.                                                  |
+|                       | Step 6a2. App discards any changes and redirects the user back to the profile page.                                    |
+
+| Use Case 10           | Write Comment                                                                                                                                                                 |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to write and post a comment on a post on the Green Book App.                                                                                                  |
+| Precondition          | The user is logged into the Green Book App and is on the post detail page.                                                                                                    |
+| Success End Condition | The comment is successfully posted, and the post's comments section is updated with the new comment.                                                                          |
+| Failed End Condition  | The comment is not posted, and the user remains on the comment window.                                                                                                        |
+| Actor                 | User                                                                                                                                                                          |
+| Description           | Step 1. User logs into the Green Book app.                                                                                                                                    |
+|                       | Step 2. User navigates to the post detail page.                                                                                                                               |
+|                       | Step 3. User clicks the "Write Something" button.                                                                                                                             |
+|                       | Step 4. System displays a window for the user to write their comment.                                                                                                         |
+|                       | Step 5. User writes the comment in the provided text area.                                                                                                                    |
+|                       | Step 6. User chooses whether to be anonymous or not by selecting the appropriate option.                                                                                      |
+|                       | Step 7. User clicks the "Post" button to submit the comment.                                                                                                                  |
+|                       | Step 8. App processes the comment submission.                                                                                                                                 |
+|                       | Step 9. If the comment submission is successful, the comment is added to the post's comments section, and the app displays the updated comments section with the new comment. |
+|                       | Step 10. If the user chose to be anonymous, the comment displays as "Anonymous User".                                                                                         |
+|                       | Step 11. If the user chose not to be anonymous, the comment displays with the user's email.                                                                                   |
+|                       | Step 12. If the comment submission fails, the system displays an error message and the user remains on the comment window.                                                    |
+|                       | Step 13. User can click the "Cancel" button if they decide not to write a comment.                                                                                            |
+|                       | Step 14. System closes the comment window without saving any information if the user clicks "Cancel".                                                                         |
+| Extension             | 5a. User decides not to post the comment.                                                                                                                                     |
+|                       | Step 5a1. User clicks the "Cancel" button.                                                                                                                                    |
+|                       | Step 5a2. System closes the comment window.                                                                                                                                   |
+
+| Use Case 11           | Delete Comment                                                                                                                                                  |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to delete their own non-anonymous comment on a post.                                                                                            |
+| Precondition          | The user is logged into the Green Book App and is on the post detail page. The comment to be deleted was posted by the user and is not anonymous.               |
+| Success End Condition | The comment is successfully deleted, and the post's comments section is updated.                                                                                |
+| Failed End Condition  | The comment is not deleted, and the user remains on the post detail page.                                                                                       |
+| Actor                 | User                                                                                                                                                            |
+| Description           | Step 1. User logs into the Green Book app.                                                                                                                      |
+|                       | Step 2. User navigates to the post detail page containing the comment they want to delete.                                                                      |
+|                       | Step 3. User finds and clicks on their non-anonymous comment.                                                                                                   |
+|                       | Step 4. System displays a pop-up window with options "Cancel" and "Delete".                                                                                     |
+|                       | Step 5. User chooses "Delete" to delete the comment.                                                                                                            |
+|                       | Step 6. System processes the deletion.                                                                                                                          |
+|                       | Step 7. If the deletion is successful, the comment is removed from the post's comments section, and the app updates the comments section to reflect the change. |
+|                       | Step 8. If the deletion fails, the system displays an error message and the user remains on the post detail page.                                               |
+|                       | Step 9. User can choose "Cancel" if they decide not to delete the comment.                                                                                      |
+|                       | Step 10. System closes the pop-up window without deleting the comment if the user clicks "Cancel".                                                              |
+| Extension             | 5a. User decides not to delete the comment.                                                                                                                     |
+|                       | Step 5a1. User clicks the "Cancel" button.                                                                                                                      |
+|                       | Step 5a2. App closes the pop-up window without deleting the comment.                                                                                            |
+
+| Use Case 12           | Logout                                                                                                        |
+|-----------------------|---------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to log out of their account on the Green Book App.                                            |
+| Precondition          | The user is logged into the Green Book platform and is on their profile page.                                 |
+| Success End Condition | The user is successfully logged out and redirected to the login page.                                         |
+| Failed End Condition  | The user is not logged out and remains on their profile page.                                                 |
+| Actor                 | User                                                                                                          |
+| Description           | Step 1. User logs into the Green Book app or website.                                                         |
+|                       | Step 2. User navigates to their profile page.                                                                 |
+|                       | Step 3. User clicks the slide menu image to open the side menu.                                               |
+|                       | Step 4. User clicks the "Logout" button in the side menu.                                                     |
+|                       | Step 5. System processes the logout request.                                                                  |
+|                       | Step 6. If the logout is successful, the system logs the user out and redirects them to the login page.       |
+
+| Use Case 13           | Auto-Update Posts                                                                                                      |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To automatically refresh and display updated recommendation posts on the home page every 10 seconds.                   |
+| Precondition          | The user is logged into the Green Book App and is on the home page.                                                    |
+| Success End Condition | The home page is automatically updated with new recommendation posts every 10 seconds without user intervention.       |
+| Failed End Condition  | The home page fails to update, and the user continues to see the old recommendation posts.                             |
+| Actor                 | User                                                                                                                   |
+| Description           | Step 1. User logs into the Green Book app.                                                                             |
+|                       | Step 2. User navigates to the home page.                                                                               |
+|                       | Step 3. System starts a timer for auto-updating posts.                                                                 |
+|                       | Step 4. Every 10 seconds, the system checks for new recommendation posts.                                              |
 
 *List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
 
