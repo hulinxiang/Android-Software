@@ -26,6 +26,7 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FirebaseInit extends Application {
     @Override
@@ -128,45 +129,37 @@ public class FirebaseInit extends Application {
                     assert price != null;
 //                    assert userID != null;
 
-                    // 创建Tag对象
-//                    Tag.ArticleType articleTypeObj = new Tag.ArticleType(articleType);
-//                    Tag.SubCategory subCategoryObj = new Tag.SubCategory(subCategory, articleTypeObj);
-//                    Tag.MasterCategory masterCategoryObj = new Tag.MasterCategory(masterCategory, subCategoryObj);
-                    //Tag tag = new Tag(gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage);
-
                     // 创建Post对象
                     Post post = new Post(postID, userID, gender, masterCategory, subCategory, articleType, baseColour, season, Integer.parseInt(year), usage, productDisplayName, Double.parseDouble(price), status, imageUrl, description, comments, postIndexInFirebase, likeIDs, buyIDs);
 
                     BPlusTreeManagerPost.getTreeInstance(FirebaseInit.this).insert(postID, post);
                     User author = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(userID).get(0);
-                    author.updateOwns(post);//这里虽然写的是update实际上是第一次初始化时把post加到了ownPosts里
+                    author.updateOwns(post); //这里虽然写的是update实际上是第一次初始化时把post加到了ownPosts里
 
-//这段可以用来检查，先留一下，然后如果要加likelist那种多的应该也能参考
-//                    if (userID != null) {
-//                        List<User> allUsers = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).queryAllData();
-//                        if (!allUsers.isEmpty()) {
-//                            User author = null;
-//                            for (User user : allUsers) {
-//                                if (user.getEmail().equals(userID)) {
-//                                    author = user;
-//                                    break;
-//                                }
-//                            }
-//                            if (author != null) {
-//                                author.updateOwns(post);
-//                                Log.d("Add PostList", "User found for userID: " + userID);
-//                                // 更新 B+ 树中的用户信息
-//                                // BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).update(author);
-//                            } else {
-//                                Log.e("Add PostList", "User not found for userID: " + userID);
-//                            }
-//                        } else {
-//                            Log.e("Add PostList", "No users found in the B+ tree");
-//                        }
-//                    } else {
-//                        Log.e("Add PostList", "userID is null");
+                    if (!TextUtils.isEmpty(likeIDs)) {
+                        Log.d("Constructing usersLike list........", "Adding user: " + likeIDs + " to the local tree");
+                        String[] likeUsersId = likeIDs.split(",");
+                        for (String uid : likeUsersId) {
+                            try {
+                                List<User> userList = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(uid);
+                                if (!userList.isEmpty()) {
+                                    User user = userList.get(0);
+                                    user.updateLikes(post);
+                                    Log.d("Constructing usersLike list........", "Adding user: " + uid + " to the local tree");
+                                } else {
+                                    Log.w("FirebaseInit", "User not found: " + uid);
+                                }
+                            } catch (Exception e) {
+                                Log.e("FirebaseInit", "Error updating user likes: " + e.getMessage());
+                            }
+                        }
+                    }
+
+
+//                    String[] buyUsersId=post.getBuyIDs().split(",");
+//                    for (String uid:buyUsersId){
+//                        BPlusTreeManagerUser.getTreeInstance(getApplicationContext()).query(uid).get(0).updateBuys(post);
 //                    }
-
 
                 }
             }
@@ -196,11 +189,11 @@ public class FirebaseInit extends Application {
                     } else {
                         remarkDemo = CommonRemarkFactoryManager.getInstance().createWithIndex(remark, userEmail, postID, index);
                     }
-                    List<List<RemarkDemo>> list = BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).query(postID);
+                    List<List<RemarkDemo>> list = BPlusTreeManagerRemark.getTreeInstance().query(postID);
                     if (list.isEmpty()) {
                         List<RemarkDemo> value = new ArrayList<>();
                         value.add(remarkDemo);
-                        BPlusTreeManagerRemark.getTreeInstance(getApplicationContext()).insert(postID, value);
+                        BPlusTreeManagerRemark.getTreeInstance().insert(postID, value);
                     } else {
                         list.get(0).add(remarkDemo);
                     }

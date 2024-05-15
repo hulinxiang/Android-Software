@@ -163,9 +163,10 @@ public class User {
     }
 
     public void updateLikes(Post post){
-        if(!likePosts.contains(post)) {
-            this.likePosts.add(post);
-        }
+//        if(!likePosts.contains(post)) {
+//            this.likePosts.add(post);
+//        }
+        this.likePosts.add(post);
     }
 
     public void removeLikes(Post post) {
