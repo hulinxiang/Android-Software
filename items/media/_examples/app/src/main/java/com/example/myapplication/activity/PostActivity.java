@@ -28,6 +28,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.activity.loginUsingBPlusTree.LoginActivityBPlusTree;
 import com.example.myapplication.activity.loginUsingBPlusTree.RegisterActivityBPlusTree;
+import com.example.myapplication.src.BuyPostManager;
 import com.example.myapplication.src.Firebase.RemarkManager.FirebaseRemarkHelper;
 import com.example.myapplication.src.Firebase.RemarkManager.FirebaseRemarkManager;
 import com.example.myapplication.src.LikePostManager;
@@ -218,15 +219,21 @@ public class PostActivity extends AppCompatActivity {
 
     // Method to show the purchase confirmation dialog
     private void showPurchaseConfirmationDialog() {
+
         new AlertDialog.Builder(this)
                 .setTitle("Purchase Confirmation")
                 .setMessage("Once you choose to purchase, you cannot cancel it. Do you want to proceed?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        BuyPostManager BuyPostManager = new BuyPostManager(getApplicationContext());
                         // Handle purchase logic here
                         handlePurchase();
-
+                        //code add post to like list
+                        currentUser.updateBuys(currentPost);
+                        BuyPostManager.buyPost(currentPost.getPostID(),currentUser.getEmail());
+                        //sync like
+                        BuyPostManager.syncBuys(currentPost.getPostID());
                     }
                 })
                 .setNegativeButton("No", null)
