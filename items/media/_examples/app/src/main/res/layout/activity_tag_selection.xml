@@ -70,7 +70,7 @@
             android:id="@+id/button_search"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Search" />
+            android:text="Save" />
         <!-- Cancel Button -->
         <Button
             android:id="@+id/button_return"

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -45,26 +46,12 @@ public class SearchActivity extends AppCompatActivity {
     private GridLayout gl_post;
 
     private TextView tag_search;
+    private Button go_tag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         init();
-
-        //for the tag search
-        // Get the intent that started this activity
-        Intent intent = getIntent();
-        String resultJson = intent.getStringExtra("search_result");
-
-        if (resultJson != null) {
-            // Deserialize the JSON string back into a list of Post objects
-            Gson gson = new Gson();
-            Type postListType = new TypeToken<List<Post>>() {}.getType();
-            List<Post> searchResult = gson.fromJson(resultJson, postListType);
-            // Display the search results
-            Toast.makeText(SearchActivity.this, "Show the result from tag search", Toast.LENGTH_SHORT).show();
-            displayPost(searchResult);
-        }
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +136,45 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
+        go_tag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTagSearchResult();
+            }
+        });
+
+
+
+
     }
+
+    private void showTagSearchResult() {
+        String gender = getIntent().getStringExtra("gender");
+        String masterCategory = getIntent().getStringExtra("masterCategory");
+        String subCategory = getIntent().getStringExtra("subCategory");
+        String articleType = getIntent().getStringExtra("articleType");
+        String baseColor = getIntent().getStringExtra("baseColor");
+        String season = getIntent().getStringExtra("season");
+        String usage = getIntent().getStringExtra("usage");
+        String minPrice = getIntent().getStringExtra("minPrice");
+        String maxPrice = getIntent().getStringExtra("maxPrice");
+
+        //tag search list
+
+        //List<Post> list = BPlusTreeManagerPost.searchByPriceRange(getApplicationContext(), "300.00", "500.00");
+        //List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),"Men", "", "", "Tshirts", "", "Fall", "");
+        //List<Post> list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),  gender, masterCategory, subCategory, articleType, baseColor, season, usage);
+        List<Post> list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
+        //List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage);
+        if(list.isEmpty()){
+            Toast.makeText(SearchActivity.this,"please search again",Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(SearchActivity.this, "Searching " + gender + ", "+masterCategory +", " + subCategory+", "+articleType +", " + baseColor +", "+season+", "+usage, Toast.LENGTH_SHORT).show();
+            displayPost(list);
+        }
+
+    }
+
     private void commonSearch(String keyword){
         if (keyword.isEmpty()) {
             Toast.makeText(this, "Please enter a search keyword", Toast.LENGTH_SHORT).show();
@@ -223,6 +248,8 @@ public class SearchActivity extends AppCompatActivity {
         tag_search  = findViewById(R.id.tag_search);
         //grid layout
         gl_post = findViewById(R.id.gl_search);
+        //search tag
+        go_tag = findViewById(R.id.go_tag);
     }
 
 }

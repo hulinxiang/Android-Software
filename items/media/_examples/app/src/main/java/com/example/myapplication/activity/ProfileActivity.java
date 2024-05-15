@@ -233,9 +233,8 @@ public class ProfileActivity extends AppCompatActivity {
             List<Post> list = new ArrayList<>();
             if (grid == postsGrid) {
                 //get post from likesList
-//                 list = currentUser.getOwnPosts();//这里是post的owner的
-                //list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
-                list = BPlusTreeManagerPost.searchByPriceRange(getApplicationContext(), "300.00", "500.00");
+                //list = currentUser.getOwnPosts();//这里是post的owner的
+                list = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(), "Men", "", "", "Tshirts", "", "Fall", "");
             } else if (grid == likesGrid) {
                 //get post from likesList
                 list = currentUser.getLikePosts();

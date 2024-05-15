@@ -22,7 +22,7 @@ public class TagSelectionActivity extends AppCompatActivity {
 
     private Spinner spinnerGender, spinnerMasterCategory, spinnerSubCategory, spinnerArticleType, spinnerBaseColor, spinnerSeason, spinnerUsage;
     private EditText editTextMinPrice, editTextMaxPrice;
-    private Button buttonSearch, buttonCancel;
+    private Button buttonSaveInput, buttonCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class TagSelectionActivity extends AppCompatActivity {
         spinnerUsage = findViewById(R.id.spinner_usage);
         editTextMinPrice = findViewById(R.id.edit_text_min_price);
         editTextMaxPrice = findViewById(R.id.edit_text_max_price);
-        buttonSearch = findViewById(R.id.button_search);
+        buttonSaveInput = findViewById(R.id.button_search);
         buttonCancel = findViewById(R.id.button_return);
 
 
@@ -47,7 +47,7 @@ public class TagSelectionActivity extends AppCompatActivity {
         setupSpinners();
 
         // Handle search button click
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
+        buttonSaveInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String gender = getSelectedSpinnerValue(spinnerGender);
@@ -68,22 +68,17 @@ public class TagSelectionActivity extends AppCompatActivity {
                     maxPrice = "500";
                 }
 
-
-//                List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage, minPrice, maxPrice);
-                List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage);
-                Toast.makeText(TagSelectionActivity.this, "Searching " + gender + ", "+masterCategory +", " + subCategory+", "+articleType +", " + baseColor +", "+season+", "+usage+", "+minPrice+", "+maxPrice, Toast.LENGTH_SHORT).show();
-
-                if(result.isEmpty()){
-                    Toast.makeText(TagSelectionActivity.this, "No solution, please search again", Toast.LENGTH_SHORT).show();
-                }else{
-                    // Serialize the result list into a JSON string
-                    Gson gson = new Gson();
-                    String resultJson = gson.toJson(result);
-
-                    Intent intent = new Intent(TagSelectionActivity.this, SearchActivity.class);
-                    intent.putExtra("search_result", resultJson);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(TagSelectionActivity.this, SearchActivity.class);
+                intent.putExtra("gender",gender);
+                intent.putExtra("masterCategory",masterCategory);
+                intent.putExtra("subCategory",subCategory);
+                intent.putExtra("articleType",articleType);
+                intent.putExtra("baseColor",baseColor);
+                intent.putExtra("season", season);
+                intent.putExtra("usage", usage);
+                intent.putExtra("minPrice", minPrice);
+                intent.putExtra("maxPrice", maxPrice);
+                startActivity(intent);
 
             }
         });
