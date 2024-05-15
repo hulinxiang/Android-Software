@@ -67,96 +67,101 @@ public class BPlusTreeManagerPost {
     public static List<Post> searchByStrategy(Context context, SearchStrategy strategy, String... value) {
         return strategy.search(context, value);
     }
-//
-//    public static List<Post> searchByGender(Context context, String gender) {
-//        return searchByStrategy(context, new GenderSearchStrategy(), gender);
-//    }
-//
-//    public static List<Post> searchByMasterCategory(Context context, String masterCategory) {
-//        return searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
-//    }
-//
-//    public static List<Post> searchBySubCategory(Context context, String subCategory) {
-//        return searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
-//    }
-//
-//    public static List<Post> searchByArticleType(Context context, String articleType) {
-//        return searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
-//    }
-//
-//    public static List<Post> searchByBaseColour(Context context, String baseColour) {
-//        return searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
-//    }
-//
-//    public static List<Post> searchBySeason(Context context, String season) {
-//        return searchByStrategy(context, new SeasonSearchStrategy(), season);
-//    }
-//
-//    public static List<Post> searchByUsage(Context context, String usage) {
-//        return searchByStrategy(context, new SeasonSearchStrategy(), usage);
-//    }
+
+    public static List<Post> searchByGender(Context context, String gender) {
+        return searchByStrategy(context, new GenderSearchStrategy(), gender);
+    }
+
+    public static List<Post> searchByMasterCategory(Context context, String masterCategory) {
+        return searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
+    }
+
+    public static List<Post> searchBySubCategory(Context context, String subCategory) {
+        return searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
+    }
+
+    public static List<Post> searchByArticleType(Context context, String articleType) {
+        return searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
+    }
+
+    public static List<Post> searchByBaseColour(Context context, String baseColour) {
+        return searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
+    }
+
+    public static List<Post> searchBySeason(Context context, String season) {
+        return searchByStrategy(context, new SeasonSearchStrategy(), season);
+    }
+
+    public static List<Post> searchByUsage(Context context, String usage) {
+        return searchByStrategy(context, new SeasonSearchStrategy(), usage);
+    }
+
+    public static List<Post> searchByPriceRange(Context context, String minPrice, String maxPrice) {
+//        return searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+        List<Post> searchResults = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+        Log.d("SearchByPriceRange", "Number of posts found: " + searchResults.size());
+        return searchResults;
+    }
 
 
+    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage, String minPrice, String maxPrice) {
+        List<Post> resultPosts = getTreeInstance(context).queryAllData();
+
+        // 根据性别进行搜索
+        if (!TextUtils.isEmpty(gender)) {
+            List<Post> genderPosts = searchByStrategy(context, new GenderSearchStrategy(), gender);
+            resultPosts.retainAll(genderPosts);
+        }
+
+        // 根据主分类进行搜索
+        if (!TextUtils.isEmpty(masterCategory)) {
+            List<Post> masterCategoryPosts = searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
+            resultPosts.retainAll(masterCategoryPosts);
+        }
+
+        // 根据子分类进行搜索
+        if (!TextUtils.isEmpty(subCategory)) {
+            List<Post> subCategoryPosts = searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
+            resultPosts.retainAll(subCategoryPosts);
+        }
+
+        // 根据款式进行搜索
+        if (!TextUtils.isEmpty(articleType)) {
+            List<Post> articleTypePosts = searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
+            resultPosts.retainAll(articleTypePosts);
+        }
+
+        // 根据颜色进行搜索
+        if (!TextUtils.isEmpty(baseColour)) {
+            List<Post> baseColourPosts = searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
+            resultPosts.retainAll(baseColourPosts);
+        }
+
+        // 根据季节进行搜索
+        if (!TextUtils.isEmpty(season)) {
+            List<Post> seasonPosts = searchByStrategy(context, new SeasonSearchStrategy(), season);
+            resultPosts.retainAll(seasonPosts);
+        }
+
+        // 根据用途进行搜索
+        if (!TextUtils.isEmpty(usage)) {
+            List<Post> usagePosts = searchByStrategy(context, new SeasonSearchStrategy(), usage);
+            resultPosts.retainAll(usagePosts);
+        }
+
+        // 根据价格区间进行搜索
+        if (!TextUtils.isEmpty(minPrice) && !TextUtils.isEmpty(maxPrice)) {
+            List<Post> priceRangePosts = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
+            resultPosts.retainAll(priceRangePosts);
+        }
 
 
-//    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage, String minPrice, String maxPrice) {
-//        List<Post> resultPosts = getTreeInstance(context).queryAllData();
-//
-//        // 根据性别进行搜索
-//        if (!TextUtils.isEmpty(gender)) {
-//            List<Post> genderPosts = searchByStrategy(context, new GenderSearchStrategy(), gender);
-//            resultPosts.retainAll(genderPosts);
-//        }
-//
-//        // 根据主分类进行搜索
-//        if (!TextUtils.isEmpty(masterCategory)) {
-//            List<Post> masterCategoryPosts = searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
-//            resultPosts.retainAll(masterCategoryPosts);
-//        }
-//
-//        // 根据子分类进行搜索
-//        if (!TextUtils.isEmpty(subCategory)) {
-//            List<Post> subCategoryPosts = searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
-//            resultPosts.retainAll(subCategoryPosts);
-//        }
-//
-//        // 根据款式进行搜索
-//        if (!TextUtils.isEmpty(articleType)) {
-//            List<Post> articleTypePosts = searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
-//            resultPosts.retainAll(articleTypePosts);
-//        }
-//
-//        // 根据颜色进行搜索
-//        if (!TextUtils.isEmpty(baseColour)) {
-//            List<Post> baseColourPosts = searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
-//            resultPosts.retainAll(baseColourPosts);
-//        }
-//
-//        // 根据季节进行搜索
-//        if (!TextUtils.isEmpty(season)) {
-//            List<Post> seasonPosts = searchByStrategy(context, new SeasonSearchStrategy(), season);
-//            resultPosts.retainAll(seasonPosts);
-//        }
-//
-//        // 根据用途进行搜索
-//        if (!TextUtils.isEmpty(usage)) {
-//            List<Post> usagePosts = searchByStrategy(context, new SeasonSearchStrategy(), usage);
-//            resultPosts.retainAll(usagePosts);
-//        }
-//
-//        // 根据价格区间进行搜索
-//        if (!TextUtils.isEmpty(minPrice) && !TextUtils.isEmpty(maxPrice)) {
-//            List<Post> priceRangePosts = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
-//            resultPosts.retainAll(priceRangePosts);
-//        }
-//
-//
-//        // 根据其他标签属性进行搜索,这里应该还有个数字属性的搜索，但是我还没封
-//        // 根据价格区间进行搜索
-//
-//
-//        return resultPosts;
-//    }
+        // 根据其他标签属性进行搜索,这里应该还有个数字属性的搜索，但是我还没封
+        // 根据价格区间进行搜索
+
+
+        return resultPosts;
+    }
 
 //    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage) {
 //        List<Post> resultPosts = getTreeInstance(context).queryAllData();
@@ -211,101 +216,4 @@ public class BPlusTreeManagerPost {
 //        return resultPosts;
 //    }
 
-
-//    public static List<Post> searchByStrategy(Context context, SearchStrategy strategy, String value) {
-//        return strategy.search(context, value);
-//    }
-
-    public static List<Post> searchByGender(Context context, String gender) {
-        return searchByStrategy(context, new GenderSearchStrategy(), gender);
-    }
-
-    public static List<Post> searchByMasterCategory(Context context, String masterCategory) {
-        return searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
-    }
-
-    public static List<Post> searchBySubCategory(Context context, String subCategory) {
-        return searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
-    }
-
-    public static List<Post> searchByArticleType(Context context, String articleType) {
-        return searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
-    }
-
-    public static List<Post> searchByBaseColour(Context context, String baseColour) {
-        return searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
-    }
-
-    public static List<Post> searchBySeason(Context context, String season) {
-        return searchByStrategy(context, new SeasonSearchStrategy(), season);
-    }
-
-    public static List<Post> searchByUsage(Context context, String usage) {
-        return searchByStrategy(context, new SeasonSearchStrategy(), usage);
-    }
-
-
-
-
-    public static List<Post> searchByMultipleConditions(Context context, String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, String usage) {
-        List<Post> resultPosts = getTreeInstance(context).queryAllData();
-
-        // 根据性别进行搜索
-        if (!TextUtils.isEmpty(gender)) {
-            List<Post> genderPosts = searchByStrategy(context, new GenderSearchStrategy(), gender);
-            resultPosts.retainAll(genderPosts);
-        }
-
-        // 根据主分类进行搜索
-        if (!TextUtils.isEmpty(masterCategory)) {
-            List<Post> masterCategoryPosts = searchByStrategy(context, new MasterCategorySearchStrategy(), masterCategory);
-            resultPosts.retainAll(masterCategoryPosts);
-        }
-
-        // 根据子分类进行搜索
-        if (!TextUtils.isEmpty(subCategory)) {
-            List<Post> subCategoryPosts = searchByStrategy(context, new SubCategorySearchStrategy(), subCategory);
-            resultPosts.retainAll(subCategoryPosts);
-        }
-
-        // 根据款式进行搜索
-        if (!TextUtils.isEmpty(articleType)) {
-            List<Post> articleTypePosts = searchByStrategy(context, new ArticleTypeSearchStrategy(), articleType);
-            resultPosts.retainAll(articleTypePosts);
-        }
-
-        // 根据颜色进行搜索
-        if (!TextUtils.isEmpty(baseColour)) {
-            List<Post> baseColourPosts = searchByStrategy(context, new SeasonSearchStrategy(), baseColour);
-            resultPosts.retainAll(baseColourPosts);
-        }
-
-        // 根据季节进行搜索
-        if (!TextUtils.isEmpty(season)) {
-            List<Post> seasonPosts = searchByStrategy(context, new SeasonSearchStrategy(), season);
-            resultPosts.retainAll(seasonPosts);
-        }
-
-        // 根据用途进行搜索
-        if (!TextUtils.isEmpty(usage)) {
-            List<Post> usagePosts = searchByStrategy(context, new SeasonSearchStrategy(), usage);
-            resultPosts.retainAll(usagePosts);
-        }
-
-
-
-        // 根据其他标签属性进行搜索,这里应该还有个数字属性的搜索，但是我还没封
-        // 根据价格区间进行搜索
-
-
-        return resultPosts;
-    }
-
-
-    public static List<Post> searchByPriceRange(Context context, String minPrice, String maxPrice) {
-//        return searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
-        List<Post> searchResults = searchByStrategy(context, new PriceRangeSearchStrategy(), minPrice, maxPrice);
-        Log.d("SearchByPriceRange", "Number of posts found: " + searchResults.size());
-        return searchResults;
-    }
 }
