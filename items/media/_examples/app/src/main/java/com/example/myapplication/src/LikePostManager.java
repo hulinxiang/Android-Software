@@ -74,44 +74,6 @@ public class LikePostManager {
         }
     }
 
-//    public void unlikePost(String postId, String userId) {
-//        // 从本地存储中获取当前帖子的点赞信息
-//        String likeIds = sharedPreferences.getString(postId, "");
-//
-//        // 将当前用户的 ID 从点赞信息中移除
-//        if (likeIds.contains(userId)) {
-//            String[] ids = likeIds.split(",");
-//            Set<String> idSet = new HashSet<>(Arrays.asList(ids));
-//            idSet.remove(userId);
-//            String updatedLikeIds = TextUtils.join(",", idSet);
-//
-//            // 立即更新本地存储的点赞信息
-//            sharedPreferences.edit().putString(postId, updatedLikeIds).apply();
-//
-//            // 从 Firebase 获取最新的点赞信息
-//            Query query = postsRef.orderByChild("postID").equalTo(postId);
-//            query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-//                        String firebaseLikeIds = postSnapshot.child("likeIDs").getValue(String.class);
-//                        if (firebaseLikeIds != null) {
-//                            // 如果 Firebase 中存在点赞信息,则将 Firebase 中的点赞信息更新为本地存储的点赞信息
-//                            postSnapshot.getRef().child("likeIDs").setValue(updatedLikeIds);
-//                        } else {
-//                            // 如果 Firebase 中不存在点赞信息,则直接将本地的点赞信息存储到 Firebase
-//                            postSnapshot.getRef().child("likeIDs").setValue(updatedLikeIds);
-//                        }
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//                    Log.e("LikePostManager", "Error getting likes from Firebase", databaseError.toException());
-//                }
-//            });
-//        }
-//    }
     public void unlikePost(String postId, String userId) {
         // 从本地存储中获取当前帖子的点赞信息
         String likeIds = sharedPreferences.getString(postId, "");

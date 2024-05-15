@@ -94,7 +94,7 @@ public class PostActivity extends AppCompatActivity {
         }
 
         //sync like
-        likePostManager.syncLikes(currentPost.getPostID());
+        //likePostManager.syncLikes(currentPost.getPostID());
         post_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +105,7 @@ public class PostActivity extends AppCompatActivity {
                     //code add post to like list
                     currentUser.updateLikes(currentPost);
                     likePostManager.likePost(currentPost.getPostID(), currentUser.getEmail());
+                    likePostManager.syncLikes(currentPost.getPostID());
 
                     // Show a toast message
                     Toast.makeText(PostActivity.this, "Like successful", Toast.LENGTH_SHORT).show();
@@ -116,6 +117,7 @@ public class PostActivity extends AppCompatActivity {
                     //code remove post from like list
                     currentUser.removeLikes(currentPost);
                     likePostManager.unlikePost(currentPost.getPostID(), currentUser.getUserId());
+                    likePostManager.syncLikes(currentPost.getPostID());
                     // Show a toast message
                     Toast.makeText(PostActivity.this, "Like cancelled", Toast.LENGTH_SHORT).show();
                     // Log message for debugging

@@ -100,8 +100,8 @@ public class FirebaseInit extends Application {
                     String articleType = snapshot.child("articleType").getValue(String.class);
                     String baseColour = snapshot.child("baseColour").getValue(String.class);
                     String season = snapshot.child("season").getValue(String.class);
-//                    String year = snapshot.child("year").getValue(String.class);
-                    //不知道为什么firebase上传之后这个year会变成Long类型，所以这里要处理一下
+                    //  String year = snapshot.child("year").getValue(String.class);
+                    //  不知道为什么firebase上传之后这个year会变成Long类型，所以这里要处理一下
                     Object yearObj = snapshot.child("year").getValue();
                     String year;
                     if (yearObj instanceof Long) {
@@ -151,6 +151,25 @@ public class FirebaseInit extends Application {
                                 }
                             } catch (Exception e) {
                                 Log.e("FirebaseInit", "Error updating user likes: " + e.getMessage());
+                            }
+                        }
+                    }
+
+                    if (!TextUtils.isEmpty(buyIDs)) {
+                        Log.d("Constructing usersBuy list........", "Adding post: " + postID + " to the users' buyPost list");
+                        String[] buyUsersId = buyIDs.split(",");
+                        for (String uid : buyUsersId) {
+                            try {
+                                List<User> userList = BPlusTreeManagerUser.getTreeInstance(FirebaseInit.this).query(uid);
+                                if (!userList.isEmpty()) {
+                                    User user = userList.get(0);
+                                    user.updateBuys(post);
+                                    Log.d("Constructing usersBuy list........", "Adding post: " + postID + " to user: " + uid + "'s buyPost list");
+                                } else {
+                                    Log.w("FirebaseInit", "User not found: " + uid);
+                                }
+                            } catch (Exception e) {
+                                Log.e("FirebaseInit", "Error updating user buys: " + e.getMessage());
                             }
                         }
                     }
