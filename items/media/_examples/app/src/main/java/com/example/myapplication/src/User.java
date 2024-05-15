@@ -58,7 +58,7 @@ public class User {
     }
 
     // Generate and return the next user index
-    private static synchronized String generateNextUserIndex() {
+    public static synchronized String generateNextUserIndex() {
         return String.valueOf(nextUserIndex++);  // Increment and return the next index
     }
 

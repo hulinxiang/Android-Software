@@ -21,6 +21,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.UUID;
+
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class EditProfileActivityTest {
@@ -28,9 +30,10 @@ public class EditProfileActivityTest {
     @Before
     public void setUp() {
         // Initialize a dummy user session before launching the activity
-        User dummyUser = new User("dummy@test.com", "Dummy User", "1234", "123 Street", "1234567890");
+        User dummyUser = new User(UUID.randomUUID().toString(), "dummy@test.com", User.hashPassword("DummyPassword"), "Dummy User", "123 Street", "1234567890", "1", User.generateNextUserIndex());
         SessionManager.getInstance().setUser(dummyUser);
     }
+
 
     @Test
     public void testEditProfile_SuccessfulUpdate() {
