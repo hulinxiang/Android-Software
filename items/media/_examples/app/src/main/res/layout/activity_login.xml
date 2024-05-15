@@ -122,7 +122,7 @@
                                 android:drawableStart="@drawable/ic_person_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="Username"
+                                android:hint="Email"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
