@@ -25,7 +25,10 @@ import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Post;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,11 +43,29 @@ public class SearchActivity extends AppCompatActivity {
     private ImageView searchButton;
     private EditText search_input;
     private GridLayout gl_post;
+
+    private TextView tag_search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         init();
+
+        //for the tag search
+        // Get the intent that started this activity
+        Intent intent = getIntent();
+        String resultJson = intent.getStringExtra("search_result");
+
+        if (resultJson != null) {
+            // Deserialize the JSON string back into a list of Post objects
+            Gson gson = new Gson();
+            Type postListType = new TypeToken<List<Post>>() {}.getType();
+            List<Post> searchResult = gson.fromJson(resultJson, postListType);
+            // Display the search results
+            Toast.makeText(SearchActivity.this, "Show the result from tag search", Toast.LENGTH_SHORT).show();
+            displayPost(searchResult);
+        }
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,7 +132,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String keyword = search_input.getText().toString();
                 if (!keyword.isEmpty()) {
-                    showPost(keyword);
+                    commonSearch(keyword);
                 } else {
                     gl_post.removeAllViews();  // Clear the grid if no keyword is entered
                     Toast.makeText(SearchActivity.this, "Please enter a search keyword", Toast.LENGTH_SHORT).show();
@@ -119,10 +140,17 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-    }
-    private void showPost(String keyword){
-        gl_post.removeAllViews();  // Clear all views in the GridLayout
+        tag_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SearchActivity.this, TagSelectionActivity.class);
+                startActivity(intent);
+            }
+        });
 
+
+    }
+    private void commonSearch(String keyword){
         if (keyword.isEmpty()) {
             Toast.makeText(this, "Please enter a search keyword", Toast.LENGTH_SHORT).show();
             return;
@@ -132,15 +160,20 @@ public class SearchActivity extends AppCompatActivity {
         Toast.makeText(SearchActivity.this, "Search for: " + keyword, Toast.LENGTH_SHORT).show();
 
         //search list
-        //List<Post> list = BPlusTreeManagerPost.searchKeyword(getApplicationContext(),keyword);
-        List<Post> fullList = BPlusTreeManagerPost.searchKeyword(getApplicationContext(), keyword);
-        List<Post> list = fullList.size() > 8 ? fullList.subList(0, 8) : fullList; // Ensure we only take up to 8 items
-
+        List<Post> list = BPlusTreeManagerPost.searchKeyword(getApplicationContext(), keyword);
         if (list.isEmpty()) {
             Toast.makeText(this, "No results found for: " + keyword, Toast.LENGTH_SHORT).show();
-            return;
+        }else {
+            displayPost(list);
         }
-        for (Post post: list){
+
+    }
+
+
+    private void displayPost(List<Post> list){
+        gl_post.removeAllViews();  // Clear all views in the GridLayout
+        List<Post> displayList = list.size() > 8 ? list.subList(0, 8) : list; // Ensure we only take up to 8 items
+        for (Post post: displayList){
             //get the layout from item_card.xml
             View view = LayoutInflater.from(this).inflate(R.layout.item_card,null);
             ImageView card_image = view.findViewById(R.id.card_image);
@@ -187,6 +220,7 @@ public class SearchActivity extends AppCompatActivity {
         profile = findViewById(R.id.btn_profile);
         search_input =  findViewById(R.id.search_input);
         searchButton = findViewById(R.id.search_button);
+        tag_search  = findViewById(R.id.tag_search);
         //grid layout
         gl_post = findViewById(R.id.gl_search);
     }

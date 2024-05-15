@@ -34,7 +34,6 @@ import com.google.firebase.storage.StorageReference;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 public class HomeActivity extends AppCompatActivity {
 
-    private ImageView slideMenu;
     private LinearLayout home;
     private LinearLayout search;
     private LinearLayout create;
@@ -52,15 +51,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
-
-        String email = getIntent().getStringExtra("text_email");
-        slideMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,SlideActivity.class);
-                startActivity(intent);
-            }
-        });
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +136,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void init(){
-        slideMenu = findViewById(R.id.btn_slide_menu);
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);
         create = findViewById(R.id.btn_create);

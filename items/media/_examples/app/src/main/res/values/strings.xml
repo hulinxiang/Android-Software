@@ -2,4 +2,141 @@
     <string name="app_name">Green Book</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+        <string-array name="gender_categories">
+            <item>Gender</item> <!-- Title -->
+            <item>Men</item>
+            <item>Women</item>
+            <item>Unisex</item>
+            <item>Boys</item>
+            <item>Girls</item>
+        </string-array>
+
+        <string-array name="master_category_categories">
+            <item>Master Category</item> <!-- Title -->
+            <item>Apparel</item>
+            <item>Footwear</item>
+            <item>Accessories</item>
+            <item>Sporting Goods</item>
+        </string-array>
+
+        <string-array name="sub_category_categories">
+            <item>Sub Category</item> <!-- Title -->
+            <item>Topwear</item>
+            <item>Bottomwear</item>
+            <item>Dress</item>
+            <item>Loungewear and Nightwear</item>
+            <item>Shoes</item>
+            <item>Flip Flops</item>
+            <item>Sandal</item>
+            <item>Bags</item>
+            <item>Wallets</item>
+            <item>Belts</item>
+            <item>Watches</item>
+            <item>Eyewear</item>
+            <item>Socks</item>
+            <item>Headwear</item>
+            <item>Shoe Accessories</item>
+            <item>Sports Equipment</item>
+            <item>Sports Accessories</item>
+            <item>Water Bottle</item>
+        </string-array>
+
+        <string-array name="article_type_categories">
+            <item>Article Type</item> <!-- Title -->
+            <item>Tshirts</item>
+            <item>Shirts</item>
+            <item>Jackets</item>
+            <item>Sweaters</item>
+            <item>Sweatshirts</item>
+            <item>Tops</item>
+            <item>Tunics</item>
+            <item>Kurtas</item>
+            <item>Jeans</item>
+            <item>Trousers</item>
+            <item>Track Pants</item>
+            <item>Shorts</item>
+            <item>Skirts</item>
+            <item>Leggings</item>
+            <item>Capris</item>
+            <item>Dresses</item>
+            <item>Lounge Pants</item>
+            <item>Sports Shoes</item>
+            <item>Casual Shoes</item>
+            <item>Formal Shoes</item>
+            <item>Flats</item>
+            <item>Heels</item>
+            <item>Flip Flops</item>
+            <item>Sports Sandals</item>
+            <item>Sandals</item>
+            <item>Handbags</item>
+            <item>Backpacks</item>
+            <item>Laptop Bag</item>
+            <item>Messenger Bag</item>
+            <item>Rucksacks</item>
+            <item>Travel Accessory</item>
+            <item>Duffel Bag</item>
+            <item>Wallets</item>
+            <item>Belts</item>
+            <item>Watches</item>
+            <item>Sunglasses</item>
+            <item>Socks</item>
+            <item>Caps</item>
+            <item>Shoe Laces</item>
+            <item>Shoe Accessories</item>
+            <item>Wristbands</item>
+            <item>Basketballs</item>
+            <item>Water Bottle</item>
+        </string-array>
+
+        <string-array name="base_color_types">
+            <item>Base Color</item> <!-- Title -->
+            <item>Blue</item>
+            <item>Pink</item>
+            <item>Beige</item>
+            <item>Navy Blue</item>
+            <item>Black</item>
+            <item>White</item>
+            <item>Yellow</item>
+            <item>Green</item>
+            <item>Maroon</item>
+            <item>Grey</item>
+            <item>Red</item>
+            <item>Cream</item>
+            <item>Brown</item>
+            <item>Olive</item>
+            <item>Charcoal</item>
+            <item>Multi</item>
+            <item>Orange</item>
+            <item>Purple</item>
+            <item>Teal</item>
+            <item>Burgundy</item>
+            <item>Khaki</item>
+            <item>Peach</item>
+            <item>Magenta</item>
+            <item>Gold</item>
+            <item>Mauve</item>
+            <item>Mustard</item>
+            <item>Silver</item>
+            <item>Steel</item>
+            <item>Tan</item>
+        </string-array>
+
+        <string-array name="season_types">
+            <item>Season</item> <!-- Title -->
+            <item>Summer</item>
+            <item>Fall</item>
+            <item>Winter</item>
+            <item>Spring</item>
+        </string-array>
+
+        <string-array name="usage_types">
+            <item>Usage</item> <!-- Title -->
+            <item>Casual</item>
+            <item>Sports</item>
+            <item>Formal</item>
+            <item>Ethnic</item>
+            <item>Travel</item>
+            <item>Smart Casual</item>
+            <item>NA</item>
+        </string-array>
 </resources>
