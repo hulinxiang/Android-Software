@@ -178,6 +178,8 @@ public class PostActivity extends AppCompatActivity {
                 if (!comment.isEmpty()) {
                     postComment(comment, isAnonymous);
                     dialog.dismiss();
+                    Intent intent = new Intent(PostActivity.this,ProfileActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(PostActivity.this, "Please write a comment", Toast.LENGTH_SHORT).show();
                 }
@@ -325,6 +327,8 @@ public class PostActivity extends AppCompatActivity {
                                 //update firebase
                                 FirebaseRemarkManager.getInstance(getApplicationContext()).deleteRemark(remark);
                                 Toast.makeText(v.getContext(), "Comment deleted", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(PostActivity.this,ProfileActivity.class);
+                                startActivity(intent);
                                 break;
                             case 1: // Cancel
                                 dialog.dismiss(); // Dismiss the dialog
