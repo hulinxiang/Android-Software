@@ -69,7 +69,8 @@ public class TagSelectionActivity extends AppCompatActivity {
                 }
 
 
-                List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage, minPrice, maxPrice);
+//                List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage, minPrice, maxPrice);
+                List<Post> result = BPlusTreeManagerPost.searchByMultipleConditions(getApplicationContext(),gender, masterCategory, subCategory, articleType, baseColor, season, usage);
                 Toast.makeText(TagSelectionActivity.this, "Searching " + gender + ", "+masterCategory +", " + subCategory+", "+articleType +", " + baseColor +", "+season+", "+usage+", "+minPrice+", "+maxPrice, Toast.LENGTH_SHORT).show();
 
                 if(result.isEmpty()){
