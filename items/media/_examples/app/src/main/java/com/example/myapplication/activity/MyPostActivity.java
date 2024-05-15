@@ -1,25 +1,37 @@
 package com.example.myapplication.activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
+import com.example.myapplication.BPlusTree.Remark.BPlusTreeManagerRemark;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostHelper;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
+import com.example.myapplication.src.Firebase.RemarkManager.FirebaseRemarkManager;
 import com.example.myapplication.src.LikePostManager;
 import com.example.myapplication.src.Post;
+import com.example.myapplication.src.Remark.AnonymousRemarkFactoryManager;
+import com.example.myapplication.src.Remark.CommonRemarkFactoryManager;
+import com.example.myapplication.src.Remark.RemarkDemo;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
@@ -46,6 +58,9 @@ public class MyPostActivity extends AppCompatActivity {
 
     private boolean isLiked;
 
+    private TextView write;
+    private GridLayout gl_comment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +78,8 @@ public class MyPostActivity extends AppCompatActivity {
         currentUser = SessionManager.getInstance().getUser();
         //get like post list
         List<Post> likeList = currentUser.getLikePosts();
+
+        showComment(currentPost);
 
         // Initialize the like button
         if (currentPost != null && currentUser != null) {
@@ -107,6 +124,15 @@ public class MyPostActivity extends AppCompatActivity {
 
             }
 
+        });
+
+
+        //write comment
+        write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCommentDialog();
+            }
         });
 
     }
@@ -173,8 +199,8 @@ public class MyPostActivity extends AppCompatActivity {
 
                                 // Code to delete the post can be placed here
                                 if (currentPost != null) {
-                                    FirebasePostHelper firebaseHelper = new FirebasePostHelper();
-                                    firebaseHelper.deletePost(currentPost);
+                                    FirebasePostManager.getInstance(getApplicationContext()).deletePost(currentPost);
+                                    BPlusTreeManagerPost.getTreeInstance(getApplicationContext()).remove(currentPost.getPostID());
                                     Toast.makeText(MyPostActivity.this, "Deleting post...", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(MyPostActivity.this, "Post not found", Toast.LENGTH_LONG).show();
@@ -202,7 +228,119 @@ public class MyPostActivity extends AppCompatActivity {
 
     }
 
+    private void showCommentDialog() {
+        // Inflate the dialog layout
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.dialog_comment, null);
 
+        // Initialize dialog views
+        EditText editTextComment = dialogView.findViewById(R.id.edit_text_comment);
+        CheckBox checkBoxAnonymous = dialogView.findViewById(R.id.checkbox_anonymous);
+        Button buttonPost = dialogView.findViewById(R.id.button_post);
+        Button buttonCancel = dialogView.findViewById(R.id.button_cancel);
+
+        // Build and show the dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Set the post button click listener
+        buttonPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String comment = editTextComment.getText().toString().trim();
+                boolean isAnonymous = checkBoxAnonymous.isChecked();
+
+                if (!comment.isEmpty()) {
+                    postComment(comment, isAnonymous);
+                    dialog.dismiss();
+                } else {
+                    Toast.makeText(MyPostActivity.this, "Please write a comment", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Set the cancel button click listener
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+
+    private void showComment(Post currentPost){
+
+        //comment list
+        List<RemarkDemo> list = BPlusTreeManagerRemark.get(currentPost.getPostID());
+
+        for (RemarkDemo remark: list) {
+            //get the layout from item_comment.xml
+            View view = LayoutInflater.from(this).inflate(R.layout.item_comment, null);
+            TextView comment_name = view.findViewById(R.id.comment_email);
+            TextView comment_context = view.findViewById(R.id.comment_message);
+
+            comment_name.setText(remark.getUserEmail());
+            comment_context.setText(remark.getText());
+
+            //get the height and weight from the screen
+            int screenWidth = getResources().getDisplayMetrics().widthPixels;
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+            //add to grid layout
+            gl_comment.addView(view, params);
+
+            if(remark.getUserEmail().equals(currentUser.getEmail())) {
+                comment_context.setOnClickListener(v -> {
+                        // Create an AlertDialog to show the options
+                        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                        builder.setTitle("Choose an action");
+                        String[] options = {"Delete Comment", "Cancel"};
+                        builder.setItems(options, (dialog, which) -> {
+                            switch (which) {
+                                case 0: // Delete Comment
+                                    // Logic to delete the comment
+                                    //update B plus tree
+                                    BPlusTreeManagerRemark.delete(currentPost.getPostID(),remark);
+                                    //update firebase
+                                    FirebaseRemarkManager.getInstance(getApplicationContext()).deleteRemark(remark);
+                                    Toast.makeText(v.getContext(), "Comment deleted", Toast.LENGTH_SHORT).show();
+                                    // Refresh MyPostActivity
+
+                                    break;
+                                case 1: // Cancel
+                                    dialog.dismiss(); // Dismiss the dialog
+                                    break;
+                            }
+                        });
+                        builder.show(); // Show the AlertDialog
+
+                });
+                }
+
+            }
+
+    }
+
+
+    private void postComment(String comment, boolean isAnonymous) {
+        if(isAnonymous){
+            //create new remark
+            RemarkDemo newRemark = AnonymousRemarkFactoryManager.getInstance().create(comment,currentUser.getEmail(),currentPost.getPostID());
+            //update B plus tree
+            BPlusTreeManagerRemark.update(currentPost.getPostID(),newRemark);
+            //update firebase
+            FirebaseRemarkManager.getInstance(getApplicationContext()).addRemark(newRemark);
+        }else{
+            //firebase
+            RemarkDemo newRemark = CommonRemarkFactoryManager.getInstance().create(comment,currentUser.getEmail(),currentPost.getPostID());
+            //update B plus tree
+            BPlusTreeManagerRemark.update(currentPost.getPostID(),newRemark);
+            //update firebase
+            FirebaseRemarkManager.getInstance(getApplicationContext()).addRemark(newRemark);
+        }
+    }
 
     private void init(){
         post_name = findViewById(R.id.post_name);
@@ -214,5 +352,7 @@ public class MyPostActivity extends AppCompatActivity {
         post_star = findViewById(R.id.post_star);
         seller_name = findViewById(R.id.seller_name);
         post_price = findViewById(R.id.post_price);
+        gl_comment = findViewById(R.id.gl_comment);
+        write = findViewById(R.id.write);
     }
 }

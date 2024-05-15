@@ -76,7 +76,7 @@ public class FirebaseRemarkHelper {
         });
     }
 
-    public void deleteUser(RemarkDemo remarkDemo) {
+    public void deleteRemark(RemarkDemo remarkDemo) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("remark");
         Log.d("Firebase delete operation", "Enter the method");
