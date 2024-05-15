@@ -17,7 +17,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LikePostManager {
-    private static final String LIKE_IDS_PREF_KEY = "like_ids_pref_key";
     private SharedPreferences sharedPreferences;
     private DatabaseReference postsRef;
 
