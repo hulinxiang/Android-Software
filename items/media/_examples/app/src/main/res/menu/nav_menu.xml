@@ -9,10 +9,6 @@
         android:icon="@drawable/ic_account"
         android:title="Account" />
     <item
-        android:id="@+id/nav_notifications"
-        android:icon="@drawable/ic_notification"
-        android:title="Notifications" />
-    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_logout"
         android:title="Logout" />

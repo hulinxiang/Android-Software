@@ -4,23 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.HomeActivity;
-import com.example.myapplication.activity.InboxActivity;
-import com.example.myapplication.activity.ProfileActivity;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
-
-
-import java.util.List;
 
 public class LoginActivityBPlusTree extends AppCompatActivity {
     private LoginCheckService loginCheckService;

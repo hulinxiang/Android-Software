@@ -92,13 +92,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        inbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, InboxActivity.class);
-                startActivity(intent);
-            }
-        });
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,10 +144,6 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_account:
                         intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.nav_notifications:
-                        intent = new Intent(ProfileActivity.this, InboxActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.nav_logout:
@@ -269,7 +258,6 @@ public class ProfileActivity extends AppCompatActivity {
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);
         create = findViewById(R.id.btn_create);
-        inbox = findViewById(R.id.btn_inbox);
         profile = findViewById(R.id.btn_profile);
         textEmail = findViewById(R.id.text_email);
         textName = findViewById(R.id.text_name);

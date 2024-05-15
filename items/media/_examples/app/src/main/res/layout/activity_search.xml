@@ -166,7 +166,7 @@
             android:elevation="4dp"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:weightSum="100">
+            android:weightSum="80">
 
             <LinearLayout
                 android:id="@+id/btn_home"
@@ -231,28 +231,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Create"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btn_inbox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_inbox_gray_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Inbox"
                     android:textSize="12sp" />
 
             </LinearLayout>
