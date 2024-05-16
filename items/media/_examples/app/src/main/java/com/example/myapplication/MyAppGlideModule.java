@@ -4,7 +4,14 @@ import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 
 /**
- * Author: Yichi Zhang
+ * This class is a GlideModule implementation for the application.
+ * GlideModule is a way to make Glide's configuration more flexible and allow applications to integrate with Glide's API.
+ * This class is annotated with @GlideModule, which is used by Glide's annotation processor to discover implementations.
+ * The MyAppGlideModule class extends AppGlideModule, which provides default implementations for all of AppGlideModule's methods.
+ * This allows the application to only override the methods it needs to.
+ * In this case, the class is empty, meaning it uses the default implementations for all methods.
+ *
+ * @Author Yichi Zhang
  */
 @GlideModule
 public class MyAppGlideModule extends AppGlideModule {
