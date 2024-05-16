@@ -14,7 +14,7 @@ import com.example.myapplication.src.User;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * @author Linxiang Hu, Yingxuan Tang
+ * @author Linxiang Hu u7633783, Yingxuan Tang
  *
  * The RegisterActivityBPlusTree class handles user registration using BPlus Tree for user management.
  * It provides an interface for users to enter their registration details, validates these details,

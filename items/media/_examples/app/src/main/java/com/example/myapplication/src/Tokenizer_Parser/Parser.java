@@ -2,7 +2,7 @@ package com.example.myapplication.src.Tokenizer_Parser;
 
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * A parser that reads tokens from a Tokenizer and constructs an expression based on predefined rules.
  */
 public class Parser {

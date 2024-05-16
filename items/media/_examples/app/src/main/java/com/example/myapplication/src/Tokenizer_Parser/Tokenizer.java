@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Tokenizer_Parser;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * <p>
  * A simple tokenizer class for parsing strings into tokens based on numeric and dot characters.
  */

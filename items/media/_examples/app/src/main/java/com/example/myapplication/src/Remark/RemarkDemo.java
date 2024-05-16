@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * An abstract class that represents a remark or comment associated with a specific post.
  * It includes attributes for the remark's content, the user's email, the post ID, and an index for ordering.
  */

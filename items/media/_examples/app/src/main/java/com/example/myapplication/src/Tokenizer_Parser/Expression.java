@@ -2,7 +2,7 @@ package com.example.myapplication.src.Tokenizer_Parser;
 
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Represents a full expression that combines multiple components, typically including numbers and operators.
  * This class extends ResultsShow to compose and display expressions from individual parts.
  */

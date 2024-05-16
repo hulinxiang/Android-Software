@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Manages the B+ tree for storing posts.
  * <p>
- * @author Linxiang Hu; Yichi Zhang
+ * @author Linxiang Hu u7633783; Yichi Zhang
  */
 public class BPlusTreeManagerPost {
     //The singleton instance of the B+ tree storing posts.

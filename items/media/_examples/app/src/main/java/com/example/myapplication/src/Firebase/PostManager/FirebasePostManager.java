@@ -6,6 +6,7 @@ import android.content.Context;
  * Manages a singleton instance of FirebasePostHelper for Firebase post management tasks.
  * This class ensures that there is only one instance of FirebasePostHelper across the application,
  * implementing a thread-safe Singleton pattern with lazy initialization.
+ * @author Linxiang Hu u7633783
  */
 public class FirebasePostManager {
     // Holds the singleton instance of FirebasePostHelper.

@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Represents an anonymous remark associated with posts, hiding the user's email and including details like post ID.
  * This class extends the abstract RemarkDemo, adding functionality to anonymize the user and handle index management.
  */
