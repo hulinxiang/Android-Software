@@ -105,14 +105,11 @@ public class FirebaseRemarkHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase delete operation", "Execute the method");
-                int count = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("Index").getValue(String.class), curRemarkId)) {
-                        DatabaseReference newUserRef = myRef.child(String.valueOf(count));
-                        newUserRef.removeValue();// Remove the remark from Firebase.
+                        snapshot.getRef().removeValue();  // Remove the remark from Firebase.
                         break;
                     }
-                    count++;
                 }
             }
 

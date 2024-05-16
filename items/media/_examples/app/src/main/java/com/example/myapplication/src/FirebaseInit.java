@@ -178,11 +178,14 @@ public class FirebaseInit extends Application {
         remarkRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count = 0;
                 for (DataSnapshot shot : snapshot.getChildren()) {
                     String index = shot.child("Index").getValue(String.class);
                     String postID = shot.child("PostID").getValue(String.class);
                     String remark = shot.child("Remark").getValue(String.class);
                     String userEmail = shot.child("UserEmail").getValue(String.class);
+                    assert index != null;
+                    count = Integer.parseInt(index);
                     RemarkDemo remarkDemo = null;
                     if ("Anonymous User".equals(userEmail)) {
                         remarkDemo = AnonymousRemarkFactoryManager.getInstance().createWithIndex(remark, userEmail, postID, index);
@@ -198,6 +201,7 @@ public class FirebaseInit extends Application {
                         list.get(0).add(remarkDemo);
                     }
                 }
+                RemarkDemo.count = count + 1;
             }
 
             @Override
