@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Helper class for Firebase remark management operations.
  * Provides methods to add, update, and delete remarks in the Firebase Realtime Database.
  */

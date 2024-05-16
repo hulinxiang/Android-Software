@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * An interface defining a factory for creating remarks or comments associated with a post.
  * It provides methods to create remarks with basic details or with an additional index.
  */

@@ -23,7 +23,7 @@ import java.util.List;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 
 /**
- * @author Jin Yang, Linxiang Hu
+ * @author Jin Yang, Linxiang Hu u7633783
  */
 public class HomeActivity extends AppCompatActivity {
 

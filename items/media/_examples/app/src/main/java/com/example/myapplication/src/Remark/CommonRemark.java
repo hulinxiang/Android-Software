@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Represents a specific type of remark associated with posts, including additional details like user email and post ID.
  * This class extends the abstract RemarkDemo, adding functionality to handle index management and user association.
  */

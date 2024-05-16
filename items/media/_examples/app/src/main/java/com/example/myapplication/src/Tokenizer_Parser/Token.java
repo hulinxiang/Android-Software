@@ -2,7 +2,7 @@ package com.example.myapplication.src.Tokenizer_Parser;
 
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * <p>
  * Represents a token extracted by the tokenizer. This class holds the token's value and its type.
  */

@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * A class helps to check if the username and password of a user when registering are valid
  */
 public class SearchManager {

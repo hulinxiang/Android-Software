@@ -2,7 +2,7 @@ package com.example.myapplication.src.Firebase.RemarkManager;
 import android.content.Context;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Manages a singleton instance of FirebaseRemarkHelper for Firebase remark management tasks.
  * This class ensures that there is only one instance of FirebaseRemarkHelper across the application,
  * implementing a thread-safe Singleton pattern with lazy initialization.

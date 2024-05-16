@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Manages the B+ tree for storing remarks associated with posts.
  */
 public class BPlusTreeManagerRemark {
