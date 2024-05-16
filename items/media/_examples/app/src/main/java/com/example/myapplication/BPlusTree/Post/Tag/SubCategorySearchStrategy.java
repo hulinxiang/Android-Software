@@ -8,6 +8,10 @@ import com.example.myapplication.src.Post;
 /**
  * The SubCategorySearchStrategy class extends the AbstractSearchStrategy class.
  * It provides a specific implementation of the matchCriteria method that checks if a post's sub category matches a specified value.
+ *
+ * @see AbstractSearchStrategy
+ * @see Post
+ * @Author Yichi Zhang u7748799
  */
 public class SubCategorySearchStrategy extends AbstractSearchStrategy {
 

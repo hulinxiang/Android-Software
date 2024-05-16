@@ -11,7 +11,7 @@ import java.util.List;
  * Each search strategy must implement the search method that takes a context and an array of values as parameters.
  *
  * @see AbstractSearchStrategy
- * @author Yichi Zhang
+ * @author Yichi Zhang u7748799
  */
 public interface SearchStrategy {
 

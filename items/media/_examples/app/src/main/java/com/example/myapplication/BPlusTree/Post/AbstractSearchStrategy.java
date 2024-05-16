@@ -11,6 +11,12 @@ import java.util.List;
  * The AbstractSearchStrategy class provides a template for creating search strategies.
  * It implements the SearchStrategy interface and provides a default implementation for the search method.
  * Subclasses must implement the matchCriteria method to define the criteria for filtering posts.
+ *
+ * @see SearchStrategy
+ * @see Post
+ * @see BPlusTreeManagerPost
+ * @see AbstractSearchStrategy
+ * @author Yichi Zhang u7748799
  */
 public abstract class AbstractSearchStrategy implements SearchStrategy {
 

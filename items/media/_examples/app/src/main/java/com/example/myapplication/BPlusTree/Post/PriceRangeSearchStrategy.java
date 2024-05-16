@@ -14,7 +14,7 @@ import com.example.myapplication.src.Tokenizer_Parser.Tokenizer;
  * @see Post
  * @see Tokenizer
  * @see Parser
- * @author Yichi Zhang
+ * @author Yichi Zhang u7748799
  */
 public class PriceRangeSearchStrategy extends AbstractSearchStrategy {
 
