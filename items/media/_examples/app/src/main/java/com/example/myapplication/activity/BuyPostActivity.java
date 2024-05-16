@@ -21,6 +21,9 @@ import com.example.myapplication.src.Remark.RemarkDemo;
 
 import java.util.List;
 
+/**
+ * @author Wenhui Shi
+ */
 public class BuyPostActivity extends AppCompatActivity {
     // UI elements
     private TextView post_name;

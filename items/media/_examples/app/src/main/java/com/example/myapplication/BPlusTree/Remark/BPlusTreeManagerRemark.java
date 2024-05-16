@@ -1,13 +1,13 @@
 package com.example.myapplication.BPlusTree.Remark;
-
-
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.src.Remark.RemarkDemo;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author Linxiang Hu
+ */
 public class BPlusTreeManagerRemark {
     private static BPlusTree<String, List<RemarkDemo>> remarkTree;
 
@@ -26,7 +26,6 @@ public class BPlusTreeManagerRemark {
         return res.get(0);
     }
 
-
     public static void update(String postId, RemarkDemo remarkDemo) {
         List<List<RemarkDemo>> res = BPlusTreeManagerRemark.getTreeInstance().query(postId);
         if (res.isEmpty()) {
@@ -40,16 +39,16 @@ public class BPlusTreeManagerRemark {
 
 
     public static boolean delete(String postId, RemarkDemo remarkDemo) {
-        // 从B+树中查询对应的postId
+        // Query the corresponding postId from the B+ tree
         List<List<RemarkDemo>> res = BPlusTreeManagerRemark.getTreeInstance().query(postId);
 
-        // 检查获取的结果列表是否为空，以及是否至少包含一个列表元素
+        // Check that the obtained list of results is empty and contains at least one list element
         if (res != null && !res.isEmpty() && res.get(0) != null) {
-            // 尝试从第一个列表中移除指定的remarkDemo
-            // 返回是否成功移除
+            // Attempt to remove the specified remarkDemo from the first list
+            // Returns whether the removal was successful
             return res.get(0).remove(remarkDemo);
         }
-        // 如果列表为空或不存在，返回false
+        // If the list is empty or does not exist, return false
         return false;
     }
 

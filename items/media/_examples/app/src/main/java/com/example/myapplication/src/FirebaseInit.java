@@ -12,20 +12,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import android.app.Application;
-
-import com.example.myapplication.src.Tag;
-
 import android.text.TextUtils;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+
+/**
+ * @author Yingxuan Tang, Linxiang Hu, Yichi Zhang
+ *
+ * The FirebaseInit class initializes Firebase and loads data from Firebase into the B+ tree data structures.
+ */
 public class FirebaseInit extends Application {
     @Override
     public void onCreate() {
@@ -35,6 +34,9 @@ public class FirebaseInit extends Application {
         loadDataFromFirebase();
     }
 
+    /**
+     * Loads data from Firebase into the B+ tree data structures.
+     */
     private void loadDataFromFirebase() {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         // Loading Post data

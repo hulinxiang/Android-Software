@@ -11,6 +11,9 @@ import android.widget.Spinner;
 
 import com.example.myapplication.R;
 
+/**
+ * @author Wenhui Shi
+ */
 public class TagSelectionActivity extends AppCompatActivity {
     private Spinner spinnerGender, spinnerMasterCategory, spinnerSubCategory, spinnerArticleType, spinnerBaseColor, spinnerSeason, spinnerUsage;
     private EditText editTextMinPrice, editTextMaxPrice;

@@ -1,9 +1,6 @@
 package com.example.myapplication.src.Firebase.PostManager;
-
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.example.myapplication.src.Post;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,16 +11,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu, Yingxuan Tang
  * Helper class for Firebase post management operations.
  * Provides methods to add, update, and delete posts in the Firebase Realtime Database.
  */
 public class FirebasePostHelper {
 
     /**
-     * Adds a new post to the Firebase database under the "post" node.
+     * Adds a new post to Firebase Realtime Database.
      *
-     * @param post The Post object containing the post details to be stored.
+     * @param post The post object to be added.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Adds a new post under the "post" node in the database.
      */
     public void addPost(Post post) {
         // Get the singleton instance of FirebaseDatabase.
@@ -65,63 +66,14 @@ public class FirebasePostHelper {
         });
     }
 
-
     /**
-     * Updates an existing post in the Firebase database.
+     * Deletes a post from Firebase Realtime Database.
      *
-     * @param post The Post object containing the updated details.
-     */
-    public void updatePost(Post post) {
-        // Get the singleton instance of FirebaseDatabase.
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        // Get a reference to the "post" node.
-        DatabaseReference myRef = database.getReference().child("post");
-        String curPostId = post.getPostID();
-
-        Log.d("Firebase update operation", "Enter the method");
-
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("Firebase update operation", "Execute the method");
-                int count = 0;
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
-                        DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                        // get the reference to the node that needs update.
-                        newPostRef.child("UserID").setValue(post.getUserID());
-                        newPostRef.child("articleType").setValue(post.getTag().getArticleType());
-                        newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
-                        newPostRef.child("comment").setValue(post.getComments());
-                        newPostRef.child("description").setValue(post.getDescription());
-                        newPostRef.child("gender").setValue(post.getTag().getGender());
-                        newPostRef.child("image_url").setValue(post.getImageUrl());
-                        newPostRef.child("masterCategory").setValue(post.getTag().getMasterCategory());
-                        newPostRef.child("postID").setValue(post.getPostID());
-                        newPostRef.child("postIndexInFirebase").setValue(post.getPostIndexInFirebase());
-                        newPostRef.child("price").setValue(Double.toString(post.getPrice()));
-                        newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
-                        newPostRef.child("season").setValue(post.getTag().getSeason());
-                        newPostRef.child("status").setValue(post.getStatus());
-                        newPostRef.child("subCategory").setValue(post.getTag().getSubCategory());
-                        newPostRef.child("year").setValue(post.getTag().getYear());
-                        newPostRef.child("usage").setValue(post.getTag().getUsage());
-                        break;
-                    }
-                    count++;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("Firebase update operation failed", "Failure to update post to firebase：" + databaseError.getCode());
-            }
-        });
-    }
-
-    /**
-     * Deletes a post from the Firebase database.
-     * @param post The Post object that identifies the post to be deleted.
+     * @param post The post object to be deleted.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Deletes the post with the corresponding post ID from the database.
      */
     public void deletePost(Post post) {
         // Get the singleton instance of FirebaseDatabase.

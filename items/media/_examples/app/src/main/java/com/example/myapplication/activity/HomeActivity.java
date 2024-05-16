@@ -22,6 +22,9 @@ import java.util.List;
 
 import com.example.myapplication.activity.Image.GlideImageLoader;
 
+/**
+ * @author Jin Yang, Linxiang Hu
+ */
 public class HomeActivity extends AppCompatActivity {
 
     private LinearLayout home;
