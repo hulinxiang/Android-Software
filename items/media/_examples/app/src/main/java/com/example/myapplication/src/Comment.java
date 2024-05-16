@@ -4,7 +4,7 @@ package com.example.myapplication.src;
  * The Comment class represents a comment that can be associated with a post.
  * Each comment has a text property that represents the content of the comment.
  *
- * @Author Yichi Zhang
+ * @Author Yichi Zhang u7748799
  */
 public class Comment {
     private String text;

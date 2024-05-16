@@ -16,7 +16,7 @@ import org.junit.Test;
  * This class is used to test the functionality of the Factory Design Pattern implementation.
  * It tests the creation of different types of remarks (Common and Anonymous) using their respective factories.
  *
- * @author Yichi Zhang
+ * @author Yichi Zhang u7748799
  */
 public class FactoryDesignPatternTest {
 

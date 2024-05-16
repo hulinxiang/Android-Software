@@ -7,7 +7,7 @@ import java.util.List;
  * The PostList class represents a list of Post objects.
  * It provides methods to check if the list is empty and to retrieve a specific post by index.
  *
- * @Author Yichi Zhang
+ * @Author Yichi Zhang u7748799
  */
 public class PostList {
     private List<Post> posts = new ArrayList<>();
