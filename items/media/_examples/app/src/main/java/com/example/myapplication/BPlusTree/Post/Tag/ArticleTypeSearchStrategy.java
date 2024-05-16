@@ -6,10 +6,6 @@ import com.example.myapplication.BPlusTree.Post.AbstractSearchStrategy;
 import com.example.myapplication.src.Post;
 
 public class ArticleTypeSearchStrategy extends AbstractSearchStrategy {
-//    @Override
-//    protected boolean matchCriteria(Post post, String... value) {
-//        return post.getTag().getArticleType().equals(value);
-//    }
 
     @Override
     protected boolean matchCriteria(Post post, String... value) {
