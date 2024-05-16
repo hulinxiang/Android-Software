@@ -7,10 +7,20 @@ import com.example.myapplication.src.Remark.RemarkDemo;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Linxiang Hu
+ * Manages the B+ tree for storing remarks associated with posts.
+ */
 public class BPlusTreeManagerRemark {
+
+    // The singleton instance of the B+ tree storing remarks.
     private static BPlusTree<String, List<RemarkDemo>> remarkTree;
 
+    /**
+     * Retrieves the singleton instance of the B+ tree for remarks.
+     *
+     * @return The singleton instance of the B+ tree.
+     */
     public static synchronized BPlusTree<String, List<RemarkDemo>> getTreeInstance() {
         if (remarkTree == null) {
             remarkTree = new BPlusTree<>();
@@ -18,6 +28,12 @@ public class BPlusTreeManagerRemark {
         return remarkTree;
     }
 
+    /**
+     * Retrieves remarks associated with a given post ID.
+     *
+     * @param postId The ID of the post to retrieve remarks for.
+     * @return The list of remarks associated with the provided post ID, or an empty list if none found.
+     */
     public static List<RemarkDemo> get(String postId) {
         List<List<RemarkDemo>> res = BPlusTreeManagerRemark.getTreeInstance().query(postId);
         if (res.isEmpty()) {
@@ -27,6 +43,12 @@ public class BPlusTreeManagerRemark {
     }
 
 
+    /**
+     * Updates the remarks associated with a given post ID.
+     *
+     * @param postId     The ID of the post to update remarks for.
+     * @param remarkDemo The remark to add/update for the specified post.
+     */
     public static void update(String postId, RemarkDemo remarkDemo) {
         List<List<RemarkDemo>> res = BPlusTreeManagerRemark.getTreeInstance().query(postId);
         if (res.isEmpty()) {
@@ -39,17 +61,24 @@ public class BPlusTreeManagerRemark {
     }
 
 
+    /**
+     * Deletes a remark associated with a given post ID.
+     *
+     * @param postId     The ID of the post to delete the remark from.
+     * @param remarkDemo The remark to delete from the specified post.
+     * @return True if the deletion was successful, false otherwise.
+     */
     public static boolean delete(String postId, RemarkDemo remarkDemo) {
-        // 从B+树中查询对应的postId
+        // Query the B+ tree for the list of remarks associated with the postId
         List<List<RemarkDemo>> res = BPlusTreeManagerRemark.getTreeInstance().query(postId);
 
-        // 检查获取的结果列表是否为空，以及是否至少包含一个列表元素
+        // Check if the result list is not empty and contains at least one list
         if (res != null && !res.isEmpty() && res.get(0) != null) {
-            // 尝试从第一个列表中移除指定的remarkDemo
-            // 返回是否成功移除
+            // Try to remove the specified remarkDemo from the first list
+            // Return whether the removal was successful
             return res.get(0).remove(remarkDemo);
         }
-        // 如果列表为空或不存在，返回false
+        // If the list is empty or doesn't exist, return false
         return false;
     }
 

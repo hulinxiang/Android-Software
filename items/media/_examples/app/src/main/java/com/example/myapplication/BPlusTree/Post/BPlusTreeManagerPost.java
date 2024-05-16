@@ -2,7 +2,6 @@ package com.example.myapplication.BPlusTree.Post;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.Post.Tag.ArticleTypeSearchStrategy;
