@@ -12,17 +12,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import android.app.Application;
 import android.text.TextUtils;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * @author Yingxuan Tang, Linxiang Hu, Yichi Zhang u7748799
- *
+ * @author Yingxuan Tang, Linxiang Hu u7633783, Yichi Zhang u7748799
+ * <p>
  * The FirebaseInit class initializes Firebase and loads data from Firebase into the B+ tree data structures.
  */
 public class FirebaseInit extends Application {

@@ -43,7 +43,7 @@ public class FirebasePostHelper {
                 newPostRef.child("UserID").setValue(post.getUserID());
                 newPostRef.child("articleType").setValue(post.getTag().getArticleType());
                 newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
-                newPostRef.child("comment").setValue(post.getComments());   //这个是不是有问题。（tyx问
+                newPostRef.child("comment").setValue(post.getComments());
                 newPostRef.child("description").setValue(post.getDescription());
                 newPostRef.child("gender").setValue(post.getTag().getGender());
                 newPostRef.child("image_url").setValue(post.getImageUrl());

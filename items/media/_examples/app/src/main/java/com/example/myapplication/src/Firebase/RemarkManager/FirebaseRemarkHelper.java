@@ -36,11 +36,9 @@ public class FirebaseRemarkHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // Get the number of children under "remark".
-                long count = dataSnapshot.getChildrenCount();
                 // Create a new reference for the new remark.
                 // Set remark data in Firebase under the new node
-                DatabaseReference newUserRef = myRef.child(String.valueOf(count));
+                DatabaseReference newUserRef = myRef.child(remarkDemo.getIndex());
                 newUserRef.child("Index").setValue(remarkDemo.getIndex());
                 newUserRef.child("PostID").setValue(remarkDemo.getPostId());
                 newUserRef.child("Remark").setValue(remarkDemo.getText());
