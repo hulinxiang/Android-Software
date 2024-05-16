@@ -246,7 +246,7 @@ public class SearchActivity extends AppCompatActivity {
         profile = findViewById(R.id.btn_profile);
         search_input =  findViewById(R.id.search_input);
         searchButton = findViewById(R.id.search_button);
-        tag_search  = findViewById(R.id.tag_search);
+        tag_search  = findViewById(R.id.tag_search_button);
         //grid layout
         gl_post = findViewById(R.id.gl_search);
         //search tag
