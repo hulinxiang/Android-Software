@@ -12,7 +12,10 @@ import android.widget.Spinner;
 import com.example.myapplication.R;
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi u7773637
+ * The TagSelectionActivity class is an activity that allows users to select tags and input search parameters for advanced searches.
+ * It includes spinners for tag selection, EditText fields for price input, and buttons for saving the input and canceling the search.
+ * The selected values and prices are passed to the SearchActivity using an intent for further processing.
  */
 public class TagSelectionActivity extends AppCompatActivity {
     private Spinner spinnerGender, spinnerMasterCategory, spinnerSubCategory, spinnerArticleType, spinnerBaseColor, spinnerSeason, spinnerUsage;

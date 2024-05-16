@@ -22,8 +22,13 @@ import com.example.myapplication.src.Remark.RemarkDemo;
 import java.util.List;
 
 /**
- * @author Wenhui Shi
- */
+ * @author Wenhui Shi, u7773637
+ * /**
+ * The BuyPostActivity class is an Android activity that displays the details of a post for buying a product.
+ * It initializes UI elements, retrieves post details from the intent, and displays them on the corresponding views.
+ * It also retrieves comments for the current post and dynamically adds comment views to the grid layout.
+ * */
+
 public class BuyPostActivity extends AppCompatActivity {
     // UI elements
     private TextView post_name;

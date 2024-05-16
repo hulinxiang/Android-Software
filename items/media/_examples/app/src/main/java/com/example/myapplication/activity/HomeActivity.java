@@ -23,14 +23,20 @@ import java.util.List;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 
 /**
- * @author Jin Yang, Linxiang Hu
+ * @author Jin Yang u7724192, Linxiang Hu u7633783, Wenhui Shi u7773637
+ * The HomeActivity is an Android activity that represents the home screen of an application.
+ * It displays a grid of posts and provides navigation options to other parts of the app such as search, creating new posts, and viewing the user's profile.
+ * The activity uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
+ * Each post item contains an image, name, and price.
+ * Clicking on a post item opens a detailed view of the post.
+ * The activity also includes functionality to periodically update the post grid using a Handler and Runnable.
  */
 public class HomeActivity extends AppCompatActivity {
 
     private LinearLayout home;
     private LinearLayout search;
     private LinearLayout create;
-    private LinearLayout inbox;
+
     private LinearLayout profile;
 
     private GridLayout gl_post;
@@ -78,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //网格视图
         gl_post = findViewById(R.id.gl_home);
         showPost();
 
@@ -152,15 +157,15 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        stopRepeatingTask(); // 停止重复的任务
-        Log.d("Thread===", "我消灭了线程");
+        stopRepeatingTask(); // Stop repetitive tasks
+        Log.d("Thread===", "destroyed the thread");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        startRepeatingTask(); // 在Activity开始时重新启动任务
-        Log.d("Thread===", "我启动了线程");
+        startRepeatingTask(); // Restart task when Activity starts
+        Log.d("Thread===", "started the thread");
     }
 
 }

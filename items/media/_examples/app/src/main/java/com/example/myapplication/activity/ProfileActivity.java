@@ -29,7 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Wenhui Shi, Jin Yang
+ * @author Wenhui Shi u773637, Jin Yang u7724192
+ * The ProfileActivity class is an activity that displays the user's profile information and provides various functionalities related to the user's posts, likes, and purchases.
+ * It includes a navigation drawer for accessing different sections of the app and implements event handlers for interacting with different views and buttons.
+ * The activity dynamically updates and displays the user's posts, likes, and purchases using grid layouts and allows the user to navigate to detailed views of each item.
  */
 public class ProfileActivity extends AppCompatActivity {
 

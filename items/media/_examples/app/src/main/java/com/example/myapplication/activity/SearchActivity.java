@@ -22,7 +22,11 @@ import com.example.myapplication.src.Post;
 import java.util.List;
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi u7773637
+ * The SearchActivity class is an activity that enables users to search for items within the app.
+ * It provides options for both common and advanced searches based on keywords and tags.
+ * The search results are displayed in a grid layout, and users can click on an item to view more details.
+ * The activity also includes navigation buttons and event listeners for search functionality.
  */
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";
