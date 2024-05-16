@@ -12,7 +12,7 @@ import org.junit.Test;
  * This class is used to test the functionality of the Parser and Tokenizer classes.
  * It tests the parsing and tokenizing of valid and invalid inputs.
  *
- * @author Yichi Zhang
+ * @author Yichi Zhang u7748799
  */
 public class ParserTest {
 

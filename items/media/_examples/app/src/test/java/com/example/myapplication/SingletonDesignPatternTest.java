@@ -13,7 +13,7 @@ import org.junit.Assert;
  * It tests the creation of instances of FirebaseUserHelper and FirebasePostHelper using the getInstance method of their respective managers.
  * It verifies that the instances created by the getInstance method are the same, thus confirming the Singleton Design Pattern.
  *
- * @Author Yichi Zhang
+ * @Author Yichi Zhang u7748799
  */
 public class SingletonDesignPatternTest {
 
