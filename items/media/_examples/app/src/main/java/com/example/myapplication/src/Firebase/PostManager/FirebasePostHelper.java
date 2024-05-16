@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * @author Linxiang Hu u7633783, Yingxuan Tang
+ * @author Linxiang Hu u7633783, Yingxuan Tang u7670526
  * Helper class for Firebase post management operations.
  * Provides methods to add, update, and delete posts in the Firebase Realtime Database.
  */

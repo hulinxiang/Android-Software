@@ -10,12 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.ImageUploader;
 import com.example.myapplication.activity.Image.PostCreator;
@@ -23,11 +21,10 @@ import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.Calendar;
 
 /**
- * @author Jin Yang, u7724192
+ * @author Jin Yang u7724192
  * The CreateActivity class is an Android activity that allows users to create and upload a post for selling a product.
  * It initializes UI elements, handles user input, and provides functionality for selecting and uploading an image.
  * Upon successful upload, it creates a new post with the entered details and displays a success message.

@@ -9,7 +9,7 @@ import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
- * Author: Jin Yang
+ * Author: Jin Yang u7724192
  */
 public class ToastMatcher extends TypeSafeMatcher<Root> {
 

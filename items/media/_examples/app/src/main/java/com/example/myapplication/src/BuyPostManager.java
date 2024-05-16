@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  *
  * The BuyPostManager class manages the purchase information of posts. It interacts with both local storage (SharedPreferences) and Firebase Realtime Database.
  */

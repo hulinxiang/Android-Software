@@ -7,6 +7,7 @@ package com.example.myapplication.src.Tokenizer_Parser;
  * This class extends ResultsShow to compose and display expressions from individual parts.
  */
 public class Expression extends ResultsShow {
+
     // Holds the left part of the expression, typically a number.
     ResultsShow leftNum;
     // Holds the middle part of the expression, typically an operator or dot.

@@ -10,7 +10,6 @@ public class Dot extends ResultsShow {
     // Holds the dot character, predefined as ".".
     String dot = ".";
 
-
     /**
      * Overrides the show method to provide a specific representation of the dot.
      * This method appends a vertical bar "|" to the dot character.
@@ -20,6 +19,4 @@ public class Dot extends ResultsShow {
         // Return the dot character appended with a vertical bar.
         return dot + "|";
     }
-
-
 }

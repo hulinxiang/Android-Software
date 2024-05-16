@@ -11,7 +11,7 @@ import com.example.myapplication.src.User;
 import java.util.List;
 
 /**
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  *
  * The LoginCheckService class provides methods to validate user registration and login credentials.
  * It uses a BPlus Tree data structure to manage user data and validate login and registration details.

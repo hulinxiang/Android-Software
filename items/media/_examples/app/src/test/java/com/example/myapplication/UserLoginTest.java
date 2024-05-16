@@ -10,7 +10,7 @@ import org.junit.Before;
 /**
  * This class contains unit tests for user login functionality.
  *
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  */
 public class UserLoginTest {
 

@@ -14,7 +14,7 @@ import androidx.test.InstrumentationRegistry;
 /**
  * This class contains unit tests for the registration functionality.
  *
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  */
 public class RegisterActivityTest {
 
