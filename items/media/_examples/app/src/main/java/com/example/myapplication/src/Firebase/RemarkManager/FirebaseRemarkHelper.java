@@ -14,12 +14,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * @author Hu
+ * @author Linxiang Hu
+ * Helper class for Firebase remark management operations.
+ * Provides methods to add, update, and delete remarks in the Firebase Realtime Database.
  */
 public class FirebaseRemarkHelper {
 
+    /**
+     * Adds a new remark to the Firebase database under the "remark" node.
+     * @param remarkDemo The RemarkDemo object containing the remark details to be stored.
+     */
     public void addRemark(RemarkDemo remarkDemo) {
+        // Get the singleton instance of FirebaseDatabase.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get a reference to the "remark" node.
         DatabaseReference myRef = database.getReference().child("remark");
 
         Log.d("Firebase add operation", "Enter the method");
@@ -28,9 +36,10 @@ public class FirebaseRemarkHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // This will give the number of "remark" subnodes
+                // Get the number of children under "remark".
                 long count = dataSnapshot.getChildrenCount();
-                // Now set the new remark data under this new index
+                // Create a new reference for the new remark.
+                // Set remark data in Firebase under the new node
                 DatabaseReference newUserRef = myRef.child(String.valueOf(count));
                 newUserRef.child("Index").setValue(remarkDemo.getIndex());
                 newUserRef.child("PostID").setValue(remarkDemo.getPostId());
@@ -46,8 +55,14 @@ public class FirebaseRemarkHelper {
     }
 
 
+    /**
+     * Updates an existing remark in the Firebase database.
+     * @param remarkDemo The RemarkDemo object containing the updated details.
+     */
     public void updateRemark(RemarkDemo remarkDemo) {
+        // Get the singleton instance of FirebaseDatabase.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get a reference to the "remark" node.
         DatabaseReference myRef = database.getReference().child("remark");
         Log.d("Firebase update operation", "Enter the method");
         String curRemarkId = remarkDemo.getIndex();
@@ -59,6 +74,7 @@ public class FirebaseRemarkHelper {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("Index").getValue(String.class), curRemarkId)) {
                         DatabaseReference newUserRef = myRef.child(String.valueOf(count));
+                        // Update the remark's information in Firebase.
                         newUserRef.child("Index").setValue(remarkDemo.getIndex());
                         newUserRef.child("PostID").setValue(remarkDemo.getPostId());
                         newUserRef.child("Remark").setValue(remarkDemo.getText());
@@ -76,8 +92,14 @@ public class FirebaseRemarkHelper {
         });
     }
 
+    /**
+     * Deletes a remark from the Firebase database.
+     * @param remarkDemo The RemarkDemo object that identifies the remark to be deleted.
+     */
     public void deleteRemark(RemarkDemo remarkDemo) {
+        // Get the singleton instance of FirebaseDatabase.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get a reference to the "remark" node.
         DatabaseReference myRef = database.getReference().child("remark");
         Log.d("Firebase delete operation", "Enter the method");
         String curRemarkId = remarkDemo.getIndex();
@@ -89,7 +111,7 @@ public class FirebaseRemarkHelper {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("Index").getValue(String.class), curRemarkId)) {
                         DatabaseReference newUserRef = myRef.child(String.valueOf(count));
-                        newUserRef.removeValue();
+                        newUserRef.removeValue();// Remove the remark from Firebase.
                         break;
                     }
                     count++;
