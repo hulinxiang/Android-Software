@@ -32,9 +32,11 @@ import com.example.myapplication.src.Remark.CommonRemarkFactoryManager;
 import com.example.myapplication.src.Remark.RemarkDemo;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
-
 import java.util.List;
 
+/**
+ * @author Wenhui Shi
+ */
 public class MyPostActivity extends AppCompatActivity {
     private TextView post_name;
     private TextView post_price;

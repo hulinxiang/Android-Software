@@ -28,6 +28,9 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Wenhui Shi, Jin Yang
+ */
 public class ProfileActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;

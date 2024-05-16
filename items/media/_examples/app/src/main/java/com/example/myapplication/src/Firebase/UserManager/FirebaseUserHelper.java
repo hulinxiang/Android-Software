@@ -11,7 +11,7 @@ import java.util.Objects;
 
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu, Yingxuan Tang
  * A helper class for performing user management operations in Firebase Realtime Database.
  * This class provides methods to add and update user data in a Firebase database.
  */

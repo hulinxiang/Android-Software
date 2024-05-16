@@ -26,6 +26,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
 
+/**
+ * @author Jin Yang
+ */
 public class CreateActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;

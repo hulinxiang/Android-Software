@@ -1,4 +1,4 @@
-# [G0 - Team Name] Report
+# [G58 - Team Name] Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -28,7 +28,8 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 10. [Conflict Resolution Protocol](#conflict-resolution-protocol)
 
 ## Administrative
-- Firebase Repository Link: <insert-link-to-firebase-repository>
+- Firebase Repository Link: 
+   - https://console.firebase.google.com/u/1/project/login-register-firebase-94766/overview
    - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
 - Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
    - Username: comp2100@anu.edu.au	Password: comp2100
@@ -79,6 +80,12 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **UID2, Name2**  I have xx% contribution, as follows: <br>
   - ...
+
+3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
+  - **Code Contribution in the final App**
+  - 
+
+
 
 
 

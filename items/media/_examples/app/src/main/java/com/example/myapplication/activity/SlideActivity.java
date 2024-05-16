@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.example.myapplication.R;
 
+/**
+ * @author Wenhui Shi
+ */
 public class SlideActivity extends AppCompatActivity {
 
     @Override
