@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @Author Linxiang Hu
+ * @author Linxiang Hu
  * The AnonymousRemarkFactory class implements the RemarkFactory interface.
  * It provides methods to create instances of the AnonymousRemark class.
  */
