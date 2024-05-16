@@ -38,7 +38,6 @@ public abstract class AbstractSearchStrategy implements SearchStrategy {
                 filteredPosts.add(post);
             }
         }
-
         return filteredPosts;
     }
 

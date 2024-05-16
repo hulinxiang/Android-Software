@@ -39,9 +39,6 @@ public class PriceRangeSearchStrategy extends AbstractSearchStrategy {
         double maxPrice = parsePrice(maxPriceStr);
         double postPrice = post.getPrice();
 
-        Log.d("PriceRangeSearchStrategy", "minPrice: " + minPrice + ", maxPrice: " + maxPrice + ", postPrice: " + postPrice);
-        Log.d("PriceRangeSearchStrategy", "minPrice <= postPrice <= maxPrice: " + (minPrice <= postPrice && postPrice <= maxPrice));
-
         return (postPrice >= minPrice && postPrice <= maxPrice);
     }
 

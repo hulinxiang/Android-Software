@@ -28,7 +28,6 @@ public class GenderSearchStrategy extends AbstractSearchStrategy {
     protected boolean matchCriteria(Post post, String... value) {
         if (value.length > 0) {
             String gender = value[0];
-            Log.d("GenderSearchStrategy", "matchCriteria: " + post.getTag().getGender().equals(gender));
             return post.getTag().getGender().equals(gender);
         }
         return false;

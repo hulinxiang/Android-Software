@@ -28,7 +28,6 @@ public class UsageSearchStrategy extends AbstractSearchStrategy {
     protected boolean matchCriteria(Post post, String... value) {
         if (value.length > 0) {
             String usage = value[0];
-            Log.d("UsageSearchStrategy", "matchCriteria: " + post.getTag().getUsage().equals(usage));
             return post.getTag().getUsage().equals(usage);
         }
         return false;

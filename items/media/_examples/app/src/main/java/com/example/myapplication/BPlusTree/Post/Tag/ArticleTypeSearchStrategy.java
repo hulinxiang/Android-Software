@@ -28,7 +28,6 @@ public class ArticleTypeSearchStrategy extends AbstractSearchStrategy {
     protected boolean matchCriteria(Post post, String... value) {
         if (value.length > 0) {
             String articleType = value[0];
-            Log.d("ArticleTypeSearchStrategy", "matchCriteria: " + post.getTag().getArticleType().equals(articleType));
             return post.getTag().getArticleType().equals(articleType);
         }
         return false;
