@@ -36,7 +36,11 @@ import com.example.myapplication.src.User;
 import java.util.List;
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi u7773637
+ * PostActivity is an Android activity class that displays details of a post and allows users to interact with the post by liking it, purchasing it,
+ * and writing comments. It retrieves the post ID and user ID from the intent extras and initializes the necessary views and data.
+ * The main aim of this class is to provide a user interface for viewing and interacting with individual posts in the application.
+ * It handles functionalities such as liking a post, checking if the post is liked, purchasing a post, posting comments, and displaying post details and comments.
  */
 public class PostActivity extends AppCompatActivity {
     private TextView post_name;

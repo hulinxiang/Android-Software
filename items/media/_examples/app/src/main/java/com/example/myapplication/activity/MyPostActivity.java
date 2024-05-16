@@ -35,7 +35,14 @@ import com.example.myapplication.src.User;
 import java.util.List;
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi u7773637
+ * The MyPostActivity class is an Android activity that displays the details of a user's post,
+ * including its name, price, image, description, and comments. The main aim of this activity
+ * is to provide a user interface for viewing and interacting with a specific post. It allows
+ * the user to like the post, view and post comments, and delete their own comments.
+ * The activity handles the initialization of views, retrieving post data from intents,
+ * setting up click listeners for buttons, managing the display of comments, and handling
+ * user interactions such as liking the post and posting comments.
  */
 public class MyPostActivity extends AppCompatActivity {
     private TextView post_name;

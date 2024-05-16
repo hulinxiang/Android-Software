@@ -27,7 +27,10 @@ import com.google.firebase.storage.StorageReference;
 import java.util.Calendar;
 
 /**
- * @author Jin Yang
+ * @author Jin Yang, u7724192
+ * The CreateActivity class is an Android activity that allows users to create and upload a post for selling a product.
+ * It initializes UI elements, handles user input, and provides functionality for selecting and uploading an image.
+ * Upon successful upload, it creates a new post with the entered details and displays a success message.
  */
 public class CreateActivity extends AppCompatActivity {
 

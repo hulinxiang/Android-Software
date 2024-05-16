@@ -7,7 +7,9 @@ import android.widget.TextView;
 
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi, u7773637
+ * The CustomSpinnerAdapter class is a custom ArrayAdapter used for displaying dropdown views in a Spinner.
+ * It sets the hint text color for the first item (title) and disables the first item from being selected.
  */
 public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 
