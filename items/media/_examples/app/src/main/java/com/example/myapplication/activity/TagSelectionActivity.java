@@ -22,6 +22,11 @@ public class TagSelectionActivity extends AppCompatActivity {
     private EditText editTextMinPrice, editTextMaxPrice;
     private Button buttonSaveInput, buttonCancel;
 
+    /**
+     * Called when the activity is first created. Initializes the UI components, sets up spinners, and handles button clicks.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this Bundle contains the data it most recently supplied.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +93,9 @@ public class TagSelectionActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets up the spinners with data from resources.
+     */
     private void setupSpinners() {
         // Set up gender spinner
         String[] genderCategories = getResources().getStringArray(R.array.gender_categories);
@@ -127,6 +135,12 @@ public class TagSelectionActivity extends AppCompatActivity {
         spinnerUsage.setAdapter(adapterUsage);
     }
 
+    /**
+     * Retrieves the selected value from a spinner. Returns an empty string if no valid selection is made.
+     *
+     * @param spinner The spinner to get the selected value from.
+     * @return The selected value as a string, or an empty string if no valid selection.
+     */
     private String getSelectedSpinnerValue(Spinner spinner) {
         int selectedItemPosition = spinner.getSelectedItemPosition();
         // If the selected position is the title which means didn't choose this tag

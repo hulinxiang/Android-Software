@@ -60,6 +60,7 @@ public class PostActivity extends AppCompatActivity {
     private Post currentPost;
     private User currentUser;
 
+    // UI components and instance variables declaration omitted for brevity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +136,9 @@ public class PostActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Displays a dialog for writing a comment.
+     */
     private void showCommentDialog() {
         // Inflate the dialog layout
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -179,6 +183,11 @@ public class PostActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Posts a comment to the current post.
+     * @param comment The text of the comment.
+     * @param isAnonymous Whether the comment is posted anonymously.
+     */
     private void postComment(String comment, boolean isAnonymous) {
        if(isAnonymous){
            // create new remark
@@ -197,12 +206,19 @@ public class PostActivity extends AppCompatActivity {
        }
     }
 
+    /**
+     * Checks if the current user has purchased the current post.
+     * @param post The post to check.
+     * @return True if the post is purchased, false otherwise.
+     */
     // Method to check if the product is in the buy list
     private boolean checkIfPurchased(Post post) {
         // Replace this with your actual logic to check if the post is in the buy list
         return currentUser.getBuyPosts().contains(post);
     }
-
+    /**
+     * Shows a confirmation dialog for purchasing the current post.
+     */
     // Method to show the purchase confirmation dialog
     private void showPurchaseConfirmationDialog() {
         new AlertDialog.Builder(this)
@@ -225,6 +241,9 @@ public class PostActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * Handles the purchase process of the current post.
+     */
     // Method to handle the purchase logic
     private void handlePurchase() {
         // Add the post to the buy list
@@ -235,10 +254,19 @@ public class PostActivity extends AppCompatActivity {
         Log.d("PurchaseFeature", "Post purchased");
     }
 
+    /**
+     * Initializes the like button state based on whether the post is liked.
+     * @param isLiked True if the post is liked, false otherwise.
+     */
     private void initializeLikeButton(boolean isLiked) {
         post_like.setImageResource(isLiked ? R.drawable.ic_favorite_red_24dp : R.drawable.ic_favorite_white_24dp);
     }
-
+    /**
+     * Checks if the current post is in the user's list of liked posts.
+     * @param post The current post.
+     * @param likeList The list of posts liked by the user.
+     * @return boolean indicating if the post is liked by the user.
+     */
     private boolean checkLike(Post post, List<Post> likeList) {
         isLiked = false;
         for (Post likedPost : likeList) {
@@ -249,7 +277,9 @@ public class PostActivity extends AppCompatActivity {
         }
         return isLiked;
     }
-
+    /**
+     * Displays the details of the selected post.
+     */
     private void showDetail () {
         String p_name = getIntent().getStringExtra("post_name");
         String p_image = getIntent().getStringExtra("post_image");
@@ -271,7 +301,10 @@ public class PostActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Displays comments for the current post.
+     * @param currentPost The post for which to display comments.
+     */
     private void showComment(Post currentPost){
         gl_comment.removeAllViews();
         // comment list
@@ -320,7 +353,9 @@ public class PostActivity extends AppCompatActivity {
             }
         }
     }
-
+    /**
+     * Initializes the UI components of the activity.
+     */
     private void init () {
         post_name = findViewById(R.id.post_name);
         post_buy = findViewById(R.id.btn_post_buy);
