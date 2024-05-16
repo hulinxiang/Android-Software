@@ -250,6 +250,7 @@ public class MyPostActivity extends AppCompatActivity {
     }
 
     private void showComment(Post currentPost){
+        gl_comment.removeAllViews();
         //comment list
         List<RemarkDemo> list = BPlusTreeManagerRemark.get(currentPost.getPostID());
 
