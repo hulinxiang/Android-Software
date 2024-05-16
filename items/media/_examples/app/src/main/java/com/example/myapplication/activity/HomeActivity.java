@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         Log.d("Thread========", "showPost started");
 
         gl_post.removeAllViews();
-        //需要一个list
+        //random recommender list
         List<Post> list = BPlusTreeManagerPost.randomRecommender(getApplicationContext());
 
         for (Post post : list) {

@@ -23,13 +23,6 @@ declaration: >-
   own work, with the following exceptions:
   
 
-# add as many "name+comment" entries as necessary
-# (or remove it altogether if you haven't collaborated with anyone outside your group)
-collaboration:
-  - name:
-    comment: >-
-  
-
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external code)
 code:
@@ -41,10 +34,9 @@ code:
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external assets)
 assets:
-  # NOTE: "Bliss" is just here as an example, you SHOULD REMOVE IT
-  - comment: "_Bliss_ by Charles O'Rear"
-    url: https://en.wikipedia.org/wiki/Bliss_(image)
-    licence: fair use
+  - comment: "Refer to this link as the part of the interface design of our app: navigation bar, search bar,post detail page and profile page"
+    url: https://github.com/earthlingsander/FutureFurnitureUI-Android?tab=readme-ov-file
+    licence: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 
 
 ### Questions (answer before final submission):

@@ -41,6 +41,12 @@ public class SearchActivity extends AppCompatActivity {
 
     private TextView tag_search;
     private Button go_tag;
+
+    /**
+     * Called when the activity is first created. Initializes the UI components and sets up button click listeners.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this Bundle contains the data it most recently supplied.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +141,9 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Displays the search results based on multiple tag conditions. Retrieves the conditions from the intent extras.
+     */
     private void showTagSearchResult() {
         String gender = getIntent().getStringExtra("gender");
         String masterCategory = getIntent().getStringExtra("masterCategory");
@@ -157,6 +166,11 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Performs a search using the provided keyword and displays the results. Shows a toast if the keyword is empty or no results are found.
+     *
+     * @param keyword The search keyword entered by the user.
+     */
     private void commonSearch(String keyword){
         if (keyword.isEmpty()) {
             Toast.makeText(this, "Please enter a search keyword", Toast.LENGTH_SHORT).show();
@@ -176,7 +190,11 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Displays a list of posts in the GridLayout. Limits the display to a maximum of 8 items.
+     *
+     * @param list The list of posts to display.
+     */
     private void displayPost(List<Post> list){
         gl_post.removeAllViews();  // Clear all views in the GridLayout
         List<Post> displayList = list.size() > 8 ? list.subList(0, 8) : list; // Ensure we only take up to 8 items
@@ -218,7 +236,9 @@ public class SearchActivity extends AppCompatActivity {
             });
         }
     }
-
+    /**
+     * Initializes the UI components by finding views by their IDs.
+     */
     private void init(){
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);

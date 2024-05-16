@@ -51,6 +51,13 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout postsContainer, likesContainer, buyContainer;
     private TextView postsButton, likesButton, buyButton;
     private GridLayout postsGrid, likesGrid, buyGrid;
+
+    /**
+     * Called when the activity is first created. Initializes the activity's UI components,
+     * sets up the navigation drawer, toolbar, and handles various button click listeners.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this Bundle contains the data it most recently supplied.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +135,10 @@ public class ProfileActivity extends AppCompatActivity {
         updateButtonCounts();
     }
 
+    /**
+     * Sets up the navigation drawer by initializing the drawer layout and navigation view,
+     * and setting the listener for navigation item selection.
+     */
     private void setupNavigationDrawer() {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -166,6 +177,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates the button texts to display the current counts of posts, likes, and buy items.
+     * Retrieves the counts from the current user's data.
+     */
     @SuppressLint("SetTextI18n")
     private void updateButtonCounts() {
         User currentUser = SessionManager.getInstance().getUser();
@@ -178,6 +193,13 @@ public class ProfileActivity extends AppCompatActivity {
         buyButton.setText(buyCount + " Buy It");
     }
 
+
+    /**
+     * Updates the visibility of different views (posts, likes, buy) based on the selected view.
+     * Shows the selected grid and updates it with relevant data.
+     *
+     * @param view The view to be displayed ("posts", "likes", or "buy").
+     */
     private void updateViews(String view) {
         // Hide all grids initially
         postsContainer.setVisibility(view.equals("posts") ? View.VISIBLE : View.GONE);
@@ -201,12 +223,25 @@ public class ProfileActivity extends AppCompatActivity {
         updateButtonStyles(view);
     }
 
+
+    /**
+     * Updates the styles of the buttons to indicate which view is currently active.
+     *
+     * @param view The currently active view ("posts", "likes", or "buy").
+     */
     private void updateButtonStyles(String view) {
         postsButton.setTextColor(getResources().getColor(view.equals("posts") ? R.color.black : android.R.color.white));
         likesButton.setTextColor(getResources().getColor(view.equals("likes") ? R.color.black : android.R.color.white));
         buyButton.setTextColor(getResources().getColor(view.equals("buy") ? R.color.black : android.R.color.white));
     }
 
+    /**
+     * Displays the posts in the specified grid layout. Retrieves the relevant posts from the
+     * current user's data and dynamically adds views to the grid layout.
+     *
+     * @param grid The grid layout to display the posts in.
+     * @param activityClass The activity class to navigate to when a post is clicked.
+     */
     private void showPost(GridLayout grid, Class<?> activityClass) {
         // Assume data is ready or handle cases where it might not be
         grid.removeAllViews();
@@ -260,6 +295,9 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initializes the UI components of the activity by finding the views by their IDs.
+     */
     private void init() {
         home = findViewById(R.id.btn_home);
         search = findViewById(R.id.btn_search);
