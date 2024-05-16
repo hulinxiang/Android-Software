@@ -17,9 +17,4 @@ public class CommonRemark extends RemarkDemo {
         RemarkDemo.count++;
     }
 
-
-    @Override
-    void updateText(String newText) {
-        this.text = newText;
-    }
 }

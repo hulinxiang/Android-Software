@@ -1,5 +1,4 @@
 package com.example.myapplication.src.Remark;
-
 public class CommonRemarkFactory implements RemarkFactory {
 
     @Override

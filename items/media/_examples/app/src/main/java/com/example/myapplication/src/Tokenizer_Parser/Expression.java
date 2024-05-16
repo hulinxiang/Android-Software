@@ -1,6 +1,5 @@
 package com.example.myapplication.src.Tokenizer_Parser;
 
-import com.example.myapplication.R;
 
 public class Expression extends ResultsShow {
     ResultsShow leftNum;

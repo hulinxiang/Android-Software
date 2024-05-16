@@ -45,5 +45,4 @@ public class Tokenizer {
     public boolean hasNext() {
         return currentToken != null;
     }
-
 }

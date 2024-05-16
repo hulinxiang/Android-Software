@@ -1,10 +1,6 @@
 package com.example.myapplication.src.Firebase.PostManager;
-
-
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.example.myapplication.src.Post;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,23 +10,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-
 public class FirebasePostHelper {
 
     public void addPost(Post post) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("post");
 
-
-        Log.d("Firebase add operation", "Enter the method");
-
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // 这将给出"user"下子节点的数量
+                // This will give the number of "user" subnodes
                 long count = dataSnapshot.getChildrenCount();
-                // 现在在这个新索引下设置新post数据
+                // Now set the new post data under this new index
                 DatabaseReference newPostRef = myRef.child(String.valueOf(count));
                 newPostRef.child("UserID").setValue(post.getUserID());
                 newPostRef.child("articleType").setValue(post.getTag().getArticleType());
@@ -132,5 +124,4 @@ public class FirebasePostHelper {
             }
         });
     }
-
 }

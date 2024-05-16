@@ -39,6 +39,4 @@ public class Parser {
 
         return new Expression(left, dot, right);
     }
-
-
 }

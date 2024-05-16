@@ -2,8 +2,6 @@ package com.example.myapplication.src.Firebase.UserManager;
 
 import android.content.Context;
 
-import com.example.myapplication.src.Firebase.PostManager.FirebasePostHelper;
-
 public class FirebaseUserManager {
     private static FirebaseUserHelper firebaseUserHelper;
 
@@ -13,5 +11,4 @@ public class FirebaseUserManager {
         }
         return firebaseUserHelper;
     }
-
 }

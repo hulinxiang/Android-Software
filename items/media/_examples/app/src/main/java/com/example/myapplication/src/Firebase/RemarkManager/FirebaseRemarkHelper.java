@@ -28,9 +28,9 @@ public class FirebaseRemarkHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // 这将给出"remark"下子节点的数量
+                // This will give the number of "remark" subnodes
                 long count = dataSnapshot.getChildrenCount();
-                // 现在在这个新索引下设置新remark数据
+                // Now set the new remark data under this new index
                 DatabaseReference newUserRef = myRef.child(String.valueOf(count));
                 newUserRef.child("Index").setValue(remarkDemo.getIndex());
                 newUserRef.child("PostID").setValue(remarkDemo.getPostId());
@@ -102,6 +102,4 @@ public class FirebaseRemarkHelper {
             }
         });
     }
-
-
 }

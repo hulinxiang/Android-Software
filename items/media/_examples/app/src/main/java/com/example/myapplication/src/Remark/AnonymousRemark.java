@@ -1,7 +1,5 @@
 package com.example.myapplication.src.Remark;
 
-import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
-
 public class AnonymousRemark extends RemarkDemo {
 
     AnonymousRemark(String text, String userEmail, String postId) {
@@ -19,8 +17,4 @@ public class AnonymousRemark extends RemarkDemo {
         RemarkDemo.count++;
     }
 
-    @Override
-    void updateText(String newText) {
-        this.text = newText;
-    }
 }
