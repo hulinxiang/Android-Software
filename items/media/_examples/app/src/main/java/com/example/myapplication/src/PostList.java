@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: Jin Yang, Yichi Zhang
+ * @author Jin Yang, Yichi Zhang
  */
 public class PostList {
     private List<Post> posts = new ArrayList<>();

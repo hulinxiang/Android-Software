@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class AnonymousRemark extends RemarkDemo {
 

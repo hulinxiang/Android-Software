@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: Wenhui Shi, Jin Yang
+ * @author Wenhui Shi, Jin Yang
  */
 public class ProfileActivity extends AppCompatActivity {
 

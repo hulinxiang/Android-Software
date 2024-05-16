@@ -8,7 +8,9 @@ import org.junit.After;
 import org.junit.Before;
 
 /**
- * Author: Yingxuan Tang
+ * This class contains unit tests for user login functionality.
+ *
+ * @author Yingxuan Tang
  */
 public class UserLoginTest {
 
@@ -25,6 +27,9 @@ public class UserLoginTest {
         clearTestData();
     }
 
+    /**
+     * Initialize test data by creating and inserting test users into the BPlusTree.
+     */
     private void initTestData() {
         // 创建测试用户对象
         User user1 = new User("testuser1", "testtest1@anu.edu.au", User.hashPassword("comp6442"), "Test User 1", "Test Address 1", "1234567890", "userType1", "9989");
@@ -35,12 +40,18 @@ public class UserLoginTest {
         BPlusTreeManagerUser.getTreeInstance(null).insert(user2.getEmail(), user2);
     }
 
+    /**
+     * Clear the test data by removing the test users from the BPlusTree.
+     */
     private void clearTestData() {
         // 删除测试用户
         BPlusTreeManagerUser.getTreeInstance(null).remove("testtest1@anu.edu.au");
         BPlusTreeManagerUser.getTreeInstance(null).remove("testtest2@anu.edu.au");
     }
 
+    /**
+     * Test for successful login of user 1.
+     */
     @Test
     public void testLoginSuccessUser1() {
         String username = "comp6442@anu.edu.au";
@@ -51,6 +62,9 @@ public class UserLoginTest {
         assertTrue(result);
     }
 
+    /**
+     * Test for successful login of user 2.
+     */
     @Test
     public void testLoginSuccessUser2() {
         String username = "comp2100@anu.edu.au";
@@ -61,6 +75,9 @@ public class UserLoginTest {
         assertTrue(result);
     }
 
+    /**
+     * Test for login failure with wrong password.
+     */
     @Test
     public void testLoginFailureWrongPassword() {
         String username = "comp6442@anu.edu.au";
@@ -71,6 +88,9 @@ public class UserLoginTest {
         assertFalse(result);
     }
 
+    /**
+     * Test for login failure when user is not found.
+     */
     @Test
     public void testLoginFailureUserNotFound() {
         String username = "nonexistentuser@anu.edu.au";

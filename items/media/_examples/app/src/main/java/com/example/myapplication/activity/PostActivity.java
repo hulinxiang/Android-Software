@@ -36,7 +36,7 @@ import com.example.myapplication.src.User;
 import java.util.List;
 
 /**
- * Author: Wenhui Shi
+ * @author Wenhui Shi
  */
 public class PostActivity extends AppCompatActivity {
     private TextView post_name;

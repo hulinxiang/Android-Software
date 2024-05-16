@@ -6,7 +6,7 @@ import com.example.myapplication.BPlusTree.Post.AbstractSearchStrategy;
 import com.example.myapplication.src.Post;
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public class UsageSearchStrategy extends AbstractSearchStrategy {
     @Override

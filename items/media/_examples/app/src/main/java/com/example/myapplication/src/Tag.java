@@ -4,7 +4,7 @@ package com.example.myapplication.src;
  * The Tag class represents a tag that can be associated with an item.
  * Each tag has several properties including gender, master category, sub category, article type, base colour, season, year, and usage.
  *
- * @Author Yichi Zhang
+ * @author Yichi Zhang
  */
 public class Tag {
     private String gender;

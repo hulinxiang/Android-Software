@@ -7,7 +7,7 @@ import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
 /**
- * Author: Yingxuan Tang
+ * @author Yingxuan Tang
  *
  * The PostCreator class handles the creation of new posts.
  * It creates a post object with the provided details, associates it with the current user,

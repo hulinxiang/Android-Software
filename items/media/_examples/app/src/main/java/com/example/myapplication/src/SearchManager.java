@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class SearchManager {
 

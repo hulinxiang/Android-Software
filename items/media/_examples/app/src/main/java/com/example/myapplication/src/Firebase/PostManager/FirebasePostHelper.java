@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * Author: Linxiang Hu, Yingxuan Tang
+ * @author Linxiang Hu, Yingxuan Tang
  *
  * The FirebasePostHelper class provides methods to add, update, and delete posts in Firebase Realtime Database.
  * It allows interaction with Firebase database for managing post data.

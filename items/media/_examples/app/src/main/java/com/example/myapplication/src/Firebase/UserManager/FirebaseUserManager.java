@@ -3,7 +3,7 @@ package com.example.myapplication.src.Firebase.UserManager;
 import android.content.Context;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class FirebaseUserManager {
     private static FirebaseUserHelper firebaseUserHelper;

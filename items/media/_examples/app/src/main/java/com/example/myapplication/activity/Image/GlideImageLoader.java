@@ -10,7 +10,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public class GlideImageLoader {
     private Context context;

@@ -15,7 +15,7 @@ import com.google.firebase.FirebaseApp;
  * This is the main activity of the application.
  * It displays the main screen with a button to start the BPlusTreeTest activity.
  *
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class MainActivity extends AppCompatActivity {
     @Override

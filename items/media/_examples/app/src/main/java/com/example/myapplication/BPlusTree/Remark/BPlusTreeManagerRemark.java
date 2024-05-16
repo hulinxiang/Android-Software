@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class BPlusTreeManagerRemark {
     private static BPlusTree<String, List<RemarkDemo>> remarkTree;

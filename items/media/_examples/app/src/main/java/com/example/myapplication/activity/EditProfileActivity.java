@@ -13,7 +13,7 @@ import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
 /**
- * Author: Jin Yang
+ * @author Jin Yang
  */
 public class EditProfileActivity extends AppCompatActivity {
     private ImageView returnButton;

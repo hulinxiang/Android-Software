@@ -22,7 +22,7 @@ import com.example.myapplication.src.Post;
 import java.util.List;
 
 /**
- * Author: Wenhui Shi
+ * @author Wenhui Shi
  */
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";

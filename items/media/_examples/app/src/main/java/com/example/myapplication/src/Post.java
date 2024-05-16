@@ -6,7 +6,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * Author: Yichi Zhang, Yingxuan Tang
+ * @author Yichi Zhang, Yingxuan Tang
  *
  * The Post class represents a post made by a user in the application.
  */

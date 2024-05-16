@@ -7,7 +7,7 @@ import com.example.myapplication.src.Tokenizer_Parser.Parser;
 import com.example.myapplication.src.Tokenizer_Parser.Tokenizer;
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public class PriceRangeSearchStrategy extends AbstractSearchStrategy {
     @Override

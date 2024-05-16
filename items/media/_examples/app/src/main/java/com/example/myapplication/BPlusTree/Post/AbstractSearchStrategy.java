@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public abstract class AbstractSearchStrategy implements SearchStrategy {
     @Override

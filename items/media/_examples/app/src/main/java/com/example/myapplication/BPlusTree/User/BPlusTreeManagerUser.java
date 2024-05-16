@@ -9,7 +9,7 @@ import com.example.myapplication.src.User;
 import java.util.List;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class BPlusTreeManagerUser {
     private static BPlusTree<String, User> userTree;

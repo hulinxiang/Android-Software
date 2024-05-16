@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 
 /**
- * Author: Wenhui Shi
+ * @author Wenhui Shi
  */
 public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 

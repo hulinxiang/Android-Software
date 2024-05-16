@@ -2,7 +2,7 @@ package com.example.myapplication.src.Firebase.RemarkManager;
 import android.content.Context;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class FirebaseRemarkManager {
     private static FirebaseRemarkHelper firebaseRemarkHelper;

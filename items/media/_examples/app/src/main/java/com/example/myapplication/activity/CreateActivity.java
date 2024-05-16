@@ -27,7 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.Calendar;
 
 /**
- * Author: Jin Yang
+ * @author Jin Yang
  */
 public class CreateActivity extends AppCompatActivity {
 

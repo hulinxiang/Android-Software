@@ -10,7 +10,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * Author: Linxiang Hu, Yingxuan Tang
+ * @author Linxiang Hu, Yingxuan Tang
  *
  * The FirebaseUserHelper class provides methods to add and update user data in Firebase Realtime Database.
  * It allows interaction with Firebase database for managing user data.

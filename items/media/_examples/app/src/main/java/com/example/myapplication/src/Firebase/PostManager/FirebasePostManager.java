@@ -3,7 +3,7 @@ package com.example.myapplication.src.Firebase.PostManager;
 import android.content.Context;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class FirebasePostManager {
     private static FirebasePostHelper firebasePostHelper;

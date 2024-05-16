@@ -22,7 +22,7 @@ import com.example.myapplication.src.Remark.RemarkDemo;
 import java.util.List;
 
 /**
- * Author: Wenhui Shi
+ * @author Wenhui Shi
  */
 public class BuyPostActivity extends AppCompatActivity {
     // UI elements

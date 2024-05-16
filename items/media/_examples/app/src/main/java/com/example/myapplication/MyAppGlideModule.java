@@ -11,7 +11,7 @@ import com.bumptech.glide.module.AppGlideModule;
  * This allows the application to only override the methods it needs to.
  * In this case, the class is empty, meaning it uses the default implementations for all methods.
  *
- * @Author Yichi Zhang
+ * @author Yichi Zhang
  */
 @GlideModule
 public class MyAppGlideModule extends AppGlideModule {

@@ -2,7 +2,7 @@ package com.example.myapplication.src;
 
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public class Comment {
     private String text;

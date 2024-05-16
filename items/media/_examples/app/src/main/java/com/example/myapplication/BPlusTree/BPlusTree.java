@@ -9,7 +9,7 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * Author: Linxiang Hu
+ * @author Linxiang Hu
  */
 public class BPlusTree<K extends Comparable<K>, E> {
 

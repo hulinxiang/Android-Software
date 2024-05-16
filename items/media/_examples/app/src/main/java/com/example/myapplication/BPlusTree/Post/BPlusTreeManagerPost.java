@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Author: Yichi Zhang
+ * @author Yichi Zhang
  */
 public class BPlusTreeManagerPost {
     private static BPlusTree<String, Post> postTree;

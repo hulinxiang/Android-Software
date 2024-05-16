@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import com.example.myapplication.R;
 
 /**
- * Author: Wenhui Shi
+ * @author Wenhui Shi
  */
 public class TagSelectionActivity extends AppCompatActivity {
     private Spinner spinnerGender, spinnerMasterCategory, spinnerSubCategory, spinnerArticleType, spinnerBaseColor, spinnerSeason, spinnerUsage;
