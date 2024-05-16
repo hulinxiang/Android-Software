@@ -35,6 +35,9 @@ import com.example.myapplication.src.User;
 
 import java.util.List;
 
+/**
+ * Author: Wenhui Shi
+ */
 public class PostActivity extends AppCompatActivity {
     private TextView post_name;
     private TextView post_price;

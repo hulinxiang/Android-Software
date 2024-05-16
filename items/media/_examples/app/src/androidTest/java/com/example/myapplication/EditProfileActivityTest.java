@@ -23,6 +23,9 @@ import org.junit.runner.RunWith;
 
 import java.util.UUID;
 
+/**
+ * Author: Jin Yang
+ */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class EditProfileActivityTest {

@@ -1,14 +1,14 @@
 package com.example.myapplication.activity.Image;
-
-
 import android.content.Context;
-
 import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
 import com.example.myapplication.src.Post;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class PostCreator {
     private Context context;
 

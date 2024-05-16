@@ -1,5 +1,4 @@
 package com.example.myapplication.activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,9 +19,11 @@ import com.example.myapplication.BPlusTree.Post.BPlusTreeManagerPost;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.Image.GlideImageLoader;
 import com.example.myapplication.src.Post;
-
 import java.util.List;
 
+/**
+ * Author: Wenhui Shi
+ */
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";
     private LinearLayout home;

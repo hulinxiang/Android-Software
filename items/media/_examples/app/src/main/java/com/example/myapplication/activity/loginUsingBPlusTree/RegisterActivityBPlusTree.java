@@ -7,23 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.example.myapplication.BPlusTree.BPlusTree;
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
-import com.example.myapplication.src.Firebase.PostManager.FirebasePostManager;
-import com.example.myapplication.src.Firebase.UserManager.FirebaseUserHelper;
 import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
-import com.example.myapplication.src.SearchManager;
 import com.example.myapplication.src.User;
-import com.google.firebase.FirebaseApp;
-
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
-
+/**
+ * Author: Linxiang Hu, Yingxuan Tang
+ */
 public class RegisterActivityBPlusTree extends AppCompatActivity {
     private LoginCheckService loginCheckService;
     private EditText email;

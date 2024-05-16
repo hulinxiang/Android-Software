@@ -8,7 +8,9 @@ import com.example.myapplication.src.User;
 
 import java.util.List;
 
-
+/**
+ * Author: Linxiang Hu
+ */
 public class BPlusTreeManagerUser {
     private static BPlusTree<String, User> userTree;
 
@@ -30,6 +32,4 @@ public class BPlusTreeManagerUser {
         }
         return ans;
     }
-
-
 }

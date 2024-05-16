@@ -6,6 +6,9 @@ import com.example.myapplication.src.Post;
 
 import java.util.List;
 
+/**
+ * Author: Yichi Zhang
+ */
 public interface SearchStrategy {
     List<Post> search(Context context, String... values);
 }

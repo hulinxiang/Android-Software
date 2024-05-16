@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class AnonymousRemarkFactoryManager {
     private static AnonymousRemarkFactory anonymousRemarkFactory;
 

@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class CommonRemarkFactoryManager {
     private static CommonRemarkFactory commonRemarkFactory;
 

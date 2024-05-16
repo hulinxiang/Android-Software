@@ -5,6 +5,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+
+/**
+ * Author: Wenhui Shi
+ */
 public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 
     /**

@@ -7,6 +7,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.UUID;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class ImageUploader {
     private StorageReference storageRef;
 

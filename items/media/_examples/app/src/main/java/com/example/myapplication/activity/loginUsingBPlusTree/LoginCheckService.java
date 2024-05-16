@@ -10,6 +10,9 @@ import com.example.myapplication.src.User;
 
 import java.util.List;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class LoginCheckService {
     private Context context;
 

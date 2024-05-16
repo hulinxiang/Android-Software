@@ -1,6 +1,8 @@
 package com.example.myapplication.src.Tokenizer_Parser;
 
-
+/**
+ * Author: Linxiang Hu
+ */
 public class Expression extends ResultsShow {
     ResultsShow leftNum;
     ResultsShow dot;
@@ -11,7 +13,6 @@ public class Expression extends ResultsShow {
         this.dot = dot;
         this.rightNum = rightNum;
     }
-
 
     @Override
     public String show() {

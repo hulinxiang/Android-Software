@@ -15,6 +15,9 @@ import com.example.myapplication.activity.HomeActivity;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
+/**
+ * Author: Linxiang Hu, Yingxuan Tang
+ */
 public class LoginActivityBPlusTree extends AppCompatActivity {
     private LoginCheckService loginCheckService;
 

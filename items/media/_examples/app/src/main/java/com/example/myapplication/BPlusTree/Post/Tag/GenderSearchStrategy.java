@@ -5,6 +5,9 @@ import android.util.Log;
 import com.example.myapplication.BPlusTree.Post.AbstractSearchStrategy;
 import com.example.myapplication.src.Post;
 
+/**
+ * Author: Yichi Zhang, Yingxuan Tang
+ */
 public class GenderSearchStrategy extends AbstractSearchStrategy {
     @Override
     protected boolean matchCriteria(Post post, String... value) {

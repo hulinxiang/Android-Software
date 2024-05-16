@@ -7,6 +7,9 @@ import com.example.myapplication.src.Post;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Yichi Zhang
+ */
 public abstract class AbstractSearchStrategy implements SearchStrategy {
     @Override
     public List<Post> search(Context context, String... values) {

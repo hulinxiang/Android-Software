@@ -12,6 +12,9 @@ import com.example.myapplication.src.Remark.RemarkFactory;
 
 import org.junit.Test;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class FactoryDesignPatternTest {
     @Test
     public void testCommonRemarkFactory() {

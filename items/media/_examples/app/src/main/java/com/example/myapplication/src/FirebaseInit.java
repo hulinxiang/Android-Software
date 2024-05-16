@@ -12,20 +12,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import android.app.Application;
-
-import com.example.myapplication.src.Tag;
-
 import android.text.TextUtils;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+
+/**
+ * Author: Yingxuan Tang, Linxiang Hu, Yichi Zhang
+ */
 public class FirebaseInit extends Application {
     @Override
     public void onCreate() {

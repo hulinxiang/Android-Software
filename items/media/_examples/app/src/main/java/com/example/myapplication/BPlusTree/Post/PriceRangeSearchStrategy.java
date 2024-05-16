@@ -6,6 +6,9 @@ import com.example.myapplication.src.Post;
 import com.example.myapplication.src.Tokenizer_Parser.Parser;
 import com.example.myapplication.src.Tokenizer_Parser.Tokenizer;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class PriceRangeSearchStrategy extends AbstractSearchStrategy {
     @Override
     protected boolean matchCriteria(Post post, String... values) {

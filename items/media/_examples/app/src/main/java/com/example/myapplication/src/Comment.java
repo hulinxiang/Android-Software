@@ -1,5 +1,9 @@
 package com.example.myapplication.src;
 
+
+/**
+ * Author: Yichi Zhang
+ */
 public class Comment {
     private String text;
 

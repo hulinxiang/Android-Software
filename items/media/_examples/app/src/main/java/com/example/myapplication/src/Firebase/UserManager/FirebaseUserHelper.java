@@ -9,6 +9,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
+/**
+ * Author: Linxiang Hu, Yingxuan Tang
+ */
 public class FirebaseUserHelper {
 
     public void addUser(User user) {

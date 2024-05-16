@@ -5,6 +5,9 @@ import android.util.Log;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class SearchManager {
 
     // To check if it is a valid email

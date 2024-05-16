@@ -5,6 +5,9 @@ import android.util.Log;
 import com.example.myapplication.BPlusTree.Post.AbstractSearchStrategy;
 import com.example.myapplication.src.Post;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class ArticleTypeSearchStrategy extends AbstractSearchStrategy {
 
     @Override

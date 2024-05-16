@@ -16,6 +16,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class LikePostManager {
     private SharedPreferences sharedPreferences;
     private DatabaseReference postsRef;

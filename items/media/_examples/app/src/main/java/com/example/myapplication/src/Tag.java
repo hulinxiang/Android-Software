@@ -1,5 +1,8 @@
 package com.example.myapplication.src;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class Tag {
     private String gender;
     private String masterCategory;

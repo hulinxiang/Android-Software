@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Author: Yichi Zhang, Yingxuan Tang
+ */
 public class Post {
     private static int nextPostID = 1000;
     private String postID;

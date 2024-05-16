@@ -8,6 +8,9 @@ import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
 import org.junit.Test;
 import org.junit.Assert;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class SingletonDesignPatternTest {
     @Test
     public void testSingletonUser() {

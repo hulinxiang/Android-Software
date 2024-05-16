@@ -6,14 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+
 /**
  * This class is used to manage user information.
  *
  * Responsibilities:
  * - Store user information such as username, email, password, contact info, etc.
  * - Manage the user's own posts, liked posts, and purchased posts.
+ *
+ *  Author: Yingxuan Tang, Yichi Zhang, Linxiang Hu, Wenhui Shi, Jin Yang
  */
-
 public class User {
     private static int nextUserIndex = 4000;  // 初始值设置为4000
 

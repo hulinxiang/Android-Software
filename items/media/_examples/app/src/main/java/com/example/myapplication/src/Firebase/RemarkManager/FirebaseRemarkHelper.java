@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 /**
- * @author Hu
+ * @author Linxiang Hu
  */
 public class FirebaseRemarkHelper {
 

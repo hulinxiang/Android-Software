@@ -1,4 +1,8 @@
 package com.example.myapplication.src.Remark;
+
+/**
+ * Author: Linxiang Hu
+ */
 public class CommonRemarkFactory implements RemarkFactory {
 
     @Override

@@ -7,6 +7,9 @@ import com.example.myapplication.src.Tokenizer_Parser.Tokenizer;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Author: Yichi Zhang
+ */
 public class ParserTest {
 
     @Test

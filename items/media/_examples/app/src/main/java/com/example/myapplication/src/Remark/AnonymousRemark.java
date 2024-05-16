@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class AnonymousRemark extends RemarkDemo {
 
     AnonymousRemark(String text, String userEmail, String postId) {
@@ -16,5 +19,4 @@ public class AnonymousRemark extends RemarkDemo {
         this.index = index;
         RemarkDemo.count++;
     }
-
 }

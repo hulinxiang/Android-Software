@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public abstract class RemarkDemo {
     public String text;
     public String userEmail;

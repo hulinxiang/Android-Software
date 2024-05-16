@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class AnonymousRemarkFactory implements RemarkFactory {
     @Override
     public RemarkDemo create(String text, String userEmail, String postId) {

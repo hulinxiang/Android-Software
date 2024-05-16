@@ -12,6 +12,9 @@ import com.example.myapplication.src.Firebase.UserManager.FirebaseUserManager;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
+/**
+ * Author: Jin Yang
+ */
 public class EditProfileActivity extends AppCompatActivity {
     private ImageView returnButton;
     private ImageView profileImage;

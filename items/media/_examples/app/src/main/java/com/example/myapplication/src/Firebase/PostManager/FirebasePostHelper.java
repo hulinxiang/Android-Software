@@ -10,6 +10,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
+/**
+ * Author: Linxiang Hu, Yingxuan Tang
+ */
 public class FirebasePostHelper {
 
     public void addPost(Post post) {

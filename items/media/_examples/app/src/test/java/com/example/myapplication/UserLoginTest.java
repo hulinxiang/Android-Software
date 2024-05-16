@@ -7,6 +7,9 @@ import com.example.myapplication.src.User;
 import org.junit.After;
 import org.junit.Before;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class UserLoginTest {
 
     private LoginCheckService loginCheckService;

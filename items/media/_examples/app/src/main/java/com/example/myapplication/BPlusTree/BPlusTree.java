@@ -1,6 +1,5 @@
 package com.example.myapplication.BPlusTree;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -9,6 +8,9 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class BPlusTree<K extends Comparable<K>, E> {
 
     private final int OVERFLOW_BOUND;
@@ -339,7 +341,6 @@ public class BPlusTree<K extends Comparable<K>, E> {
                 }
 
             }
-
         }
 
         private BPlusTreeNonLeafNode split() {
@@ -586,4 +587,3 @@ public class BPlusTree<K extends Comparable<K>, E> {
         }
     }
 }
-

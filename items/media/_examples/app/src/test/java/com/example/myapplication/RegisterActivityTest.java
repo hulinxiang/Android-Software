@@ -11,6 +11,9 @@ import static org.junit.Assert.*;
 
 import androidx.test.InstrumentationRegistry;
 
+/**
+ * Author: Yingxuan Tang
+ */
 public class RegisterActivityTest {
 
     private RegisterActivityBPlusTree registerActivity;

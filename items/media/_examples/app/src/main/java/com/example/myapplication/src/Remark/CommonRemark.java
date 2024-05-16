@@ -1,5 +1,8 @@
 package com.example.myapplication.src.Remark;
 
+/**
+ * Author: Linxiang Hu
+ */
 public class CommonRemark extends RemarkDemo {
 
     CommonRemark(String text, String userEmail, String postId) {
