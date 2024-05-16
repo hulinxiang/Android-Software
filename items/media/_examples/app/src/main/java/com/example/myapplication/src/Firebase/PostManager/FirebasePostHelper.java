@@ -12,9 +12,8 @@ import java.util.Objects;
 
 /**
  * @author Linxiang Hu, Yingxuan Tang
- *
- * The FirebasePostHelper class provides methods to add, update, and delete posts in Firebase Realtime Database.
- * It allows interaction with Firebase database for managing post data.
+ * Helper class for Firebase post management operations.
+ * Provides methods to add, update, and delete posts in the Firebase Realtime Database.
  */
 public class FirebasePostHelper {
 
@@ -28,16 +27,18 @@ public class FirebasePostHelper {
      * - Adds a new post under the "post" node in the database.
      */
     public void addPost(Post post) {
+        // Get the singleton instance of FirebaseDatabase.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get a reference to the "post" node.
         DatabaseReference myRef = database.getReference().child("post");
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // This will give the number of "user" subnodes
+                // Get the number of children under "post".
                 long count = dataSnapshot.getChildrenCount();
-                // Now set the new post data under this new index
+                // Set post data in Firebase under the new node.
                 DatabaseReference newPostRef = myRef.child(String.valueOf(count));
                 newPostRef.child("UserID").setValue(post.getUserID());
                 newPostRef.child("articleType").setValue(post.getTag().getArticleType());
@@ -75,7 +76,9 @@ public class FirebasePostHelper {
      * - Deletes the post with the corresponding post ID from the database.
      */
     public void deletePost(Post post) {
+        // Get the singleton instance of FirebaseDatabase.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get a reference to the "post" node.
         DatabaseReference myRef = database.getReference().child("post");
         String curPostId = post.getPostID();
 
@@ -89,7 +92,7 @@ public class FirebasePostHelper {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
                         DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                        newPostRef.removeValue();
+                        newPostRef.removeValue(); // Remove the remark from Firebase.
                         break;
                     }
                     count++;
