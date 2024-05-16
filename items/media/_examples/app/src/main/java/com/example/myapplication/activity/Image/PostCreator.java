@@ -11,7 +11,7 @@ import com.example.myapplication.src.User;
  * The PostCreator class handles the creation of new posts.
  * It creates a post object with the provided details, associates it with the current user,
  * and saves it both locally using a BPlus Tree and remotely in Firebase.
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  */
 public class PostCreator {
     private Context context;

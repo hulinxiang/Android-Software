@@ -34,5 +34,4 @@ public class AnonymousRemark extends RemarkDemo {
         this.index = index;
         RemarkDemo.count++;
     }
-
 }

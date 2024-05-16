@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  *
  * The LikePostManager class handles liking and unliking posts in the application.
  */

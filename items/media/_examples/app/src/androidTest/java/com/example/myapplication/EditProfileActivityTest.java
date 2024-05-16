@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
 import java.util.UUID;
 
 /**
- * Author: Jin Yang
+ * Author: Jin Yang u7724192
  */
 @RunWith(AndroidJUnit4.class)
 @LargeTest

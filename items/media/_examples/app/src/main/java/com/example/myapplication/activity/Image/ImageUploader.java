@@ -4,11 +4,10 @@ import android.net.Uri;
 
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.UUID;
 
 /**
- * @author Yingxuan Tang
+ * @author Yingxuan Tang u7670526
  *
  * The ImageUploader class handles the uploading of images to Firebase Storage.
  * It provides a method to upload an image and obtain its download URL upon successful upload.

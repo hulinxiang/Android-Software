@@ -13,7 +13,7 @@ import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
 /**
- * @author Jin Yang, u7724192
+ * @author Jin Yang u7724192
  * The EditProfileActivity class is an Android activity that allows users to edit their profile information.
  * It initializes UI elements, loads the current user data, and provides functionality for saving profile changes.
  * Users can update their name, address, phone number, and password. Changes are saved to both Firebase and a local BPlusTree.

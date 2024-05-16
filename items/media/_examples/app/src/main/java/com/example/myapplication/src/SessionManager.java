@@ -1,7 +1,7 @@
 package com.example.myapplication.src;
 
 /**
- * @author Wenhui Shi
+ * @author Wenhui Shi u7773637
  */
 public class SessionManager {
     private static SessionManager instance;

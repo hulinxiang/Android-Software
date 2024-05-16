@@ -24,7 +24,7 @@ import java.util.List;
 
 
 /**
- * @author Yingxuan Tang, Linxiang Hu u7633783, Yichi Zhang u7748799
+ * @author Yingxuan Tang u7670526, Linxiang Hu u7633783, Yichi Zhang u7748799
  * <p>
  * The FirebaseInit class initializes Firebase and loads data from Firebase into the B+ tree data structures.
  */

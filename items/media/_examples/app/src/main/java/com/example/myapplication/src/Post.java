@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * The Post class represents a post that can be created by a user.
  * Each post has several properties including postID, userID, tag, productDisplayName, price, status, imageUrl, description, postIndexInFirebase, comments, likeIDs, and buyIDs.
  *
- * @Author Yichi Zhang u7748799, Yingxuan Tang
+ * @author Yichi Zhang u7748799, Yingxuan Tang u7670526
  */
 public class Post {
     private static int nextPostID = 1000;

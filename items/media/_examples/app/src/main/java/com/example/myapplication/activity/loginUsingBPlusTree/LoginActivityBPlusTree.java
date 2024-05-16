@@ -1,22 +1,21 @@
 package com.example.myapplication.activity.loginUsingBPlusTree;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.myapplication.BPlusTree.User.BPlusTreeManagerUser;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.HomeActivity;
 import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
+
 /**
- * @author Linxiang Hu u7633783, Yingxuan Tang
+ * @author Linxiang Hu u7633783, Yingxuan Tang u7670526
  *
  * The LoginActivityBPlusTree class handles user login functionality using BPlus Tree for user management.
  * It provides an interface for users to enter their login credentials, validates these credentials,
