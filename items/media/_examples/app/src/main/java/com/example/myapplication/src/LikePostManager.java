@@ -18,17 +18,30 @@ import java.util.Set;
 
 /**
  * Author: Yingxuan Tang
+ *
+ * The LikePostManager class handles liking and unliking posts in the application.
  */
 public class LikePostManager {
     private SharedPreferences sharedPreferences;
     private DatabaseReference postsRef;
 
+    /**
+     * Constructor for LikePostManager.
+     *
+     * @param context The context of the application.
+     */
     public LikePostManager(Context context) {
         sharedPreferences = context.getSharedPreferences("like_preferences", Context.MODE_PRIVATE);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         postsRef = database.getReference("post");
     }
 
+    /**
+     * A user likes a post.
+     *
+     * @param postId The ID of the post to like.
+     * @param userId The ID of the user liking the post.
+     */
     public void likePost(String postId, String userId) {
         // Gets the likes of the current post from local storage
         String likeIds = sharedPreferences.getString(postId, "");
@@ -76,47 +89,12 @@ public class LikePostManager {
         }
     }
 
-    public void unlikePost(String postId, String userId) {
-        // Gets the likes of the current post from local storage
-        String likeIds = sharedPreferences.getString(postId, "");
 
-        // Removes the current user's ID from the like information
-        if (likeIds.contains(userId)) {
-            String[] ids = likeIds.split(",");
-            Set<String> idSet = new HashSet<>(Arrays.asList(ids));
-            idSet.remove(userId);
-            String updatedLikeIds = TextUtils.join(",", idSet);
-
-            // Get the latest likes from Firebase
-            Query query = postsRef.orderByChild("postID").equalTo(postId);
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        String firebaseLikeIds = postSnapshot.child("likeIDs").getValue(String.class);
-                        if (firebaseLikeIds != null) {
-                            // Merge the likes information in Firebase with the updated likes information locally
-                            Set<String> firebaseIdSet = new HashSet<>(Arrays.asList(firebaseLikeIds.split(",")));
-                            Set<String> localIdSet = new HashSet<>(Arrays.asList(updatedLikeIds.split(",")));
-                            firebaseIdSet.removeAll(localIdSet);
-                            String mergedLikeIds = TextUtils.join(",", firebaseIdSet);
-
-                            // Writes the combined likes to Firebase
-                            postSnapshot.getRef().child("likeIDs").setValue(mergedLikeIds);
-                        }
-                    }
-                    // Update the locally stored like information
-                    sharedPreferences.edit().putString(postId, updatedLikeIds).apply();
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Log.e("LikePostManager", "Error getting likes from Firebase", databaseError.toException());
-                }
-            });
-        }
-    }
-
+    /**
+     * Synchronizes likes for a post between local storage and Firebase.
+     *
+     * @param postId The ID of the post to synchronize likes for.
+     */
     public void syncLikes(String postId) {
         Query query = postsRef.orderByChild("postID").equalTo(postId);
         query.addListenerForSingleValueEvent(new ValueEventListener() {

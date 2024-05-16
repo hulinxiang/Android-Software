@@ -17,6 +17,10 @@ import com.example.myapplication.src.User;
 
 /**
  * Author: Linxiang Hu, Yingxuan Tang
+ *
+ * The LoginActivityBPlusTree class handles user login functionality using BPlus Tree for user management.
+ * It provides an interface for users to enter their login credentials, validates these credentials,
+ * and directs the user to the home activity upon successful login.
  */
 public class LoginActivityBPlusTree extends AppCompatActivity {
     private LoginCheckService loginCheckService;
@@ -27,6 +31,13 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
     private Button login;
     private Button register;
 
+    /**
+     * Called when the activity is first created.
+     *
+     * @param savedInstanceState  If the activity is being re-initialized after previously being shut down,
+     *                            this contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     *                            Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +78,12 @@ public class LoginActivityBPlusTree extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the UI components.
+     *
+     * Method:
+     * - Finds the UI components by their ID and assigns them to the corresponding attributes.
+     */
     // Initialize UI components
     private void init() {
         // get the component by Id

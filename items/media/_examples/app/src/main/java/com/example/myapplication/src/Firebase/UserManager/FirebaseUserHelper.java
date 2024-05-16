@@ -11,9 +11,21 @@ import java.util.Objects;
 
 /**
  * Author: Linxiang Hu, Yingxuan Tang
+ *
+ * The FirebaseUserHelper class provides methods to add and update user data in Firebase Realtime Database.
+ * It allows interaction with Firebase database for managing user data.
  */
 public class FirebaseUserHelper {
 
+    /**
+     * Adds a new user to Firebase Realtime Database.
+     *
+     * @param user The user object to be added.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Adds a new user under the "user" node in the database.
+     */
     public void addUser(User user) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("user");
@@ -42,6 +54,16 @@ public class FirebaseUserHelper {
         });
     }
 
+
+    /**
+     * Updates an existing user in Firebase Realtime Database.
+     *
+     * @param user The user object containing updated data.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Updates the user data for the corresponding user ID in the database.
+     */
     public void updateUser(User user) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("user");

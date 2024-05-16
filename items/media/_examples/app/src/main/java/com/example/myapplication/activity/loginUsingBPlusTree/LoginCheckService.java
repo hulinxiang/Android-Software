@@ -12,10 +12,18 @@ import java.util.List;
 
 /**
  * Author: Yingxuan Tang
+ *
+ * The LoginCheckService class provides methods to validate user registration and login credentials.
+ * It uses a BPlus Tree data structure to manage user data and validate login and registration details.
  */
 public class LoginCheckService {
     private Context context;
 
+    /**
+     * Constructor for LoginCheckService.
+     *
+     * @param context  The context in which the LoginCheckService is used.
+     */
     public LoginCheckService(Context context) {
         this.context = context;
     }
@@ -33,7 +41,19 @@ public class LoginCheckService {
         return !password.isEmpty() && SearchManager.validateUsername(email) && SearchManager.validatePassword(password);
     }
 
-    // Check if the login credentials are valid
+    /**
+     * Checks if the login credentials are valid.
+     *
+     * @param name  The email or username to be checked.
+     * @param pwd  The password to be checked.
+     * @return  True if the login credentials are valid; false otherwise.
+     *
+     * Method:
+     * - Retrieves the BPlus Tree instance for users.
+     * - Queries the tree to find the user by email.
+     * - Iterates through the found users and checks if the email and password match.
+     * - Logs the process and returns true if a match is found; false otherwise.
+     */
     public boolean loginCheck(String name, String pwd) {
         // Get the BPlusTree instance for users
         BPlusTree<String, User> tree = BPlusTreeManagerUser.getTreeInstance(context);

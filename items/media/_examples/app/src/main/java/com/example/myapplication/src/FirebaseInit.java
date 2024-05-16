@@ -22,6 +22,8 @@ import java.util.List;
 
 /**
  * Author: Yingxuan Tang, Linxiang Hu, Yichi Zhang
+ *
+ * The FirebaseInit class initializes Firebase and loads data from Firebase into the B+ tree data structures.
  */
 public class FirebaseInit extends Application {
     @Override
@@ -32,6 +34,9 @@ public class FirebaseInit extends Application {
         loadDataFromFirebase();
     }
 
+    /**
+     * Loads data from Firebase into the B+ tree data structures.
+     */
     private void loadDataFromFirebase() {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         // Loading Post data

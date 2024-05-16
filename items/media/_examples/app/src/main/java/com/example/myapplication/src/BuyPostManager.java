@@ -18,17 +18,34 @@ import java.util.Set;
 
 /**
  * Author: Yingxuan Tang
+ *
+ * The BuyPostManager class manages the purchase information of posts. It interacts with both local storage (SharedPreferences) and Firebase Realtime Database.
  */
 public class BuyPostManager {
     private SharedPreferences sharedPreferences;
     private DatabaseReference postsRef;
 
+    /**
+     * Constructor for BuyPostManager.
+     *
+     * @param context The context of the application.
+     *
+     * Initializes the BuyPostManager with the provided context.
+     */
     public BuyPostManager(Context context) {
         sharedPreferences = context.getSharedPreferences("buy_preferences", Context.MODE_PRIVATE);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         postsRef = database.getReference("post");
     }
 
+    /**
+     * Manages the purchase of a post.
+     *
+     * @param postId The ID of the post being purchased.
+     * @param userId The ID of the user making the purchase.
+     *
+     * Checks if the user has already purchased the post, and updates the purchase information locally and in Firebase if necessary.
+     */
     public void buyPost(String postId, String userId) {
         // Get the purchase information of the current post from local storage
         String buyIds = sharedPreferences.getString(postId, "");
@@ -76,6 +93,13 @@ public class BuyPostManager {
         }
     }
 
+    /**
+     * Synchronizes the purchase information of a post between local storage and Firebase.
+     *
+     * @param postId The ID of the post to synchronize purchase information for.
+     *
+     * Checks for any discrepancies in purchase information between local storage and Firebase, and updates local storage if necessary.
+     */
     public void syncBuys(String postId) {
         Query query = postsRef.orderByChild("postID").equalTo(postId);
         query.addListenerForSingleValueEvent(new ValueEventListener() {

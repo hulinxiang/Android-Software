@@ -15,6 +15,10 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * Author: Linxiang Hu, Yingxuan Tang
+ *
+ * The RegisterActivityBPlusTree class handles user registration using BPlus Tree for user management.
+ * It provides an interface for users to enter their registration details, validates these details,
+ * encrypts the password, and inserts the new user into the BPlus Tree and Firebase upon successful registration.
  */
 public class RegisterActivityBPlusTree extends AppCompatActivity {
     private LoginCheckService loginCheckService;
@@ -23,6 +27,13 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
     private Button register;
     private View returnButton;
 
+    /**
+     * Called when the activity is first created.
+     *
+     * @param savedInstanceState  If the activity is being re-initialized after previously being shut down,
+     *                            this contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     *                            Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +77,12 @@ public class RegisterActivityBPlusTree extends AppCompatActivity {
         });
     }
 
-    // Initialize UI components
+    /**
+     * Initializes the UI components.
+     *
+     * Method:
+     * - Finds the UI components by their ID and assigns them to the corresponding attributes.
+     */
     private void init() {
         email = findViewById(R.id.registerEmail);
         password = findViewById(R.id.password);

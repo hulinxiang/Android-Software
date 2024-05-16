@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 /**
  * Author: Yichi Zhang, Yingxuan Tang
+ *
+ * The Post class represents a post made by a user in the application.
  */
 public class Post {
     private static int nextPostID = 1000;

@@ -8,13 +8,13 @@ import java.util.UUID;
 
 
 /**
- * This class is used to manage user information.
+ * This class manages user information.
  *
  * Responsibilities:
  * - Store user information such as username, email, password, contact info, etc.
  * - Manage the user's own posts, liked posts, and purchased posts.
  *
- *  Author: Yingxuan Tang, Yichi Zhang, Linxiang Hu, Wenhui Shi, Jin Yang
+ * Author: Yingxuan Tang, Yichi Zhang, Linxiang Hu, Wenhui Shi, Jin Yang
  */
 public class User {
     private static int nextUserIndex = 4000;  // 初始值设置为4000
@@ -59,12 +59,21 @@ public class User {
         this.buyPosts = new ArrayList<>();
     }
 
-    // Generate and return the next user index
+    /**
+     * Generates the next user index.
+     *
+     * @return The next user index.
+     */
     public static synchronized String generateNextUserIndex() {
         return String.valueOf(nextUserIndex++);  // Increment and return the next index
     }
 
-    // Hash password using SHA-256
+    /**
+     * Hashes a password using SHA-256.
+     *
+     * @param password The password to hash.
+     * @return The hashed password.
+     */
     public static String hashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

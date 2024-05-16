@@ -12,9 +12,21 @@ import java.util.Objects;
 
 /**
  * Author: Linxiang Hu, Yingxuan Tang
+ *
+ * The FirebasePostHelper class provides methods to add, update, and delete posts in Firebase Realtime Database.
+ * It allows interaction with Firebase database for managing post data.
  */
 public class FirebasePostHelper {
 
+    /**
+     * Adds a new post to Firebase Realtime Database.
+     *
+     * @param post The post object to be added.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Adds a new post under the "post" node in the database.
+     */
     public void addPost(Post post) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("post");
@@ -53,52 +65,15 @@ public class FirebasePostHelper {
         });
     }
 
-
-    public void updatePost(Post post) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("post");
-        String curPostId = post.getPostID();
-
-        Log.d("Firebase update operation", "Enter the method");
-
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("Firebase update operation", "Execute the method");
-                int count = 0;
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
-                        DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                        newPostRef.child("UserID").setValue(post.getUserID());
-                        newPostRef.child("articleType").setValue(post.getTag().getArticleType());
-                        newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
-                        newPostRef.child("comment").setValue(post.getComments());   //这个是不是有问题。（tyx问
-                        newPostRef.child("description").setValue(post.getDescription());
-                        newPostRef.child("gender").setValue(post.getTag().getGender());
-                        newPostRef.child("image_url").setValue(post.getImageUrl());
-                        newPostRef.child("masterCategory").setValue(post.getTag().getMasterCategory());
-                        newPostRef.child("postID").setValue(post.getPostID());
-                        newPostRef.child("postIndexInFirebase").setValue(post.getPostIndexInFirebase());
-                        newPostRef.child("price").setValue(Double.toString(post.getPrice()));
-                        newPostRef.child("productDisplayName").setValue(post.getProductDisplayName());
-                        newPostRef.child("season").setValue(post.getTag().getSeason());
-                        newPostRef.child("status").setValue(post.getStatus());
-                        newPostRef.child("subCategory").setValue(post.getTag().getSubCategory());
-                        newPostRef.child("year").setValue(post.getTag().getYear());
-                        newPostRef.child("usage").setValue(post.getTag().getUsage());
-                        break;
-                    }
-                    count++;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("Firebase update operation failed", "Failure to update post to firebase：" + databaseError.getCode());
-            }
-        });
-    }
-
+    /**
+     * Deletes a post from Firebase Realtime Database.
+     *
+     * @param post The post object to be deleted.
+     *
+     * Method:
+     * - Retrieves the Firebase database instance.
+     * - Deletes the post with the corresponding post ID from the database.
+     */
     public void deletePost(Post post) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("post");
