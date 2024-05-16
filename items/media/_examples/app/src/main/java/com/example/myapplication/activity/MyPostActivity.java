@@ -60,6 +60,9 @@ public class MyPostActivity extends AppCompatActivity {
     private TextView write;
     private GridLayout gl_comment;
 
+    /**
+     * Initializes the activity, sets up the UI, and handles post liking and commenting functionality.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,10 +119,20 @@ public class MyPostActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the like button with the correct resource based on whether the post is liked.
+     * @param isLiked boolean indicating if the post is liked by the user.
+     */
+
     private void initializeLikeButton(boolean isLiked) {
         post_like.setImageResource(isLiked ? R.drawable.ic_favorite_red_24dp : R.drawable.ic_favorite_white_24dp);
     }
-
+    /**
+     * Checks if the current post is in the user's list of liked posts.
+     * @param post The current post.
+     * @param likeList The list of posts liked by the user.
+     * @return boolean indicating if the post is liked by the user.
+     */
     private boolean checkLike(Post post, List<Post> likeList) {
         isLiked = false;
         for (Post likedPost : likeList) {
@@ -131,6 +144,9 @@ public class MyPostActivity extends AppCompatActivity {
         return isLiked;
     }
 
+    /**
+     * Displays the details of the selected post.
+     */
     private void showDetail(){
         String p_name = getIntent().getStringExtra("post_name");
         String p_image = getIntent().getStringExtra("post_image");
@@ -205,6 +221,10 @@ public class MyPostActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Shows a dialog for the user to write a comment.
+     */
+
     private void showCommentDialog() {
         // Inflate the dialog layout
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -248,7 +268,10 @@ public class MyPostActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Displays comments for the current post.
+     * @param currentPost The post for which to display comments.
+     */
     private void showComment(Post currentPost){
         gl_comment.removeAllViews();
         //comment list
@@ -298,7 +321,11 @@ public class MyPostActivity extends AppCompatActivity {
                 }
             }
     }
-
+    /**
+     * Posts a comment on the current post.
+     * @param comment The comment text.
+     * @param isAnonymous boolean indicating if the comment should be posted anonymously.
+     */
     private void postComment(String comment, boolean isAnonymous) {
         if(isAnonymous){
             //create new remark
@@ -316,7 +343,9 @@ public class MyPostActivity extends AppCompatActivity {
             FirebaseRemarkManager.getInstance(getApplicationContext()).addRemark(newRemark);
         }
     }
-
+    /**
+     * Initializes the UI components of the activity.
+     */
     private void init(){
         post_name = findViewById(R.id.post_name);
         post_delete = findViewById(R.id.btn_post_delete);
