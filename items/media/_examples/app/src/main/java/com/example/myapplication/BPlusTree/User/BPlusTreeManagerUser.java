@@ -1,11 +1,8 @@
 package com.example.myapplication.BPlusTree.User;
 
 import android.content.Context;
-
 import com.example.myapplication.BPlusTree.BPlusTree;
-
 import com.example.myapplication.src.User;
-
 import java.util.List;
 
 
@@ -51,6 +48,4 @@ public class BPlusTreeManagerUser {
         }
         return ans;
     }
-
-
 }

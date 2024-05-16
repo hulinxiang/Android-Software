@@ -445,7 +445,8 @@ Here is a partial (short) example for the subsection `Data Structures`:*
       * For the (part), the data ... (characteristics) ...
 
 2. *B+ Tree*
-   * *Objective: used for storing user and post data locally for efficient searching, insertion, deletion, and update operations.*
+   * *Objective: used for storing user, post, and remark data locally for efficient searching, insertion, deletion, and update operations.
+   * used for storing user and post data locally for efficient searching, insertion, deletion, and update operations.*
    * *Code Locations:*
         * *BPlusTree class: defines the structure and operations of the B+ Tree, including insert, remove, query, and range query methods. It is implemented in the `BPlusTree.java` file.*
         * *BPlusTreeManagerUser class: manages the user data stored in the B+ Tree. It provides methods to get the tree instance and retrieve user data by user ID. Defined in the `BPlusTreeManagerUser.java` file.*
