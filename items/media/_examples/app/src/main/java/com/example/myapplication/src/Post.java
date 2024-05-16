@@ -22,7 +22,7 @@ public class Post {
 
     // Constructor
 
-    //用户create post时候用的
+    // When the user creates a post
     public Post(String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
                 double price, String status, String imageUrl, String description, String commentText)  {
@@ -40,7 +40,7 @@ public class Post {
         this.buyIDs = "";
     }
 
-    //用来扒取firebase的全参构造器，全部数据从firebase读取
+    // A full-parameter constructor used to peel off firebase. All data is read from firebase
     public Post(String postID, String userID, String gender, String masterCategory, String subCategory, String articleType,
                 String baseColour, String season, int year, String usage, String productDisplayName,
                 double price, String status, String imageUrl, String description, String commentText, String postIndexInFirebase, String likeIDs, String buyIDs)  {
@@ -75,10 +75,6 @@ public class Post {
 
     public String getUserID() {
         return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
 
 
@@ -119,76 +115,24 @@ public class Post {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getComments() {
         return comments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
     public String getPostIndexInFirebase() {
         return postIndexInFirebase;
-    }
-
-    public void setPostIndexInFirebase(String postIndexInFirebase) {
-        this.postIndexInFirebase = postIndexInFirebase;
-    }
-
-    public static int getNextPostID() {
-        return nextPostID;
-    }
-
-    public void setPostID(String postID) {
-        this.postID = postID;
-    }
-
-    public static void setNextPostID(int nextPostID) {
-        Post.nextPostID = nextPostID;
-    }
-
-    public String getLikeIDs() {
-        return likeIDs;
-    }
-
-    public void setLikeIDs(String likeIDs) {
-        this.likeIDs = likeIDs;
-    }
-
-    public String getBuyIDs() {
-        return buyIDs;
-    }
-
-    public void setBuyIDs(String buyIDs) {
-        this.buyIDs = buyIDs;
     }
 
 }

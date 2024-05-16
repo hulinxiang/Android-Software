@@ -10,7 +10,6 @@ public class Tag {
     private int year;
     private String usage;
 
-
     public Tag(String gender, String masterCategory, String subCategory, String articleType, String baseColour, String season, int year, String usage) {
         this.gender = gender;
         this.masterCategory = masterCategory;
@@ -34,32 +33,16 @@ public class Tag {
         return masterCategory;
     }
 
-    public void setMasterCategory(String masterCategory) {
-        this.masterCategory = masterCategory;
-    }
-
     public String getSubCategory() {
         return subCategory;
-    }
-
-    public void setSubCategory(String subCategory) {
-        this.subCategory = subCategory;
     }
 
     public String getArticleType() {
         return articleType;
     }
 
-    public void setArticleType(String articleType) {
-        this.articleType = articleType;
-    }
-
     public String getBaseColour() {
         return baseColour;
-    }
-
-    public void setBaseColour(String baseColour) {
-        this.baseColour = baseColour;
     }
 
     public String getSeason() {
@@ -74,10 +57,6 @@ public class Tag {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public String getUsage() {
         return usage;
     }
@@ -85,11 +64,5 @@ public class Tag {
     public void setUsage(String usage) {
         this.usage = usage;
     }
-
-
-
-
-
-
 
 }

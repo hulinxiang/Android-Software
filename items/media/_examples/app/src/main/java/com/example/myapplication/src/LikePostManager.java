@@ -27,17 +27,17 @@ public class LikePostManager {
     }
 
     public void likePost(String postId, String userId) {
-        // 从本地存储中获取当前帖子的点赞信息
+        // Gets the likes of the current post from local storage
         String likeIds = sharedPreferences.getString(postId, "");
 
-        // 将当前用户的 ID 添加到点赞信息中
+        // Adds the ID of the current user to the like information
         if (!likeIds.contains(userId)) {
             if (!likeIds.isEmpty()) {
                 likeIds += ",";
             }
             likeIds += userId;
 
-            // 从 Firebase 获取最新的点赞信息
+            // Get the latest likes from Firebase
             String finalLikeIds = likeIds;
             Query query = postsRef.orderByChild("postID").equalTo(postId);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -46,7 +46,7 @@ public class LikePostManager {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         String firebaseLikeIds = postSnapshot.child("likeIDs").getValue(String.class);
                         if (firebaseLikeIds != null) {
-                            // 如果 Firebase 中存在点赞信息,则将本地存储的点赞信息与 Firebase 中的点赞信息合并
+                            //If the like information exists in Firebase, the locally stored like information is merged with the like information in Firebase
                             String[] localIds = finalLikeIds.split(",");
                             String[] firebaseIds = firebaseLikeIds.split(",");
                             Set<String> mergedIds = new HashSet<>();
@@ -54,11 +54,11 @@ public class LikePostManager {
                             mergedIds.addAll(Arrays.asList(firebaseIds));
                             String mergedLikeIds = TextUtils.join(",", mergedIds);
 
-                            // 将更新后的点赞信息存储到本地和 Firebase
+                            // Store updated likes locally and to Firebase
                             sharedPreferences.edit().putString(postId, mergedLikeIds).apply();
                             postSnapshot.getRef().child("likeIDs").setValue(mergedLikeIds);
                         } else {
-                            // 如果 Firebase 中不存在点赞信息,则直接将本地的点赞信息存储到 Firebase
+                            // If no likes exist in Firebase, the local likes are directly stored in Firebase
                             sharedPreferences.edit().putString(postId, finalLikeIds).apply();
                             postSnapshot.getRef().child("likeIDs").setValue(finalLikeIds);
                         }
@@ -74,17 +74,17 @@ public class LikePostManager {
     }
 
     public void unlikePost(String postId, String userId) {
-        // 从本地存储中获取当前帖子的点赞信息
+        // Gets the likes of the current post from local storage
         String likeIds = sharedPreferences.getString(postId, "");
 
-        // 将当前用户的 ID 从点赞信息中移除
+        // Removes the current user's ID from the like information
         if (likeIds.contains(userId)) {
             String[] ids = likeIds.split(",");
             Set<String> idSet = new HashSet<>(Arrays.asList(ids));
             idSet.remove(userId);
             String updatedLikeIds = TextUtils.join(",", idSet);
 
-            // 从 Firebase 获取最新的点赞信息
+            // Get the latest likes from Firebase
             Query query = postsRef.orderByChild("postID").equalTo(postId);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -92,17 +92,17 @@ public class LikePostManager {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         String firebaseLikeIds = postSnapshot.child("likeIDs").getValue(String.class);
                         if (firebaseLikeIds != null) {
-                            // 将 Firebase 中的点赞信息与本地更新后的点赞信息合并
+                            // Merge the likes information in Firebase with the updated likes information locally
                             Set<String> firebaseIdSet = new HashSet<>(Arrays.asList(firebaseLikeIds.split(",")));
                             Set<String> localIdSet = new HashSet<>(Arrays.asList(updatedLikeIds.split(",")));
                             firebaseIdSet.removeAll(localIdSet);
                             String mergedLikeIds = TextUtils.join(",", firebaseIdSet);
 
-                            // 将合并后的点赞信息写入 Firebase
+                            // Writes the combined likes to Firebase
                             postSnapshot.getRef().child("likeIDs").setValue(mergedLikeIds);
                         }
                     }
-                    // 更新本地存储的点赞信息
+                    // Update the locally stored like information
                     sharedPreferences.edit().putString(postId, updatedLikeIds).apply();
                 }
 
@@ -124,7 +124,7 @@ public class LikePostManager {
                     String localLikeIDs = sharedPreferences.getString(postId, "");
 
                     if (likeIDsFromFirebase != null && !localLikeIDs.contains(likeIDsFromFirebase)) {
-                        // 如果 Firebase 中存在点赞信息且本地存储中不存在,则将 Firebase 中的点赞信息同步到本地存储
+                        // If the likes exist in Firebase but not in the local storage, the likes in Firebase are synchronized to the local storage
                         sharedPreferences.edit().putString(postId, likeIDsFromFirebase).apply();
                     }
                 }

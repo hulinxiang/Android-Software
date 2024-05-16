@@ -3,7 +3,6 @@ package com.example.myapplication.BPlusTree.Post;
 import android.util.Log;
 
 import com.example.myapplication.src.Post;
-import com.example.myapplication.src.Tokenizer_Parser.Expression;
 import com.example.myapplication.src.Tokenizer_Parser.Parser;
 import com.example.myapplication.src.Tokenizer_Parser.Tokenizer;
 
@@ -31,7 +30,6 @@ public class PriceRangeSearchStrategy extends AbstractSearchStrategy {
         Tokenizer tokenizer = new Tokenizer(priceStr);
         Parser parser = new Parser(tokenizer);
         String parseRes = parser.parse().show();
-
         String[] parts = parseRes.split("\\|");
         StringBuilder stringBuilder = new StringBuilder();
         for (String part : parts) {

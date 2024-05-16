@@ -1,19 +1,10 @@
 package com.example.myapplication.src;
 
-import android.content.Context;
 import android.util.Log;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * 负责商品的搜索逻辑。
- * <p>
- * 职责:
- * <p>
- * 提供搜索功能，允许用户根据关键词、价格范围等条件搜索商品。
- * 可能与ProductList类交互来获取过滤后的商品数据。
- */
 public class SearchManager {
 
     // To check if it is a valid email

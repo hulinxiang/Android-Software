@@ -27,17 +27,17 @@ public class BuyPostManager {
     }
 
     public void buyPost(String postId, String userId) {
-        // 从本地存储中获取当前帖子的购买信息
+        // Get the purchase information of the current post from local storage
         String buyIds = sharedPreferences.getString(postId, "");
 
-        // 将当前用户的 ID 添加到购买信息中
+        // Add the current user's ID to the purchase information
         if (!buyIds.contains(userId)) {
             if (!buyIds.isEmpty()) {
                 buyIds += ",";
             }
             buyIds += userId;
 
-            // 从 Firebase 获取最新的购买信息
+            // Get the latest purchase information from Firebase
             String finalBuyIds = buyIds;
             Query query = postsRef.orderByChild("postID").equalTo(postId);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -46,7 +46,7 @@ public class BuyPostManager {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         String firebaseBuyIds = postSnapshot.child("buyIDs").getValue(String.class);
                         if (firebaseBuyIds != null) {
-                            // 如果 Firebase 中存在购买信息,则将本地存储的购买信息与 Firebase 中的购买信息合并
+                            // If purchase information exists in Firebase, merge the purchase information from local storage with the purchase information from Firebase
                             String[] localIds = finalBuyIds.split(",");
                             String[] firebaseIds = firebaseBuyIds.split(",");
                             Set<String> mergedIds = new HashSet<>();
@@ -54,11 +54,11 @@ public class BuyPostManager {
                             mergedIds.addAll(Arrays.asList(firebaseIds));
                             String mergedBuyIds = TextUtils.join(",", mergedIds);
 
-                            // 将更新后的购买信息存储到本地和 Firebase
+                            // Store the updated purchase information locally and in Firebase
                             sharedPreferences.edit().putString(postId, mergedBuyIds).apply();
                             postSnapshot.getRef().child("buyIDs").setValue(mergedBuyIds);
                         } else {
-                            // 如果 Firebase 中不存在购买信息,则直接将本地的购买信息存储到 Firebase
+                            // If purchase information does not exist in Firebase, directly store the local purchase information in Firebase
                             sharedPreferences.edit().putString(postId, finalBuyIds).apply();
                             postSnapshot.getRef().child("buyIDs").setValue(finalBuyIds);
                         }
@@ -83,7 +83,7 @@ public class BuyPostManager {
                     String localBuyIDs = sharedPreferences.getString(postId, "");
 
                     if (buyIDsFromFirebase != null && !localBuyIDs.contains(buyIDsFromFirebase)) {
-                        // 如果 Firebase 中存在购买信息且本地存储中不存在,则将 Firebase 中的购买信息同步到本地存储
+                        // If purchase information exists in Firebase and does not exist in local storage, synchronize the purchase information from Firebase to local storage
                         sharedPreferences.edit().putString(postId, buyIDsFromFirebase).apply();
                     }
                 }

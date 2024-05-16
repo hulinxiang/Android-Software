@@ -132,23 +132,6 @@ public class User {
         this.name = name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    // Get user's PostList
-    public PostList getPostList() {
-        return postList;
-    }
-
-    // Set user's PostList
-    public void setPostList(PostList postList) {
-        this.postList = postList;
-    }
 
     // Add a post to the user's own posts
     public void addOwnPost(Post post) {
@@ -157,20 +140,10 @@ public class User {
         }
     }
 
-    // Delete a post from the user's own posts
-    public void removeOwnPost(Post post) {
-       this.ownPosts.remove(post);
-    }
-
     public void updateLikes(Post post){
         if(!likePosts.contains(post)) {
             this.likePosts.add(post);
         }
-        //this.likePosts.add(post);
-    }
-
-    public void removeLikes(Post post) {
-        this.likePosts.remove(post);
     }
 
     public void updateBuys(Post post){
@@ -198,35 +171,11 @@ public class User {
         return this.buyPosts;
     }
 
-    public static int getNextUserIndex() {
-        return nextUserIndex;
-    }
-
     public String getUserIndexInFirebase() {
         return userIndexInFirebase;
     }
 
-    public void setUserIndexInFirebase(String userIndexInFirebase) {
-        this.userIndexInFirebase = userIndexInFirebase;
-    }
-
     public String getUserType() {
         return userType;
-    }
-
-    public void setBuyPosts(List<Post> buyPosts) {
-        this.buyPosts = buyPosts;
-    }
-
-    public void setLikePosts(List<Post> likePosts) {
-        this.likePosts = likePosts;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-    public void setOwnPosts(List<Post> ownPosts) {
-        this.ownPosts = ownPosts;
     }
 }
