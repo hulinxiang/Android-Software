@@ -93,8 +93,37 @@ Note that the core criteria of contribution is based on `code contribution` (the
 *By bridging the gap between those looking to find new homes for their cherished items and those seeking sustainable purchasing options, Green Book fosters a community committed to eco-friendly consumption practices.*
 
 ### Application Use Cases and or Examples
-
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+* use case diagram
+![Use case diagram](media/_examples/user case diagram.png) <br>
+* System User Profile <br>
+
+| No. | User Role | Responsibilities                                    | Branch/Division/Section/Unit | Staff Post/Rank | Stakeholder Group                |
+|-----|-----------|-----------------------------------------------------|------------------------------|-----------------|----------------------------------|
+| 1   | Admin     | Responsible for overseeing the whole system         | Admin                        | Super           | Reservation and system manager   |
+| 2   | User      | Responsible for creating, liking, and buying posts. | User                         | Lower           | Normal user                      |
+
+
+Use Case Authorization Table<br>
+
+| Use Case                    | Authorized User Type  |
+|-----------------------------|-----------------------|
+| 1. Login                    | Admin, User           |
+| 2. Register                 | Admin, User           |
+| 3. Search posts by keyword  | Admin, User           |
+| 4. Search posts by tags     | Admin, User           |
+| 5. Create post              | Admin, User           |
+| 6. Delete post              | Admin, User           |
+| 7. Like post                | Admin, User           |
+| 8. Buy post                 | Admin, User           |
+| 9. Edit profile             | Admin, User           |
+| 10. Write comment           | Admin, User           |
+| 11. Delete comment          | Admin, User           |
+| 12. Logout                  | Admin, User           |
+| 13. Auto-Update Posts       | Admin, User           |
+
+* Case Narrative<br>
+
 | Use Case 1            | Login                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Goal in context       | To allow a user to securely access their Green Book account.                                                                  |
@@ -104,7 +133,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 | Actor                 | User                                                                                                                          |
 | Description           | Step 1. User opens the Green Book app.                                                                                        |
 |                       | Step 2. User clicks the "Get Started" button.                                                                                 |
-|                       | Step 3. User navigates to the login page.                                                                            |
+|                       | Step 3. User navigates to the login page.                                                                                     |
 |                       | Step 4. User enters their email and password.                                                                                 |
 |                       | Step 5. User clicks the "Login" button.                                                                                       |
 |                       | Step 6. System validates the credentials.                                                                                     |
