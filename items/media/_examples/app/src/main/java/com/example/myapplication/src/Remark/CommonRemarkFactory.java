@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Remark;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Factory class for creating common remarks. Implements the RemarkFactory interface.
  * This factory is specific for generating CommonRemark objects, which can include both indexed and non-indexed remarks.
  */

@@ -1,7 +1,7 @@
 package com.example.myapplication.src.Tokenizer_Parser;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Represents a numeric token for display purposes.
  * This class extends ResultsShow to specifically handle numeric results and formats them accordingly.
  */

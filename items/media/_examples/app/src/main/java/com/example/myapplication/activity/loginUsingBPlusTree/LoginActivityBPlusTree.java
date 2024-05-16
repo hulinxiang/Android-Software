@@ -16,7 +16,7 @@ import com.example.myapplication.src.SessionManager;
 import com.example.myapplication.src.User;
 
 /**
- * @author Linxiang Hu, Yingxuan Tang
+ * @author Linxiang Hu u7633783, Yingxuan Tang
  *
  * The LoginActivityBPlusTree class handles user login functionality using BPlus Tree for user management.
  * It provides an interface for users to enter their login credentials, validates these credentials,

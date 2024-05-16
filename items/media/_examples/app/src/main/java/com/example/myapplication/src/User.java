@@ -14,7 +14,7 @@ import java.util.UUID;
  * - Store user information such as username, email, password, contact info, etc.
  * - Manage the user's own posts, liked posts, and purchased posts.
  *
- * @author Yingxuan Tang, Yichi Zhang, Linxiang Hu, Wenhui Shi, Jin Yang
+ * @author Yingxuan Tang, Yichi Zhang u7748799, Linxiang Hu u7633783, Wenhui Shi, Jin Yang
  */
 public class User {
     private static int nextUserIndex = 4000;  // The initial value is set to 4000

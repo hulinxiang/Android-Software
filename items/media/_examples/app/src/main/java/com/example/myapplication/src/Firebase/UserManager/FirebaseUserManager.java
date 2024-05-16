@@ -3,7 +3,7 @@ package com.example.myapplication.src.Firebase.UserManager;
 import android.content.Context;
 
 /**
- * @author Linxiang Hu
+ * @author Linxiang Hu u7633783
  * Manages a singleton instance of FirebaseUserHelper for Firebase user management tasks.
  * This class ensures that there is only one instance of FirebaseUserHelper across the application,
  * implementing a thread-safe Singleton pattern with lazy initialization.
