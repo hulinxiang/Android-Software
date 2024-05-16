@@ -8,6 +8,10 @@ import com.example.myapplication.src.Post;
 /**
  * The UsageSearchStrategy class extends the AbstractSearchStrategy class.
  * It provides a specific implementation of the matchCriteria method that checks if a post's usage matches a specified value.
+ *
+ * @see AbstractSearchStrategy
+ * @see Post
+ * @Author Yichi Zhang u7748799
  */
 public class UsageSearchStrategy extends AbstractSearchStrategy {
 

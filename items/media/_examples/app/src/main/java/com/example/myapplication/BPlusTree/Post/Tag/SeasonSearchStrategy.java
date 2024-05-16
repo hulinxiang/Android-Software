@@ -11,7 +11,7 @@ import com.example.myapplication.src.Post;
  *
  * @see AbstractSearchStrategy
  * @see Post
- * @author Yichi Zhang
+ * @author Yichi Zhang u7748799
  */
 public class SeasonSearchStrategy extends AbstractSearchStrategy {
 
