@@ -12,7 +12,18 @@ import com.example.myapplication.src.Remark.RemarkFactory;
 
 import org.junit.Test;
 
+/**
+ * This class is used to test the functionality of the Factory Design Pattern implementation.
+ * It tests the creation of different types of remarks (Common and Anonymous) using their respective factories.
+ *
+ * @author Yichi Zhang
+ */
 public class FactoryDesignPatternTest {
+
+    /**
+     * This test case tests the creation of a CommonRemark using the CommonRemarkFactory.
+     * It verifies the type of the created remark and its properties.
+     */
     @Test
     public void testCommonRemarkFactory() {
         RemarkFactory factory = new CommonRemarkFactory();
@@ -24,6 +35,10 @@ public class FactoryDesignPatternTest {
         assertEquals("post123", remark.getPostId());
     }
 
+    /**
+     * This test case tests the creation of an AnonymousRemark using the AnonymousRemarkFactory.
+     * It verifies the type of the created remark and its properties.
+     */
     @Test
     public void testAnonymousRemarkFactory() {
         RemarkFactory factory = new AnonymousRemarkFactory();
@@ -35,6 +50,11 @@ public class FactoryDesignPatternTest {
         assertEquals("post456", remark.getPostId());
     }
 
+    /**
+     * This test case tests the creation of remarks using different factories.
+     * It verifies that the remarks created by different factories have different user emails.
+     * It also verifies that the remarks created by different factories have the same text and post ID.
+     */
     @Test
     public void testDifferentFactories() {
         String text = "Hello, world!";
