@@ -589,6 +589,11 @@ to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-u
 ![ClassDiagramExample](media/_examples/ClassDiagramExample.png) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
+* ![Tokenizer_and_parse_UML](items/Tokenizer_and_parse_UML.jpg) <br>
+* ![Remark_UML](items/Remark_UML.jpg) <br>
+* ![Post_UML](items/Post_UML.jpg) <br>
+* ![Firebase_post__UML.jpg](items/Firebase_post__UML.jpg) <br>
+
 <hr>
 
 ## Code Design and Decisions
