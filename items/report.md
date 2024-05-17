@@ -430,53 +430,60 @@ This is an important section of your report and should include all technical dec
 
 ### Data Structures
 
-*[What data structures did your team utilise? Where and why?]*
-
-Here is a partial (short) example for the subsection `Data Structures`:*
-
 *I used the following data structures in my project:*
 
-1. *LinkedList*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
-   * *Reasons:*
-      * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-      * *We don't need to access the item by index for xxx feature because...*
-      * For the (part), the data ... (characteristics) ...
-
-2. *B+ Tree*
+1. *B+ Tree*
    * *Objective: used for storing user, post, and remark data locally for efficient searching, insertion, deletion, and update operations.
-   * used for storing user and post data locally for efficient searching, insertion, deletion, and update operations.*
    * *Code Locations:*
-        * *BPlusTree class: defines the structure and operations of the B+ Tree, including insert, remove, query, and range query methods. It is implemented in the `BPlusTree.java` file.*
-        * *BPlusTreeManagerUser class: manages the user data stored in the B+ Tree. It provides methods to get the tree instance and retrieve user data by user ID. Defined in the `BPlusTreeManagerUser.java` file.*
-        * *BPlusTreeManagerPost class: manages the post data stored in the B+ Tree. It offers methods to get the tree instance, perform keyword search on posts, retrieve random posts for recommendation, and search posts by post ID. Implemented in the `BPlusTreeManagerPost.java` file.*
-        * *The B+ Tree is used in the login and registration process (`LoginActivityBPlusTree.java` and `RegisterActivityBPlusTree.java`) to check user credentials and add new users.*
+   defined in [Class BPlusTree, all methods(including insert, remove, query, and range query methods.)](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java#L1-823),
+   processed using [Class BPlusTreeManagerUser, methods getTreeInstance, getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L1-51) manages the user data stored in the local B+ Tree,
+     [Class BPlusTreeManagerRemark, methods getTreeInstance, get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L1-82) manages the remark data stored in the B+ Tree and  linked with the user and post data effiently,
+     [Class BPlusTreeManagerPost, all methods](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L23-175) manages the post data stored in the B+ Tree,
+     [Class FirebaseInit, method loadDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads#L59-199) initializes all the data including user, post, remark from Firebase realtime database into local B+ trees, helping initialize the application,
+     [Class LoginActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads#L50-70) and [Class RegisterActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads#L68) to check user credentials and add new users.
    * *Reasons:*
         * *B+ Tree provides efficient search, insertion, and deletion operations with a time complexity of O(log n), making it suitable for handling large amounts of data.*
         * *The tree structure allows for fast range queries, which can be useful for retrieving posts or users within a specific range of values.*
         * *B+ Tree keeps the data sorted, enabling efficient sequential access to the data, which is beneficial for scenarios like retrieving all posts or users.*
         * *The leaf nodes of the B+ Tree are linked, allowing for quick traversal of the entire dataset, which is useful for features like random post recommendation.*
 
-3. *ArrayList*
-    * *Objective: used for storing and manipulating collections of data, such as lists of posts, users, and search results.*
-    * *Code Locations:*
-        * *Used in various classes and methods throughout the project, such as `BPlusTreeManagerPost.randomRecommender()`, `BPlusTreeManagerPost.searchKeyword()`, and `BPlusTreeManagerUser.getUserViaUserId()`.*
-    * *Reasons:*
-        * *ArrayList provides dynamic resizing, allowing for efficient addition and removal of elements.*
-        * *It offers fast random access to elements by index, which is useful when retrieving specific items from the list.*
-        * *ArrayList is suitable for scenarios where the size of the collection is not known in advance or may change over time.*
 
-4.  *HashSet*
-    * *Objective: used for storing unique values and performing fast membership tests*
-    * *Code Locations:*
-        * *Used in the `BPlusTree` class to store unique data values associated with each key in the leaf nodes.*
+2. *ArrayList*
+    * *Objective: used for storing and manipulating collections of data, such as lists of posts, users, and search results.*
+    * *Code Locations:* Used in various classes and methods throughout the project. Such as
+      * [Class BPlusTree, method rangeQuery](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L635-661)
+      *  [Class BPlusTreeManagerPost, methods randomRecommender, searchKeyword](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L46-75)
+      *  [Class BPlusTreeManagerUser, method getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L38-50)
+      *  [Class BPlusTreeManagerRemark, methods get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L34-80) and so on.
     * *Reasons:*
+      * *ArrayList provides dynamic resizing, allowing for efficient addition and removal of elements.*
+      * *It offers fast random access to elements by index, which is useful when retrieving specific items from the list.*
+      * *ArrayList is suitable for scenarios where the size of the collection is not known in advance or may change over time.*
+
+
+3.  *HashSet*
+    * *Objective: used for storing and managing unique collections of data, ensuring no duplicates, and enabling fast lookups, insertions, and deletions*
+    * *Code Locations:*
+      Used in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
+      [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75) and
+      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71)
+* *Reasons:*
         * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
         * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
-        * *ArrayList is suitable for scenarios where the size of the collection is not known in advance or may change over time.*
+        
 
-These data structures were chosen based on their performance characteristics and the specific requirements of the features they support. The B+ Tree serves as the main data structure for efficient storage and retrieval of user and post data, while ArrayList and HashSet are used for auxiliary tasks and specific scenarios within the project.
+4.  *Queue*
+    * Objective: used for storing and managing collections of elements in a first-in, first-out (FIFO) order, enabling efficient insertion and removal operations at both ends of the queue.
+    * *Code Location:*
+      Used in [Class BPlusTree, method toString](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L591-610)
+    * *Reason:*
+      * *Queue provides an efficient way to traverse the B+ Tree level by level (breadth-first traversal), ensuring that all nodes at each level are processed before moving to the next level.
+      * *Using a Queue helps in maintaining the order of nodes to be processed, which is essential for generating a correct and structured string representation of the tree.
+      * *Queue operations, such as adding elements to the end and removing elements from the front, are performed in constant time O(1), making the traversal efficient.
+      * *The simplicity and effectiveness of the Queue data structure make it a suitable choice for implementing the level-order traversal required for visualizing the B+ Tree structure. 
+
+
+These data structures were chosen based on their performance characteristics and the specific requirements of the features they support. The B+ Tree serves as the main data structure for efficient storage and retrieval of user and post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and specific scenarios within the project.
 <hr>
 
 ### Design Patterns
