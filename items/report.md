@@ -767,21 +767,19 @@ post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and s
         class without modifying the existing code. This is beneficial for code maintenance and extension.
 
 4. *Template Method Pattern*
-    * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common
-      structure for the B+ Tree operations while allowing subclasses (leaf and non-leaf nodes) to provide their specific
-      implementations.
+    * *Objective:*  The Template Method pattern is used in multi-condition search, including tag filter and price range search.
+      It provides a flexible, modular, and extensible approach to searching posts based on various criteria. 
     * *Code Locations:*
         - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such
           as `insert()`, `remove()`, `query()`, etc.
         - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide
           their specific implementations for the defined methods.
     * *Reasons:*
-        - The Template Method pattern provides a common structure for the B+ Tree operations, ensuring consistency
-          across different types of nodes.
-        - It allows subclasses to override or provide their specific implementations for certain steps of the algorithm
-          while maintaining the overall structure.
-        - It promotes code reuse and reduces duplication by defining the common parts of the algorithm in the abstract
-          base class (`BPlusTreeNode` interface).
+        - The `SearchStrategy` interface defines the contract for implementing search strategies, while the `AbstractSearchStrategy` class provides a template for creating concrete search strategies. This separation allows for better code organization, readability, and maintainability.
+        - New search strategies can be easily added by extending the `AbstractSearchStrategy` class and implementing the matchCriteria method. This modularity enables the system to accommodate future search requirements without modifying the existing codebase significantly.
+        - The `BPlusTreeManagerPost` class demonstrates how multiple search strategies can be combined to perform complex searches based on multiple conditions. By executing different search strategies and combining their results, the system can handle a wide range of search scenarios and achieve flexibility.  
+        - The `SearchStrategy` interface provides a high-level abstraction for performing searches, hiding the internal complexities of each strategy.
+          This encapsulation improves code maintainability and allows for easier modifications or optimizations within each search strategy without affecting the overall system.
 
 <hr>
 
@@ -819,6 +817,8 @@ This achieves the unification of parsing result display in Expression.java.
 ### Others
 
 *[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
+
+Database Integration: We stored and managed all our data files on the cloud database to achieve real-time synchronization, auto-scaling, and security.
 
 <br>
 <hr>
