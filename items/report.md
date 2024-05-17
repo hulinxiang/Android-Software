@@ -809,8 +809,7 @@ Production Rules:
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 The tokenizers and parsers are used for searching a product with a price.
-<br>The structure of them is shown below
-![UMLToknizer](UMLToknizer.png)
+<br>The structure of them is shown in UML section
 
 The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
 \
