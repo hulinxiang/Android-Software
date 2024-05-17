@@ -85,7 +85,29 @@ Note that the core criteria of contribution is based on `code contribution` (the
   - **Code Contribution in the final App**
   - 
 
-
+4.  **u7633783, Linxiang Hu**  I have 20% contribution, as follows: <br>
+   - **Code Contribution in the final App**
+   - Tokenizer and Parser - Contribute to all java classes in Tokenizer_Parser file: [Tokenizer_Parser](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser?ref_type=heads)
+   - Firebase Manager 
+     - Help to manage information User, Post and Remark in firebase including update, delete and add operations.
+     - Contribute to all java classes Firebase file: [Firebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase?ref_type=heads) 
+   - SearchManager
+     - It is mainly used for validating if the userEmail and password are valid when registering in class SearchManager: [SearchManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/SearchManager.java?ref_type=heads)
+   - BPlus Tree
+     - It is used for local storage. Contribute to all java classes in BPlusTree file:[BPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree?ref_type=heads)
+   - Class FirebaseInit
+     - It is used for retrieving all information in firebase at the beginning of starting the application.
+     - Contribute together with others in class FirebaseInit:[FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads)
+   - Activity LoginActivityBPlusTree in [LoginActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads) and activity RegisterActivityBPlusTree in [RegisterActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads)
+     - The login and register interface.
+   - Activity MainActivity in [MainActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MainActivity.java?ref_type=heads)
+     - The interface shows up firstly when entering the application
+   - Activity HomeActivity in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
+     - Finish the function that the randomly recommended home page posts are refreshed at ten-second intervals using thread.
+   - **Code and App Design**
+       - [What design patterns, data structures, did the involved member propose?]*
+         - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
+         
 
 
 
@@ -538,17 +560,31 @@ These data structures were chosen based on their performance characteristics and
 
 ### <u>Grammar(s)</u>
 *[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+\
+The parser is used to parse numbers.
+\
+When parsing the number, the valid format is either (number) or (number)(dot)(number).
+The advantage of the design is that it can automatically handle exception conditions.
+For example, if tbe invalid form is received or invalid input type is received, the class
+will throw exception.
 
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    <Expression> ::= <Number>|<Dot>|<Number>
+    or
+    <Expression> ::= <Number>|
 
 
 ### <u>Tokenizers and Parsers</u>
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+The tokenizers and parsers are used for searching a product with a price.
+\
+The structure of them is shown below:
+\
+The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
+\
+This achieves the unification of parsing result display in Expression.java.
 
 <hr>
 
