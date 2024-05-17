@@ -824,82 +824,94 @@ This achieves the unification of parsing result display in Expression.java.
 basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-
 1. [LogIn]. Users are able to log in to the application using their credentials. The application includes two
    pre-defined accounts for markers' access:
+
     - Username: comp2100@anu.edu.au, Password: comp2100
     - Username: comp6442@anu.edu.au, Password: comp6442 (easy)
 
     *
-    Code:    
- [Class LoginActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads),  
+   Code:    
+   [Class LoginActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads),  
    [Class LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java?ref_type=heads),  
-   [Class RegisterActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads),  
+   [Class RegisterActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads),
 
-    * Description of feature: The login feature allows users to authenticate themselves and access the application's
+    - Description of feature: The login feature allows users to authenticate themselves and access the application's
       functionality. It verifies the provided username and password against the stored user credentials. Also provide
       register service and feel free to create your own account. <br>
-    * Description of implementation: The LoginActivityBPlusTree handles the user interface for the login screen. It
+    - Description of implementation: The LoginActivityBPlusTree handles the user interface for the login screen. It
       captures the user's input, validates the credentials against the predefined accounts or the user database (Firebase realtime database), and
       grants access to the application upon successful authentication. The User class represents the user entity and
       encapsulates user-related information. <br>
 
 2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
    stored in structured JSON formats. (easy)
-    * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
-    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/data.zip)
-    * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
+
+    - Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
+    - Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/data.zip)
+    - Description of feature: The application relies on a dataset that contains meaningful information relevant to the
       app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
       images of the posts are stored in Firebase storage. <br>
-    * Description of implementation: The basic post data is from an open source dataset in the Internet and been
+    - Description of implementation: The basic post data is from an open source dataset in the Internet and been
       processed to fit the application's requirements. The user data is generated using Python Faker library. The data
       files are stored in the Firebase repository, images in Storage and other data in Realtime Database,
       and the application synced with Firebase Realtime Database for easy access and
       real-time updates. <br>
-    * Link to the Firebase
+    - Link to the Firebase
       repo: [Firebase Repository](https://console.firebase.google.com/project/login-register-firebase-94766/overview) <br>
 
 3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on
    the type of data. (easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
+    *
+   Code:    
+   [Class PostActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads),  
+   [Class ProfileActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads),  
+   [Class FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),   
+   [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
+   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),  
+   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),
+
+    - Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
       information with the post owned by the user, and the post page shows the details of a specific post. <br>
-    * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
-        And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
-      The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to
+    - Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
+      And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
+      The front-end Activities such as PostActivity and ProfileActivity handles the presentation of the loaded data to
       the user. They determine the appropriate formats for displaying each type of data, such as users, posts, or remarks,
       to enhance readability and user experience, and they call function from the back-end to show the data instances from the dataset.<br>
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
-    * Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: We create data instances to simulate users’ actions and interactions, when a user login, 
-      the application implemented automatically recommends post content on the home screen by loading post data 
+
+    - Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    - Description of feature: We create data instances to simulate users’ actions and interactions, when a user login,
+      the application implemented automatically recommends post content on the home screen by loading post data
       files from Firebase and visualizing them at regular time intervals.
-       <br>
-    * Description of implementation: The FirebaseInit class initializes Firebase and loads post data from the Firebase
-      Realtime Database into the application's local B+ tree data structure (BPlusTreeManagerPost). The HomeActivity class, 
-     which represents the home screen of the application, periodically updates the displayed post content using a Handler 
-     and a Runnable. The startRepeatingTask() method is called in the onStart() lifecycle method to start the periodic updates, 
-     and the stopRepeatingTask() method is called in the onStop() lifecycle method to stop the updates when the activity is no longer visible.
-      Inside the run() method of the Runnable, the showPost() method is called on the main thread using runOnUiThread(). 
-     The showPost() method retrieves a random selection of posts from the local B+ tree using the randomRecommender() 
-     method of BPlusTreeManagerPost. This method shuffles all the posts stored in the B+ tree, selects a subset of posts, and returns them as a list. 
+      <br>
+    - Description of implementation: The FirebaseInit class initializes Firebase and loads post data from the Firebase
+      Realtime Database into the application's local B+ tree data structure (BPlusTreeManagerPost). The HomeActivity class,
+      which represents the home screen of the application, periodically updates the displayed post content using a Handler
+      and a Runnable. The startRepeatingTask() method is called in the onStart() lifecycle method to start the periodic updates,
+      and the stopRepeatingTask() method is called in the onStop() lifecycle method to stop the updates when the activity is no longer visible.
+      Inside the run() method of the Runnable, the showPost() method is called on the main thread using runOnUiThread().
+      The showPost() method retrieves a random selection of posts from the local B+ tree using the randomRecommender()
+      method of BPlusTreeManagerPost. This method shuffles all the posts stored in the B+ tree, selects a subset of posts, and returns them as a list.
       <br>
 
 5. [Search]. Users can search for specific information within the application using a query processor that understands
    user input based on predefined grammars. (medium)
-    * Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application provides a search functionality that allows users to retrieve information
-      based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range 
-     together on the search page. We also implemented keyword search simply. <br>
-    * Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including 
-    the tag(will be discussed later) and the price range. The keyword search has simple implementation, searching for posts containing 
-     a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
-    search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
-     which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
-<br>
+
+    - Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    - Description of feature: The application provides a search functionality that allows users to retrieve information
+      based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range
+      together on the search page. We also implemented keyword search simply. <br>
+    - Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including
+      the tag(will be discussed later) and the price range. The keyword search has simple implementation, searching for posts containing
+      a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
+      search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
+      which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
+      <br>
      
      
       <br>
