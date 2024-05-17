@@ -211,8 +211,11 @@ These design patterns and data structures contribute to the overall architecture
     - Finish the function that the randomly recommended home page posts are refreshed at ten-second intervals using
       thread.
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-        - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
+    - Mainly used data structures include BPlusTree, ArrayList, LinkedList and HashSet.
+    - Singleton pattern used in [FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),
+    [BPlusTreeUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads) 
+  and [AnonymousRemarkFactoryManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Remark/AnonymousRemarkFactoryManager.java?ref_type=heads)
+    - Factory Pattern used in [Remark](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Remark?ref_type=heads) file
 
 5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
@@ -1124,6 +1127,7 @@ further details on your tests.*
       an `IllegalTypeException` to be thrown.*  
       *8. `testEmptyInputWithException()`: Tests the parsing of an empty input. Expects a `NullPointerException` to be
       thrown.*
+    ![img.png](media/_examples/Tokenizer_Parser_Test.png)
 
 2. Tests for BPlusTree
     -
@@ -1148,6 +1152,7 @@ further details on your tests.*
       values for a specific key, and checks if no values for that key are left in the tree.*  
       *7. `setUp()`: This method is not a test case but a setup method that is executed before each test. It initializes
       the B+ tree with a degree of 3.*
+   ![img.png](media/_examples/BPlusTreeTestCoverage.png)
 
 3. Tests for Factory Design Pattern
     -
@@ -1164,6 +1169,7 @@ further details on your tests.*
       Verifies the type of the created remark and its properties.*   
       *3. `testDifferentFactories()`: Tests the creation of remarks using different factories. Verifies that the remarks
       created by different factories have different user emails but the same text and post ID.*
+    ![img.png](media/_examples/FactoryPatternTest.png)    
 
 4. Tests for Singleton Design Pattern
     -
@@ -1182,6 +1188,7 @@ further details on your tests.*
       *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class.
       Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the
       same.*  
+    ![img.png](media/_examples/SingletonTest.png)
 
 5. Tests for User Login
    -
@@ -1199,7 +1206,7 @@ further details on your tests.*
       the login failure scenario when the wrong password is provided by checking if the login check returns false when the password is incorrect.*  
       *4. `testLoginFailureUserNotFound()`: Tests the `loginCheck` method in the `LoginCheckService` class. It
       verifies the login failure scenario when the user is not found in the system by checking if the login check returns false when the username does not exist.*
-
+    ![img.png](media/_examples/LoginTest.png)
 6. Tests for User Registration
    -
    Code: [RegisterActivityTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
@@ -1212,7 +1219,7 @@ further details on your tests.*
       *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
       *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
       *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
-
+    ![img_1.png](media/_examples/RegisterActivityTest.png)
 
 <br> <hr>
 
