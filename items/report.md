@@ -142,7 +142,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
          - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
 5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
-    - **Code Contribution in the final App**
+- **Code Contribution in the final App**
     - BuyPostActivity in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
         - All the functions in this class, use for retrieves post details from the intent, and displays them on the corresponding views,displays the details of a post for buying a product.
     - CustomSpinnerAdapter in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
