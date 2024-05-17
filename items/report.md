@@ -213,7 +213,7 @@ These design patterns and data structures contribute to the overall architecture
 
 5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-- feature [LoadShowData], feature [FB-Persist] and feature [Interact-Micro].
+- feature [LoadShowData] and feature [Interact-Micro].
     - BuyPostActivity
       in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
         - All the functions in this class, use for retrieves post details from the intent, and displays them on the
