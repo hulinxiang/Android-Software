@@ -794,19 +794,21 @@ basic/custom features, or an approved feature from Voice Four Feature.*
       functionality. It verifies the provided username and password against the stored user credentials. Also provide
       register service and feel free to create your own account. <br>
     * Description of implementation: The LoginActivityBPlusTree handles the user interface for the login screen. It
-      captures the user's input, validates the credentials against the predefined accounts or the user database, and
+      captures the user's input, validates the credentials against the predefined accounts or the user database (Firebase realtime database), and
       grants access to the application upon successful authentication. The User class represents the user entity and
       encapsulates user-related information. <br>
 
 2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
    stored in structured JSON formats. (easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
+    * Files for all data, including python script for generating fake user information data and disposed post data: [Data Files]()
     * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
       app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
       images of the posts are stored in Firebase storage. <br>
     * Description of implementation: The basic post data is from an open source dataset in the Internet and been
       processed to fit the application's requirements. The user data is generated using Python Faker library. The data
-      files are stored in the GitLab repository and are also synced with Firebase Realtime Database for easy access and
+      files are stored in the Firebase repository, images in Storage and other data in Realtime Database,
+      and the application synced with Firebase Realtime Database for easy access and
       real-time updates. <br>
     * Link to the Firebase
       repo: [Firebase Repository](https://console.firebase.google.com/project/login-register-firebase-94766/overview) <br>
