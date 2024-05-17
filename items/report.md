@@ -111,7 +111,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
         - Ensured data validation and provided feedback on successful updates.
     - Image Upload and Retrieval
         - Integrated image upload functionality using Firebase Storage.
-        - Developed an ImageUploader class to handle image upload processes.
+        - Developed method to handle image upload processes.
         - Managed image selection and preview in the CreateActivity class.
     - UI Tests using Espresso
         - Created UI tests for the EditProfileActivity using Espresso,try but failed
@@ -127,7 +127,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-    - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
+    - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/androidTest/java/com/example/myapplication?ref_type=heads)
 
 - **Code and App Design**
     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
