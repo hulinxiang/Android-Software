@@ -78,6 +78,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
+
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
    - **Code Contribution in the final App**
    - Responsive Layouts
@@ -102,9 +103,39 @@ Note that the core criteria of contribution is based on `code contribution` (the
    - Features Video and Presentation Video
      - Responsible for creating the features video and the presentation video.
 
+
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-  - 
+    - feature [LogIn] 
+      - class [LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java)
+      - class [User](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java?ref_type=heads#L77-91) 
+    - feature [LoadShowData] 
+      - class [FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java)
+      - class [ImageUploader](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/ImageUploader.java)
+      - class [PostCreator](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/PostCreator.java)
+    - feature [FB-Persist] 
+      - class [FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads#L35-60)
+      - class [FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads#L32-46) 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L98-119)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L103-124)
+    - feature [Interact-Micro] 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L45-90)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L35-94) 
+    - Basic back-end logic test code
+      - test [UserLoginTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
+      - test [RegisterActivityTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
+  
+  - **Code and App Design**
+    - Hashing password: the User class includes a hashPassword method that uses the SHA-256 algorithm to hash user passwords before storing them. Ensuring the security for every user.
+    - Firebase Integration: integrated with Firebase Storage for image uploads and Firebase Realtime Database for storing and retrieving post data. 
+      - The ImageUploader class handles image uploads to Firebase Storage.
+      - The FirebasePostManager class manages post-related operations with Firebase Realtime Database.
+    - Singleton Pattern: the FirebasePostManager class also uses the Singleton pattern, providing a single instance to manage post-related operations with Firebase.
+    - Factory Method Pattern: the PostCreator class acts as a factory for creating new Post objects. It encapsulates the creation logic and associates the post with the current user.
+    - Facade Pattern: the LoginCheckService class acts as a facade, providing a simplified interface for validating user registration and login credentials. It encapsulates the complexity of interacting with the BPlus Tree and performs the necessary checks and validations.
+
+    
+These design patterns and data structures contribute to the overall architecture and functionality of the application, providing efficient data management, modularity, and separation of concerns.
 
 4.  **u7633783, Linxiang Hu**  I have 20% contribution, as follows: <br>
    - **Code Contribution in the final App**
@@ -129,7 +160,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
        - [What design patterns, data structures, did the involved member propose?]*
          - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5**u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
+
+5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
     - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
     - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
