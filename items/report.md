@@ -1,18 +1,24 @@
 # [G58 - Team Name] Report
 
-The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
+The following is a report template to help your team successfully provide all the details necessary for your report in a
+structured and organised manner. Please give a straightforward and concise report that best demonstrates your project.
+Note that a good report will give a better impression of your project to the reviewers.
 
-Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submission (like the current sentence), otherwise it hampers the professionality in your documentation.
+Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submission (like the current sentence),
+otherwise it hampers the professionality in your documentation.
 
 *Here are some tips to write a good report:*
 
-* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
+* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your
+  project (rather than give long paragraphs).*
 
 * *Try to create `diagrams` for parts that could greatly benefit from it.*
 
 * *Try to make your report `well structured`, which is easier for the reviewers to capture the necessary information.*
 
-*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected for your project report. Note that they only provide part of the skeleton and your description should be more content-rich. Quick references about markdown by [CommonMark](https://commonmark.org/help/)*
+*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected
+for your project report. Note that they only provide part of the skeleton and your description should be more
+content-rich. Quick references about markdown by [CommonMark](https://commonmark.org/help/)*
 
 ## Table of Contents
 
@@ -28,14 +34,17 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 10. [Conflict Resolution Protocol](#conflict-resolution-protocol)
 
 ## Administrative
-- Firebase Repository Link: 
-   - https://console.firebase.google.com/u/1/project/login-register-firebase-94766/overview
-   - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
-- Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
-   - Username: comp2100@anu.edu.au	Password: comp2100
-   - Username: comp6442@anu.edu.au	Password: comp6442
+
+- Firebase Repository Link:
+    - https://console.firebase.google.com/u/1/project/login-register-firebase-94766/overview
+    - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
+- Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless
+  there are exceptional circumstances. Note that they are not real e-mail addresses in use):
+    - Username: comp2100@anu.edu.au Password: comp2100
+    - Username: comp6442@anu.edu.au Password: comp6442
 
 ## Team Members and Roles
+
 The key area(s) of responsibilities for each member
 
 | UID      |     Name      |      Role |
@@ -45,7 +54,6 @@ The key area(s) of responsibilities for each member
 | u7670526 | Yingxuan Tang |  Back-end |
 | u7724192 |   Jin Yang    | Front-end |
 | u7748799 |  Yichi Zhang  |  Back-end |
-
 
 ## Summary of Individual Contributions
 
@@ -65,87 +73,16 @@ Note that the core criteria of contribution is based on `code contribution` (the
 *Here is an example: (Note that you should remove the entire section (e.g. "others") if it is not applicable)*
 
 1. **UID1, Name1**  I have 30% contribution, as follows: <br>
-  - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
 
-  - **Code and App Design** 
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
-
-  - **Others**: (only if significant and significantly different from an "average contribution") 
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
-
-2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
-   - **Code Contribution in the final App**
-   - Responsive Layouts 
-     - Ensured all layouts are responsive to different screen sizes and orientations.
-     - Implemented flexible UI designs for a seamless user experience.
-   - Create Post Functionality
-     - Developed the CreateActivity class, enabling users to create and upload posts.
-     - Implemented UI components for product details input and image selection.
-     - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
-     - Applied default values for post creation and handled image previews and validations.
-   - Edit Profile Functionality
-     - Developed the EditProfileActivity class for users to edit their profile information.
-     - Integrated UI components for updating name, password, address, and phone number.
-     - Synchronized profile updates with both Firebase and the local BPlusTree.
-     - Ensured data validation and provided feedback on successful updates.
-   - Image Upload and Retrieval
-     - Integrated image upload functionality using Firebase Storage.
-     - Developed an ImageUploader class to handle image upload processes.
-     - Managed image selection and preview in the CreateActivity class.
-   - UI Tests using Espresso
-     - Created UI tests for the EditProfileActivity using Espresso.
-   
-   **Source Code Links**
-     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
-     -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-     - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
-     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
-     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
-   **Code and App design**
-     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and orientations.
-     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using Android Studio and XML.
-   **Others**:
-   - Features Video and Presentation Video
-   
-     
-3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
-  - **Code Contribution in the final App**
-  - 
-
-4.  **u7633783, Linxiang Hu**  I have 20% contribution, as follows: <br>
-   - **Code Contribution in the final App**
-   - Tokenizer and Parser - Contribute to all java classes in Tokenizer_Parser file: [Tokenizer_Parser](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser?ref_type=heads)
-   - Firebase Manager 
-     - Help to manage information User, Post and Remark in firebase including update, delete and add operations.
-     - Contribute to all java classes Firebase file: [Firebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase?ref_type=heads) 
-   - SearchManager
-     - It is mainly used for validating if the userEmail and password are valid when registering in class SearchManager: [SearchManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/SearchManager.java?ref_type=heads)
-   - BPlus Tree
-     - It is used for local storage. Contribute to all java classes in BPlusTree file:[BPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree?ref_type=heads)
-   - Class FirebaseInit
-     - It is used for retrieving all information in firebase at the beginning of starting the application.
-     - Contribute together with others in class FirebaseInit:[FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads)
-   - Activity LoginActivityBPlusTree in [LoginActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads) and activity RegisterActivityBPlusTree in [RegisterActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads)
-     - The login and register interface.
-   - Activity MainActivity in [MainActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MainActivity.java?ref_type=heads)
-     - The interface shows up firstly when entering the application
-   - Activity HomeActivity in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
-     - Finish the function that the randomly recommended home page posts are refreshed at ten-second intervals using thread.
-   - **Code and App Design**
-       - [What design patterns, data structures, did the involved member propose?]*
-         - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
-
-5**u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
+    - Feature A1, A2, A3 - class
+      Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
+    - XYZ Design Pattern - class
+      AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
+    - ... (any other contribution in the code, including UI and data
+      files) ... [Student class](../src/path/to/class/Student.java), ...,
+      etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(),
+      function2(), ... <br><br>
 
 - **Code and App Design**
     - [What design patterns, data structures, did the involved member propose?]*
@@ -153,48 +90,225 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 - **Others**: (only if significant and significantly different from an "average contribution")
     - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
+    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK,
+      setups, firebase* <br><br>
 
+
+2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
+    - **Code Contribution in the final App**
+    - Responsive Layouts
+        - Ensured all layouts are responsive to different screen sizes and orientations.
+        - Implemented flexible UI designs for a seamless user experience.
+    - Create Post Functionality
+        - Developed the CreateActivity class, enabling users to create and upload posts.
+        - Implemented UI components for product details input and image selection.
+        - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
+        - Applied default values for post creation and handled image previews and validations.
+    - Edit Profile Functionality
+        - Developed the EditProfileActivity class for users to edit their profile information.
+        - Integrated UI components for updating name, password, address, and phone number.
+        - Synchronized profile updates with both Firebase and the local BPlusTree.
+        - Ensured data validation and provided feedback on successful updates.
+    - Image Upload and Retrieval
+        - Integrated image upload functionality using Firebase Storage.
+        - Developed an ImageUploader class to handle image upload processes.
+        - Managed image selection and preview in the CreateActivity class.
+    - UI Tests using Espresso
+        - Created UI tests for the EditProfileActivity using Espresso.
+
+   **Source Code Links**
+    - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+      -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+    - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+    - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
+    - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+    - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
+      **Code and App design**
+    - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
+      orientations.
+    - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using
+      Android Studio and XML.
+      **Others**:
+    - Features Video and Presentation Video
+
+
+
+3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
+
+- **Code Contribution in the final App**
+-
+  - **Code Contribution in the final App**
+    - feature [LogIn] 
+      - class [LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java)
+      - class [User](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java?ref_type=heads#L77-91) 
+    - feature [LoadShowData] 
+      - class [FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java)
+      - class [ImageUploader](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/ImageUploader.java)
+      - class [PostCreator](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/PostCreator.java)
+    - feature [FB-Persist] 
+      - class [FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads#L35-60)
+      - class [FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads#L32-46) 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L98-119)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L103-124)
+    - feature [Interact-Micro] 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L45-90)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L35-94) 
+    - Basic back-end logic test code
+      - test [UserLoginTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
+      - test [RegisterActivityTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
+  
+  - **Code and App Design**
+    - Hashing password: the User class includes a hashPassword method that uses the SHA-256 algorithm to hash user passwords before storing them. Ensuring the security for every user.
+    - Firebase Integration: integrated with Firebase Storage for image uploads and Firebase Realtime Database for storing and retrieving post data. 
+      - The ImageUploader class handles image uploads to Firebase Storage.
+      - The FirebasePostManager class manages post-related operations with Firebase Realtime Database.
+    - Singleton Pattern: the FirebasePostManager class also uses the Singleton pattern, providing a single instance to manage post-related operations with Firebase.
+    - Factory Method Pattern: the PostCreator class acts as a factory for creating new Post objects. It encapsulates the creation logic and associates the post with the current user.
+    - Facade Pattern: the LoginCheckService class acts as a facade, providing a simplified interface for validating user registration and login credentials. It encapsulates the complexity of interacting with the BPlus Tree and performs the necessary checks and validations.
+
+    
+These design patterns and data structures contribute to the overall architecture and functionality of the application, providing efficient data management, modularity, and separation of concerns.
+
+4. **u7633783, Linxiang Hu**  I have 20% contribution, as follows: <br>
+
+- **Code Contribution in the final App**
+- Tokenizer and Parser - Contribute to all java classes in Tokenizer_Parser
+  file: [Tokenizer_Parser](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser?ref_type=heads)
+- Firebase Manager
+    - Help to manage information User, Post and Remark in firebase including update, delete and add operations.
+    - Contribute to all java classes Firebase
+      file: [Firebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase?ref_type=heads)
+- SearchManager
+    - It is mainly used for validating if the userEmail and password are valid when registering in class
+      SearchManager: [SearchManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/SearchManager.java?ref_type=heads)
+- BPlus Tree
+    - It is used for local storage. Contribute to all java classes in BPlusTree
+      file:[BPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree?ref_type=heads)
+- Class FirebaseInit
+    - It is used for retrieving all information in firebase at the beginning of starting the application.
+    - Contribute together with others in class
+      FirebaseInit:[FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads)
+- Activity LoginActivityBPlusTree
+  in [LoginActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads)
+  and activity RegisterActivityBPlusTree
+  in [RegisterActivityBPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads)
+    - The login and register interface.
+- Activity MainActivity
+  in [MainActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MainActivity.java?ref_type=heads)
+    - The interface shows up firstly when entering the application
+- Activity HomeActivity
+  in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
+    - Finish the function that the randomly recommended home page posts are refreshed at ten-second intervals using
+      thread.
+- **Code and App Design**
+    - [What design patterns, data structures, did the involved member propose?]*
+        - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
+
+5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
+
+
+5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
+- **Code Contribution in the final App**
+    - BuyPostActivity
+      in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
+        - All the functions in this class, use for retrieves post details from the intent, and displays them on the
+          corresponding views,displays the details of a post for buying a product.
+    - CustomSpinnerAdapter
+      in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
+        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for
+          the first item (title) and disables the first item from being selected.
+    - HomeActivity
+      in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
+        - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
+    - MyPostActivity
+      in [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java?ref_type=heads)
+        - All the functions in this class, displays the details of a user's post, including its name, price, image,
+          description, and comments.
+    - PostActivity
+      in [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads)
+        - All the functions in this class,displays details of a post and allows users to interact with the post by
+          liking it, purchasing it, and writing comments.
+    - ProfileActivity
+      in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
+        - displays the user's profile information, dynamically updates and displays the user's posts, likes, and
+          purchases using grid layouts and allows the user to navigate to detailed views of each item.
+    - SearchActivity
+      in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
+        - All the functions in this class, common and advanced searches based on keywords and tags.
+    - TagSelectionActivity
+      in [TagSelectionActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/TagSelectionActivity.java?ref_type=heads)
+        - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for
+          saving the input and canceling the search.
+- **Code and App Design**
+    - buy post layout design
+      in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
+    - my post layout design
+      in [activity_my_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_my_post.xml?ref_type=heads)
+    - post layout design
+      in [activity_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_post.xml?ref_type=heads)
+    - register layout design
+      in [activity_register.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_register.xml?ref_type=heads)
+    - search layout design
+      in [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_search.xml?ref_type=heads)
+    - tag selection layout design
+      in [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
+    - comment dialog layout design
+      in [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
+    - comment layout design
+      in [item_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_comment.xml?ref_type=heads)
+    - inner post display layout design
+      in [item_card.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_card.xml?ref_type=heads)
 
 ## Application Description
 
 *[What is your application, what does it do? Include photos or diagrams if necessary]*
 
-*Green Book is a platform that revitalizes the concept of second-hand trading, aiming to encourage the recycling and reuse of items by connecting buyers and sellers. This initiative helps individuals easily find quality second-hand goods and offers sellers a space to rehome their pre-owned items. The platform is not just about buying and selling; it's a movement towards sustainable consumption and minimizing waste, in line with the United Nations' Sustainable Development Goal 12: Responsible Consumption and Production.*
+*Green Book is a platform that revitalizes the concept of second-hand trading, aiming to encourage the recycling and
+reuse of items by connecting buyers and sellers. This initiative helps individuals easily find quality second-hand goods
+and offers sellers a space to rehome their pre-owned items. The platform is not just about buying and selling; it's a
+movement towards sustainable consumption and minimizing waste, in line with the United Nations' Sustainable Development
+Goal 12: Responsible Consumption and Production.*
 
-*The user interface is crafted for ease, allowing sellers to set up listings complete with detailed descriptions, quality photos, and appropriate tags to enhance discoverability. For buyers, the platform provides tools to search for specific items, navigate through categories, and apply filters like location, price range, and item condition. Green Book also integrates a direct messaging system for seamless communication between buyers and sellers, facilitating inquiries and price negotiations.*
+*The user interface is crafted for ease, allowing sellers to set up listings complete with detailed descriptions,
+quality photos, and appropriate tags to enhance discoverability. For buyers, the platform provides tools to search for
+specific items, navigate through categories, and apply filters like location, price range, and item condition. Green
+Book also integrates a direct messaging system for seamless communication between buyers and sellers, facilitating
+inquiries and price negotiations.*
 
-*By bridging the gap between those looking to find new homes for their cherished items and those seeking sustainable purchasing options, Green Book fosters a community committed to eco-friendly consumption practices.*
+*By bridging the gap between those looking to find new homes for their cherished items and those seeking sustainable
+purchasing options, Green Book fosters a community committed to eco-friendly consumption practices.*
 
 ### Application Use Cases and or Examples
+
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+
 * use case diagram
-![Use case diagram](media/_examples/user case diagram.png) <br>
+  ![Use case diagram](media/_examples/user case diagram.png) <br>
 * System User Profile <br>
 
-| No. | User Role | Responsibilities                                    | Branch/Division/Section/Unit | Staff Post/Rank | Stakeholder Group                |
-|-----|-----------|-----------------------------------------------------|------------------------------|-----------------|----------------------------------|
-| 1   | Admin     | Responsible for overseeing the whole system         | Admin                        | Super           | Reservation and system manager   |
-| 2   | User      | Responsible for creating, liking, and buying posts. | User                         | Lower           | Normal user                      |
+| No. | User Role | Responsibilities                                    | Branch/Division/Section/Unit | Staff Post/Rank | Stakeholder Group              |
+|-----|-----------|-----------------------------------------------------|------------------------------|-----------------|--------------------------------|
+| 1   | Admin     | Responsible for overseeing the whole system         | Admin                        | Super           | Reservation and system manager |
+| 2   | User      | Responsible for creating, liking, and buying posts. | User                         | Lower           | Normal user                    |
 
 
 Use Case Authorization Table<br>
 
-| Use Case                    | Authorized User Type  |
-|-----------------------------|-----------------------|
-| 1. Login                    | Admin, User           |
-| 2. Register                 | Admin, User           |
-| 3. Search posts by keyword  | Admin, User           |
-| 4. Search posts by tags     | Admin, User           |
-| 5. Create post              | Admin, User           |
-| 6. Delete post              | Admin, User           |
-| 7. Like post                | Admin, User           |
-| 8. Buy post                 | Admin, User           |
-| 9. Edit profile             | Admin, User           |
-| 10. Write comment           | Admin, User           |
-| 11. Delete comment          | Admin, User           |
-| 12. Logout                  | Admin, User           |
-| 13. Auto-Update Posts       | Admin, User           |
+| Use Case                   | Authorized User Type |
+|----------------------------|----------------------|
+| 1. Login                   | Admin, User          |
+| 2. Register                | Admin, User          |
+| 3. Search posts by keyword | Admin, User          |
+| 4. Search posts by tags    | Admin, User          |
+| 5. Create post             | Admin, User          |
+| 6. Delete post             | Admin, User          |
+| 7. Like post               | Admin, User          |
+| 8. Buy post                | Admin, User          |
+| 9. Edit profile            | Admin, User          |
+| 10. Write comment          | Admin, User          |
+| 11. Delete comment         | Admin, User          |
+| 12. Logout                 | Admin, User          |
+| 13. Auto-Update Posts      | Admin, User          |
 
 * Case Narrative<br>
 
@@ -239,20 +353,20 @@ Use Case Authorization Table<br>
 |                       | - Password cannot contain spaces.                                                                                     |
 |                       | - Password must be 8-20 characters long.                                                                              |
 
-| Use Case 3            | Search Posts by Keyword                                                                               |
-|-----------------------|-------------------------------------------------------------------------------------------------------|
-| Goal in context       | To allow a user to search for posts using specific keywords.                                          |
-| Precondition          | The user is logged into the Green Book APP and is on the search page.                                 |
-| Success End Condition | The user is presented with a list of posts that match the entered keyword.                            |
-| Failed End Condition  | The user is shown a message indicating that no posts match the search criteria.                       |
-| Actor                 | User                                                                                                  |
-| Description           | Step 1. User opens the Green Book app and logs in if not already logged in.                           |
-|                       | Step 2. User navigates to the search page.                                                            |
-|                       | Step 3. User enters a keyword into the search bar.                                                    |
-|                       | Step 4. User clicks the "Search" button.                                                              |
-|                       | Step 5. System processes the keyword and searches for matching posts.                                 |
-|                       | Step 6. If matching posts are found, system displays the list of posts to the user.                   |
-|                       | Step 7. If no matching posts are found, system displays a message indicating no results were found.   |
+| Use Case 3            | Search Posts by Keyword                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to search for posts using specific keywords.                                        |
+| Precondition          | The user is logged into the Green Book APP and is on the search page.                               |
+| Success End Condition | The user is presented with a list of posts that match the entered keyword.                          |
+| Failed End Condition  | The user is shown a message indicating that no posts match the search criteria.                     |
+| Actor                 | User                                                                                                |
+| Description           | Step 1. User opens the Green Book app and logs in if not already logged in.                         |
+|                       | Step 2. User navigates to the search page.                                                          |
+|                       | Step 3. User enters a keyword into the search bar.                                                  |
+|                       | Step 4. User clicks the "Search" button.                                                            |
+|                       | Step 5. System processes the keyword and searches for matching posts.                               |
+|                       | Step 6. If matching posts are found, system displays the list of posts to the user.                 |
+|                       | Step 7. If no matching posts are found, system displays a message indicating no results were found. |
 
 | Use Case 4            | Search Posts by Tags                                                                                                                                          |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -444,33 +558,34 @@ Use Case Authorization Table<br>
 |                       | Step 5a1. User clicks the "Cancel" button.                                                                                                                      |
 |                       | Step 5a2. App closes the pop-up window without deleting the comment.                                                                                            |
 
-| Use Case 12           | Logout                                                                                                        |
-|-----------------------|---------------------------------------------------------------------------------------------------------------|
-| Goal in context       | To allow a user to log out of their account on the Green Book App.                                            |
-| Precondition          | The user is logged into the Green Book platform and is on their profile page.                                 |
-| Success End Condition | The user is successfully logged out and redirected to the login page.                                         |
-| Failed End Condition  | The user is not logged out and remains on their profile page.                                                 |
-| Actor                 | User                                                                                                          |
-| Description           | Step 1. User logs into the Green Book app or website.                                                         |
-|                       | Step 2. User navigates to their profile page.                                                                 |
-|                       | Step 3. User clicks the slide menu image to open the side menu.                                               |
-|                       | Step 4. User clicks the "Logout" button in the side menu.                                                     |
-|                       | Step 5. System processes the logout request.                                                                  |
-|                       | Step 6. If the logout is successful, the system logs the user out and redirects them to the login page.       |
+| Use Case 12           | Logout                                                                                                  |
+|-----------------------|---------------------------------------------------------------------------------------------------------|
+| Goal in context       | To allow a user to log out of their account on the Green Book App.                                      |
+| Precondition          | The user is logged into the Green Book platform and is on their profile page.                           |
+| Success End Condition | The user is successfully logged out and redirected to the login page.                                   |
+| Failed End Condition  | The user is not logged out and remains on their profile page.                                           |
+| Actor                 | User                                                                                                    |
+| Description           | Step 1. User logs into the Green Book app or website.                                                   |
+|                       | Step 2. User navigates to their profile page.                                                           |
+|                       | Step 3. User clicks the slide menu image to open the side menu.                                         |
+|                       | Step 4. User clicks the "Logout" button in the side menu.                                               |
+|                       | Step 5. System processes the logout request.                                                            |
+|                       | Step 6. If the logout is successful, the system logs the user out and redirects them to the login page. |
 
-| Use Case 13           | Auto-Update Posts                                                                                                      |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------|
-| Goal in context       | To automatically refresh and display updated recommendation posts on the home page every 10 seconds.                   |
-| Precondition          | The user is logged into the Green Book App and is on the home page.                                                    |
-| Success End Condition | The home page is automatically updated with new recommendation posts every 10 seconds without user intervention.       |
-| Failed End Condition  | The home page fails to update, and the user continues to see the old recommendation posts.                             |
-| Actor                 | User                                                                                                                   |
-| Description           | Step 1. User logs into the Green Book app.                                                                             |
-|                       | Step 2. User navigates to the home page.                                                                               |
-|                       | Step 3. System starts a timer for auto-updating posts.                                                                 |
-|                       | Step 4. Every 10 seconds, the system checks for new recommendation posts.                                              |
+| Use Case 13           | Auto-Update Posts                                                                                                |
+|-----------------------|------------------------------------------------------------------------------------------------------------------|
+| Goal in context       | To automatically refresh and display updated recommendation posts on the home page every 10 seconds.             |
+| Precondition          | The user is logged into the Green Book App and is on the home page.                                              |
+| Success End Condition | The home page is automatically updated with new recommendation posts every 10 seconds without user intervention. |
+| Failed End Condition  | The home page fails to update, and the user continues to see the old recommendation posts.                       |
+| Actor                 | User                                                                                                             |
+| Description           | Step 1. User logs into the Green Book app.                                                                       |
+|                       | Step 2. User navigates to the home page.                                                                         |
+|                       | Step 3. System starts a timer for auto-updating posts.                                                           |
+|                       | Step 4. Every 10 seconds, the system checks for new recommendation posts.                                        |
 
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+*List all the use cases in text descriptions or create use case diagrams. Please refer
+to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
 
 <hr> 
 
@@ -483,7 +598,9 @@ Use Case Authorization Table<br>
 
 ## Code Design and Decisions
 
-This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
+This is an important section of your report and should include all technical decisions made. Well-written justifications
+will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes,
+for example,
 
 - Details about the parser (describe the formal grammar and language used)
 
@@ -491,7 +608,8 @@ This is an important section of your report and should include all technical dec
 
 - Details about the design patterns used (where in the code, justification of the choice, etc)
 
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
+*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the
+concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
 
 <hr>
 
@@ -500,110 +618,163 @@ This is an important section of your report and should include all technical dec
 *I used the following data structures in my project:*
 
 1. *B+ Tree*
-   * *Objective: used for storing user, post, and remark data locally for efficient searching, insertion, deletion, and update operations.
-   * *Code Locations:*
-   defined in [Class BPlusTree, all methods(including insert, remove, query, and range query methods.)](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java#L1-823),
-   processed using [Class BPlusTreeManagerUser, methods getTreeInstance, getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L1-51) manages the user data stored in the local B+ Tree,
-     [Class BPlusTreeManagerRemark, methods getTreeInstance, get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L1-82) manages the remark data stored in the B+ Tree and  linked with the user and post data effiently,
-     [Class BPlusTreeManagerPost, all methods](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L23-175) manages the post data stored in the B+ Tree,
-     [Class FirebaseInit, method loadDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads#L59-199) initializes all the data including user, post, remark from Firebase realtime database into local B+ trees, helping initialize the application,
-     [Class LoginActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads#L50-70) and [Class RegisterActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads#L68) to check user credentials and add new users.
-   * *Reasons:*
-        * *B+ Tree provides efficient search, insertion, and deletion operations with a time complexity of O(log n), making it suitable for handling large amounts of data.*
-        * *The tree structure allows for fast range queries, which can be useful for retrieving posts or users within a specific range of values.*
-        * *B+ Tree keeps the data sorted, enabling efficient sequential access to the data, which is beneficial for scenarios like retrieving all posts or users.*
-        * *The leaf nodes of the B+ Tree are linked, allowing for quick traversal of the entire dataset, which is useful for features like random post recommendation.*
+    * *Objective: used for storing user, post, and remark data locally for efficient searching, insertion, deletion, and
+      update operations.
+    * *Code Locations:*
+      defined
+      in [Class BPlusTree, all methods(including insert, remove, query, and range query methods.)](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java#L1-823),
+      processed
+      using [Class BPlusTreeManagerUser, methods getTreeInstance, getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L1-51)
+      manages the user data stored in the local B+ Tree,
+      [Class BPlusTreeManagerRemark, methods getTreeInstance, get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L1-82)
+      manages the remark data stored in the B+ Tree and linked with the user and post data effiently,
+      [Class BPlusTreeManagerPost, all methods](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L23-175)
+      manages the post data stored in the B+ Tree,
+      [Class FirebaseInit, method loadDataFromFirebase](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads#L59-199)
+      initializes all the data including user, post, remark from Firebase realtime database into local B+ trees, helping
+      initialize the application,
+      [Class LoginActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads#L50-70)
+      and [Class RegisterActivityBPlusTree, method onCreate](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads#L68)
+      to check user credentials and add new users.
+    * *Reasons:*
+        * *B+ Tree provides efficient search, insertion, and deletion operations with a time complexity of O(log n),
+          making it suitable for handling large amounts of data.*
+        * *The tree structure allows for fast range queries, which can be useful for retrieving posts or users within a
+          specific range of values.*
+        * *B+ Tree keeps the data sorted, enabling efficient sequential access to the data, which is beneficial for
+          scenarios like retrieving all posts or users.*
+        * *The leaf nodes of the B+ Tree are linked, allowing for quick traversal of the entire dataset, which is useful
+          for features like random post recommendation.*
 
 
 2. *ArrayList*
-    * *Objective: used for storing and manipulating collections of data, such as lists of posts, users, and search results.*
+    * *Objective: used for storing and manipulating collections of data, such as lists of posts, users, and search
+      results.*
     * *Code Locations:* Used in various classes and methods throughout the project. Such as
-      * [Class BPlusTree, method rangeQuery](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L635-661)
-      *  [Class BPlusTreeManagerPost, methods randomRecommender, searchKeyword](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L46-75)
-      *  [Class BPlusTreeManagerUser, method getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L38-50)
-      *  [Class BPlusTreeManagerRemark, methods get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L34-80) and so on.
+        * [Class BPlusTree, method rangeQuery](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L635-661)
+        * [Class BPlusTreeManagerPost, methods randomRecommender, searchKeyword](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L46-75)
+        * [Class BPlusTreeManagerUser, method getUserViaUserId](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/User/BPlusTreeManagerUser.java?ref_type=heads#L38-50)
+        * [Class BPlusTreeManagerRemark, methods get, update, delete](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java?ref_type=heads#L34-80)
+          and so on.
     * *Reasons:*
-      * *ArrayList provides dynamic resizing, allowing for efficient addition and removal of elements.*
-      * *It offers fast random access to elements by index, which is useful when retrieving specific items from the list.*
-      * *ArrayList is suitable for scenarios where the size of the collection is not known in advance or may change over time.*
+        * *ArrayList provides dynamic resizing, allowing for efficient addition and removal of elements.*
+        * *It offers fast random access to elements by index, which is useful when retrieving specific items from the
+          list.*
+        * *ArrayList is suitable for scenarios where the size of the collection is not known in advance or may change
+          over time.*
 
 
-3.  *HashSet*
-    * *Objective: used for storing and managing unique collections of data, ensuring no duplicates, and enabling fast lookups, insertions, and deletions*
+3. *HashSet*
+    * *Objective: used for storing and managing unique collections of data, ensuring no duplicates, and enabling fast
+      lookups, insertions, and deletions*
     * *Code Locations:*
-      Used in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
-      [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75) and
+      Used
+      in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
+      [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75)
+      and
       [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71).
     * *Reasons:*
-      * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
-      * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
-        
+        * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
+        * *It provides constant-time performance for basic operations like add, remove, and contains, making it
+          efficient for checking the presence of a value.*
 
-4.  *Queue*
-    * Objective: used for storing and managing collections of elements in a first-in, first-out (FIFO) order, enabling efficient insertion and removal operations at both ends of the queue.
+
+4. *Queue*
+    * Objective: used for storing and managing collections of elements in a first-in, first-out (FIFO) order, enabling
+      efficient insertion and removal operations at both ends of the queue.
     * *Code Location:*
-      Used in [Class BPlusTree, method toString](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L591-610)
+      Used
+      in [Class BPlusTree, method toString](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L591-610)
     * *Reason:*
-      * *Queue provides an efficient way to traverse the B+ Tree level by level (breadth-first traversal), ensuring that all nodes at each level are processed before moving to the next level.
-      * *Using a Queue helps in maintaining the order of nodes to be processed, which is essential for generating a correct and structured string representation of the tree.
-      * *Queue operations, such as adding elements to the end and removing elements from the front, are performed in constant time O(1), making the traversal efficient.
-      * *The simplicity and effectiveness of the Queue data structure make it a suitable choice for implementing the level-order traversal required for visualizing the B+ Tree structure. 
+        * *Queue provides an efficient way to traverse the B+ Tree level by level (breadth-first traversal), ensuring
+          that all nodes at each level are processed before moving to the next level.
+        * *Using a Queue helps in maintaining the order of nodes to be processed, which is essential for generating a
+          correct and structured string representation of the tree.
+        * *Queue operations, such as adding elements to the end and removing elements from the front, are performed in
+          constant time O(1), making the traversal efficient.
+        * *The simplicity and effectiveness of the Queue data structure make it a suitable choice for implementing the
+          level-order traversal required for visualizing the B+ Tree structure.
 
-
-These data structures were chosen based on their performance characteristics and the specific requirements of the features they support. The B+ Tree serves as the main data structure for efficient storage and retrieval of user and post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and specific scenarios within the project.
+These data structures were chosen based on their performance characteristics and the specific requirements of the
+features they support. The B+ Tree serves as the main data structure for efficient storage and retrieval of user and
+post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and specific scenarios within the project.
 <hr>
 
 ### Design Patterns
+
 *[What design patterns did your team utilise? Where and why?]*
 
 ### Design Patterns
+
 1. *Singleton Pattern*
-    * *Objective:* The Singleton pattern is used in the `SessionManager` class to ensure that only one instance of the class is created and shared throughout the application. It manages the currently logged-in user and provides global access to that user object.
+    * *Objective:* The Singleton pattern is used in the `SessionManager` class to ensure that only one instance of the
+      class is created and shared throughout the application. It manages the currently logged-in user and provides
+      global access to that user object.
     * *Code Locations:*
-        - Defined in [SessionManager](SessionManager.java), the `getInstance()` method ensures that only one instance of `SessionManager` is created.
+        - Defined in [SessionManager](SessionManager.java), the `getInstance()` method ensures that only one instance
+          of `SessionManager` is created.
         - The private constructor prevents instantiation of `SessionManager` from outside the class.
     * *Reasons:*
-        - The Singleton pattern ensures that there is only one instance of `SessionManager` managing the current user session.
-        - It provides a global point of access to the current user object, making it easier to manage and access the user session from different parts of the application.
-      
+        - The Singleton pattern ensures that there is only one instance of `SessionManager` managing the current user
+          session.
+        - It provides a global point of access to the current user object, making it easier to manage and access the
+          user session from different parts of the application.
+
 2. *Facade Pattern*
-    * *Objective:* The `SearchManager` class acts as a facade, providing a simplified interface for validating user input such as username, password, and search queries. It encapsulates the complex validation logic behind simple methods.
+    * *Objective:* The `SearchManager` class acts as a facade, providing a simplified interface for validating user
+      input such as username, password, and search queries. It encapsulates the complex validation logic behind simple
+      methods.
     * *Code Locations:*
-        - Defined in [SearchManager](SearchManager.java), the `validateUsername()`, `validatePassword()`, and `validateSearchQuery()` methods provide a simple interface for input validation.
+        - Defined in [SearchManager](SearchManager.java), the `validateUsername()`, `validatePassword()`,
+          and `validateSearchQuery()` methods provide a simple interface for input validation.
         - The actual validation logic using regular expressions is encapsulated within the `SearchManager` class.
     * *Reasons:*
-        - The Facade pattern simplifies the usage of input validation by providing a high-level interface through the `SearchManager` class.
+        - The Facade pattern simplifies the usage of input validation by providing a high-level interface through
+          the `SearchManager` class.
         - It abstracts the complexity of the validation logic, making it easier to use and maintain.
-        - It promotes loose coupling between the client code and the validation implementation, as the client only interacts with the facade methods.
+        - It promotes loose coupling between the client code and the validation implementation, as the client only
+          interacts with the facade methods.
 
 3. *Factory Pattern*
-    * *Objective:* The Factory pattern is used in the modified B+ Tree implementation to encapsulate the creation logic of B+ Tree nodes. It allows the client code to create nodes without knowing the specific types of nodes being created (leaf or non-leaf nodes).
+    * *Objective:* The Factory pattern is used in the modified B+ Tree implementation to encapsulate the creation logic
+      of B+ Tree nodes. It allows the client code to create nodes without knowing the specific types of nodes being
+      created (leaf or non-leaf nodes).
     * *Code Locations:*
-        - Defined in the `BPlusTreeNodeFactory` class, the `createNode()` method takes the entries, values, and a boolean flag indicating whether it's a leaf node, and returns an instance of `BPlusTreeNode`.
-        - The `BPlusTreeNodeFactory` is used in the `BPlusTree` class to create nodes whenever needed, such as when handling root overflow or splitting nodes.
+        - Defined in the `BPlusTreeNodeFactory` class, the `createNode()` method takes the entries, values, and a
+          boolean flag indicating whether it's a leaf node, and returns an instance of `BPlusTreeNode`.
+        - The `BPlusTreeNodeFactory` is used in the `BPlusTree` class to create nodes whenever needed, such as when
+          handling root overflow or splitting nodes.
     * *Reasons:*
-        - The Factory pattern encapsulates the node creation logic, making it easier to extend or modify the B+ Tree implementation without affecting the client code.
-        - It promotes loose coupling between the client code and the specific types of nodes, as the client only interacts with the `BPlusTreeNode` interface.
-        - It allows for flexibility in creating different types of nodes based on the provided conditions, without exposing the complexity to the client.
+        - The Factory pattern encapsulates the node creation logic, making it easier to extend or modify the B+ Tree
+          implementation without affecting the client code.
+        - It promotes loose coupling between the client code and the specific types of nodes, as the client only
+          interacts with the `BPlusTreeNode` interface.
+        - It allows for flexibility in creating different types of nodes based on the provided conditions, without
+          exposing the complexity to the client.
 
 4. *Template Method Pattern*
-    * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common structure for the B+ Tree operations while allowing subclasses (leaf and non-leaf nodes) to provide their specific implementations.
+    * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common
+      structure for the B+ Tree operations while allowing subclasses (leaf and non-leaf nodes) to provide their specific
+      implementations.
     * *Code Locations:*
-        - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such as `insert()`, `remove()`, `query()`, etc.
-        - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide their specific implementations for the defined methods.
+        - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such
+          as `insert()`, `remove()`, `query()`, etc.
+        - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide
+          their specific implementations for the defined methods.
     * *Reasons:*
-        - The Template Method pattern provides a common structure for the B+ Tree operations, ensuring consistency across different types of nodes.
-        - It allows subclasses to override or provide their specific implementations for certain steps of the algorithm while maintaining the overall structure.
-        - It promotes code reuse and reduces duplication by defining the common parts of the algorithm in the abstract base class (`BPlusTreeNode` interface).
-
-
-
+        - The Template Method pattern provides a common structure for the B+ Tree operations, ensuring consistency
+          across different types of nodes.
+        - It allows subclasses to override or provide their specific implementations for certain steps of the algorithm
+          while maintaining the overall structure.
+        - It promotes code reuse and reduces duplication by defining the common parts of the algorithm in the abstract
+          base class (`BPlusTreeNode` interface).
 
 <hr>
 
 ### Parser
 
 ### <u>Grammar(s)</u>
+
 *[How do you design the grammar? What are the advantages of your designs?]*
 \
 The parser is used to parse numbers.
@@ -618,7 +789,6 @@ Production Rules:
     <Expression> ::= <Number>|<Dot>|<Number>
     or
     <Expression> ::= <Number>|
-
 
 ### <u>Tokenizers and Parsers</u>
 
@@ -641,53 +811,101 @@ This achieves the unification of parsing result display in Expression.java.
 <hr>
 
 ## Implemented Features
+
 *[What features have you implemented? where, how, and why?]* <br>
-*List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
+*List all features you have completed in their separate categories with their featureId. THe features must be one of the
+basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-1. [LogIn]. Users are able to log in to the application using their credentials. The application includes two pre-defined accounts for markers' access:
+
+1. [LogIn]. Users are able to log in to the application using their credentials. The application includes two
+   pre-defined accounts for markers' access:
     - Username: comp2100@anu.edu.au, Password: comp2100
     - Username: comp6442@anu.edu.au, Password: comp6442 (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of feature: The login feature allows users to authenticate themselves and access the application's functionality. It verifies the provided username and password against the stored user credentials. Also provide register service and feel free to create your own account. <br>
-   * Description of implementation: The LoginActivityBPlusTree handles the user interface for the login screen. It captures the user's input, validates the credentials against the predefined accounts or the user database, and grants access to the application upon successful authentication. The User class represents the user entity and encapsulates user-related information. <br>
 
-2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is stored in structured JSON formats. (easy)
-   * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-   * Description of feature: The application relies on a dataset that contains meaningful information relevant to the app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The images of the posts are stored in Firebase storage. <br>
-   * Description of implementation: The basic post data is from an open source dataset in the Internet and been processed to fit the application's requirements. The user data is generated using Python Faker library. The data files are stored in the GitLab repository and are also synced with Firebase Realtime Database for easy access and real-time updates. <br>
-   * Link to the Firebase repo: [Firebase Repository](https://console.firebase.google.com/project/login-register-firebase-94766/overview) <br>
+    *
+    Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
+    and Class Y, ...
+    * Description of feature: The login feature allows users to authenticate themselves and access the application's
+      functionality. It verifies the provided username and password against the stored user credentials. Also provide
+      register service and feel free to create your own account. <br>
+    * Description of implementation: The LoginActivityBPlusTree handles the user interface for the login screen. It
+      captures the user's input, validates the credentials against the predefined accounts or the user database (Firebase realtime database), and
+      grants access to the application upon successful authentication. The User class represents the user entity and
+      encapsulates user-related information. <br>
 
-3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on the type of data. (easy)
+2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
+   stored in structured JSON formats. (easy)
+    * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
+    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files]()
+    * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
+      app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
+      images of the posts are stored in Firebase storage. <br>
+    * Description of implementation: The basic post data is from an open source dataset in the Internet and been
+      processed to fit the application's requirements. The user data is generated using Python Faker library. The data
+      files are stored in the Firebase repository, images in Storage and other data in Realtime Database,
+      and the application synced with Firebase Realtime Database for easy access and
+      real-time updates. <br>
+    * Link to the Firebase
+      repo: [Firebase Repository](https://console.firebase.google.com/project/login-register-firebase-94766/overview) <br>
+
+3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on
+   the type of data. (easy)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database and presents them to the user in a structured and visually appealing format. The profile page show the user's information with the post owned by the user, and the item page shows the details of a specific item. <br>
-    * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository. The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to the user. It determines the appropriate format for displaying each type of data, such as lists, tables, or charts, to enhance readability and user experience. <br>
+    * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
+      and presents them to the user in a structured and visually appealing format. The profile page show the user's
+      information with the post owned by the user, and the post page shows the details of a specific post. <br>
+    * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
+        And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
+      The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to
+      the user. They determine the appropriate formats for displaying each type of data, such as users, posts, or remarks,
+      to enhance readability and user experience, and they call function from the back-end to show the data instances from the dataset.<br>
 
-4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to the app at regular intervals. (medium)
+4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
+   the app at regular intervals. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application generates data instances that mimic user actions and interactions. These data instances are loaded at regular time intervals and visualized within the app when a user is logged in. For instance, a user can create a post and the post data will be uploaded to Firebase, then user can view it in the user interface. <br>
-    * Description of implementation: The PostCreator class is responsible for generating and loading post data instances, including post title, description, images, and other relevant information. The ImageUploader class manages the creation and loading of images of posts. The data is stored in Firebase Realtime Database and Firebase Storage for persistence and retrieval. And then the data is displayed by the GlideImageLoader class in the app's UI for the user to interact with. <br>
+    * Description of feature: The application generates data instances that mimic user actions and interactions. These
+      data instances are loaded at regular time intervals and visualized within the app when a user is logged in. For
+      instance, a user can create a post and the post data will be uploaded to Firebase, then user can view it in the
+      user interface. <br>
+    * Description of implementation: The PostCreator class is responsible for generating and loading post data
+      instances, including post title, description, images, and other relevant information. The ImageUploader class
+      manages the creation and loading of images of posts. The data is stored in Firebase Realtime Database and Firebase
+      Storage for persistence and retrieval. And then the data is displayed by the GlideImageLoader class in the app's
+      UI for the user to interact with. <br>
 
-5. [Search]. Users can search for specific information within the application using a query processor that understands user input based on predefined grammars. (medium)
+5. [Search]. Users can search for specific information within the application using a query processor that understands
+   user input based on predefined grammars. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application provides a search functionality that allows users to retrieve information based on their queries. The query processor understands user input using predefined grammars and retrieves the relevant information from the dataset. <br>
-    * Description of implementation: The _Parser Package_ using ANTLR handles the processing of user search queries. It utilizes a tokenizer to break down the user input into individual tokens and a parser to analyze the tokens based on a predefined formal grammar. The grammar defines the structure and syntax of valid search queries. The QueryProcessor interprets the user's query and retrieves the matching information from the dataset. The SearchActivity handles the user interface for the search functionality, allowing users to enter their queries and displaying the search results. <br>
-   <br>
+    * Description of feature: The application provides a search functionality that allows users to retrieve information
+      based on their queries. The query processor understands user input using predefined grammars and retrieves the
+      relevant information from the dataset. <br>
+    * Description of implementation: The _Parser Package_ using ANTLR handles the processing of user search queries. It
+      utilizes a tokenizer to break down the user input into individual tokens and a parser to analyze the tokens based
+      on a predefined formal grammar. The grammar defines the structure and syntax of valid search queries. The
+      QueryProcessor interprets the user's query and retrieves the matching information from the dataset. The
+      SearchActivity handles the user interface for the search functionality, allowing users to enter their queries and
+      displaying the search results. <br>
+      <br>
 
 ### Custom Features
+
 Feature Category: Privacy <br>
 
-1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (easy)
+1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (
+   easy)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-2. [UI-Test].  Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the App. (hard)
+2. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
+   App. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
-3. [Data-Deletion].  Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within your application. (medium)
+3. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+   your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation:  <br>
@@ -697,22 +915,20 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation:  <br>
-
-6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user, etc.) [stored in-memory]. (easy)
+5. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
+   etc.) [stored in-memory]. (easy)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
    <br><br>
+
 <hr>
 
 ### Surprise Features
 
-- If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprise feature specifications).
+- If implemented, explain how your solution addresses the task (any detail requirements will be released with the
+  surprise feature specifications).
 - State that "Suprised feature is not implemented" otherwise.
 
 <br> <hr>
@@ -720,43 +936,119 @@ Feature Category: Privacy <br>
 ## Summary of Known Errors and Bugs
 
 *[Where are the known errors and bugs? What consequences might they lead to?]*
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
+*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your
+testing is not thorough.*
 
 *Here is an example:*
 
 1. *Bug 1:*
-   - *A space bar (' ') in the sign in email will crash the application.*
-   - ...
+    - *A space bar (' ') in the sign in email will crash the application.*
+    - ...
 
 2. *Bug 2:*
 3. ...
 
 <br> <hr>
 
-
 ## Testing Summary
 
 *[What features have you tested? What is your testing coverage?]*
-*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
+*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide
+further details on your tests.*
 
 *Here is an example:*
 
-1. Tests for Search
-   - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-   - *Number of test cases: ...*
-   - *Code coverage: ...*
-   - *Types of tests created and descriptions: ...*
+1. Tests for Tokenizer and Parser
+    -
+    Code: [TokenizerParserTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/TokenizerParserTest.java)
+    for
+    the [Tokenizer_Parser Package, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser)
+    - *Number of test cases: 8*
+    - *Code coverage: The test cases cover various scenarios, including valid inputs, invalid token cases, and format
+      error invalid inputs cases.*
+    - *Types of tests created and descriptions:*    
+      *1. `testValidInput()`: Tests the parsing of a valid input with a decimal point. Verifies that the parsed result
+      matches the expected output.*  
+      *2. `testValidInputWithoutDecimal()`: Tests the parsing of a valid input without a decimal point. Verifies that
+      the parsed result matches the expected output.*  
+      *3. `testInvalidInputFormat()`: Tests the parsing of an invalid input format. Expects an `IllegalFormatException`
+      to be thrown.*  
+      *4. `testValidInputWithoutRightPart()`: Tests the parsing of a valid input without a right part after the decimal
+      point. Expects an `IllegalFormatException` to be thrown.*  
+      *5. `testValidInputWithoutLeftPart()`: Tests the parsing of a valid input without a left part before the decimal
+      point. Expects an `IllegalFormatException` to be thrown.*  
+      *6. `testSingleDotInput()`: Tests the parsing of a single dot input. Expects an `IllegalFormatException` to be
+      thrown.*  
+      *7. `testInvalidInputCharacter()`: Tests the tokenizing of an invalid input character. Expects
+      an `IllegalTypeException` to be thrown.*  
+      *8. `testEmptyInputWithException()`: Tests the parsing of an empty input. Expects a `NullPointerException` to be
+      thrown.*
 
-2. xxx
+2. Tests for BPlusTree
+    -
+    Code: [BPlusTreeTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/BPlusTreeTest.java)
+    for
+    the [BPlusTree Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java)
+    - *Number of test cases:  7*
+    - *Code coverage: The test cases cover various operations of the B+ tree, including insert, query, range query,
+      update, remove, and remove all.*
+    - *Types of tests created and descriptions:*    
+      *1. `testInsert()`: Tests the insert operation of the B+ tree. Inserts several key-value pairs and checks if the
+      data in the tree is as expected.*  
+      *2. `testQuery()`: Tests the query operation of the B+ tree. Inserts several key-value pairs and checks if the
+      query result for a specific key is as expected.*  
+      *3. `testRangeQuery()`: Tests the range query operation of the B+ tree. Inserts several key-value pairs and checks
+      if the range query result is as expected.*  
+      *4. `testUpdate()`: Tests the update operation of the B+ tree. Inserts several key-value pairs, updates a value
+      for a specific key, and checks if the updated value is as expected.*  
+      *5. `testRemove()`: Tests the remove operation of the B+ tree. Inserts several key-value pairs, removes a value
+      for a specific key, and checks if the removed value is no longer in the tree.*  
+      *6. `testRemoveAll()`: Tests the remove all operation of the B+ tree. Inserts several key-value pairs, removes all
+      values for a specific key, and checks if no values for that key are left in the tree.*  
+      *7. `setUp()`: This method is not a test case but a setup method that is executed before each test. It initializes
+      the B+ tree with a degree of 3.*
 
-...
+3. Tests for Factory Design Pattern
+    -
+    Code: [FactoryDesignPatternTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/FactoryDesignPatternTest.java)
+    for
+    the [Remark Package, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Remark)
+    - *Number of test cases:  3*
+    - *Code coverage: The test cases cover the creation of different types of remarks (Common and Anonymous) using their
+      respective factories.*
+    - *Types of tests created and descriptions:*  
+      *1. `testCommonRemarkFactory()`: Tests the creation of a `CommonRemark` using the `CommonRemarkFactory`. Verifies
+      the type of the created remark and its properties.*    
+      *2. `testAnonymousRemarkFactory()`: Tests the creation of an `AnonymousRemark` using the `AnonymousRemarkFactory`.
+      Verifies the type of the created remark and its properties.*   
+      *3. `testDifferentFactories()`: Tests the creation of remarks using different factories. Verifies that the remarks
+      created by different factories have different user emails but the same text and post ID.*
+
+4. Tests for Singleton Design Pattern
+    -
+    Code: [SingletonDesignPatternTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/SingletonDesignPatternTest.java)
+    for
+    the [FirebaseUserManager Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java)
+    and [FirebasePostManager Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java)
+    - *Number of test cases:  2*
+    - *Code coverage:  The test cases cover the creation of instances of `FirebaseUserHelper` and `FirebasePostHelper`
+      using the `getInstance` method of their respective managers. However, the exact code coverage percentage is not
+      provided in the given code.*
+    - *Types of tests created and descriptions:*  
+      *1. `testSingletonUser()`: Tests the Singleton Design Pattern implementation in the `FirebaseUserManager` class.
+      Creates two instances of `FirebaseUserHelper` using the `getInstance` method and verifies that they are the
+      same.*    
+      *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class.
+      Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the
+      same.*  
+      ...
 
 <br> <hr>
-
 
 ## Team Management
 
 ### Meetings Records
+
 * Link to the minutes of your meetings like above. There must be at least 4 team meetings.
   (each commited within 2 days aftre the meeting)
 * Your meetings should also have a reasonable date spanning across Week 6 to 11.*
@@ -772,10 +1064,13 @@ Feature Category: Privacy <br>
 <hr>
 
 ### Conflict Resolution Protocol
+
 *[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
 (If you choose to make this an external document, link to it here)]*
 
 This shall include an agreed procedure for situations including (but not limited to):
+
 - e.g., if a member fails to meet the initial plan and/or deadlines
 - e.g., if your group has issues, how will your group reach consensus or solve the problem?
-- e.g., if a member gets sick, what is the solution? Alternatively, what is your plan to mitigate the impact of unforeseen incidents for this 6-to-8-week project? 
+- e.g., if a member gets sick, what is the solution? Alternatively, what is your plan to mitigate the impact of
+  unforeseen incidents for this 6-to-8-week project? 
