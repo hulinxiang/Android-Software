@@ -837,7 +837,7 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
    stored in structured JSON formats. (easy)
     * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
-    * Files for all data, including python script for generating fake user information data and disposed post data: [Data Files]()
+    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files]()
     * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
       app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
       images of the posts are stored in Firebase storage. <br>
@@ -854,11 +854,12 @@ basic/custom features, or an approved feature from Voice Four Feature.*
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
-      information with the post owned by the user, and the item page shows the details of a specific item. <br>
-    * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository.
+      information with the post owned by the user, and the post page shows the details of a specific post. <br>
+    * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
+        And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
       The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to
-      the user. It determines the appropriate format for displaying each type of data, such as lists, tables, or charts,
-      to enhance readability and user experience. <br>
+      the user. They determine the appropriate formats for displaying each type of data, such as users, posts, or remarks,
+      to enhance readability and user experience, and they call function from the back-end to show the data instances from the dataset.<br>
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
