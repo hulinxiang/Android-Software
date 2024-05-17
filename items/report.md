@@ -98,7 +98,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - **Code Contribution in the final App**
     - Responsive Layouts
         - Ensured all layouts are responsive to different screen sizes and orientations.
-        - Implemented flexible UI designs for a seamless user experience.
+        - Implemented flexible UI designs for user-friendly experience.
     - Create Post Functionality
         - Developed the CreateActivity class, enabling users to create and upload posts.
         - Implemented UI components for product details input and image selection.
@@ -108,7 +108,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
         - Developed the EditProfileActivity class for users to edit their profile information.
         - Integrated UI components for updating name, password, address, and phone number.
         - Synchronized profile updates with both Firebase and the local BPlusTree.
-        - Ensured data validation and provided feedback on successful updates.
+        - Implemented the logout function in the profile page to allow users to log out from their accounts.
     - Image Upload and Retrieval
         - Integrated image upload functionality using Firebase Storage.
         - Developed method to handle image upload processes.
@@ -123,6 +123,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
     - [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
     - [activity_profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
+    - [nav_header](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/nav_header.xml?ref_type=heads)
     - [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
     - [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
