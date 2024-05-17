@@ -708,14 +708,49 @@ Feature Category: Privacy <br>
 
 *Here is an example:*
 
-1. Tests for Search
-   - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-   - *Number of test cases: ...*
-   - *Code coverage: ...*
-   - *Types of tests created and descriptions: ...*
+1. Tests for Tokenizer and Parser
+   - Code: [TokenizerParserTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/TokenizerParserTest.java) for the [Tokenizer_Parser Package, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser)
+   - *Number of test cases: 8*
+   - *Code coverage: The test cases cover various scenarios, including valid inputs, invalid token cases, and format error invalid inputs cases.*
+   - *Types of tests created and descriptions:*    
+     *1. `testValidInput()`: Tests the parsing of a valid input with a decimal point. Verifies that the parsed result matches the expected output.*  
+     *2. `testValidInputWithoutDecimal()`: Tests the parsing of a valid input without a decimal point. Verifies that the parsed result matches the expected output.*  
+     *3. `testInvalidInputFormat()`: Tests the parsing of an invalid input format. Expects an `IllegalFormatException` to be thrown.*  
+     *4. `testValidInputWithoutRightPart()`: Tests the parsing of a valid input without a right part after the decimal point. Expects an `IllegalFormatException` to be thrown.*  
+     *5. `testValidInputWithoutLeftPart()`: Tests the parsing of a valid input without a left part before the decimal point. Expects an `IllegalFormatException` to be thrown.*  
+     *6. `testSingleDotInput()`: Tests the parsing of a single dot input. Expects an `IllegalFormatException` to be thrown.*  
+     *7. `testInvalidInputCharacter()`: Tests the tokenizing of an invalid input character. Expects an `IllegalTypeException` to be thrown.*  
+     *8. `testEmptyInputWithException()`: Tests the parsing of an empty input. Expects a `NullPointerException` to be thrown.*  
 
-2. xxx
+2. Tests for BPlusTree
+    - Code: [BPlusTreeTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/BPlusTreeTest.java) for the [BPlusTree Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java)
+    - *Number of test cases:  7*
+    - *Code coverage: The test cases cover various operations of the B+ tree, including insert, query, range query, update, remove, and remove all.*
+    - *Types of tests created and descriptions:*    
+      *1. `testInsert()`: Tests the insert operation of the B+ tree. Inserts several key-value pairs and checks if the data in the tree is as expected.*  
+      *2. `testQuery()`: Tests the query operation of the B+ tree. Inserts several key-value pairs and checks if the query result for a specific key is as expected.*  
+      *3. `testRangeQuery()`: Tests the range query operation of the B+ tree. Inserts several key-value pairs and checks if the range query result is as expected.*  
+      *4. `testUpdate()`: Tests the update operation of the B+ tree. Inserts several key-value pairs, updates a value for a specific key, and checks if the updated value is as expected.*  
+      *5. `testRemove()`: Tests the remove operation of the B+ tree. Inserts several key-value pairs, removes a value for a specific key, and checks if the removed value is no longer in the tree.*  
+      *6. `testRemoveAll()`: Tests the remove all operation of the B+ tree. Inserts several key-value pairs, removes all values for a specific key, and checks if no values for that key are left in the tree.*  
+      *7. `setUp()`: This method is not a test case but a setup method that is executed before each test. It initializes the B+ tree with a degree of 3.*
 
+3. Tests for Factory Design Pattern
+    - Code: [FactoryDesignPatternTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/FactoryDesignPatternTest.java) for the [Remark Package, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Remark)
+    - *Number of test cases:  3*   
+    - *Code coverage: The test cases cover the creation of different types of remarks (Common and Anonymous) using their respective factories.*   
+    - *Types of tests created and descriptions:*  
+      *1. `testCommonRemarkFactory()`: Tests the creation of a `CommonRemark` using the `CommonRemarkFactory`. Verifies the type of the created remark and its properties.*    
+      *2. `testAnonymousRemarkFactory()`: Tests the creation of an `AnonymousRemark` using the `AnonymousRemarkFactory`. Verifies the type of the created remark and its properties.*   
+      *3. `testDifferentFactories()`: Tests the creation of remarks using different factories. Verifies that the remarks created by different factories have different user emails but the same text and post ID.*    
+
+4. Tests for Singleton Design Pattern
+    - Code: [SingletonDesignPatternTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/SingletonDesignPatternTest.java) for the [FirebaseUserManager Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java) and [FirebasePostManager Class, entire file](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java)
+    - *Number of test cases:  2*  
+    - *Code coverage:  The test cases cover the creation of instances of `FirebaseUserHelper` and `FirebasePostHelper` using the `getInstance` method of their respective managers. However, the exact code coverage percentage is not provided in the given code.*  
+    - *Types of tests created and descriptions:*  
+      *1. `testSingletonUser()`: Tests the Singleton Design Pattern implementation in the `FirebaseUserManager` class. Creates two instances of `FirebaseUserHelper` using the `getInstance` method and verifies that they are the same.*    
+      *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class. Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the same.*  
 ...
 
 <br> <hr>
