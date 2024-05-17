@@ -37,7 +37,9 @@ assets:
   - comment: "Refer to this link as the part of the interface design of our app: navigation bar, search bar,post detail page and profile page"
     url: https://github.com/earthlingsander/FutureFurnitureUI-Android?tab=readme-ov-file
     licence: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-
+  - comment: "Refer to this link as the post dataset of our app: including the basic data and the images"
+    url: https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset
+    licence: Data files © Original Authors
 
 ### Questions (answer before final submission):
 1. You (as a group) completed this work (tick the most appropriate option):
@@ -52,7 +54,7 @@ assets:
   - <your answer here>
 
 4. How long did it take to complete this assignment (approximately, in hours)?
-  - 200 hours
+  - 320 hours
 
 
 
