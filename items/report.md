@@ -801,8 +801,8 @@ Production Rules:
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 The tokenizers and parsers are used for searching a product with a price.
 \
-
-![The structure of them is shown](UMLToknizer.png)
+The structure of them is shown below:
+\
 The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
 \
 This achieves the unification of parsing result display in Expression.java.
@@ -830,8 +830,11 @@ basic/custom features, or an approved feature from Voice Four Feature.*
     - Username: comp6442@anu.edu.au, Password: comp6442 (easy)
 
     *
-    Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-    and Class Y, ...
+    Code:    
+ [Class LoginActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads),  
+   [Class LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java?ref_type=heads),  
+   [Class RegisterActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads),  
+
     * Description of feature: The login feature allows users to authenticate themselves and access the application's
       functionality. It verifies the provided username and password against the stored user credentials. Also provide
       register service and feel free to create your own account. <br>
@@ -843,7 +846,7 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
    stored in structured JSON formats. (easy)
     * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
-    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files]()
+    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/data.zip)
     * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
       app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
       images of the posts are stored in Firebase storage. <br>
@@ -869,29 +872,35 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application generates data instances that mimic user actions and interactions. These
-      data instances are loaded at regular time intervals and visualized within the app when a user is logged in. For
-      instance, a user can create a post and the post data will be uploaded to Firebase, then user can view it in the
-      user interface. <br>
-    * Description of implementation: The PostCreator class is responsible for generating and loading post data
-      instances, including post title, description, images, and other relevant information. The ImageUploader class
-      manages the creation and loading of images of posts. The data is stored in Firebase Realtime Database and Firebase
-      Storage for persistence and retrieval. And then the data is displayed by the GlideImageLoader class in the app's
-      UI for the user to interact with. <br>
+    * Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature: We create data instances to simulate users’ actions and interactions, when a user login, 
+      the application implemented automatically recommends post content on the home screen by loading post data 
+      files from Firebase and visualizing them at regular time intervals.
+       <br>
+    * Description of implementation: The FirebaseInit class initializes Firebase and loads post data from the Firebase
+      Realtime Database into the application's local B+ tree data structure (BPlusTreeManagerPost). The HomeActivity class, 
+     which represents the home screen of the application, periodically updates the displayed post content using a Handler 
+     and a Runnable. The startRepeatingTask() method is called in the onStart() lifecycle method to start the periodic updates, 
+     and the stopRepeatingTask() method is called in the onStop() lifecycle method to stop the updates when the activity is no longer visible.
+      Inside the run() method of the Runnable, the showPost() method is called on the main thread using runOnUiThread(). 
+     The showPost() method retrieves a random selection of posts from the local B+ tree using the randomRecommender() 
+     method of BPlusTreeManagerPost. This method shuffles all the posts stored in the B+ tree, selects a subset of posts, and returns them as a list. 
+      <br>
 
 5. [Search]. Users can search for specific information within the application using a query processor that understands
    user input based on predefined grammars. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: The application provides a search functionality that allows users to retrieve information
-      based on their queries. The query processor understands user input using predefined grammars and retrieves the
-      relevant information from the dataset. <br>
-    * Description of implementation: The _Parser Package_ using ANTLR handles the processing of user search queries. It
-      utilizes a tokenizer to break down the user input into individual tokens and a parser to analyze the tokens based
-      on a predefined formal grammar. The grammar defines the structure and syntax of valid search queries. The
-      QueryProcessor interprets the user's query and retrieves the matching information from the dataset. The
-      SearchActivity handles the user interface for the search functionality, allowing users to enter their queries and
-      displaying the search results. <br>
+      based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range 
+     together on the search page. We also implemented keyword search simply. <br>
+    * Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including 
+    the tag(will be discussed later) and the price range. The keyword search has simple implementation, searching for posts containing 
+     a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
+    search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
+     which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
+<br>
+     
+     
       <br>
 
 ### Custom Features
@@ -904,24 +913,30 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-2. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
+2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
    App. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
-3. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation:  <br>
 
-4. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+   your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-5. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
+5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation:  <br>
+
+6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
@@ -1047,37 +1062,7 @@ further details on your tests.*
       *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class.
       Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the
       same.*  
-
-5. Tests for User Login
-   -
-   Code: [UserLoginTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
-   for
-   the [LoginActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java)
-    - *Number of test cases:  4*
-    - *Code coverage: The test cases cover various scenarios, including successful login for different users, login failure with wrong password, and login failure when user is not found.*
-    - *Types of tests created and descriptions:*  
-      *1. `testLoginSuccessUser1()`: Tests the `loginCheck` method in the `LoginCheckService` class. 
-   It verifies the successful login of user 1 by checking if the login check returns true for the correct username and password combination.*    
-      *2. `testLoginSuccessUser2()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies the 
-   successful login of user 2 by checking if the login check returns true for the correct username and password combination.*  
-      *3. `testLoginFailureWrongPassword()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies
-   the login failure scenario when the wrong password is provided by checking if the login check returns false when the password is incorrect.*  
-      *4. `testLoginFailureUserNotFound()`: Tests the `loginCheck` method in the `LoginCheckService` class. It 
-   verifies the login failure scenario when the user is not found in the system by checking if the login check returns false when the username does not exist.*
-
-6. Tests for User Registration
-   -
-   Code: [RegisterActivityTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
-   for
-   the [RegisterActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java)
-    - *Number of test cases:  4*
-    - *Code coverage: The test cases cover various scenarios, including successful registration, registration failure due to duplicate username, registration failure due to empty password, and registration failure due to invalid password.*
-    - *Types of tests created and descriptions:*  
-      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination. *    
-      *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
-      *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
-      *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
-
+      ...
 
 <br> <hr>
 
