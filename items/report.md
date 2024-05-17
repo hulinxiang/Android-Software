@@ -116,21 +116,27 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - UI Tests using Espresso
         - Created UI tests for the EditProfileActivity using Espresso,try but failed
 
-   **Source Code Links**
-    - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
-      -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-    - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+- **Source Code Links**
+    - [activity.main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
+    - [activity.login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
+    - [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+    - [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
+    - [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
+    - [activity_profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
+    - [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+    - [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
-    **Code and App design**
+
+- **Code and App Design**
     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
       orientations.
     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using
       Android Studio and XML.
-    **Others**:
+    
+- **Others**:
     - Features Video and Presentation Video
-
 
 
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
