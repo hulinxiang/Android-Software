@@ -200,19 +200,17 @@ These design patterns and data structures contribute to the overall architecture
     - [What design patterns, data structures, did the involved member propose?]*
         - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
-
-
 5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
+- feature [LoadShowData] and feature [Interact-Micro].
     - BuyPostActivity
       in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
         - All the functions in this class, use for retrieves post details from the intent, and displays them on the
           corresponding views,displays the details of a post for buying a product.
     - CustomSpinnerAdapter
       in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
-        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for
-          the first item (title) and disables the first item from being selected.
+        - All the functions in this class, used for displaying dropdown views in a Spinner,
+        sets the hint text color for the first item (title) and disables the first item from being selected.
     - HomeActivity
       in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
         - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
@@ -228,6 +226,7 @@ These design patterns and data structures contribute to the overall architecture
       in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
         - displays the user's profile information, dynamically updates and displays the user's posts, likes, and
           purchases using grid layouts and allows the user to navigate to detailed views of each item.
+- feature [SearchFilter]
     - SearchActivity
       in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
         - All the functions in this class, common and advanced searches based on keywords and tags.
@@ -236,6 +235,7 @@ These design patterns and data structures contribute to the overall architecture
         - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for
           saving the input and canceling the search.
 - **Code and App Design**
+- feature [UI Layout]
     - buy post layout design
       in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
     - my post layout design
@@ -790,9 +790,9 @@ Production Rules:
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 The tokenizers and parsers are used for searching a product with a price.
-\
-The structure of them is shown below:
-\
+<br>The structure of them is shown below
+![UMLToknizer](UMLToknizer.png)
+
 The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
 \
 This achieves the unification of parsing result display in Expression.java.
@@ -855,11 +855,11 @@ basic/custom features, or an approved feature from Voice Four Feature.*
    Code:    
    [Class PostActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads),  
    [Class ProfileActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads),  
-   [Class FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
-   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),   
+   [Class FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),    
    [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
-   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),  
-   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),
+   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),    
+   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),   
 
     - Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
@@ -872,9 +872,15 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
+    *
+   Code:    
+   [Class HomeActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads),
+   [Class FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),    
+   [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
+   [Class BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads),    
 
-    - Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    - Description of feature: We create data instances to simulate users’ actions and interactions, when a user login,
+     - Description of feature: We create data instances to simulate users’ actions and interactions, when a user login,
       the application implemented automatically recommends post content on the home screen by loading post data
       files from Firebase and visualizing them at regular time intervals.
       <br>
@@ -890,9 +896,15 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 5. [Search]. Users can search for specific information within the application using a query processor that understands
    user input based on predefined grammars. (medium)
+ *
+   Code:    
+   [Package Tokenizer_Parser](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser?ref_type=heads),
+   [Class PriceRangeSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/PriceRangeSearchStrategy.java?ref_type=heads),    
+   [Class AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads),    
+   [Class SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads),   
+   [Class BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads),
 
-    - Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    - Description of feature: The application provides a search functionality that allows users to retrieve information
+     - Description of feature: The application provides a search functionality that allows users to retrieve information
       based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range
       together on the search page. We also implemented keyword search simply. <br>
     - Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including
@@ -900,14 +912,14 @@ basic/custom features, or an approved feature from Voice Four Feature.*
       a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
       search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
       which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
+    In fact, here is a strategy method design pattern implementation, but it will be discussed in details in [Search-Filter] and Design Pattern section. 
       <br>
      
      
-      <br>
 
 ### Custom Features
 
-Feature Category: Privacy <br>
+Feature Category: Search-related features <br>
 
 1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (
    easy)
@@ -915,17 +927,41 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
+Feature Category: UI Design and Testing <br>
 2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
    App. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
+Feature Category: Greater Data Usage, Handling and Sophistication <br>
 3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation:  <br>
+    * Code to the Data File 
+   [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java), 
+   [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java), 
+   [User.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java)
+   [Post.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Post.java)
+   [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java)
+   [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+      * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
+   relevant information and media files. 
+        * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
+        the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
+        Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
+        * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity for 
+        user's own posts) which displays detailed information about the post, including the post name, price, image, 
+        description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
+        posting comments.<br>
+    * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
+   retrieves the current user's information using the SessionManager and displays their name, email, and lists of 
+   uploaded, liked, and purchased posts. The posts are displayed in a GridLayout using a card layout inflated from 
+   item_card.xml, with images loaded using GlideImageLoader. Clicking on a post card navigates to the corresponding 
+   post detail activity.
+      The EditProfileActivity allows users to modify their personal information, with changes being validated and updated in both the Firebase database and the local B+ tree.
+      Post profile pages (PostActivity and MyPostActivity) retrieve post data from intent extras and display the post details, including name, price, image, description, and comments. Users can interact with posts by liking, purchasing (in PostActivity), and posting comments. Comments are displayed using the showComment() method and can be posted anonymously or not using the showCommentDialog() and postComment() methods, which update both the local B+ tree and Firebase.
+      In MyPostActivity, post creators can delete their own posts, which removes the post from both the Firebase database and the local B+ tree after confirmation.
+
 
 4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
@@ -933,16 +969,28 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation:  <br>
-
-6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
+Feature Category: User Interactivity <br>
+5. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: <br>
-    * Description of implementation:  <br>
+    * Code to the Data File 
+   [LikePostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java), 
+   [BuyPostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java), 
+   [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java),
+   [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java),
+   [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+
+  * Description of feature: The application allows users to micro-interact with posts and other users through actions 
+such as liking posts, purchasing posts, and commenting on posts. Users can like posts, purchase posts,
+    post comments, and delete their own comments. These interactions are stored in-memory using 
+SharedPreferences and synced with Firebase Realtime Database for persistence. <br>
+  * Description of implementation:The micro-interaction feature is implemented using SharedPreferences to store 
+interaction data in-memory and Firebase Realtime Database for persistent storage.
+    - For `post liking`, the `LikePostManager` class manages the liking functionality. It uses `SharedPreferences` to 
+    store the liked post IDs locally and syncs them with Firebase Realtime Database. When a user likes a post, the 
+    `PostActivity` updates the UI and calls the `likePost()` method of `LikePostManager` to store the like information 
+    both locally and in Firebase. The `checkLike()` method is used to determine if a post is liked by the user.
+
+<br>
 
    <br><br>
 
