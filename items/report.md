@@ -934,23 +934,27 @@ Feature Category: UI Design and Testing <br>
     * Description of implementation:  <br>
 
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
-3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
-   your application. (medium)
+3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within your application. (medium)
+  #### Code Files
     * Code to the Data File 
-   [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java), 
-   [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java), 
-   [User.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java)
-   [Post.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Post.java)
-   [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java)
-   [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+    - [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java), 
+    - [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java), 
+    - [User.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java)
+    - [Post.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Post.java)
+    - [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java)
+    - [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+  #### Feature Description
       * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
    relevant information and media files. 
+  #### User Profile
       * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
         the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
         Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
+  #### Post Profile
       * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity  for user's own posts) which displays detailed information about the post, including the post name, price, image, 
         description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
-        posting comments.<br>
+        posting comments.
+  #### Implementation Description
       * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
    retrieves the current user's information using the SessionManager and displays their name, email, and lists of 
    uploaded, liked, and purchased posts. The posts are displayed in a GridLayout using a card layout inflated from 
