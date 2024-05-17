@@ -114,7 +114,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
         - Developed an ImageUploader class to handle image upload processes.
         - Managed image selection and preview in the CreateActivity class.
     - UI Tests using Espresso
-        - Created UI tests for the EditProfileActivity using Espresso.
+        - Created UI tests for the EditProfileActivity using Espresso,try but failed
 
    **Source Code Links**
     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
@@ -123,12 +123,12 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
-      **Code and App design**
+    **Code and App design**
     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
       orientations.
     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using
       Android Studio and XML.
-      **Others**:
+    **Others**:
     - Features Video and Presentation Video
 
 
