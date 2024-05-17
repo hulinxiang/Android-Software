@@ -1117,7 +1117,7 @@ further details on your tests.*
 
 ## Team Management
 
-### Meetings Records
+##Team meetings
 
 * Link to the minutes of your meetings like above. There must be at least 4 team meetings.
   (each commited within 2 days aftre the meeting)
