@@ -770,10 +770,10 @@ post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and s
     * *Objective:*  The Template Method pattern is used in multi-condition search, including tag filter and price range search.
       It provides a flexible, modular, and extensible approach to searching posts based on various criteria. 
     * *Code Locations:*
-        - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such
-          as `insert()`, `remove()`, `query()`, etc.
-        - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide
-          their specific implementations for the defined methods.
+        - [SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads) interface defines the contract for implementing search strategies, declaring the search method.
+        - [AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads) class provides a template for creating search strategies, implementing the `SearchStrategy` interface and providing a default implementation for the search method.
+          Subclasses must implement the `matchCriteria` method to define the filtering criteria.
+        - [PriceRangeSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/PriceRangeSearchStrategy.java?ref_type=heads) class and other [Tag](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/Tag?ref_type=heads) search classes extend AbstractSearchStrategy and implements the matchCriteria method to check if a post's price is within a specified range.
     * *Reasons:*
         - The `SearchStrategy` interface defines the contract for implementing search strategies, while the `AbstractSearchStrategy` class provides a template for creating concrete search strategies. This separation allows for better code organization, readability, and maintainability.
         - New search strategies can be easily added by extending the `AbstractSearchStrategy` class and implementing the matchCriteria method. This modularity enables the system to accommodate future search requirements without modifying the existing codebase significantly.
