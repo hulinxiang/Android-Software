@@ -96,10 +96,10 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
 
-- **Code Contribution in the final App**
+- 
 
     - **Code Contribution in the final App**
-        - feature [UI-Layout]
+        - Feature [UI-Layout]
             - class [activity.main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
             - class [activity.login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
             - class [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
@@ -107,13 +107,13 @@ Note that the core criteria of contribution is based on `code contribution` (the
             - class [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
             - class [activity_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
             - class [nav_header](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/nav_header.xml?ref_type=heads)
-        - feature [DataFiles], [LoadShowData], [FB-Persist]
+        - Feature [DataFiles], [LoadShowData], [FB-Persist]
             - class [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-        - feature [Data-Profile]
+        - Feature [Data-Profile]
             - class [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads) 
-        - feature [FB-Persist]
+        - Feature [FB-Persist]
             - class class [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-        - feature [[UI-Tes]
+        - Feature [[UI-Tes]
             - test [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/androidTest/java/com/example/myapplication?ref_type=heads)
         
 - **Code and App Design**
