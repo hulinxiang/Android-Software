@@ -942,9 +942,23 @@ Feature Category: Search-related features <br>
 
 1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (
    easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation: <br>
+    * Code to the Data File
+      [Tag Package](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/Tag?ref_type=heads),
+      [AbstractSearchStrategy.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads),
+      [SearchStrategy.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads)
+      [BPlusTreeManagerPost.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L122-175)
+    * Description of feature:  All posts in this application have its attributes, 
+     users can search posts by different tags, including mastercategory, subcategory, articletype, gender, basecolor, season, usage.
+    This feature also integrated with price range search (which is search feature implementation), so we can do search for price and any number of tags simultaneously.
+   <br>
+    * Description of implementation: SearchStrategy interface: Defines the contract for implementing different search strategies. It declares the search method that takes a context and an array of values as parameters and returns a list of posts matching the specified criteria.
+      AbstractSearchStrategy class: Provides a template for creating search strategies. It implements the SearchStrategy interface and provides a default implementation for the search method. Subclasses must implement the matchCriteria method to define the filtering criteria.
+      GenderSearchStrategy and other tag search strategies: Extend AbstractSearchStrategy and implement the matchCriteria method to check if a post's tags match specified values.
+      BPlusTreeManagerPost class: Manages the B+ tree for storing posts and provides methods for searching: searchByMultipleConditions method: Combines multiple search strategies to filter posts based on various conditions like gender, category, price range, etc. 
+   <br>
+
+
+
 
 Feature Category: UI Design and Testing <br>
 2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
@@ -1207,7 +1221,7 @@ further details on your tests.*
     - *Number of test cases:  4*
     - *Code coverage: The test cases cover various scenarios, including successful registration, registration failure due to duplicate username, registration failure due to empty password, and registration failure due to invalid password.*
     - *Types of tests created and descriptions:*  
-      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination. *
+      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination.*
       *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
       *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
       *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
@@ -1228,8 +1242,6 @@ further details on your tests.*
 - [Team Meeting 3](meeting-3.md)
 - [Team Meeting 4](meeting-4.md)
 
-
-- ... (Add any descriptions if needed) ...
 
 <hr>
 
