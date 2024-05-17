@@ -72,26 +72,41 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 *Here is an example: (Note that you should remove the entire section (e.g. "others") if it is not applicable)*
 
-1. **UID1, Name1**  I have 30% contribution, as follows: <br>
+1. **U7748799, Yichi Zhang**  I have 20% contribution, as follows: <br>
 
 - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class
-      Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern - class
-      AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data
-      files) ... [Student class](../src/path/to/class/Student.java), ...,
-      etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(),
-      function2(), ... <br><br>
+    - feature [DataFiles]
+        - files [DataFiles](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/data.zip?ref_type=heads)
+        - link [SourceData](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
+    - feature [Search-Filter]
+        - package [TagSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/Tag?ref_type=heads)
+        - class [SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads)
+        - class [AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads)
+        - class [BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L107-175)
+    - feature [FB-Persist]
+        - link [FirebaseConsole](https://console.firebase.google.com/project/login-register-firebase-94766/overview)
+    - feature [LoadShowData]
+        - class [FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads#L87-170)
+        - class [GlideImageLoader](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/GlideImageLoader.java?ref_type=heads)
+    - feature [Search]
+        - class [SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads)
+        - class [AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads)
+        - class [PriceRangeSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/PriceRangeSearchStrategy.java?ref_type=heads)
+        - class [BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L107-175)
+    - Basic back-end logic test code
+        - test [BPlusTreeTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/BPlusTreeTest.java?ref_type=heads)
+        - test [TokenizerParserTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/TokenizerParserTest.java?ref_type=heads)
+        - test [SingletonDesignPatternTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/SingletonDesignPatternTest.java?ref_type=heads)
+        - test [FactoryDesignPatternTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/FactoryDesignPatternTest.java?ref_type=heads)
 
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
-
-- **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK,
-      setups, firebase* <br><br>
+    - Strategy Pattern: Used in classes like AbstractSearchStrategy, ArticleTypeSearchStrategy, BaseColorSearchStrategy, GenderSearchStrategy, MasterCategorySearchStrategy, PriceRangeSearchStrategy, SeasonSearchStrategy, SubCategorySearchStrategy, and SearchStrategy to define a family of algorithms and make them interchangeable.
+    - Template Method Pattern: Used in classes like AbstractSearchStrategy to define a skeleton of an algorithm and allow subclasses to provide specific implementations.
+    - Firebase Integration: integrated with Firebase Storage for image display and Firebase Realtime Database for storing and retrieving post data.
+        - The GlideImageLoader class handles image uploads to Firebase Storage.
+        - Data Collection and Generation, Firebase Storage and Realtime Database Management
+- **Others**:
+    - Report Writing, Conflict Resolution Protocol Writing, APK, Firebase Connection
 
 
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
@@ -112,7 +127,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
         - class [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads) 
     - Feature [FB-Persist]
         - class [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-    - Feature [[UI-Tes]
+    - Feature [[UI-Test]
         - test [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/androidTest/java/com/example/myapplication?ref_type=heads)
         
 - **Code and App Design**
