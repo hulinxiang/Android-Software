@@ -1082,11 +1082,13 @@ testing is not thorough.*
 *Here is an example:*
 
 1. *Bug 1:*
-    - *A space bar (' ') in the sign in email will crash the application.*
-    - ...
+    - *Storage about Post information*
+    - Description: After prolonged use of the app, the data related to post within 
+      the app may become misaligned, which can cause exceptions in the deletion post function.
+    - Analysis:This is probably because we don't have a syncing feature. When multiple people use 
+     the app and operate on posts, it can lead to conflicts, which can lead to confusion of data.   
+    - Solution: Implement synchronous functionality in the future.
 
-2. *Bug 2:*
-3. ...
 
 <br> <hr>
 
