@@ -211,19 +211,17 @@ These design patterns and data structures contribute to the overall architecture
     - [What design patterns, data structures, did the involved member propose?]*
         - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
-
-
 5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
+- feature [LoadShowData], feature [FB-Persist] and feature [Interact-Micro].
     - BuyPostActivity
       in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
         - All the functions in this class, use for retrieves post details from the intent, and displays them on the
           corresponding views,displays the details of a post for buying a product.
     - CustomSpinnerAdapter
       in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
-        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for
-          the first item (title) and disables the first item from being selected.
+        - All the functions in this class, used for displaying dropdown views in a Spinner,
+        sets the hint text color for the first item (title) and disables the first item from being selected.
     - HomeActivity
       in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
         - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
@@ -239,6 +237,7 @@ These design patterns and data structures contribute to the overall architecture
       in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
         - displays the user's profile information, dynamically updates and displays the user's posts, likes, and
           purchases using grid layouts and allows the user to navigate to detailed views of each item.
+- feature [SearchFilter]
     - SearchActivity
       in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
         - All the functions in this class, common and advanced searches based on keywords and tags.
