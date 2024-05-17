@@ -488,10 +488,10 @@ This is an important section of your report and should include all technical dec
     * *Code Locations:*
       Used in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
       [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75) and
-      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71)
-* *Reasons:*
-        * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
-        * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
+      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71).
+    * *Reasons:*
+      * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
+      * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
         
 
 4.  *Queue*
@@ -716,11 +716,12 @@ Feature Category: Privacy <br>
   (each commited within 2 days aftre the meeting)
 * Your meetings should also have a reasonable date spanning across Week 6 to 11.*
 
+- [Team Meeting 1](meeting-1.md)
+- [Team Meeting 2](meeting-2.md)
+- [Team Meeting 3](meeting-3.md)
+- [Team Meeting 4](meeting-4.md)
 
-- *[Team Meeting 1](meeting-template.md)*
-- ...
-- ...
-- [Team Meeting 4](link_to_md_file.md)
+
 - ... (Add any descriptions if needed) ...
 
 <hr>
