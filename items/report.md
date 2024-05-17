@@ -78,9 +78,42 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **UID2, Name2**  I have xx% contribution, as follows: <br>
-  - ...
-
+2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
+   - **Code Contribution in the final App**
+   - Responsive Layouts 
+     - Ensured all layouts are responsive to different screen sizes and orientations.
+     - Implemented flexible UI designs for a seamless user experience.
+   - Create Post Functionality
+     - Developed the CreateActivity class, enabling users to create and upload posts.
+     - Implemented UI components for product details input and image selection.
+     - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
+     - Applied default values for post creation and handled image previews and validations.
+   - Edit Profile Functionality
+     - Developed the EditProfileActivity class for users to edit their profile information.
+     - Integrated UI components for updating name, password, address, and phone number.
+     - Synchronized profile updates with both Firebase and the local BPlusTree.
+     - Ensured data validation and provided feedback on successful updates.
+   - Image Upload and Retrieval
+     - Integrated image upload functionality using Firebase Storage.
+     - Developed an ImageUploader class to handle image upload processes.
+     - Managed image selection and preview in the CreateActivity class.
+   - UI Tests using Espresso
+     - Created UI tests for the EditProfileActivity using Espresso.
+   
+   **Source Code Links**
+     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+     -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
+     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
+   **Code and App design**
+     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and orientations.
+     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using Android Studio and XML.
+   **Others**:
+   - Features Video and Presentation Video
+   
+     
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
   - 
@@ -514,10 +547,10 @@ This is an important section of your report and should include all technical dec
     * *Code Locations:*
       Used in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
       [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75) and
-      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71)
-* *Reasons:*
-        * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
-        * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
+      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71).
+    * *Reasons:*
+      * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
+      * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
         
 
 4.  *Queue*
@@ -742,11 +775,12 @@ Feature Category: Privacy <br>
   (each commited within 2 days aftre the meeting)
 * Your meetings should also have a reasonable date spanning across Week 6 to 11.*
 
+- [Team Meeting 1](meeting-1.md)
+- [Team Meeting 2](meeting-2.md)
+- [Team Meeting 3](meeting-3.md)
+- [Team Meeting 4](meeting-4.md)
 
-- *[Team Meeting 1](meeting-template.md)*
-- ...
-- ...
-- [Team Meeting 4](link_to_md_file.md)
+
 - ... (Add any descriptions if needed) ...
 
 <hr>
