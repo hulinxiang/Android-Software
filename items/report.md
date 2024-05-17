@@ -945,20 +945,19 @@ Feature Category: Greater Data Usage, Handling and Sophistication <br>
    [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
       * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
    relevant information and media files. 
-        * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
+      * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
         the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
         Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
-        * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity for 
-        user's own posts) which displays detailed information about the post, including the post name, price, image, 
+      * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity  for user's own posts) which displays detailed information about the post, including the post name, price, image, 
         description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
         posting comments.<br>
-    * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
+      * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
    retrieves the current user's information using the SessionManager and displays their name, email, and lists of 
    uploaded, liked, and purchased posts. The posts are displayed in a GridLayout using a card layout inflated from 
    item_card.xml, with images loaded using GlideImageLoader. Clicking on a post card navigates to the corresponding 
-   post detail activity.
-      The EditProfileActivity allows users to modify their personal information, with changes being validated and updated in both the Firebase database and the local B+ tree.
-      Post profile pages (PostActivity and MyPostActivity) retrieve post data from intent extras and display the post details, including name, price, image, description, and comments. Users can interact with posts by liking, purchasing (in PostActivity), and posting comments. Comments are displayed using the showComment() method and can be posted anonymously or not using the showCommentDialog() and postComment() methods, which update both the local B+ tree and Firebase.
+   post detail activity.<br>
+      The EditProfileActivity allows users to modify their personal information, with changes being validated and updated in both the Firebase database and the local B+ tree.<br>
+      Post profile pages (PostActivity and MyPostActivity) retrieve post data from intent extras and display the post details, including name, price, image, description, and comments. Users can interact with posts by liking, purchasing (in PostActivity), and posting comments. Comments are displayed using the showComment() method and can be posted anonymously or not using the showCommentDialog() and postComment() methods, which update both the local B+ tree and Firebase.<br>
       In MyPostActivity, post creators can delete their own posts, which removes the post from both the Firebase database and the local B+ tree after confirmation.
 
 
