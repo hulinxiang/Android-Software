@@ -246,6 +246,7 @@ These design patterns and data structures contribute to the overall architecture
         - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for
           saving the input and canceling the search.
 - **Code and App Design**
+- feature [UI Layout]
     - buy post layout design
       in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
     - my post layout design
