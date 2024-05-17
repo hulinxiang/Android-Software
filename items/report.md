@@ -788,8 +788,11 @@ basic/custom features, or an approved feature from Voice Four Feature.*
     - Username: comp6442@anu.edu.au, Password: comp6442 (easy)
 
     *
-    Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-    and Class Y, ...
+    Code:    
+ [Class LoginActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java?ref_type=heads),  
+   [Class LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java?ref_type=heads),  
+   [Class RegisterActivityBPlusTree](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java?ref_type=heads),  
+
     * Description of feature: The login feature allows users to authenticate themselves and access the application's
       functionality. It verifies the provided username and password against the stored user credentials. Also provide
       register service and feel free to create your own account. <br>
@@ -815,13 +818,21 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on
    the type of data. (easy)
-    * Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
+    *
+   Code:    
+   [Class PostActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads),  
+   [Class ProfileActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads),  
+   [Class FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),   
+   [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
+   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),  
+   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),
+     * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
       information with the post owned by the user, and the post page shows the details of a specific post. <br>
     * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
         And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
-      The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to
+      The front-end Activities such as PostActivity and ProfileActivity handles the presentation of the loaded data to
       the user. They determine the appropriate formats for displaying each type of data, such as users, posts, or remarks,
       to enhance readability and user experience, and they call function from the back-end to show the data instances from the dataset.<br>
 
@@ -868,27 +879,28 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-2. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
+2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
    App. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
-3. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation:  <br>
 
-4. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation: <br>
-
-5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
+4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+   your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation:  <br>
+
+5. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature:  <br>
+    * Description of implementation: <br>
 
 6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
