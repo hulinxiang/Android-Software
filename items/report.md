@@ -1175,7 +1175,6 @@ further details on your tests.*
       *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
       *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
 
-
 <br> <hr>
 
 ## Team Management
