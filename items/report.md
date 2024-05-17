@@ -78,8 +78,29 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **UID2, Name2**  I have xx% contribution, as follows: <br>
-  - ...
+2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
+   - **Code Contribution in the final App**
+   - Responsive Layouts
+     - Ensured all layouts are responsive to different screen sizes and orientations.
+     - Implemented flexible UI designs for a seamless user experience.
+   - Create Post Functionality
+     - Developed the CreateActivity class, enabling users to create and upload posts.
+     - Implemented UI components for product details input and image selection.
+     - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
+     - Applied default values for post creation and handled image previews and validations.
+   - Edit Profile Functionality
+     - Developed the EditProfileActivity class for users to edit their profile information.
+     - Integrated UI components for updating name, password, address, and phone number.
+     - Synchronized profile updates with both Firebase and the local BPlusTree.
+     - Ensured data validation and provided feedback on successful updates.
+   - Image Upload and Retrieval
+     - Integrated image upload functionality using Firebase Storage.
+     - Developed an ImageUploader class to handle image upload processes.
+     - Managed image selection and preview in the CreateActivity class.
+   - UI Tests using Espresso
+     - Created UI tests for the EditProfileActivity using Espresso.
+   - Features Video and Presentation Video
+     - Responsible for creating the features video and the presentation video.
 
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
