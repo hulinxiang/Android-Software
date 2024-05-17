@@ -78,9 +78,42 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-2. **UID2, Name2**  I have xx% contribution, as follows: <br>
-  - ...
-
+2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
+   - **Code Contribution in the final App**
+   - Responsive Layouts 
+     - Ensured all layouts are responsive to different screen sizes and orientations.
+     - Implemented flexible UI designs for a seamless user experience.
+   - Create Post Functionality
+     - Developed the CreateActivity class, enabling users to create and upload posts.
+     - Implemented UI components for product details input and image selection.
+     - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
+     - Applied default values for post creation and handled image previews and validations.
+   - Edit Profile Functionality
+     - Developed the EditProfileActivity class for users to edit their profile information.
+     - Integrated UI components for updating name, password, address, and phone number.
+     - Synchronized profile updates with both Firebase and the local BPlusTree.
+     - Ensured data validation and provided feedback on successful updates.
+   - Image Upload and Retrieval
+     - Integrated image upload functionality using Firebase Storage.
+     - Developed an ImageUploader class to handle image upload processes.
+     - Managed image selection and preview in the CreateActivity class.
+   - UI Tests using Espresso
+     - Created UI tests for the EditProfileActivity using Espresso.
+   
+   **Source Code Links**
+     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+     -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
+     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
+   **Code and App design**
+     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and orientations.
+     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using Android Studio and XML.
+   **Others**:
+   - Features Video and Presentation Video
+   
+     
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
   - 
@@ -108,20 +141,34 @@ Note that the core criteria of contribution is based on `code contribution` (the
        - [What design patterns, data structures, did the involved member propose?]*
          - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5**u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
+5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
-
+    - BuyPostActivity in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
+        - All the functions in this class, use for retrieves post details from the intent, and displays them on the corresponding views,displays the details of a post for buying a product.
+    - CustomSpinnerAdapter in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
+        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for the first item (title) and disables the first item from being selected.
+    - HomeActivity in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
+        - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
+    - MyPostActivity in [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java?ref_type=heads)
+        - All the functions in this class, displays the details of a user's post, including its name, price, image, description, and comments.
+    - PostActivity in [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads)
+        - All the functions in this class,displays details of a post and allows users to interact with the post by liking it, purchasing it, and writing comments.
+    - ProfileActivity in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
+        - displays the user's profile information, dynamically updates and displays the user's posts, likes, and purchases using grid layouts and allows the user to navigate to detailed views of each item.
+    - SearchActivity in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
+        - All the functions in this class, common and advanced searches based on keywords and tags.
+    - TagSelectionActivity in [TagSelectionActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/TagSelectionActivity.java?ref_type=heads)
+        - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for saving the input and canceling the search.
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
-
-- **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
-
+    - buy post layout design in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
+    - my post layout design in [activity_my_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_my_post.xml?ref_type=heads)
+    - post layout design in [activity_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_post.xml?ref_type=heads)
+    - register layout design in [activity_register.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_register.xml?ref_type=heads)
+    - search layout design in [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_search.xml?ref_type=heads)
+    - tag selection layout design in [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
+    - comment dialog layout design in [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
+    - comment layout design in [item_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_comment.xml?ref_type=heads)
+    - inner post display layout design in [item_card.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_card.xml?ref_type=heads)
 
 ## Application Description
 
@@ -500,10 +547,10 @@ This is an important section of your report and should include all technical dec
     * *Code Locations:*
       Used in [Class BPlusTree, methods insert, asSet](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java?ref_type=heads#L57-73),
       [Class BuyPostManager, method buyPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java?ref_type=heads#L70-75) and
-      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71)
-* *Reasons:*
-        * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
-        * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
+      [Class LikePostManager, method likePost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java?ref_type=heads#L66-71).
+    * *Reasons:*
+      * *HashSet ensures that there are no duplicate values associated with a key in the B+ Tree.*
+      * *It provides constant-time performance for basic operations like add, remove, and contains, making it efficient for checking the presence of a value.*
         
 
 4.  *Queue*
@@ -763,11 +810,12 @@ Feature Category: Privacy <br>
   (each commited within 2 days aftre the meeting)
 * Your meetings should also have a reasonable date spanning across Week 6 to 11.*
 
+- [Team Meeting 1](meeting-1.md)
+- [Team Meeting 2](meeting-2.md)
+- [Team Meeting 3](meeting-3.md)
+- [Team Meeting 4](meeting-4.md)
 
-- *[Team Meeting 1](meeting-template.md)*
-- ...
-- ...
-- [Team Meeting 4](link_to_md_file.md)
+
 - ... (Add any descriptions if needed) ...
 
 <hr>
