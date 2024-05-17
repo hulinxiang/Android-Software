@@ -974,9 +974,27 @@ Feature Category: Greater Data Usage, Handling and Sophistication <br>
 
 4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation: <br>
+    * Code to the Data File [BPlusTree.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/BPlusTree.java),
+   [BPlusTreeManagerRemark.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Remark/BPlusTreeManagerRemark.java)
+   
+    * Description of feature: The application implements deletion functionality for the B+ tree data structure used to 
+   manage post, user, and remark data. Specifically, the deletion serves the purpose of allowing users to delete their 
+   own non-anonymous remarks posted under a post. This feature empowers users to remove their comments if they no longer 
+   wish to have them associated with the post. <br>
+      * Description of implementation: The deletion functionality is implemented within the `BPlusTree` class, 
+   which is the core implementation of the B+ tree data structure used in the application. The remove methods in the `BPlusTree` 
+   class handle the removal of entries from the tree, ensuring the tree remains balanced and maintains its properties after the deletion.
+   The `BPlusTreeManagerRemark` class manages the B+ tree specifically for storing remarks associated with posts. It provides a delete method 
+    that allows for the deletion of a specific remark (`RemarkDemo`) associated with a given post ID. This method queries the B+ tree for the list 
+    of remarks associated with the post ID, and if the list is not empty, it attempts to remove the specified remark from the list.
+        - The deletion process works as follows:
+           1. The `delete` method in `BPlusTreeManagerRemark` is called with the post ID and the remark to be deleted.
+           2. The method `queries` the B+ tree for the list of remarks associated with the provided post ID.
+           3. If the result list is not empty and contains the specified remark, the remark is removed from the list.
+           4. The remove method in the `BPlusTree` class is invoked to handle the actual removal of the entry from the tree.
+           5. The remove method ensures that the tree remains balanced by handling any underflow conditions that may arise due to the deletion. 
+          This is done by borrowing entries from neighboring nodes or merging nodes as necessary.
+           6. If the removal is successful, the method returns true, indicating that the remark was successfully deleted from the tree.<br>
       
 
 Feature Category:Firebase Integration<br>
