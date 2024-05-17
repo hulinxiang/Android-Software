@@ -751,21 +751,20 @@ post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and s
           interacts with the facade methods.
 
 3. *Factory Pattern*
-    * *Objective:* The Factory pattern is used in the modified B+ Tree implementation to encapsulate the creation logic
-      of B+ Tree nodes. It allows the client code to create nodes without knowing the specific types of nodes being
-      created (leaf or non-leaf nodes).
+    * *Objective:* The Factory pattern is used in the Remark part. It is aimed at using factory
+    pattern to create different instances of remark. The `RemarkFactory` provides the interface
+    for different remark factories to generate different instances.   
+   `AnonymousRemarkFactory` implements the interface `RemarkFactory` and create the instance of class `AnonymousRemark`.
+    `CommonRemarkFactory` implements the interface `RemarkFactory` and create the instance of class `CommonRemark`.
     * *Code Locations:*
-        - Defined in the `BPlusTreeNodeFactory` class, the `createNode()` method takes the entries, values, and a
-          boolean flag indicating whether it's a leaf node, and returns an instance of `BPlusTreeNode`.
-        - The `BPlusTreeNodeFactory` is used in the `BPlusTree` class to create nodes whenever needed, such as when
-          handling root overflow or splitting nodes.
+        - Defined in the `src/Remark` file. 
+        - Besides Factory Pattern, remark also apply the singleton pattern, which ensures that 
+        only one `AnonymousRemarkFactory` instance to create `CommonRemark` instance and only
+        one `CommonRemarkFactory` instance to create `AnonymousRemark`.
     * *Reasons:*
-        - The Factory pattern encapsulates the node creation logic, making it easier to extend or modify the B+ Tree
-          implementation without affecting the client code.
-        - It promotes loose coupling between the client code and the specific types of nodes, as the client only
-          interacts with the `BPlusTreeNode` interface.
-        - It allows for flexibility in creating different types of nodes based on the provided conditions, without
-          exposing the complexity to the client.
+        - By implementing the Factory Method Pattern, we can create a factory interface and multiple factory
+        implementation classes. In this way, when new functionality needs to be added, we can simply add a new factory
+        class without modifying the existing code. This is beneficial for code maintenance and extension.
 
 4. *Template Method Pattern*
     * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common
@@ -1095,11 +1094,13 @@ testing is not thorough.*
 *Here is an example:*
 
 1. *Bug 1:*
-    - *A space bar (' ') in the sign in email will crash the application.*
-    - ...
+    - *Storage about Post information*
+    - Description: After prolonged use of the app, the data related to post within 
+      the app may become misaligned, which can cause exceptions in the deletion post function.
+    - Analysis:This is probably because we don't have a syncing feature. When multiple people use 
+     the app and operate on posts, it can lead to conflicts, which can lead to confusion of data.   
+    - Solution: Implement synchronous functionality in the future.
 
-2. *Bug 2:*
-3. ...
 
 <br> <hr>
 
