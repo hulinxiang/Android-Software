@@ -93,6 +93,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK,
       setups, firebase* <br><br>
 
+
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
     - **Code Contribution in the final App**
     - Responsive Layouts
@@ -113,7 +114,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
         - Developed an ImageUploader class to handle image upload processes.
         - Managed image selection and preview in the CreateActivity class.
     - UI Tests using Espresso
-        - Created UI tests for the EditProfileActivity using Espresso.
+        - Created UI tests for the EditProfileActivity using Espresso,try but failed
 
    **Source Code Links**
     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
@@ -122,19 +123,51 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
-      **Code and App design**
+    **Code and App design**
     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
       orientations.
     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using
       Android Studio and XML.
-      **Others**:
+    **Others**:
     - Features Video and Presentation Video
+
 
 
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
 
 - **Code Contribution in the final App**
 -
+  - **Code Contribution in the final App**
+    - feature [LogIn] 
+      - class [LoginCheckService](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginCheckService.java)
+      - class [User](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java?ref_type=heads#L77-91) 
+    - feature [LoadShowData] 
+      - class [FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java)
+      - class [ImageUploader](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/ImageUploader.java)
+      - class [PostCreator](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/PostCreator.java)
+    - feature [FB-Persist] 
+      - class [FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads#L35-60)
+      - class [FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads#L32-46) 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L98-119)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L103-124)
+    - feature [Interact-Micro] 
+      - class [LikePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java#L45-90)
+      - class [BuyPostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java#L35-94) 
+    - Basic back-end logic test code
+      - test [UserLoginTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
+      - test [RegisterActivityTest](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
+  
+  - **Code and App Design**
+    - Hashing password: the User class includes a hashPassword method that uses the SHA-256 algorithm to hash user passwords before storing them. Ensuring the security for every user.
+    - Firebase Integration: integrated with Firebase Storage for image uploads and Firebase Realtime Database for storing and retrieving post data. 
+      - The ImageUploader class handles image uploads to Firebase Storage.
+      - The FirebasePostManager class manages post-related operations with Firebase Realtime Database.
+    - Singleton Pattern: the FirebasePostManager class also uses the Singleton pattern, providing a single instance to manage post-related operations with Firebase.
+    - Factory Method Pattern: the PostCreator class acts as a factory for creating new Post objects. It encapsulates the creation logic and associates the post with the current user.
+    - Facade Pattern: the LoginCheckService class acts as a facade, providing a simplified interface for validating user registration and login credentials. It encapsulates the complexity of interacting with the BPlus Tree and performs the necessary checks and validations.
+
+    
+These design patterns and data structures contribute to the overall architecture and functionality of the application, providing efficient data management, modularity, and separation of concerns.
 
 4. **u7633783, Linxiang Hu**  I have 20% contribution, as follows: <br>
 
@@ -173,6 +206,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 
+
+5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
     - BuyPostActivity
       in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
@@ -255,6 +290,7 @@ purchasing options, Green Book fosters a community committed to eco-friendly con
 |-----|-----------|-----------------------------------------------------|------------------------------|-----------------|--------------------------------|
 | 1   | Admin     | Responsible for overseeing the whole system         | Admin                        | Super           | Reservation and system manager |
 | 2   | User      | Responsible for creating, liking, and buying posts. | User                         | Lower           | Normal user                    |
+
 
 Use Case Authorization Table<br>
 
@@ -818,21 +854,13 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on
    the type of data. (easy)
-    *
-   Code:    
-   [Class PostActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads),  
-   [Class ProfileActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads),  
-   [Class FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
-   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),   
-   [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
-   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),  
-   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),
-     * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
+    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
       information with the post owned by the user, and the post page shows the details of a specific post. <br>
     * Description of implementation: The FirebaseInit class is responsible for loading data from Firebase repository in the back-end.
         And then we use FirebaseUserManager class to manage user-related tasks to achieve CRUD functions, same in posts, remarks.
-      The front-end Activities such as PostActivity and ProfileActivity handles the presentation of the loaded data to
+      The front-end Activities such as HomeActivity and ProfileActivity handles the presentation of the loaded data to
       the user. They determine the appropriate formats for displaying each type of data, such as users, posts, or remarks,
       to enhance readability and user experience, and they call function from the back-end to show the data instances from the dataset.<br>
 
@@ -895,12 +923,12 @@ Feature Category: Privacy <br>
    your application. (medium)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
-    * Description of implementation:  <br>
+    * Description of implementation: <br>
 
-5. [FB-Persist]. Use Firebase to persist all data used in your app. (medium)
+5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
-    * Description of implementation: <br>
+    * Description of implementation:  <br>
 
 6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
