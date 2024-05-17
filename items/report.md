@@ -97,9 +97,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
 
 - **Code Contribution in the final App**
--
-
-    - **Code Contribution in the final App**
         - Feature [UI-Layout]
             - class [activity.main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
             - class [activity.login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
