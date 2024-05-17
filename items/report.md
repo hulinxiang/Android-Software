@@ -95,46 +95,35 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
+
+- **Code Contribution in the final App**
+
     - **Code Contribution in the final App**
-    - Responsive Layouts
-        - Ensured all layouts are responsive to different screen sizes and orientations.
-        - Implemented flexible UI designs for user-friendly experience.
-    - Create Post Functionality
-        - Developed the CreateActivity class, enabling users to create and upload posts.
-        - Implemented UI components for product details input and image selection.
-        - Utilized Firebase Storage for image uploads and Firebase Realtime Database for storing post details.
-        - Applied default values for post creation and handled image previews and validations.
-    - Edit Profile Functionality
-        - Developed the EditProfileActivity class for users to edit their profile information.
-        - Integrated UI components for updating name, password, address, and phone number.
-        - Synchronized profile updates with both Firebase and the local BPlusTree.
-        - Implemented the logout function in the profile page to allow users to log out from their accounts.
-    - Image Upload and Retrieval
-        - Integrated image upload functionality using Firebase Storage.
-        - Developed method to handle image upload processes.
-        - Managed image selection and preview in the CreateActivity class.
-    - UI Tests using Espresso
-        - Created UI tests for the EditProfileActivity using Espresso,try but failed
-
-- **Source Code Links**
-    - [activity.main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
-    - [activity.login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
-    - [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
-    - [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
-    - [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
-    - [activity_profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
-    - [nav_header](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/nav_header.xml?ref_type=heads)
-    - [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
-    - [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-    - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
-    - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
-    - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/androidTest/java/com/example/myapplication?ref_type=heads)
-
+        - feature [UI-Layout]
+            - class [activity.main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
+            - class [activity.login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
+            - class [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+            - class [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
+            - class [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
+            - class [activity_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
+            - class [nav_header](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/nav_header.xml?ref_type=heads)
+        - feature [DataFiles], [LoadShowData], [FB-Persist]
+            - class [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+        - feature [Data-Profile]
+            - class [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads) 
+        - feature [FB-Persist]
+            - class class [CreateActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+        - feature [[UI-Tes]
+            - test [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/androidTest/java/com/example/myapplication?ref_type=heads)
+        
 - **Code and App Design**
-    - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and
-      orientations.
-    - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using
-      Android Studio and XML.
+    - Responsive Layouts ([UI-Layout]):Ensured all app layouts are responsive to different screen sizes and orientations.
+    - Create Post Functionality: 
+        - Integrated Firebase Storage for image uploads and Firebase Realtime Database for storing post details. This implementation supports the [FB-Persist] feature by using Firebase to persist data used in the app, ensuring real-time updates and data synchronization.
+        - Developed the CreateActivity class, enabling users to create and upload posts. This activity supports the [DataFiles] and [LoadShowData] features by allowing the app to handle and display new data instances created by users.
+    - Edit Profile Functionality: Implemented the EditProfileActivity class, where users can update their profile information such as name, password, address, and phone number. This directly ties into the [Data-Profile] feature by enhancing user profiles and incorporating media handling capabilities.
+    - Image Upload and Retrieval ([FB-Persist]): Enhanced image handling in the CreateActivity by developing functionalities for image upload and preview. This supports the [FB-Persist] feature by ensuring images are appropriately managed and stored using Firebase.
+    - UI Tests using Espresso : Attempted to create UI tests for the EditProfileActivity using Espresso
     
 - **Others**:
     - Features Video and Presentation Video
