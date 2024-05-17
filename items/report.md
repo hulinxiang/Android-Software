@@ -948,7 +948,7 @@ Feature Category: Search-related features <br>
 Feature Category: UI Design and Testing <br>
 
 2. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-- * Code to the Data File
+ * Code to the Data File
 
    - [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
    - [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads)
@@ -963,11 +963,11 @@ Feature Category: UI Design and Testing <br>
    - [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
    - [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
 
- - * Description of feature: <br>
+ * Description of feature: <br>
 
     * The application's user interface is designed to be responsive and adaptable to different screen orientations (portrait and landscape) and various screen sizes. The layout files are crafted to ensure that the UI components are appropriately adjusted and positioned across different devices and configurations.
    
- - * Description of implementation:  <br>
+ * Description of implementation:  <br>
   * activity_buy_post.xml: Represents the screen for buying a product. It utilizes ScrollView for scrollable content and RelativeLayout for relative positioning of elements. The layout displays the post image using ImageView and post details using TextView components.
   * activity_create.xml: Represents the screen for creating a new post. It employs ScrollView for scrollable content and LinearLayout for vertical arrangement of input fields. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the image preview and selection functionality.
   * activity_edit_profile.xml: Represents the screen for editing user profile information. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the profile picture and input fields.
@@ -980,7 +980,7 @@ Feature Category: UI Design and Testing <br>
   * activity_tag_selection.xml: Represents the screen for selecting tags. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. Spinner components are used for selecting tags, while Button components are used for saving and canceling the selection.
   * dialog_comment.xml: Represents the dialog for posting comments. It uses LinearLayout for vertical arrangement of comment input field, checkbox, and buttons. EditText is used for capturing user comment input, while CheckBox is used for selecting anonymous posting option.
     
-  - These layout files utilize various layout containers, such as RelativeLayout, LinearLayout, and ConstraintLayout, to achieve responsive positioning and sizing of UI components. ScrollView is commonly used to enable scrolling for content that may exceed the screen size. Dimension resources and weight properties are used to ensure consistent spacing and proportions across different screen sizes. Gravity and layout_gravity attributes are used to control the alignment and positioning of UI elements within their parent containers.
+  * These layout files utilize various layout containers, such as RelativeLayout, LinearLayout, and ConstraintLayout, to achieve responsive positioning and sizing of UI components. ScrollView is commonly used to enable scrolling for content that may exceed the screen size. Dimension resources and weight properties are used to ensure consistent spacing and proportions across different screen sizes. Gravity and layout_gravity attributes are used to control the alignment and positioning of UI elements within their parent containers.
 
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
 3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
