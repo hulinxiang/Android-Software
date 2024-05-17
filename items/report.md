@@ -80,7 +80,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
    - **Code Contribution in the final App**
-   - Responsive Layouts
+   - Responsive Layouts 
      - Ensured all layouts are responsive to different screen sizes and orientations.
      - Implemented flexible UI designs for a seamless user experience.
    - Create Post Functionality
@@ -99,9 +99,21 @@ Note that the core criteria of contribution is based on `code contribution` (the
      - Managed image selection and preview in the CreateActivity class.
    - UI Tests using Espresso
      - Created UI tests for the EditProfileActivity using Espresso.
+   
+   **Source Code Links**
+     - [Registration](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads#L431-#L1)
+     -[Create post](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [Edit profile](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads)
+     - [Integration with Backend](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-L111)
+     - [Image Upload](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CreateActivity.java?ref_type=heads)
+     - [UI Testing](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java?ref_type=heads#L79-#L111)
+   **Code and App design**
+     - Responsive Design:implemented responsive design to ensure the app functions on different screen sizes and orientations.
+     - UI Components and Interaction Design:Designed the layout and interaction flow of user interface elements using Android Studio and XML.
+   **Others**:
    - Features Video and Presentation Video
-     - Responsible for creating the features video and the presentation video.
-
+   
+     
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
   - 
