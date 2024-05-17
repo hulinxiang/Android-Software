@@ -587,12 +587,12 @@ to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-u
 ### Application UML
 
 * UML for all classes
-* [App UML](items/media/_examples/App UML.jpg) <br>
+  - [App UML](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/App%20UML.jpg?ref_type=heads) <br>
 * UML for a single important class
-* [Tokenizer_and_parse_UML](items/media/_examples/Tokenizer_and_parse_UML.jpg) <br>
-* [Remark_UML](items/media/_examples/Remark_UML.jpg) <br>
-* [Post_UML](items/media/_examples/Post_UML.jpg) <br>
-* [Firebase_post__UML.jpg](items/media/_examples/Firebase_post__UML.jpg) <br>
+  - [Tokenizer_and_parse_UML](items/media/_examples/Tokenizer_and_parse_UML.jpg) <br>
+  - [Remark_UML](items/media/_examples/Remark_UML.jpg) <br>
+  - [Post_UML](items/media/_examples/Post_UML.jpg) <br>
+  - [Firebase_post__UML.jpg](items/media/_examples/Firebase_post__UML.jpg) <br>
 
 <hr>
 
