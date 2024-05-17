@@ -211,19 +211,17 @@ These design patterns and data structures contribute to the overall architecture
     - [What design patterns, data structures, did the involved member propose?]*
         - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
-
-
 5. **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
+- feature [LoadShowData] and feature [Interact-Micro].
     - BuyPostActivity
       in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
         - All the functions in this class, use for retrieves post details from the intent, and displays them on the
           corresponding views,displays the details of a post for buying a product.
     - CustomSpinnerAdapter
       in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
-        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for
-          the first item (title) and disables the first item from being selected.
+        - All the functions in this class, used for displaying dropdown views in a Spinner,
+        sets the hint text color for the first item (title) and disables the first item from being selected.
     - HomeActivity
       in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
         - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
@@ -239,6 +237,7 @@ These design patterns and data structures contribute to the overall architecture
       in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
         - displays the user's profile information, dynamically updates and displays the user's posts, likes, and
           purchases using grid layouts and allows the user to navigate to detailed views of each item.
+- feature [SearchFilter]
     - SearchActivity
       in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
         - All the functions in this class, common and advanced searches based on keywords and tags.
@@ -247,6 +246,7 @@ These design patterns and data structures contribute to the overall architecture
         - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for
           saving the input and canceling the search.
 - **Code and App Design**
+- feature [UI Layout]
     - buy post layout design
       in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
     - my post layout design
@@ -866,11 +866,11 @@ basic/custom features, or an approved feature from Voice Four Feature.*
    Code:    
    [Class PostActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads),  
    [Class ProfileActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads),  
-   [Class FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
-   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),   
+   [Class FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),    
    [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
-   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),  
-   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),
+   [Class FirebaseUserHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserHelper.java?ref_type=heads),    
+   [Class FirebaseUserManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/UserManager/FirebaseUserManager.java?ref_type=heads),   
 
     - Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
@@ -883,9 +883,15 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
+    *
+   Code:    
+   [Class HomeActivity](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads),
+   [Class FirebaseInit](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java?ref_type=heads),    
+   [Class FirebasePostHelper](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostHelper.java?ref_type=heads),    
+   [Class FirebasePostManager](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase/PostManager/FirebasePostManager.java?ref_type=heads),   
+   [Class BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads),    
 
-    - Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    - Description of feature: We create data instances to simulate users’ actions and interactions, when a user login,
+     - Description of feature: We create data instances to simulate users’ actions and interactions, when a user login,
       the application implemented automatically recommends post content on the home screen by loading post data
       files from Firebase and visualizing them at regular time intervals.
       <br>
@@ -901,9 +907,15 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 5. [Search]. Users can search for specific information within the application using a query processor that understands
    user input based on predefined grammars. (medium)
+ *
+   Code:    
+   [Package Tokenizer_Parser](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Tokenizer_Parser?ref_type=heads),
+   [Class PriceRangeSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/PriceRangeSearchStrategy.java?ref_type=heads),    
+   [Class AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads),    
+   [Class SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads),   
+   [Class BPlusTreeManagerPost](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads),
 
-    - Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    - Description of feature: The application provides a search functionality that allows users to retrieve information
+     - Description of feature: The application provides a search functionality that allows users to retrieve information
       based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range
       together on the search page. We also implemented keyword search simply. <br>
     - Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including
@@ -911,6 +923,7 @@ basic/custom features, or an approved feature from Voice Four Feature.*
       a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
       search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
       which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
+    In fact, here is a strategy method design pattern implementation, but it will be discussed in details in [Search-Filter] and Design Pattern section. 
       <br>
      
      
