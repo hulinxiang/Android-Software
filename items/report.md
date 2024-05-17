@@ -1166,7 +1166,37 @@ further details on your tests.*
       *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class.
       Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the
       same.*  
-      ...
+
+5. Tests for User Login
+   -
+   Code: [UserLoginTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
+   for
+   the [LoginActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java)
+    - *Number of test cases:  4*
+    - *Code coverage: The test cases cover various scenarios, including successful login for different users, login failure with wrong password, and login failure when user is not found.*
+    - *Types of tests created and descriptions:*  
+      *1. `testLoginSuccessUser1()`: Tests the `loginCheck` method in the `LoginCheckService` class.
+      It verifies the successful login of user 1 by checking if the login check returns true for the correct username and password combination.*    
+      *2. `testLoginSuccessUser2()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies the
+      successful login of user 2 by checking if the login check returns true for the correct username and password combination.*  
+      *3. `testLoginFailureWrongPassword()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies
+      the login failure scenario when the wrong password is provided by checking if the login check returns false when the password is incorrect.*  
+      *4. `testLoginFailureUserNotFound()`: Tests the `loginCheck` method in the `LoginCheckService` class. It
+      verifies the login failure scenario when the user is not found in the system by checking if the login check returns false when the username does not exist.*
+
+6. Tests for User Registration
+   -
+   Code: [RegisterActivityTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
+   for
+   the [RegisterActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java)
+    - *Number of test cases:  4*
+    - *Code coverage: The test cases cover various scenarios, including successful registration, registration failure due to duplicate username, registration failure due to empty password, and registration failure due to invalid password.*
+    - *Types of tests created and descriptions:*  
+      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination. *
+      *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
+      *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
+      *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
+
 
 <br> <hr>
 
