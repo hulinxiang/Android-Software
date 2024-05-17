@@ -96,7 +96,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **U7724192, Jin Yang**  I have 20% contribution, as follows: <br>
 
-- 
+- **Code Contribution in the final App**
+-
 
     - **Code Contribution in the final App**
         - Feature [UI-Layout]
