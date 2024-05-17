@@ -801,9 +801,9 @@ Production Rules:
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 The tokenizers and parsers are used for searching a product with a price.
-\
-The structure of them is shown below:
-\
+<br>The structure of them is shown below
+![UMLToknizer](UMLToknizer.png)
+
 The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
 \
 This achieves the unification of parsing result display in Expression.java.
@@ -914,11 +914,10 @@ basic/custom features, or an approved feature from Voice Four Feature.*
       <br>
      
      
-      <br>
 
 ### Custom Features
 
-Feature Category: Privacy <br>
+Feature Category: Search-related features <br>
 
 1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (
    easy)
@@ -926,17 +925,41 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
+Feature Category: UI Design and Testing <br>
 2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
    App. (hard)
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: <br>
     * Description of implementation:  <br>
 
+Feature Category: Greater Data Usage, Handling and Sophistication <br>
 3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation:  <br>
+    * Code to the Data File 
+   [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java), 
+   [EditProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/EditProfileActivity.java), 
+   [User.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/User.java)
+   [Post.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Post.java)
+   [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java)
+   [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+      * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
+   relevant information and media files. 
+        * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
+        the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
+        Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
+        * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity for 
+        user's own posts) which displays detailed information about the post, including the post name, price, image, 
+        description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
+        posting comments.<br>
+    * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
+   retrieves the current user's information using the SessionManager and displays their name, email, and lists of 
+   uploaded, liked, and purchased posts. The posts are displayed in a GridLayout using a card layout inflated from 
+   item_card.xml, with images loaded using GlideImageLoader. Clicking on a post card navigates to the corresponding 
+   post detail activity.
+      The EditProfileActivity allows users to modify their personal information, with changes being validated and updated in both the Firebase database and the local B+ tree.
+      Post profile pages (PostActivity and MyPostActivity) retrieve post data from intent extras and display the post details, including name, price, image, description, and comments. Users can interact with posts by liking, purchasing (in PostActivity), and posting comments. Comments are displayed using the showComment() method and can be posted anonymously or not using the showCommentDialog() and postComment() methods, which update both the local B+ tree and Firebase.
+      In MyPostActivity, post creators can delete their own posts, which removes the post from both the Firebase database and the local B+ tree after confirmation.
+
 
 4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
    your application. (medium)
@@ -944,16 +967,28 @@ Feature Category: Privacy <br>
     * Description of feature:  <br>
     * Description of implementation: <br>
 
-5. [P2P-DM]. Provide users with the ability to message each other directly in private. (hard)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation:  <br>
-
-6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
+Feature Category: User Interactivity <br>
+5. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: <br>
-    * Description of implementation:  <br>
+    * Code to the Data File 
+   [LikePostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java), 
+   [BuyPostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java), 
+   [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java),
+   [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java),
+   [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
+
+  * Description of feature: The application allows users to micro-interact with posts and other users through actions 
+such as liking posts, purchasing posts, and commenting on posts. Users can like posts, purchase posts,
+    post comments, and delete their own comments. These interactions are stored in-memory using 
+SharedPreferences and synced with Firebase Realtime Database for persistence. <br>
+  * Description of implementation:The micro-interaction feature is implemented using SharedPreferences to store 
+interaction data in-memory and Firebase Realtime Database for persistent storage.
+    - For `post liking`, the `LikePostManager` class manages the liking functionality. It uses `SharedPreferences` to 
+    store the liked post IDs locally and syncs them with Firebase Realtime Database. When a user likes a post, the 
+    `PostActivity` updates the UI and calls the `likePost()` method of `LikePostManager` to store the like information 
+    both locally and in Firebase. The `checkLike()` method is used to determine if a post is liked by the user.
+
+<br>
 
    <br><br>
 
