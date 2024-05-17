@@ -128,6 +128,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Features Video and Presentation Video
 
 
+
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
 
 - **Code Contribution in the final App**
@@ -812,6 +813,7 @@ This achieves the unification of parsing result display in Expression.java.
 basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
+
 1. [LogIn]. Users are able to log in to the application using their credentials. The application includes two
    pre-defined accounts for markers' access:
 
@@ -943,23 +945,33 @@ Feature Category: Greater Data Usage, Handling and Sophistication <br>
    [Post.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Post.java)
    [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java)
    [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java)
-      * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
+   [SessionManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/SessionManager.java)
+    * Description of feature: The application provides comprehensive profile pages for both users and posts, displaying 
    relevant information and media files. 
-        * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
-        the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
-        Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
-        * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity for 
-        user's own posts) which displays detailed information about the post, including the post name, price, image, 
-        description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
-        posting comments.<br>
-    * Description of implementation: The user profile functionality is implemented in the ProfileActivity, which 
-   retrieves the current user's information using the SessionManager and displays their name, email, and lists of 
-   uploaded, liked, and purchased posts. The posts are displayed in a GridLayout using a card layout inflated from 
-   item_card.xml, with images loaded using GlideImageLoader. Clicking on a post card navigates to the corresponding 
-   post detail activity.
-      The EditProfileActivity allows users to modify their personal information, with changes being validated and updated in both the Firebase database and the local B+ tree.
-      Post profile pages (PostActivity and MyPostActivity) retrieve post data from intent extras and display the post details, including name, price, image, description, and comments. Users can interact with posts by liking, purchasing (in PostActivity), and posting comments. Comments are displayed using the showComment() method and can be posted anonymously or not using the showCommentDialog() and postComment() methods, which update both the local B+ tree and Firebase.
-      In MyPostActivity, post creators can delete their own posts, which removes the post from both the Firebase database and the local B+ tree after confirmation.
+      * User Profile: The user profile page (ProfileActivity) showcases the user's basic information along with all 
+      the posts they have uploaded, liked, and purchased. Each post item includes an image and relevant details. 
+      Additionally, there is an edit profile page (EditProfileActivity) that allows users to modify their personal information.
+      * Post Profile: Each post has its own dedicated profile page (PostActivity for general posts, MyPostActivity for 
+      user's own posts) which displays detailed information about the post, including the post name, price, image, 
+      description, and comments. Users can interact with the post by liking it, purchasing it (if available), and 
+      posting comments.<br>
+      * Description of implementation: 
+        * The user profile functionality is implemented in the `ProfileActivity`, which 
+        retrieves the current user's information using the `SessionManager` and displays their name, email, and lists of 
+        uploaded, liked, and purchased posts. 
+        * The posts are displayed in a GridLayout using a card layout inflated from 
+        item_card.xml, with images loaded using `GlideImageLoader`. Clicking on a post card navigates to the corresponding 
+        post detail activity. 
+        * The `EditProfileActivity` allows users to modify their personal information, with changes being 
+        validated and updated in both the Firebase database and the local B+ tree. Post profile pages 
+        (`PostActivity and MyPostActivity`) retrieve post data from intent extras and display the post details, 
+        including name, price, image, description, and comments. 
+        * Users can interact with posts by liking, purchasing (in `PostActivity`), and posting comments. 
+        * Comments are displayed using the `showComment` method and 
+        can be posted anonymously or not using the `showCommentDialog` and `postComment` methods, which update both the local 
+        B+ tree and Firebase. 
+        * In `MyPostActivity`, post creators can delete their own posts, which removes the post from both 
+        the Firebase database and the local B+ tree after confirmation.
 
 
 4. [Data-Deletion]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
@@ -967,9 +979,31 @@ Feature Category: Greater Data Usage, Handling and Sophistication <br>
     * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature:  <br>
     * Description of implementation: <br>
+      
 
+Feature Category:Firebase Integration<br>
+5. [FB-Persist]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
+   your application. (medium)
+    * Code to the Data File [FirebaseInit.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/FirebaseInit.java), 
+   [Firebase package, all files](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Firebase)
+    [ImageUploader.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/Image/ImageUploader.java),
+     [LikePostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java),
+     [BuyPostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/BuyPostManager.java),
+     * Description of feature: The application utilizes Firebase to persist all data used in the app, including user 
+   information, posts, and remarks. User data includes personal information updates, posts published, liked, and purchased 
+   by the user. Post data includes details such as title, description, price, and associated images. Remark data includes 
+   comments made by users on specific posts. All this data is stored in Firebase's Realtime Database and Storage, 
+   ensuring data persistence and synchronization across multiple devices. <br>
+     * Description of implementation: The application uses Firebase Realtime Database and Storage for data persistence. 
+   The data is organized into "User", "Post", and "Remark" tables in the Realtime Database. FirebaseInit loads all data 
+   from Firebase file package into local B+ trees on app start. FirebaseUserManager, FirebasePostManager, and FirebaseRemarkManager 
+   handle CRUD operations for user, post, and remark data respectively. ImageUploader manages post image uploads to 
+   Firebase Storage. LikePostManager and BuyPostManager handle user interactions and ensure synchronization between 
+   local B+ trees and Firebase. All data changes are immediately synced with Firebase for real-time updates across devices.<br>
+
+    
 Feature Category: User Interactivity <br>
-5. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
+6. [Interact-Micro]. The ability to micro-interact with items/users (e.g. like, block, connect to another user,
    etc.) [stored in-memory]. (easy)
     * Code to the Data File 
    [LikePostManager.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/LikePostManager.java), 
@@ -988,7 +1022,6 @@ interaction data in-memory and Firebase Realtime Database for persistent storage
     store the liked post IDs locally and syncs them with Firebase Realtime Database. When a user likes a post, the 
     `PostActivity` updates the UI and calls the `likePost()` method of `LikePostManager` to store the like information 
     both locally and in Firebase. The `checkLike()` method is used to determine if a post is liked by the user.
-
 <br>
 
    <br><br>
@@ -1111,13 +1144,43 @@ further details on your tests.*
       *2. `testSingletonPost()`: Tests the Singleton Design Pattern implementation in the `FirebasePostManager` class.
       Creates two instances of `FirebasePostHelper` using the `getInstance` method and verifies that they are the
       same.*  
-      ...
+
+5. Tests for User Login
+   -
+   Code: [UserLoginTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/UserLoginTest.java)
+   for
+   the [LoginActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/LoginActivityBPlusTree.java)
+    - *Number of test cases:  4*
+    - *Code coverage: The test cases cover various scenarios, including successful login for different users, login failure with wrong password, and login failure when user is not found.*
+    - *Types of tests created and descriptions:*  
+      *1. `testLoginSuccessUser1()`: Tests the `loginCheck` method in the `LoginCheckService` class.
+      It verifies the successful login of user 1 by checking if the login check returns true for the correct username and password combination.*    
+      *2. `testLoginSuccessUser2()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies the
+      successful login of user 2 by checking if the login check returns true for the correct username and password combination.*  
+      *3. `testLoginFailureWrongPassword()`: Tests the `loginCheck` method in the `LoginCheckService` class. It verifies
+      the login failure scenario when the wrong password is provided by checking if the login check returns false when the password is incorrect.*  
+      *4. `testLoginFailureUserNotFound()`: Tests the `loginCheck` method in the `LoginCheckService` class. It
+      verifies the login failure scenario when the user is not found in the system by checking if the login check returns false when the username does not exist.*
+
+6. Tests for User Registration
+   -
+   Code: [RegisterActivityTest Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/test/java/com/example/myapplication/RegisterActivityTest.java)
+   for
+   the [RegisterActivityBPlusTree Class](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/loginUsingBPlusTree/RegisterActivityBPlusTree.java)
+    - *Number of test cases:  4*
+    - *Code coverage: The test cases cover various scenarios, including successful registration, registration failure due to duplicate username, registration failure due to empty password, and registration failure due to invalid password.*
+    - *Types of tests created and descriptions:*  
+      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination. *
+      *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
+      *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
+      *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
+
 
 <br> <hr>
 
 ## Team Management
 
-##Team meetings
+### Meetings Records
 
 * Link to the minutes of your meetings like above. There must be at least 4 team meetings.
   (each commited within 2 days aftre the meeting)
