@@ -757,7 +757,7 @@ post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and s
    `AnonymousRemarkFactory` implements the interface `RemarkFactory` and create the instance of class `AnonymousRemark`.
     `CommonRemarkFactory` implements the interface `RemarkFactory` and create the instance of class `CommonRemark`.
     * *Code Locations:*
-        - Defined in the `src/Remark` file. 
+        - Defined in the [src/Remark](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/src/Remark?ref_type=heads) file. 
         - Besides Factory Pattern, remark also apply the singleton pattern, which ensures that 
         only one `AnonymousRemarkFactory` instance to create `CommonRemark` instance and only
         one `CommonRemarkFactory` instance to create `AnonymousRemark`.
