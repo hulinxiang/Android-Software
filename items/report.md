@@ -801,7 +801,7 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 2. [DataFiles]. The application utilizes a dataset consisting of more than 3,500 valid data instances. Basic data is
    stored in structured JSON formats. (easy)
     * Link to source dataset for post: [Post Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
-    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files]()
+    * Files for all data excluding images, including python script for generating fake user information data and disposed post data: [Data Files](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/data.zip)
     * Description of feature: The application relies on a dataset that contains meaningful information relevant to the
       app's functionality, including user and post. The data is stored in JSON files on firebase realtime database. The
       images of the posts are stored in Firebase storage. <br>
@@ -815,7 +815,7 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 3. [LoadShowData]. The application loads and displays data instances from the dataset in an appropriate format based on
    the type of data. (easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: The application retrieves data instances from the dataset in Firebase realtime database
       and presents them to the user in a structured and visually appealing format. The profile page show the user's
       information with the post owned by the user, and the post page shows the details of a specific post. <br>
@@ -827,29 +827,35 @@ basic/custom features, or an approved feature from Voice Four Feature.*
 
 4. [DataStream]. The application simulates user actions and interactions by creating data instances and feeding them to
    the app at regular intervals. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: The application generates data instances that mimic user actions and interactions. These
-      data instances are loaded at regular time intervals and visualized within the app when a user is logged in. For
-      instance, a user can create a post and the post data will be uploaded to Firebase, then user can view it in the
-      user interface. <br>
-    * Description of implementation: The PostCreator class is responsible for generating and loading post data
-      instances, including post title, description, images, and other relevant information. The ImageUploader class
-      manages the creation and loading of images of posts. The data is stored in Firebase Realtime Database and Firebase
-      Storage for persistence and retrieval. And then the data is displayed by the GlideImageLoader class in the app's
-      UI for the user to interact with. <br>
+    * Code:  [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Description of feature: We create data instances to simulate users’ actions and interactions, when a user login, 
+      the application implemented automatically recommends post content on the home screen by loading post data 
+      files from Firebase and visualizing them at regular time intervals.
+       <br>
+    * Description of implementation: The FirebaseInit class initializes Firebase and loads post data from the Firebase
+      Realtime Database into the application's local B+ tree data structure (BPlusTreeManagerPost). The HomeActivity class, 
+     which represents the home screen of the application, periodically updates the displayed post content using a Handler 
+     and a Runnable. The startRepeatingTask() method is called in the onStart() lifecycle method to start the periodic updates, 
+     and the stopRepeatingTask() method is called in the onStop() lifecycle method to stop the updates when the activity is no longer visible.
+      Inside the run() method of the Runnable, the showPost() method is called on the main thread using runOnUiThread(). 
+     The showPost() method retrieves a random selection of posts from the local B+ tree using the randomRecommender() 
+     method of BPlusTreeManagerPost. This method shuffles all the posts stored in the B+ tree, selects a subset of posts, and returns them as a list. 
+      <br>
 
 5. [Search]. Users can search for specific information within the application using a query processor that understands
    user input based on predefined grammars. (medium)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
+    * Code: [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
     * Description of feature: The application provides a search functionality that allows users to retrieve information
-      based on their queries. The query processor understands user input using predefined grammars and retrieves the
-      relevant information from the dataset. <br>
-    * Description of implementation: The _Parser Package_ using ANTLR handles the processing of user search queries. It
-      utilizes a tokenizer to break down the user input into individual tokens and a parser to analyze the tokens based
-      on a predefined formal grammar. The grammar defines the structure and syntax of valid search queries. The
-      QueryProcessor interprets the user's query and retrieves the matching information from the dataset. The
-      SearchActivity handles the user interface for the search functionality, allowing users to enter their queries and
-      displaying the search results. <br>
+      based on price range queries, this function is integrated with tag search, i.e. users can search post with tag and price range 
+     together on the search page. We also implemented keyword search simply. <br>
+    * Description of implementation: The search feature is divided into 2 parts: Keyword search and multi-condition search, including 
+    the tag(will be discussed later) and the price range. The keyword search has simple implementation, searching for posts containing 
+     a specific keyword in their description or title by iterating through all posts and checking if the keyword is present. The price range
+    search use tokenizer and parser to check the input validation and parse the number for price comparison. In PriceRangeSearchStrategy class
+     which extends the AbstractSearchStrategy class and provides a specific implementation of the matchCriteria method that checks if a post's price is within a specified range.
+<br>
+     
+     
       <br>
 
 ### Custom Features
