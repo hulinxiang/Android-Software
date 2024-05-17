@@ -770,21 +770,19 @@ post data, while ArrayList, HashSet and Queue are used for auxiliary tasks and s
         class without modifying the existing code. This is beneficial for code maintenance and extension.
 
 4. *Template Method Pattern*
-    * *Objective:* The Template Method pattern is used in the modified B+ Tree implementation to define a common
-      structure for the B+ Tree operations while allowing subclasses (leaf and non-leaf nodes) to provide their specific
-      implementations.
+    * *Objective:*  The Template Method pattern is used in multi-condition search, including tag filter and price range search.
+      It provides a flexible, modular, and extensible approach to searching posts based on various criteria. 
     * *Code Locations:*
-        - The `BPlusTreeNode` interface defines the common methods for all types of nodes, such
-          as `insert()`, `remove()`, `query()`, etc.
-        - The `BPlusTreeLeafNode` and `BPlusTreeNonLeafNode` classes implement the `BPlusTreeNode` interface and provide
-          their specific implementations for the defined methods.
+        - [SearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads) interface defines the contract for implementing search strategies, declaring the search method.
+        - [AbstractSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads) class provides a template for creating search strategies, implementing the `SearchStrategy` interface and providing a default implementation for the search method.
+          Subclasses must implement the `matchCriteria` method to define the filtering criteria.
+        - [PriceRangeSearchStrategy](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/PriceRangeSearchStrategy.java?ref_type=heads) class and other [Tag](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/Tag?ref_type=heads) search classes extend AbstractSearchStrategy and implements the matchCriteria method to check if a post's price is within a specified range.
     * *Reasons:*
-        - The Template Method pattern provides a common structure for the B+ Tree operations, ensuring consistency
-          across different types of nodes.
-        - It allows subclasses to override or provide their specific implementations for certain steps of the algorithm
-          while maintaining the overall structure.
-        - It promotes code reuse and reduces duplication by defining the common parts of the algorithm in the abstract
-          base class (`BPlusTreeNode` interface).
+        - The `SearchStrategy` interface defines the contract for implementing search strategies, while the `AbstractSearchStrategy` class provides a template for creating concrete search strategies. This separation allows for better code organization, readability, and maintainability.
+        - New search strategies can be easily added by extending the `AbstractSearchStrategy` class and implementing the matchCriteria method. This modularity enables the system to accommodate future search requirements without modifying the existing codebase significantly.
+        - The `BPlusTreeManagerPost` class demonstrates how multiple search strategies can be combined to perform complex searches based on multiple conditions. By executing different search strategies and combining their results, the system can handle a wide range of search scenarios and achieve flexibility.  
+        - The `SearchStrategy` interface provides a high-level abstraction for performing searches, hiding the internal complexities of each strategy.
+          This encapsulation improves code maintainability and allows for easier modifications or optimizations within each search strategy without affecting the overall system.
 
 <hr>
 
@@ -811,8 +809,7 @@ Production Rules:
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 The tokenizers and parsers are used for searching a product with a price.
-<br>The structure of them is shown below
-![UMLToknizer](UMLToknizer.png)
+<br>The structure of them is shown in UML section
 
 The largest advantage of this is that both Num.java and Dot.java extends ResultsShow.java.
 \
@@ -823,6 +820,8 @@ This achieves the unification of parsing result display in Expression.java.
 ### Others
 
 *[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
+
+Database Integration: We stored and managed all our data files on the cloud database to achieve real-time synchronization, auto-scaling, and security.
 
 <br>
 <hr>
@@ -944,16 +943,60 @@ Feature Category: Search-related features <br>
 
 1. [Search-Filter]. Sort and filter a list of items returned from searches, with the use of suitable UI components. (
    easy)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature:  <br>
-    * Description of implementation: <br>
+    * Code to the Data File
+      [Tag Package](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/tree/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/Tag?ref_type=heads),
+      [AbstractSearchStrategy.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/AbstractSearchStrategy.java?ref_type=heads),
+      [SearchStrategy.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/SearchStrategy.java?ref_type=heads)
+      [BPlusTreeManagerPost.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/BPlusTree/Post/BPlusTreeManagerPost.java?ref_type=heads#L122-175)
+    * Description of feature:  All posts in this application have its attributes, 
+     users can search posts by different tags, including mastercategory, subcategory, articletype, gender, basecolor, season, usage.
+    This feature also integrated with price range search (which is search feature implementation), so we can do search for price and any number of tags simultaneously.
+   <br>
+    * Description of implementation: SearchStrategy interface: Defines the contract for implementing different search strategies. It declares the search method that takes a context and an array of values as parameters and returns a list of posts matching the specified criteria.
+      AbstractSearchStrategy class: Provides a template for creating search strategies. It implements the SearchStrategy interface and provides a default implementation for the search method. Subclasses must implement the matchCriteria method to define the filtering criteria.
+      GenderSearchStrategy and other tag search strategies: Extend AbstractSearchStrategy and implement the matchCriteria method to check if a post's tags match specified values.
+      BPlusTreeManagerPost class: Manages the B+ tree for storing posts and provides methods for searching: searchByMultipleConditions method: Combines multiple search strategies to filter posts based on various conditions like gender, category, price range, etc. 
+   <br>
+
+
+
 
 Feature Category: UI Design and Testing <br>
-2. [UI-Layout]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and coverage of the
-   App. (hard)
-    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-    * Description of feature: <br>
-    * Description of implementation:  <br>
+
+2. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
+ * Code to the Data File
+
+   - [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
+   - [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads)
+   - [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
+   - [activity_home.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_home.xml?ref_type=heads)
+   - [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_login.xml?ref_type=heads)
+   - [activity_main.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_main.xml?ref_type=heads)
+   - [activity_my_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_my_post.xml?ref_type=heads)
+   - [activity_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_profile.xml?ref_type=heads)
+   - [activity_register.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_register.xml?ref_type=heads)
+   - [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_search.xml?ref_type=heads)
+   - [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
+   - [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
+
+ * Description of feature: <br>
+
+    * The application's user interface is designed to be responsive and adaptable to different screen orientations (portrait and landscape) and various screen sizes. The layout files are crafted to ensure that the UI components are appropriately adjusted and positioned across different devices and configurations.
+   
+ * Description of implementation:  <br>
+  * activity_buy_post.xml: Represents the screen for buying a product. It utilizes ScrollView for scrollable content and RelativeLayout for relative positioning of elements. The layout displays the post image using ImageView and post details using TextView components.
+  * activity_create.xml: Represents the screen for creating a new post. It employs ScrollView for scrollable content and LinearLayout for vertical arrangement of input fields. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the image preview and selection functionality.
+  * activity_edit_profile.xml: Represents the screen for editing user profile information. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the profile picture and input fields.
+  * activity_home.xml: Represents the main home screen layout. It uses CoordinatorLayout and AppBarLayout for the app bar and toolbar, while RelativeLayout is used for the main content area. GridLayout is used to display recommended posts in a grid format, and LinearLayout is used for the bottom navigation bar.
+  * activity_login.xml: Represents the login screen layout. It employs ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the input fields and buttons.
+  * activity_main.xml: Serves as a container for fragments or other layouts. It uses FrameLayout to provide flexibility for dynamic content.
+  * activity_profile.xml: This layout file represents the user profile screen and utilizes a combination of RelativeLayout, LinearLayout, and ScrollView to create a responsive layout. The UI components, such as the profile image, user details, and post/like/buy containers, are positioned and sized appropriately to adapt to different screen sizes and orientations.
+  * activity_register.xml: This layout file represents the user registration screen and employs a CoordinatorLayout with an AppBarLayout and a ScrollView. The UI components, such as the input fields and buttons, are arranged vertically within a LinearLayout to ensure proper spacing and alignment across different screen sizes.
+  * search_layout.xml: This layout file represents the search screen and utilizes a ScrollView with a LinearLayout to display various search options, including spinners for gender, category, color, season, usage, and price range. The layout is designed to be scrollable to accommodate different screen sizes and provide easy access to all search options.
+  * activity_tag_selection.xml: Represents the screen for selecting tags. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. Spinner components are used for selecting tags, while Button components are used for saving and canceling the selection.
+  * dialog_comment.xml: Represents the dialog for posting comments. It uses LinearLayout for vertical arrangement of comment input field, checkbox, and buttons. EditText is used for capturing user comment input, while CheckBox is used for selecting anonymous posting option.
+    
+  * These layout files utilize various layout containers, such as RelativeLayout, LinearLayout, and ConstraintLayout, to achieve responsive positioning and sizing of UI components. ScrollView is commonly used to enable scrolling for content that may exceed the screen size. Dimension resources and weight properties are used to ensure consistent spacing and proportions across different screen sizes. Gravity and layout_gravity attributes are used to control the alignment and positioning of UI elements within their parent containers.
 
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
 3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
@@ -1215,7 +1258,7 @@ further details on your tests.*
     - *Number of test cases:  4*
     - *Code coverage: The test cases cover various scenarios, including successful registration, registration failure due to duplicate username, registration failure due to empty password, and registration failure due to invalid password.*
     - *Types of tests created and descriptions:*  
-      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination. *
+      *1. `testRegisterSuccess`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the successful registration by checking if the `checkValid` method returns true for a valid email and password combination.*
       *2. `testRegisterDuplicateUsername`: Tests the `checkValid` method in the `LoginCheckService` class and the `insert` method in the `BPlusTreeManagerUser` class. It verifies the registration failure scenario when a duplicate username is used by first registering a user and then trying to register with the same username. It checks if the checkValid method returns false in this case.*  
       *3. `testRegisterEmptyPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an empty password is provided by checking if the checkValid method returns false when the password is empty.*  
       *4. `testRegisterInvalidPassword`: Tests the `checkValid` method in the `LoginCheckService` class. It verifies the registration failure scenario when an invalid password is provided by checking if the checkValid method returns false when the password is invalid.*
@@ -1236,8 +1279,6 @@ further details on your tests.*
 - [Team Meeting 3](meeting-3.md)
 - [Team Meeting 4](meeting-4.md)
 
-
-- ... (Add any descriptions if needed) ...
 
 <hr>
 
