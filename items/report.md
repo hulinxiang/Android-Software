@@ -108,20 +108,34 @@ Note that the core criteria of contribution is based on `code contribution` (the
        - [What design patterns, data structures, did the involved member propose?]*
          - I mainly use data structures like BPlusTree, ArrayList, LinkedList and HashSet. <br><br>
 
-5**u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
-- **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
-
+5   **u7773637,Wenhui Shi**  I have 20% contribution, as follows: <br>
+    - **Code Contribution in the final App**
+    - BuyPostActivity in [BuyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/BuyPostActivity.java?ref_type=heads)
+        - All the functions in this class, use for retrieves post details from the intent, and displays them on the corresponding views,displays the details of a post for buying a product.
+    - CustomSpinnerAdapter in [CustomSpinnerAdapter.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/CustomSpinnerAdapter.java?ref_type=heads)
+        - All the functions in this class, used for displaying dropdown views in a Spinner,sets the hint text color for the first item (title) and disables the first item from being selected.
+    - HomeActivity in [HomeActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/HomeActivity.java?ref_type=heads)
+        - uses a GridLayout to populate the grid with post items retrieved from a BPlusTreeManagerPost.
+    - MyPostActivity in [MyPostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/MyPostActivity.java?ref_type=heads)
+        - All the functions in this class, displays the details of a user's post, including its name, price, image, description, and comments.
+    - PostActivity in [PostActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/PostActivity.java?ref_type=heads)
+        - All the functions in this class,displays details of a post and allows users to interact with the post by liking it, purchasing it, and writing comments.
+    - ProfileActivity in [ProfileActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/ProfileActivity.java?ref_type=heads)
+        - displays the user's profile information, dynamically updates and displays the user's posts, likes, and purchases using grid layouts and allows the user to navigate to detailed views of each item.
+    - SearchActivity in [SearchActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/SearchActivity.java?ref_type=heads)
+        - All the functions in this class, common and advanced searches based on keywords and tags.
+    - TagSelectionActivity in [TagSelectionActivity.java](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/java/com/example/myapplication/activity/TagSelectionActivity.java?ref_type=heads)
+        - All the functions in this class, spinners for tag selection, EditText fields for price input, and buttons for saving the input and canceling the search.
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
-
-- **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
-
+    - buy post layout design in [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
+    - my post layout design in [activity_my_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_my_post.xml?ref_type=heads)
+    - post layout design in [activity_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_post.xml?ref_type=heads)
+    - register layout design in [activity_register.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_register.xml?ref_type=heads)
+    - search layout design in [activity_search.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_search.xml?ref_type=heads)
+    - tag selection layout design in [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
+    - comment dialog layout design in [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
+    - comment layout design in [item_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_comment.xml?ref_type=heads)
+    - inner post display layout design in [item_card.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/item_card.xml?ref_type=heads)
 
 ## Application Description
 
