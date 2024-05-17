@@ -128,7 +128,6 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Features Video and Presentation Video
 
 
-
 3. **U7670526, Yingxuan Tang**  I have 20% contribution, as follows: <br>
 
 - **Code Contribution in the final App**
@@ -813,7 +812,6 @@ This achieves the unification of parsing result display in Expression.java.
 basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-
 1. [LogIn]. Users are able to log in to the application using their credentials. The application includes two
    pre-defined accounts for markers' access:
 
@@ -1022,6 +1020,7 @@ interaction data in-memory and Firebase Realtime Database for persistent storage
     store the liked post IDs locally and syncs them with Firebase Realtime Database. When a user likes a post, the 
     `PostActivity` updates the UI and calls the `likePost()` method of `LikePostManager` to store the like information 
     both locally and in Firebase. The `checkLike()` method is used to determine if a post is liked by the user.
+
 <br>
 
    <br><br>
