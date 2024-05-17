@@ -959,8 +959,10 @@ Feature Category: Search-related features <br>
 
 
 Feature Category: UI Design and Testing <br>
+
 2. [UI-Layout]. Incorporate suitable layout adjustments in the UI components for portrait and landscape layout variants, as well as different screen sizes. (easy)
-    * Code to the Data File
+ * Code to the Data File
+
    - [activity_buy_post.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_buy_post.xml?ref_type=heads)
    - [activity_create.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_create.xml?ref_type=heads)
    - [activity_edit_profile.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_edit_profile.xml?ref_type=heads)
@@ -974,22 +976,24 @@ Feature Category: UI Design and Testing <br>
    - [activity_tag_selection.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/activity_tag_selection.xml?ref_type=heads)
    - [dialog_comment.xml](https://gitlab.cecs.anu.edu.au/u7633783/gp-24s1/-/blob/main/items/media/_examples/app/src/main/res/layout/dialog_comment.xml?ref_type=heads)
 
-    * Description of feature: <br>
-      * The application's user interface is designed to be responsive and adaptable to different screen orientations (portrait and landscape) and various screen sizes. The layout files are crafted to ensure that the UI components are appropriately adjusted and positioned across different devices and configurations.
+ * Description of feature: <br>
+
+    * The application's user interface is designed to be responsive and adaptable to different screen orientations (portrait and landscape) and various screen sizes. The layout files are crafted to ensure that the UI components are appropriately adjusted and positioned across different devices and configurations.
    
-    * Description of implementation:  <br>
-    * activity_buy_post.xml: Represents the screen for buying a product. It utilizes ScrollView for scrollable content and RelativeLayout for relative positioning of elements. The layout displays the post image using ImageView and post details using TextView components.
-    * activity_create.xml: Represents the screen for creating a new post. It employs ScrollView for scrollable content and LinearLayout for vertical arrangement of input fields. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the image preview and selection functionality.
-    * activity_edit_profile.xml: Represents the screen for editing user profile information. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the profile picture and input fields.
-    * activity_home.xml: Represents the main home screen layout. It uses CoordinatorLayout and AppBarLayout for the app bar and toolbar, while RelativeLayout is used for the main content area. GridLayout is used to display recommended posts in a grid format, and LinearLayout is used for the bottom navigation bar.
-    * activity_login.xml: Represents the login screen layout. It employs ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the input fields and buttons.
-    * activity_main.xml: Serves as a container for fragments or other layouts. It uses FrameLayout to provide flexibility for dynamic content.
-    * activity_profile.xml: This layout file represents the user profile screen and utilizes a combination of RelativeLayout, LinearLayout, and ScrollView to create a responsive layout. The UI components, such as the profile image, user details, and post/like/buy containers, are positioned and sized appropriately to adapt to different screen sizes and orientations.
-    * activity_register.xml: This layout file represents the user registration screen and employs a CoordinatorLayout with an AppBarLayout and a ScrollView. The UI components, such as the input fields and buttons, are arranged vertically within a LinearLayout to ensure proper spacing and alignment across different screen sizes.
-    * search_layout.xml: This layout file represents the search screen and utilizes a ScrollView with a LinearLayout to display various search options, including spinners for gender, category, color, season, usage, and price range. The layout is designed to be scrollable to accommodate different screen sizes and provide easy access to all search options.
-    * activity_tag_selection.xml: Represents the screen for selecting tags. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. Spinner components are used for selecting tags, while Button components are used for saving and canceling the selection.
-    * dialog_comment.xml: Represents the dialog for posting comments. It uses LinearLayout for vertical arrangement of comment input field, checkbox, and buttons. EditText is used for capturing user comment input, while CheckBox is used for selecting anonymous posting option.
-      These layout files utilize various layout containers, such as RelativeLayout, LinearLayout, and ConstraintLayout, to achieve responsive positioning and sizing of UI components. ScrollView is commonly used to enable scrolling for content that may exceed the screen size. Dimension resources and weight properties are used to ensure consistent spacing and proportions across different screen sizes. Gravity and layout_gravity attributes are used to control the alignment and positioning of UI elements within their parent containers.
+ * Description of implementation:  <br>
+  * activity_buy_post.xml: Represents the screen for buying a product. It utilizes ScrollView for scrollable content and RelativeLayout for relative positioning of elements. The layout displays the post image using ImageView and post details using TextView components.
+  * activity_create.xml: Represents the screen for creating a new post. It employs ScrollView for scrollable content and LinearLayout for vertical arrangement of input fields. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the image preview and selection functionality.
+  * activity_edit_profile.xml: Represents the screen for editing user profile information. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the profile picture and input fields.
+  * activity_home.xml: Represents the main home screen layout. It uses CoordinatorLayout and AppBarLayout for the app bar and toolbar, while RelativeLayout is used for the main content area. GridLayout is used to display recommended posts in a grid format, and LinearLayout is used for the bottom navigation bar.
+  * activity_login.xml: Represents the login screen layout. It employs ScrollView and LinearLayout for a scrollable vertical layout. TextInputLayout and EditText are used for capturing user input, while CardView is used to group the input fields and buttons.
+  * activity_main.xml: Serves as a container for fragments or other layouts. It uses FrameLayout to provide flexibility for dynamic content.
+  * activity_profile.xml: This layout file represents the user profile screen and utilizes a combination of RelativeLayout, LinearLayout, and ScrollView to create a responsive layout. The UI components, such as the profile image, user details, and post/like/buy containers, are positioned and sized appropriately to adapt to different screen sizes and orientations.
+  * activity_register.xml: This layout file represents the user registration screen and employs a CoordinatorLayout with an AppBarLayout and a ScrollView. The UI components, such as the input fields and buttons, are arranged vertically within a LinearLayout to ensure proper spacing and alignment across different screen sizes.
+  * search_layout.xml: This layout file represents the search screen and utilizes a ScrollView with a LinearLayout to display various search options, including spinners for gender, category, color, season, usage, and price range. The layout is designed to be scrollable to accommodate different screen sizes and provide easy access to all search options.
+  * activity_tag_selection.xml: Represents the screen for selecting tags. It utilizes ScrollView and LinearLayout for a scrollable vertical layout. Spinner components are used for selecting tags, while Button components are used for saving and canceling the selection.
+  * dialog_comment.xml: Represents the dialog for posting comments. It uses LinearLayout for vertical arrangement of comment input field, checkbox, and buttons. EditText is used for capturing user comment input, while CheckBox is used for selecting anonymous posting option.
+    
+  * These layout files utilize various layout containers, such as RelativeLayout, LinearLayout, and ConstraintLayout, to achieve responsive positioning and sizing of UI components. ScrollView is commonly used to enable scrolling for content that may exceed the screen size. Dimension resources and weight properties are used to ensure consistent spacing and proportions across different screen sizes. Gravity and layout_gravity attributes are used to control the alignment and positioning of UI elements within their parent containers.
 
 Feature Category: Greater Data Usage, Handling and Sophistication <br>
 3. [Data-Profile]. Implement Deletion for your chosen tree data structure, and the deletion must serve a purpose within
