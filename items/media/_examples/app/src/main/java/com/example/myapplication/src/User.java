@@ -9,7 +9,7 @@ import java.util.UUID;
 
 /**
  * This class manages user information.
- *
+ * <p>
  * Responsibilities:
  * - Store user information such as username, email, password, contact info, etc.
  * - Manage the user's own posts, liked posts, and purchased posts.
@@ -151,21 +151,26 @@ public class User {
         }
     }
 
-    public void updateLikes(Post post){
-        if(!likePosts.contains(post)) {
+    public void updateLikes(Post post) {
+        if (!likePosts.contains(post)) {
             this.likePosts.add(post);
         }
     }
 
-    public void updateBuys(Post post){
-        if(!buyPosts.contains(post)) {
+    public void updateBuys(Post post) {
+        if (!buyPosts.contains(post)) {
             this.buyPosts.add(post);
         }
     }
 
-    public void updateOwns(Post post){
+    public void updateOwns(Post post) {
         this.ownPosts.add(post);
     }
+
+    public void removeOwns(Post post) {
+        this.ownPosts.remove(post);
+    }
+
 
     // Get all posts owned by the user
     public List<Post> getOwnPosts() {

@@ -193,13 +193,15 @@ public class MyPostActivity extends AppCompatActivity {
 
                                 // Code to delete the post can be placed here
                                 if (currentPost != null) {
-                                    FirebasePostManager.getInstance(getApplicationContext()).deletePost(currentPost);
                                     BPlusTreeManagerPost.getTreeInstance(getApplicationContext()).remove(currentPost.getPostID());
+                                    FirebasePostManager.getInstance(getApplicationContext()).deletePost(currentPost);
+                                    User currentUser = SessionManager.getInstance().getUser();
+                                    currentUser.removeOwns(currentPost);
                                     Toast.makeText(MyPostActivity.this, "Deleting post...", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(MyPostActivity.this, "Post not found", Toast.LENGTH_LONG).show();
                                 }
-
+                                Toast.makeText(MyPostActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
                                 // Intent to go back to the ProfileActivity after deletion
                                 Intent intent = new Intent(MyPostActivity.this, ProfileActivity.class);
                                 startActivity(intent);

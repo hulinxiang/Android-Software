@@ -1,6 +1,9 @@
 package com.example.myapplication.src.Firebase.PostManager;
+
 import android.util.Log;
+
 import androidx.annotation.NonNull;
+
 import com.example.myapplication.src.Post;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,10 +24,10 @@ public class FirebasePostHelper {
      * Adds a new post to Firebase Realtime Database.
      *
      * @param post The post object to be added.
-     *
-     * Method:
-     * - Retrieves the Firebase database instance.
-     * - Adds a new post under the "post" node in the database.
+     *             <p>
+     *             Method:
+     *             - Retrieves the Firebase database instance.
+     *             - Adds a new post under the "post" node in the database.
      */
     public void addPost(Post post) {
         // Get the singleton instance of FirebaseDatabase.
@@ -36,10 +39,8 @@ public class FirebasePostHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("Firebase add operation", "Execute the method");
-                // Get the number of children under "post".
-                long count = dataSnapshot.getChildrenCount();
                 // Set post data in Firebase under the new node.
-                DatabaseReference newPostRef = myRef.child(String.valueOf(count));
+                DatabaseReference newPostRef = myRef.child(post.getPostIndexInFirebase());
                 newPostRef.child("UserID").setValue(post.getUserID());
                 newPostRef.child("articleType").setValue(post.getTag().getArticleType());
                 newPostRef.child("baseColour").setValue(post.getTag().getBaseColour());
@@ -70,10 +71,10 @@ public class FirebasePostHelper {
      * Deletes a post from Firebase Realtime Database.
      *
      * @param post The post object to be deleted.
-     *
-     * Method:
-     * - Retrieves the Firebase database instance.
-     * - Deletes the post with the corresponding post ID from the database.
+     *             <p>
+     *             Method:
+     *             - Retrieves the Firebase database instance.
+     *             - Deletes the post with the corresponding post ID from the database.
      */
     public void deletePost(Post post) {
         // Get the singleton instance of FirebaseDatabase.
@@ -82,20 +83,18 @@ public class FirebasePostHelper {
         DatabaseReference myRef = database.getReference().child("post");
         String curPostId = post.getPostID();
 
-        Log.d("Firebase delete operation", "Enter the method");
+        Log.d("Firebase delete operation", "Enter the method: want to delete: " + curPostId);
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("Firebase delete operation", "Execute the method");
-                int count = 0;
+                Log.d("Firebase delete operation", "Execute the method, the number of nodes is: " + dataSnapshot.getChildrenCount());
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.child("postId").getValue(String.class), curPostId)) {
-                        DatabaseReference newPostRef = myRef.child(String.valueOf(count));
-                        newPostRef.removeValue(); // Remove the remark from Firebase.
+                    if (Objects.equals(snapshot.child("postID").getValue(String.class), curPostId)) {
+                        Log.d("Firebase delete operation", "Find it");
+                        snapshot.getRef().removeValue();// Remove the remark from Firebase.
                         break;
                     }
-                    count++;
                 }
             }
 
